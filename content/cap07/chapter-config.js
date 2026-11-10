@@ -71,6 +71,16 @@ window.CHAPTER_CONFIG = {
       ] },
     },
 
+    ondina: {
+      image: 'assets/images/codex-ondina.jpg',
+      aliasesEn: ['Ondina’s house'], aliasesPt: ['casa da Ondina'],
+      en: { title: 'Ondina’s House', eyebrow: 'Tavern and beds on the mole at Alvena', pages: [
+        ['A two-storey house at the root of the mole at Alvena: a tavern below, rooms above. Since the conquest, Redom’s garrison and the crew of the Sentence drink there without paying. The house keeps their debts in chalk on the front wall, in full view of the mole.', 'The girls upstairs are mostly from the Shore. The soldiers assume they don’t understand what is said in bed.'],
+      ] },
+      pt: { title: 'A casa da Ondina', eyebrow: 'Taverna e camas no molhe de Alvena', pages: [
+        ['Casa de dois andares no pé do molhe de Alvena: taverna embaixo, quartos em cima. Desde a conquista, a guarnição de Redom e a tripulação da Sentença bebem lá sem pagar. A casa anota as dívidas a giz na parede da frente, à vista do molhe.', 'As moças do andar de cima são quase todas da Orla. Os soldados acham que elas não entendem o que eles dizem na cama.'],
+      ] },
+    },
     sentenca: {
       image: 'assets/images/codex-sentenca.jpg',
       aliasesEn: ['the Sentence'], aliasesPt: ['a Sentença'],

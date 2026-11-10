@@ -571,3 +571,66 @@ Photorealistic cinematic shot from behind and slightly above a long army column 
 | D19 | The sentence is complete. Behind it, nothing else is written. | e05: a última linha do capítulo. A coluna sai; a frase de ouro está nítida no alto. | Muito baixo e lento. Sem tristeza nenhuma: espanto calmo. Silêncio de 2 s no fim do arquivo. |
 
 **Só a voz dela é dublada.** As falas da Laura, dos soldados da Sentença e dos alvos aparecem só em texto na tela.
+
+---
+
+## 7. Mídias novas da reescrita (v3)
+
+Estas são as peças que as partes I a III reescritas pedem. Enquanto elas não chegam, o capítulo mostra uma tela escura com o nome do arquivo, ou fica em silêncio no lugar da voz.
+
+### 7.1 Imagens (`assets/images/`) · ✅ recebidas e instaladas em 10/11
+
+#### `a02b-cais.jpg` ⭐ · GPT
+**Contexto:** página a02b, logo depois de ela subir. Até o meio-dia, Nove Mastros inteira sabe que a Madrinha voltou. Os barcos voltam do mar, uma mulher ergue um bebê para ele a ver de longe, e dois meninos mergulham no lugar onde ela subiu. É o ponto de vista dela: ninguém olha muito tempo para a câmera. **O texto fica à esquerda: a multidão no centro-direita.**
+```
+Photorealistic cinematic wide shot at midday, seen from a raised deck in the middle of a floating city made of dozens of old wooden ships lashed hull to hull, rope bridges between the decks, laundry and nets on the rails. A crowd of Nymae (blue-grey scaled skin, translucent fin-shaped ears, large yellow pupil-less eyes, simple sun-faded clothes in violet, ochre and undyed linen) and a few humans fills the decks and bridges, all turned toward the camera, many half-kneeling, several looking down at the planks as if the light were too strong. In the middle ground, a young Nymae mother lifts a baby above the heads with both arms. In the foreground water, two Nymae boys dive headfirst where the sea is still rippling. On the horizon, three small sailboats coming back under full sail. Center-right composition. Strong white midday light glittering on the water, salt haze, deep blue sea, film grain, shallow depth of field on the far crowd.
+```
+
+#### `a05c-oferendas.jpg` ⭐ · GPT
+**Contexto:** página a05c. Na manhã seguinte, há uma fila na prancha do barco dela. Cada pessoa traz uma moeda e um pedido e o diz baixo, perto do ouvido dela. O plano é o ponto de vista dela, olhando a fila. Embaixo, os pés descalços dela, com as moedas penduradas nos tornozelos, e um monte de moedas no chão. **O texto fica à esquerda: a fila no centro-direita.**
+```
+Photorealistic cinematic shot, morning, point of view from a woman seated at the top of a ship’s gangplank, looking down along a long line of people waiting on the plank and the dock below. At the bottom edge of the frame, two small bare feet with fine blue-grey iridescent scales and delicate webbing between the toes, thin chains of old silver and gold coins around the ankles, and a small heap of mixed coins (worn silver, old gold, green copper) on the planks in front of them. The line: Nymae fishermen and women (blue-grey scaled skin, translucent fin-shaped ears, large yellow pupil-less eyes, patched work clothes), an old fisherman holding a coin up in two fingers, a worried mother clutching a coin to her chest, a young man blushing to the tips of his fin-ears; each holds one coin. Masts and rope bridges of a floating city behind. Center-right composition. Soft cold morning light, silver and gold glints, blue and violet palette, film grain, shallow depth of field.
+```
+
+#### `a06b-plano.jpg` ⭐ · GPT
+**Contexto:** páginas a06b e a06c. De noite, na cabine, ela mostra a moeda a Ossian e depois fica sozinha, virando a moeda com a ponta do dedo. É aqui que o plano se forma: deixar a Sentença pegá-la viva. Só a mão dela aparece. **O texto fica à esquerda: a mão e a moeda no centro-direita.**
+```
+Photorealistic cinematic close-up at night inside the stern cabin of an old ship: a scarred oak table with sea charts, a brass lantern casting warm moving light. A slender woman’s hand with fine blue-grey iridescent scales on the back, delicate translucent webbing between the fingers and short dark nails rests on the table, one fingertip turning a worn silver coin that shows the engraved profile of a woman with her hair tied back and her chin raised, and the letters LAURA D’ORROSE around the rim. Beside it, a small heap of mixed old coins. Through the tall stern windows behind, out of focus, the lantern lights of a floating city of ships on black water. Center-right composition. Warm lantern gold against deep navy and violet shadows, extreme shallow depth of field, film grain.
+```
+
+#### `a07-taverna.jpg` ⭐ · GPT
+**Contexto:** página a07. Na taverna do cais, Iska, uma marinheira humana, sobe na mesa e mostra a cicatriz do braço, jurando que foi raio. A Madrinha vê que foi faca. Esta imagem substitui a antiga `a07-iska.jpg`, em que a Iska parecia um rapaz. **O texto fica à DIREITA: a Iska no terço esquerdo.**
+```
+Photorealistic cinematic shot inside a crowded dock tavern built in the hold of an old ship, evening, low beams, lanterns, smoke. Iska (a human sailor woman of the Trembling Shore, about 30, clearly feminine face with strong cheekbones, long lashes and small gold hoop earrings; tall and rangy, sun-browned skin, shoulder-length black hair tied back with a red rag, loose strands on her face; a wide loud laugh showing a chipped front tooth; a long zigzag scar running from her left wrist to the elbow, with one suspiciously straight edge; a loose undyed linen shirt with the sleeves rolled up, patched canvas trousers, bare feet) stands on a wooden table, laughing with her head thrown back, her scarred left forearm held up high for everyone to see, a clay cup in her other hand. Around the table, blurred sailors and Nymae laughing. She is in the left third of the frame. Warm amber lantern light, smoke haze, shallow depth of field, film grain.
+```
+
+#### `b05b-olhos.jpg` ⭐ · Flow (REF-MADRINHA)
+**Contexto:** página b05b. Ela se fingiu de morta no convés da Sentença para ouvir os soldados. Agora vão vendê-la como afogada em Alvena, então ela abre os olhos de propósito. É o momento em que Redom descobre que ela está viva. **O texto fica à esquerda: o rosto dela no centro-direita.**
+```
+Photorealistic cinematic extreme close-up on the wet planks of a war galley’s deck at dusk, after a storm. The Godmother (a Nymae woman who looks about thirty, petite and slender; smooth blue-grey skin covered in very fine iridescent scales, densest along the cheekbones, the sides of the neck and the collarbones; translucent fin-shaped ears ribbed with thin spines, swept back and pressed flat; long dark navy-blue hair soaked and plastered across the planks; large eyes of intense molten gold with no pupils and no whites, faintly luminous; full lips, high sharp cheekbones; a torn dark plum leather bodice, small old-gold coins sewn on the collar) lies on her side with her cheek on the planks, seawater around her, a crossbow bolt lodged in her shoulder. Her eyes have just opened and are fixed on something above the camera, calm and amused, the corner of her mouth beginning to lift. In the blurred background, the boots and red-brown gambesons of soldiers, a coil of wet rope, a broken mast. She is in the center-right of the frame. Cold grey-blue dusk light, the only warm color is the gold of her eyes, film grain, extreme shallow depth of field.
+```
+
+#### `codex-ondina.jpg` ◻ · GPT
+**Contexto:** o verbete do codex da casa da Ondina, a taverna com quartos em cima, no molhe de Alvena, onde os soldados de Redom bebem de graça. Aparece quando o jogador toca em "casa da Ondina" no texto. **O assunto no centro.**
+```
+Photorealistic cinematic exterior at dusk: a narrow two-storey house of pale limestone at the root of a stone harbor mole, in a small conquered port town. The ground floor is a tavern with an open door spilling warm light and the silhouettes of soldiers in red-brown gambesons at the tables outside; the upper floor has small shuttered windows, one half open with a woman’s silhouette leaning on the sill. A red banner with a white sword whose guard is a pair of scales hangs from the lighthouse at the end of the mole in the background. On the tavern’s outer wall, rows of chalk tally marks. Centered composition. Warm amber window light against cold blue dusk, sea mist, film grain.
+```
+
+### 7.2 Vídeo (`assets/video/`) · ✅ recebido
+
+#### `b03-onda.mp4` ⭐ · Flow · 16:9 · 8 s · sem personagem principal
+**Contexto:** página b03, no jogo "Abrir a mão". Quando o jogador toca, o mar recua de baixo dos dois barcos e depois volta em pé, por cima da Sentença. O vídeo entra 3,6 s depois do toque, por cima da tela, e corre até a tela ficar branca. Sem som: o som da onda já toca no jogo. Pode ser em 720p, porque é uma cena clara e ocupa a tela toda.
+```
+Photorealistic cinematic shot, late afternoon, seen from the low deck of a small fishing boat. Ahead, a huge three-masted dark-hulled war galley sits broadside, crossbowmen lined on her deck. The sea between the two ships suddenly draws back, exposing wet rocks and sand and stranded fish for a moment, the small boat tilting forward; then the water returns as a towering standing wave, a dark green wall streaked with white foam, rising higher than the galley’s masts and crashing down onto her side, snapping the middle mast. The camera shakes slightly and is swallowed by spray at the end, the image ending in white foam. Cold green and grey sea, golden low sunlight behind the wave, epic scale, film grain, no text.
+```
+
+### 7.3 Dublagens novas (só a voz dela, em inglês) · ✅ recebidas
+
+Com a mesma voz e o mesmo microfone das D01 a D19, leve e molhada, perto do ouvido.
+
+| Arquivo | Fala (em inglês) | Onde e como |
+|---|---|---|
+| `D20.mp3` | For anyone from the Shore, Redom opens only one door, and the one who opens it is the jailer. I need the Sentence to catch me. Alive. | **Página a06c.** Ela está sozinha na cabine, à noite, virando a moeda da Laura com a ponta do dedo. É o momento em que decide se deixar prender. Fale baixo, divertida, devagar, como quem acabou de achar a saída de um labirinto. Faça uma pausa de um segundo antes de "Alive.", e diga essa palavra mais baixo que o resto. |
+| `D21.mp3` | I need her to see me. Alive. | **Página b03.** Ela está de pé na proa do barquinho, de frente para a galera, com os besteiros erguendo as armas. É o eco da D20. Diga calma, quase carinhosa, sem pressa, como quem espera alguém chegar. Faça uma pausa curta antes de "Alive." |
+| `D22.mp3` | Laura will come down. Before she does, I want to know her. Until then, there is time to work two of them. | **Página c01.** Ela está na cela de pedra surda, depois de aprender os quatro carcereiros pelo som dos passos. Use uma paciência fria, íntima, com o prazer de quem tem tempo. Diga "work" com um meio sorriso. |
+| `D23.mp3` | She wants the desert and can’t go, because the coast ties down her galleys. If the Shore kneels, the coast lets go. I want her to send me back to do it herself. | **Página c03b.** A Laura acabou de sentar na frente dela, e é o pensamento dela antes da primeira pergunta. Diga num sussurro rápido e seguro, como um plano dito ao próprio ouvido. Desacelere em "do it herself". |

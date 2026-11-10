@@ -279,7 +279,7 @@ function guarda(id, quieto) {
   if (quieto) return;
   A.colecao();
   const c = COL[id], el = document.createElement('div'); el.className = 'card-novo';
-  const linha = campo(c, 'quer') ? `${U('quer')}: ${campo(c, 'quer')}` : campo(c, 'disse');
+  const linha = campo(c, 'naoDiz') ? `${U('naoDiz')}: ${campo(c, 'naoDiz')}` : campo(c, 'disse') ? `${U('disse')}: ${campo(c, 'disse')}` : campo(c, 'quer') ? `${U('quer')}: ${campo(c, 'quer')}` : '';
   el.innerHTML = `<i class="rosto" style="background-image:${bgRosto(rostoImg(id))}"></i><small>${esc(U('colecaoNovo'))}</small><b>${esc(nomeCard(id))}</b><span>${esc(linha)}</span>`;
   // vários cartões juntos entram em fila, um embaixo do outro
   let caixa = document.getElementById('cardsNovos'); if (!caixa) { caixa = document.createElement('div'); caixa.id = 'cardsNovos'; document.body.appendChild(caixa); }
@@ -287,16 +287,30 @@ function guarda(id, quieto) {
   veuBtn && (veuBtn.classList.remove('pulsa'), void veuBtn.offsetWidth, veuBtn.classList.add('pulsa'));
   setTimeout(() => el.classList.remove('on'), 5200); setTimeout(() => el.remove(), 6000);
 }
+// os cartões que abrem alguma opção na tela atual (escolha ou minijogo com respostas que nascem da Coleção)
+function servindoAgora() {
+  const out = new Set(), p = P[st.i] || {};
+  const olha = (ops) => (ops || []).forEach((o) => { if (o.se && !o.se(st)) return; const d = o.de && (typeof o.de === 'function' ? o.de(st) : o.de); if (d && st.colecao.includes(d)) out.add(d); });
+  if (p.escolha) olha(p.escolha.opcoes);
+  if (p.minijogo) { const d = L[p.minijogo]; const cfg = d && (d.perguntas ? d : d[p.jogoId] || d[typeof L.alvoNoite === 'function' ? L.alvoNoite(st, p.noite || 1) : ''] || d); if (cfg && cfg.perguntas) cfg.perguntas.forEach((q) => olha(q.ops)); if (cfg && cfg.falas) cfg.falas.forEach((q) => olha(q.ops)); if (cfg && cfg.trocas) cfg.trocas.forEach((q) => olha(q.ops)); }
+  return out;
+}
 function abrirColecao() {
   const m = $('#colecaoModal');
   $('#clTitle').textContent = U('colecaoT'); $('#clSub').textContent = U('colecaoSub');
   const lin = (rot, v) => (v ? `<p><em>${esc(rot)}</em> ${esc(v)}</p>` : '');
-  $('#clLista').innerHTML = st.colecao.slice().reverse().map((id) => {
+  const serve = servindoAgora(), LUG = U('lugares') || {}, ordemL = ['redom', 'coluna', 'sentenca', 'orla'];
+  const ids = st.colecao.slice().reverse().filter((id) => COL[id]);
+  const grupos = ordemL.map((g) => [g, ids.filter((id) => (COL[id].lugar || 'redom') === g)]).filter(([, l]) => l.length);
+  // os que servem agora vêm primeiro, com o selo
+  const topo = ids.filter((id) => serve.has(id));
+  const item = (id) => {
     const c = COL[id]; if (!c) return '';
     const veste_ = c.veste && (typeof c.veste === 'function' ? c.veste(st) : c.veste);
     const morto = typeof c.morto === 'function' ? c.morto(st) : !!c.morto;
-    return `<li class="${morto ? 'morto' : ''}"><i class="rosto" style="background-image:${bgRosto(rostoImg(id))}"></i><div><b>${esc(nomeCard(id))}${veste_ ? ' <span class="vst" title="' + esc(U('vestivel')) + '">◐</span>' : ''}</b>${lin(U('quer') + ':', campo(c, 'quer'))}${lin(U('naoDiz') + ':', campo(c, 'naoDiz'))}${lin(U('disse') + ':', campo(c, 'disse'))}${campo(c, 'fim') ? `<p class="fim">${esc(campo(c, 'fim'))}</p>` : ''}</div></li>`;
-  }).join('') || `<li class="vazio">${esc(U('colecaoVazia'))}</li>`;
+    return `<li class="${morto ? 'morto' : ''} ${serve.has(id) ? 'serve' : ''}">${serve.has(id) ? `<span class="serve-tag">${esc(U('serve'))}</span>` : ''}<i class="rosto" style="background-image:${bgRosto(rostoImg(id))}"></i><div><b>${esc(nomeCard(id))}${veste_ ? ' <span class="vst" title="' + esc(U('vestivel')) + '">◐</span>' : ''}</b>${lin(U('quer') + ':', campo(c, 'quer'))}${lin(U('naoDiz') + ':', campo(c, 'naoDiz'))}${lin(U('disse') + ':', campo(c, 'disse'))}${campo(c, 'fim') ? `<p class="fim">${esc(campo(c, 'fim'))}</p>` : ''}</div></li>`;
+  };
+  $('#clLista').innerHTML = (topo.length ? topo.map(item).join('') : '') + grupos.map(([g, l]) => `<li class="grupo">${esc(LUG[g] || g)}</li>` + l.filter((id) => !serve.has(id)).map(item).join('')).join('') || `<li class="vazio">${esc(U('colecaoVazia'))}</li>`;
   m.classList.add('show'); A.colecao();
 }
 veuBtn && (veuBtn.onclick = abrirColecao);
@@ -339,7 +353,7 @@ const rostoHTML = (src, cls = 'rosto') => (src ? `<i class="${cls}" style="backg
 function toast(t, info) { const el = document.createElement('div'); el.className = 'toast' + (info ? ' info' : ''); const r = info ? null : rostoDe(t); if (r) { el.classList.add('com-rosto'); el.innerHTML = rostoHTML(r) + `<span>${esc(t)}</span>`; } else el.textContent = t; $('#toasts').appendChild(el); if (!info) A.aviso(); setTimeout(() => el.classList.add('out'), info ? 5200 : 3800); setTimeout(() => el.remove(), info ? 6000 : 4600); return el; }
 // a subversão: os avisos de antes voltam um por um, afundam e se apagam; no lugar fica um só
 function afogaAvisos(filtro, ultimo) {
-  const lista = st.avisos.filter((a) => !filtro || filtro(a)).slice(-6);
+  const lista = st.avisos.filter((a) => !filtro || filtro(a, st)).slice(-6);
   lista.forEach((a, k) => later(() => {
     const el = document.createElement('div'); el.className = 'toast com-rosto afoga'; const r = rostoDe(sub(tr(a)));
     el.innerHTML = rostoHTML(r) + `<span>${esc(sub(tr(a)))}</span>`; $('#toasts').appendChild(el); A.tone(220 - k * 14, 1.2, 'triangle', .022);
@@ -583,12 +597,13 @@ const escolhaAtiva = (p) => !!(p.escolha && (!p.escolha.se || p.escolha.se(st)))
 const rotulo = (o) => (o.silencio ? U('silencioR') : sub(tr(typeof o.txt === 'function' ? o.txt(st) : o.txt)));
 const opcoesVis = (lista) => lista.filter((o) => !o.se || o.se(st));
 const resultadoDe = (o) => (typeof o.resultado === 'function' ? o.resultado(st) : o.resultado);
-const rotHTML = (o) => (o.silencio ? `<em>${U('silencio')}</em>` : o.fala ? `“${esc(rotulo(o))}”` : o.gesto ? `<i class="gst">${esc(rotulo(o))}</i>` : esc(rotulo(o)));
+const fv = (x) => (typeof x === 'function' ? x(st) : x);
+const rotHTML = (o) => (o.silencio ? `<em>${U('silencio')}</em>` : fv(o.fala) ? `“${esc(rotulo(o))}”` : fv(o.gesto) ? `<i class="gst">${esc(rotulo(o))}</i>` : esc(rotulo(o)));
 // a opção que nasce da Coleção mostra, pequeno, o rosto de quem contou
-const optHTML = (o, k) => { const de = o.de && (typeof o.de === 'function' ? o.de(st) : o.de); return `<button class="opt ${o.silencio ? 'sil' : ''} ${o.fala ? 'fala' : ''} ${de ? 'de-col' : ''} ${o.preco ? 'preco p-' + o.preco : ''}" data-id="${o.id}"><span class="k">${k + 1}</span>${de ? rostoHTML(rostoImg(de), 'rosto mini') : ''}<span class="tx">${rotHTML(o)}</span></button>`; };
+const optHTML = (o, k) => { const de = o.de && (typeof o.de === 'function' ? o.de(st) : o.de); return `<button class="opt ${o.silencio ? 'sil' : ''} ${fv(o.fala) ? 'fala' : ''} ${de ? 'de-col' : ''} ${o.preco ? 'preco p-' + o.preco : ''}" data-id="${o.id}"><span class="k">${k + 1}</span>${de ? rostoHTML(rostoImg(de), 'rosto mini') : ''}<span class="tx">${rotHTML(o)}</span></button>`; };
 function renderEscolha(p) {
   const e = p.escolha, feita = st.escolhas[e.id];
-  if (feita) { const o = e.opcoes.find((x) => x.id === feita); if (o) { box.innerHTML = `<p class="feita">${U('escolheu')} ${o.fala ? '“' + esc(rotulo(o)) + '”' : esc(rotulo(o))}</p>`; appendParas(resultadoDe(o)); } return true; }
+  if (feita) { const o = e.opcoes.find((x) => x.id === feita); if (o) { box.innerHTML = `<p class="feita">${U('escolheu')} ${fv(o.fala) ? '“' + esc(rotulo(o)) + '”' : esc(rotulo(o))}</p>`; appendParas(resultadoDe(o)); } return true; }
   p._revelado = false; box.innerHTML = '';
   return true;
 }

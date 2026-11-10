@@ -96,6 +96,61 @@ ri sozinho | Joseph
 - **D8 · A pedra surda:** “a pedra que bebe”; os ferreiros que a trabalham ficam surdos de um ouvido, e daí o nome (está no codex).
 - **D9 · Dublagem:** só a voz dela é dublada (D01 a D19). As falas da Laura, dos soldados da Sentença e dos alvos aparecem só em texto.
 
+## v3 · Reescrita das partes I a III (10/11)
+O plano está em `CAP7_REESCRITA_v3_PLANO.md`. Esta seção diz o que entrou no código.
+
+- **A voz dela:** saíram cantar junto, rezar junto, comprar vela, "eu não durmo" e a aposta da moeda. Os quatro tons agora são Mel, Água parada, Lâmina e Gato, e em todos ela dobra alguém. Ela só usa reza, canção ou nome que ouviu antes, na tela.
+- **Parte I:** passou de 12 para 19 páginas por partida.
+  - **Páginas novas:**
+    - **a02b:** o cais de joelhos;
+    - **a03b:** a velha conta o mito, e as moedas da saia são de quem pediu;
+    - **a05c:** as oferendas, uma escolha nova;
+    - **a06b:** a moeda vira a Lâmina, e entra a casa da Ondina;
+    - **a06c:** o plano: "preciso que a Sentença me pegue. Viva.";
+    - **a07:** a Iska na taverna, com a cicatriz vista.
+  - **O menino da moeda:** moeda do inimigo é a que mais pede.
+  - **Os chefes:** ganharam uma quarta opção, Lâmina: "Sarnai, quem da sua casa vendeu a rota?"
+- **Alvena:** são três perguntas na tela, com respostas marcadas, e as pessoas indicam umas às outras. O que ela aprende muda a Parte II:
+  - **rota:** o dia certo;
+  - **vivos:** a frase antes de abrir os olhos;
+  - **perto:** boiar como afogado.
+- **Tripulação:** a lealdade é escondida e nasce do que cada um é. Muda nas noites e cai se ela mentiu sobre os recifes ou se esperaram três noites sem saber o dia.
+  - **O motim:** diante da Sentença, o primeiro sem lealdade tenta virar o barco. As saídas são "Ninguém morre hoje", tomar o leme, a lâmina, ou dar ao amotinado uma razão para ficar.
+  - **O estrago:** Maru de lado quebra o mastro, Brann derruba o mestre dos besteiros, e Teshka aborda e morre no convés deles.
+  - **A Nhalé:** se ela é leal, salva o último que estende a mão, e ele volta para a Orla. Isso aparece na Coleção e no fim.
+- **A Morta:** agora serve para ouvir: "Não se mexa. Quem se mexe para de ouvir." A página nova b05b mostra que ela é presa porque abre os olhos de propósito, e ela escolhe o jeito. As falas dos soldados mudam com o estrago.
+- **Ala Funda:** ela trabalha dois carcereiros, com as opções novas, e cada um dá uma pista sobre a Laura.
+  - **c03b:** antes do interrogatório, mostra o que ela sabe, linha por linha, e o que ela quer.
+  - **Na Lâmina:** cada resposta com rosto mostra "de: fulano", e a Laura reage a cada resposta (inclina-se, guarda a resposta, uma mão vai à espada, olha as orelhas).
+- **Os olhos:** a Laura agora diz "Nenhum tinha olho que acende quando a tocha baixa."
+- **A Coleção:**
+  - os cartões estão agrupados por lugar, e os que abrem uma opção na tela vêm primeiro com o selo "serve agora";
+  - o aviso de cartão novo mostra o que ela aprendeu;
+  - os campos só dizem o que apareceu na tela.
+- **Partes IV e V:**
+  - cada manhã repete na cidade o efeito da noite anterior, e no 3º dia a guarda dobra se houve alarme;
+  - o Ansel muda o relato conforme o Kronk olhou o Simon até parar ou acabou com ele (Cap. VI);
+  - saíram mais quatro frases com vício;
+  - o Markus treinou o Simon depois do Torneio, aos 15 anos, e não aos 9.
+- **Codex:** entrou a casa da Ondina.
+- **Mídias novas:** a §7 do `MIDIAS_CAP7.md` traz 6 imagens, o vídeo da onda e as falas D20 a D23.
+- **Testes:** 15 partidas automáticas passaram por todos os caminhos novos (motim com lâmina e com razão para ficar, Nhalé salvando, os três jeitos de abrir os olhos), sem erro de script e sem arquivo faltando além dos novos.
+
+## v3.1 · Passe de voz da Madrinha e mídias da reescrita (10/11)
+- **Mídias instaladas:** as 6 imagens da §7 (o cais, as oferendas, a moeda, a Iska, os olhos e a casa da Ondina), o vídeo da onda, as falas D20 a D23 e as versões novas de `d02-cisterna.mp4` e `b07-carroca.mp4`. O capítulo não tem mais nenhuma mídia faltando.
+- **A onda:** o vídeo foi cortado em 6,9 s, porque o fim original escurece. Agora ele entra junto com o recuo do mar (1,9 s depois do toque), o rugido toca quando a parede de água sobe e o branco entra quando a espuma cobre a tela.
+- **Painel trocado de lado** para não cobrir o assunto: a moeda (a06b, a06c) e o rosto dela no convés (b05b).
+- **Texto ajustado às imagens:** a casa da Ondina anota as dívidas na parede da frente (o codex dizia "dos fundos"), e a Laura tem "o rosto da moeda, com o queixo mais baixo".
+- **Passe de voz (teste: "uma pessoa comum diria isso?"):** saíram as frases que explicavam a regra dela em vez de mostrar, como "vi e ouvi", "falta a roupa, porque a roupa não muda comigo", "o que eles veem em mim eu ainda não sei", "não confirmo e não desminto", "isso é perigoso", "faço a conta e não gosto do resultado" e "sinto muito pelo seu irmão". No lugar delas entraram frases em que ela toma, cobra ou lê o desejo do outro. Os carcereiros: ela dá ao Wim uma palavra errada para a canção e ri do Pell quando ele erra o verso, em vez de cantar ou rezar junto.
+- **Moldes cortados:** as três mesas da noite (Justine, Joseph e Varr) usavam o mesmo "fica calado e ele fala por dois". Agora cada uma é diferente. "Ninguém" caiu de 16 para 8.
+- **Correções:** "a lança no ombro" virou "a ponta da lança" (era seta no ombro). "A última coisa que ela tenta dizer" estava errado quando o último é homem. "Eu já disse para não brincar" só aparece se ela brincou antes.
+
+### Regravar (D02 regravada e instalada em 10/11; o antigo ficou fora do pacote)
+- **D02.** A frase "and I let her, because it is lovely to be expected" explica o gosto em vez de mostrar. Sugestão: *"She kisses my fingers. I leave my hand there as long as she needs."* (PT: "Ela beija meus dedos. Deixo a mão ali o tempo que ela precisar.")
+
+### Motivos do capítulo (proposta D1, falta o ok do autor)
+O script trava em 30 grupos de 3 palavras. Quase todos são nomes próprios (casa da Ondina, Canal das Garças, Boca Seca, comandante Simon, Sala dos Mapas), a fórmula "vai lembrar disso" e cartões da Coleção que repetem de propósito o que a pessoa disse. O bloco proposto está em `_midias/motivos_cap07.md`. Com ele, nenhum grupo fica ACIMA, e todas as muletas ficam dentro do limite.
+
 ## v1.1 · Mídias instaladas (10/11)
 - **Instalado:** 51 imagens de página, a capa, 10 do codex, 46 rostos, 5 vídeos, 14 trilhas de fundo, 18 efeitos e as 19 falas dela.
 - **Compressão:** as trilhas foram cortadas em até 60 s, com emenda cruzada de 3 s para o laço não estalar, e niveladas no mesmo volume (MP3 96 kbps). Os vídeos ficaram em 1280×720 e sem áudio, e as imagens em JPG. As mídias caíram de cerca de 560 MB para 35 MB.
@@ -106,12 +161,10 @@ ri sozinho | Joseph
   - a fala do Maru depois de "Conheço" ficou clara.
 - **Entregues depois (10/11):** os vídeos a01-fundo, a08-metamorfose e b02-sentenca, e os rostos capa, capitao, desertor, grisalho, hobb, padre e pedagio. O Maru foi refeito.
 - **Não falta mais nenhum rosto, vídeo ou imagem** da lista do capítulo.
-- **Refazer se quiser (◻):**
-  - `a07-iska`: a marinheira parece um rapaz, e o texto diz "uma marinheira";
-  - `d02-cisterna.mp4`: só tem 640×360 e fica mole em tela cheia (é o único; os outros estão em 1280×720);
+- **Refazer se quiser (◻):** resolvido na v3.1 (a Iska nova e a cisterna em 720p).
 
 ## Pendências
-- As mídias que faltam estão listadas em v1.1, acima. O capítulo funciona sem elas.
+- Nenhuma mídia faltando. No vídeo da onda, o casco da galera tem "REDOM" pintado. Passa rápido, mas se quiser refazer, peça sem letreiro.
 - O botão final do Cap. VI ainda aponta para nada: quando o Cap. VII estiver no ar, troque `proximo.url` no `capitulo6.js` para o endereço novo.
 - Teste com 3 a 5 leitores de fora: os riscos da tabela dos jogos.
 

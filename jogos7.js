@@ -39,7 +39,8 @@ function escolhe(root, c, cfg, modo) {
   const gente = val(cfg.gente, st);
   return new Promise((resolve) => {
     root.classList.add('j7-escolhe', modo);
-    root.insertAdjacentHTML('beforeend', `<div class="es-in"><p class="es-t">${c.esc(c.tr(cfg.titulo || ''))}</p><p class="es-conta"></p><div class="es-grade"></div><div class="es-fala" aria-live="polite"></div><div class="es-acoes"></div></div>`);
+    const pergs = (cfg.perguntas || []).map((q) => `<li data-q="${q.id}" class="${st.f['resp_' + q.id] ? 'ok' : ''}">${c.esc(c.tr(q.t))}</li>`).join('');
+    root.insertAdjacentHTML('beforeend', `<div class="es-in"><p class="es-t">${c.esc(c.tr(cfg.titulo || ''))}</p>${pergs ? `<ul class="es-perg">${pergs}</ul>` : ''}<p class="es-conta"></p><div class="es-grade"></div><div class="es-fala" aria-live="polite"></div><div class="es-acoes"></div></div>`);
     const grade = root.querySelector('.es-grade'), fala = root.querySelector('.es-fala'), conta = root.querySelector('.es-conta'), acoes = root.querySelector('.es-acoes');
     const sel = [];
     const redesenha = () => {
@@ -71,6 +72,7 @@ function escolhe(root, c, cfg, modo) {
         fala.innerHTML = ''; linhas(fala, lista(g.fala, st), c); fala.classList.remove('on'); void fala.offsetWidth; fala.classList.add('on');
         setTimeout(() => c.guarda(g.id), 700);
         if (g.flag) st.f[g.flag] = true;
+        [].concat(g.responde || []).forEach((q) => { st.f['resp_' + q] = true; const li = root.querySelector(`.es-perg li[data-q="${q}"]`); if (li && !li.classList.contains('ok')) setTimeout(() => { li.classList.add('ok'); A.tone && A.tone(660, .25, 'sine', .03); }, 1200); });
         if (g.frase) setTimeout(() => c.fraseAcende(g.frase), 1500);
         c.salvar(); redesenha();
       };
@@ -104,12 +106,13 @@ function mao(root, c) {
       if (feito) return; feito = true; clearTimeout(tSalva); clearTimeout(tAuto);
       const quando = salva ? 'tarde' : 'cedo'; c.registrar('abrir_mao', quando);
       root.classList.add('aberta'); btn.disabled = true; msg.textContent = '';
-      // o tamanho da resposta contra o tamanho do gesto: o som some, a imagem desce, o rugido, o branco
+      // o som some, o mar recua (o vídeo entra junto), o rugido quando a parede de água sobe no vídeo, o branco quando a espuma cobre a tela
       A.duck(true); A.sfx('mar-para', .7, () => A.tone(55, 3, 'sine', .08, 0, .6));
       setTimeout(() => { root.classList.add('puxa'); A.sfx('mar-recua', .8, () => A.hiss(3, 300, .5, .2, 0, 'lowpass')); }, BOT() ? 10 : 1800);
-      setTimeout(() => { root.classList.add('ruge'); A.sfx('onda-gigante', .95, () => { A.tone(40, 4, 'sawtooth', .12, 0, .5); A.hiss(4, 180, .4, .3, 0, 'lowpass'); }); }, BOT() ? 20 : 4200);
-      setTimeout(() => { root.classList.add('branco'); }, BOT() ? 30 : 7400);
-      setTimeout(() => { A.duck(false); resolve({ quando, ms: Math.round(performance.now() - t0) }); }, BOT() ? 60 : 10200);
+      if (cfg.video && !BOT()) setTimeout(() => { const v = document.createElement('video'); v.className = 'mo-video'; v.muted = true; v.playsInline = true; v.autoplay = true; v.src = cfg.video; v.onerror = () => v.remove(); root.appendChild(v); v.play().then(() => v.classList.add('on')).catch(() => v.remove()); }, 1900);
+      setTimeout(() => { root.classList.add('ruge'); A.sfx('onda-gigante', .95, () => { A.tone(40, 4, 'sawtooth', .12, 0, .5); A.hiss(4, 180, .4, .3, 0, 'lowpass'); }); }, BOT() ? 20 : 5100);
+      setTimeout(() => { root.classList.add('branco'); }, BOT() ? 30 : 8500);
+      setTimeout(() => { A.duck(false); resolve({ quando, ms: Math.round(performance.now() - t0) }); }, BOT() ? 60 : 11300);
     };
     btn.onclick = abre;
     root.addEventListener('pointerdown', (e) => { if (e.target === btn || btn.contains(e.target)) return; abre(); });
@@ -122,7 +125,7 @@ function mao(root, c) {
 // ================================================================== A MORTA
 // A página corre sozinha. Qualquer toque, clique ou tecla é ela se mexendo: o primeiro é de graça, o segundo dói.
 function morta(root, c) {
-  const { A, L, st } = c, cfg = L.morta;
+  const { A, L, st } = c, cfg = Object.assign({}, L.morta, { falas: L.morta.falas.filter((f) => !f.se || f.se(st)) });
   return new Promise((resolve) => {
     fundo(root, cfg.img, 'mt-bg');
     root.insertAdjacentHTML('beforeend', '<div class="mt-ceu"></div><div class="mt-legenda" aria-live="polite"></div><div class="mt-dor"></div>');
@@ -267,13 +270,13 @@ function interrogatorio(root, c) {
       const q = cfg.perguntas[i];
       [...log.children].forEach((x) => x.classList.add('velha'));
       while (log.children.length > 6) log.firstElementChild.remove();
-      linhas(log, [q.fala], c, 'alvo'); if (q.voz) c.narrate(q.voz, true);
+      linhas(log, [val(q.fala, st)], c, 'alvo'); if (q.voz) c.narrate(q.voz, true);
       const vis = q.ops.filter((o) => (!o.se || o.se(st)) && (!o.de || (val(o.de, st) && st.colecao.includes(val(o.de, st)))));
       ops.innerHTML = '';
       setTimeout(() => {
         vis.forEach((o, n) => {
           const b = document.createElement('button'); b.className = 'opt az-op'; b.type = 'button'; const de = val(o.de, st);
-          b.innerHTML = `<span class="k">${n + 1}</span>${de ? `<i class="rosto mini" style="background-image:${bg(c, de)}"></i>` : ''}<span class="tx">${o.silencio ? `<em>${c.esc(U('silencioR'))}</em>` : '“' + c.esc(c.sub(c.tr(o.txt))) + '”'}</span>`;
+          b.innerHTML = `<span class="k">${n + 1}</span>${de ? `<i class="rosto mini" style="background-image:${bg(c, de)}"></i>` : ''}<span class="tx">${o.silencio ? `<em>${c.esc(U('silencioR'))}</em>` : '“' + c.esc(c.sub(c.tr(val(o.txt, st)))) + '”'}${de ? `<small class="de-txt">${c.esc(U('deTxt'))}: ${c.esc(c.nomeCard(de))}</small>` : ''}</span>`;
           b.onclick = () => responde(o); ops.appendChild(b);
         });
         if (BOT()) setTimeout(() => responde(sorteio(vis) || vis.slice().sort((a, b) => (b.ouro - b.verm) - (a.ouro - a.verm))[0]), 20);
@@ -283,12 +286,15 @@ function interrogatorio(root, c) {
     addEventListener('keydown', tecla);
     const responde = (o) => {
       ops.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-      A.escolha(); c.registrar('lamina_' + i, o.id);
-      if (!o.silencio) linhas(log, ['— ' + c.sub(c.tr(o.txt))], c, 'ela');
+      A.escolha(); c.registrar('lamina_' + i, o.id); st.f['lam_' + o.id] = true;
+      if (!o.silencio) linhas(log, ['— ' + c.sub(c.tr(val(o.txt, st)))], c, 'ela');
       if (o.flag) flags.push(o.flag);
       setTimeout(() => {
         if (o.mente) { verm += 1; linhas(log, [cfg.orelhas], c, 'nota'); root.classList.remove('orelha'); void root.offsetWidth; root.classList.add('orelha'); }
         linhas(log, lista(o.resp, st), c);
+        const rg = cfg.reage || {};
+        const reac = [(o.ouro || 0) >= 2 ? rg.ouro2 : (o.ouro || 0) === 1 ? rg.ouro1 : null, (o.verm || 0) >= 2 ? rg.verm2 : (o.verm || 0) === 1 && !o.mente ? rg.verm1 : null].filter(Boolean);
+        if (reac.length) setTimeout(() => linhas(log, reac, c, 'nota'), BOT() ? 5 : 900);
         ouro += o.ouro || 0; verm += o.verm || 0; pinta();
         // o vermelho cheio: a Laura diz a frase dela
         if (verm >= MAXV && !disse) { disse = true; setTimeout(() => { linhas(log, ['— ' + c.sub(c.tr(cfg.verm))], c, 'alvo vermelha'); A.tone(98, 1.6, 'sawtooth', .04, 0, .8); }, BOT() ? 10 : 1400); }
