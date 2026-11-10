@@ -339,3 +339,8 @@ html[lang="en"] .opt.p-roubar::after { content: '· steal'; } html[lang="en"] .o
 .az-op .de-txt { display: block; margin-top: 3px; font-family: var(--sans); font-style: normal; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); opacity: .85; }
 .mo-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.2s; z-index: 2; pointer-events: none; }
 .mo-video.on { opacity: 1; }
+/* v3.2: as duas frases da Lâmina com rótulo, para não confundir com a frase que ela carrega */
+.iq-rot { display: block; font-family: var(--sans, system-ui, sans-serif); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; font-style: normal; opacity: .7; margin: 0 0 6px; text-shadow: 0 1px 3px #000; }
+.iq-o .iq-rot { color: var(--gold-hot, #f1c86e); }
+.iq-verm .iq-rot { color: #ff8f80; margin: 6px 0 0; }
+.az-rot { color: var(--gold-hot, #f1c86e); }

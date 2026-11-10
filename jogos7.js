@@ -182,7 +182,7 @@ function anzol(root, c) {
   return new Promise((resolve) => {
     fundo(root, cfg.img, 'az-bg');
     const ws = frasePalavras(cfg.ideia, c);
-    root.insertAdjacentHTML('beforeend', `<div class="az-ouro" aria-label="${c.esc(c.tr(cfg.ideia))}">${ws.map((w, i) => `<span class="aw" style="--i:${i}">${c.esc(w)}</span>`).join(' ')}</div>
+    root.insertAdjacentHTML('beforeend', `<div class="az-ouro" aria-label="${c.esc(c.tr(cfg.ideia))}"><small class="iq-rot az-rot">${c.esc(U('anzolOuro'))}</small>${ws.map((w, i) => `<span class="aw" style="--i:${i}">${c.esc(w)}</span>`).join(' ')}</div>
       <div class="az-in"><p class="az-quem">${c.esc(c.tr(cfg.lugar))}</p><div class="az-log" aria-live="polite"></div><div class="az-ops"></div></div>`);
     const log = root.querySelector('.az-log'), ops = root.querySelector('.az-ops'), spans = [...root.querySelectorAll('.aw')];
     let u = cfg.mascaras && cfg.mascaras[masc] ? cfg.mascaras[masc] : 0, farpas = 0, i = 0;
@@ -244,9 +244,9 @@ function interrogatorio(root, c) {
   return new Promise((resolve) => {
     fundo(root, cfg.img, 'iq-bg');
     const wo = frasePalavras(cfg.ouro, c), wv = frasePalavras(cfg.verm, c);
-    root.insertAdjacentHTML('beforeend', `<div class="az-ouro iq-o">${wo.map((w, i) => `<span class="aw" style="--i:${i}">${c.esc(w)}</span>`).join(' ')}</div>
+    root.insertAdjacentHTML('beforeend', `<div class="az-ouro iq-o"><small class="iq-rot">${c.esc(U('iqOuro'))}</small>${wo.map((w, i) => `<span class="aw" style="--i:${i}">${c.esc(w)}</span>`).join(' ')}</div>
       <div class="az-in iq-in"><div class="az-log" aria-live="polite"></div><div class="az-ops"></div></div>
-      <div class="iq-verm">${wv.map((w, i) => `<span class="vw" style="--i:${i}">${c.esc(w)}</span>`).join(' ')}</div><div class="iq-orelhas"><i></i><i></i></div>`);
+      <div class="iq-verm">${wv.map((w, i) => `<span class="vw" style="--i:${i}">${c.esc(w)}</span>`).join(' ')}<small class="iq-rot">${c.esc(U('iqVerm'))}</small></div><div class="iq-orelhas"><i></i><i></i></div>`);
     const log = root.querySelector('.az-log'), ops = root.querySelector('.az-ops'), so = [...root.querySelectorAll('.aw')], sv = [...root.querySelectorAll('.vw')];
     let ouro = 0, verm = 0, i = 0, disse = false; const flags = [];
     const MAXO = 8, MAXV = 6;

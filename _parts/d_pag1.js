@@ -155,13 +155,8 @@
       ],
       minijogo: 'escuta', jogoId: 'alvena', mgNome: T('Ouvir os pequenos de Alvena', 'Listen to the small folk of Alvena'),
       depois: (st) => [
-        sabe(st, 'rota') ? T('A Sentença passa pelo Canal das Garças a cada nove dias. Sei onde esperar.', 'The Sentence comes through the Heron Channel every nine days. I know where to wait.')
-          : T('Não sei quando a galera passa. Vou ter de esperar por ela no mar.', 'I don’t know when the galley comes through. I’ll have to wait for her at sea.'),
-        sabe(st, 'vivos') ? T('Quem conjura vai vivo para a Lâmina. Então eles precisam me ver conjurar.', 'Whoever conjures goes to the Blade alive. So they need to see me conjure.')
-          : T('O que Redom faz com quem pega vivo, ainda não sei.', 'What Redom does with those it takes alive, I don’t know yet.'),
-        sabe(st, 'perto') ? T('E a Sentença pesca os afogados da Orla para vender. Um corpo boiando chega perto dela sem levar a segunda seta.', 'And the Sentence fishes up the Shore’s drowned to sell. A floating body gets close to her without taking the second bolt.')
-          : T('Como chegar perto da galera sem levar seta, também não.', 'How to get close to the galley without taking a bolt, I don’t know either.'),
-        se(() => !!st.f.fraseBoca, T('Boca Seca é um deserto. A minha boca tem gosto de sal desde que acordei.', 'Dry Mouth is a desert. My mouth has tasted of salt since I woke.')),
+        st.f.fraseBoca ? T('Boca Seca é um deserto. A minha boca tem gosto de sal desde que acordei.', 'Dry Mouth is a desert. My mouth has tasted of salt since I woke.')
+          : T('O sino do farol bate o meio-dia. Saio do mercado com o que ouvi.', 'The lighthouse bell strikes noon. I leave the market with what I heard.'),
       ] },
 
     { id: 'a10', zona: 'alvena', agua: .35, veste: 'iska', fundo: { img: IMG('a10-soldado'), dim: .45, lado: 'dir', foco: '35% 40%' },
@@ -174,15 +169,28 @@
         ok: [T('Fecho os olhos. Quando abro, sou a Iska outra vez, e ele já está rindo de outra coisa. Solta o meu braço.', 'I close my eyes. When I open them I am Iska again, and he is already laughing at something else. He lets go of my arm.')],
         falha: [T('Demoro. Um menino parado ao lado do soldado vê o ouro nos olhos da marinheira. Arregala os olhos, sorri para mim e sai correndo com o segredo.', 'I’m too slow. A boy standing by the soldier sees the gold in the sailor’s eyes. His own go wide, he smiles at me, and he runs off with the secret.')] } },
 
+    // o respiro: a noite depois de Alvena. Nenhuma informação nova: o que ela ouviu vira plano, na boca dela
     { id: 'a11', zona: 'cais', agua: .7, veste: 'ela', fundo: { img: IMG('a11-cais-noite'), dim: .5, foco: '60% 45%' },
-      texto: [
+      texto: (st) => [
         T('De volta a Nove Mastros, tiro o rosto da Iska como se tira uma luva molhada.', 'Back in Nine Masts, I take off Iska’s face the way you peel off a wet glove.'),
-        T('Digo no cais que vou a Redom num barco pequeno e que preciso de três pessoas. Metade do cais se oferece aos gritos. Passo dois dias olhando a outra metade, a que ficou quieta.', 'I say on the dock that I am going to Redom in a small boat and need three people. Half the dock volunteers at the top of its lungs. I spend two days watching the other half, the one that kept quiet.'),
+        T('Sento na popa do meu barco com os pés na água e espero a água esquentar.', 'I sit on the stern of my boat with my feet in the water and wait for the water to warm.'),
+        sabe(st, 'rota') ? T('Nove dias, no Canal das Garças. Sei onde esperar.', 'Nine days, in the Heron Channel. I know where to wait.')
+          : T('O dia da galera eu não sei. Espero no mar o tempo que for.', 'The galley’s day I don’t know. I’ll wait at sea as long as it takes.'),
+        sabe(st, 'perto') ? T('Ela pesca os afogados da Orla para vender. Chego boiando.', 'She fishes up the Shore’s drowned to sell. I’ll arrive floating.')
+          : T('Como chegar perto dela sem levar seta, ainda não sei.', 'How to get close to her without taking a bolt, I still don’t know.'),
+        sabe(st, 'vivos') ? T('Quem conjura vai vivo para a Lâmina. Vão me ver conjurar.', 'Whoever conjures goes to the Blade alive. They’ll see me conjure.')
+          : T('O que Redom faz com quem pega vivo, descubro lá.', 'What Redom does with those it takes alive, I’ll find out there.'),
+        T('Falta gente para remar.', 'I need people to row.'),
+      ] },
+
+    { id: 'a11b', zona: 'cais', agua: .7, veste: 'ela', fundo: { img: IMG('a02b-cais'), dim: .55, foco: '55% 45%' },
+      texto: [
+        T('Digo no cais que vou a Redom num barco pequeno e que preciso de três pessoas. Metade do cais se oferece aos gritos. Passo dois dias olhando os que ficaram quietos.', 'I say on the dock that I am going to Redom in a small boat and need three people. Half the dock volunteers at the top of its lungs. I spend two days watching the ones who kept quiet.'),
         T('Cinco valem a pena. Cada um quer uma coisa que eu posso dar.', 'Five are worth it. Each of them wants something I can give.'),
       ],
       minijogo: 'tripulacao', jogoId: 'tripulacao', mgNome: T('Escolher três', 'Choose three'),
       aoTerminar: (st, r, ctx) => { (r.escolhidos || []).forEach((k, i) => { st.avisos.push(AV[k]); setTimeout(() => ctx.toast(AV[k]), 300 + i * 1100); }); },
-      depois: [T('Três. O barco é pequeno, e a frase não pede mais.', 'Three. The boat is small, and the sentence asks for no more.')] },
+      depois: [T('Três. O barco tem quatro lugares, e o quarto é meu.', 'Three. The boat has four places, and the fourth is mine.')] },
 
     // as noites no mar: uma conversa séria com cada um dos três. A resposta muda a lealdade (escondida),
     // e a lealdade decide quem tenta virar o barco diante da Sentença, quem ajuda e quem pode ser salvo
@@ -271,11 +279,11 @@
       },
       texto: [
         T('Dois dias de mar. A tripulação quer a rota escondida, pelos recifes, para chegar a Redom sem ser vista. Eu mando seguir pelo Canal das Garças.', 'Two days of sea. The crew wants the hidden route, through the reefs, to reach Redom unseen. I order them through the Heron Channel.'),
-        (st) => (noBarco(st, 'teshka') ? T('Teshka é a primeira a entender, e para de limpar a faca. — Esse é o canal da galera.', 'Teshka is the first to understand, and stops cleaning her knife. — That’s the galley’s channel.')
-          : noBarco(st, 'maru') ? T('Maru é o primeiro a entender, e para de cantar. — Esse é o canal da galera, Madrinha.', 'Maru is the first to understand, and stops singing. — That’s the galley’s channel, Godmother.')
-            : noBarco(st, 'brann') ? T('Brann é o primeiro a entender, e ri pelo canto da boca. — Esse é o canal da galera.', 'Brann is the first to understand, and laughs out of the side of his mouth. — That’s the galley’s channel.')
+        (st) => (noBarco(st, 'teshka') ? T('A faca da Teshka para no meio da lâmina. Ela olha a água, depois a mim. — Por este canal passa a galera. A senhora sabe disso.', 'Teshka’s knife stops halfway down the blade. She looks at the water, then at me. — The galley comes through this channel. You know that.')
+          : noBarco(st, 'maru') ? T('A canção do Maru acaba no meio de um verso, e ele não recomeça. — Madrinha. Por aqui passa a galera.', 'Maru’s song breaks off in the middle of a line, and he doesn’t start it again. — Godmother. The galley comes this way.')
+            : noBarco(st, 'brann') ? T('Brann ri pelo canto da boca e começa a contar as setas da aljava. — Então é por isso que a senhora paga bem.', 'Brann laughs out of the side of his mouth and starts counting the bolts in his quiver. — So that’s why you pay so well.')
               : T('Lio não entende. Nhalé entende por ele e bate na quilha com força, de baixo.', 'Lio doesn’t understand. Nhalé understands for him and knocks hard on the keel from below.')),
-        se((st) => noBarco(st, 'maru') && st.escolhas.n_maru === 'doce', T('Maru olha para mim com o olho branco, o que ainda enxerga um pouco. Eu disse a ele que conhecia os recifes. Ele não canta mais.', 'Maru looks at me with his white eye, the one that still sees a little. I told him I knew the reefs. He doesn’t sing anymore.')),
+        se((st) => noBarco(st, 'maru') && st.escolhas.n_maru === 'doce', T('Maru me olha com o olho branco, o que ainda enxerga um pouco. Eu disse a ele que conhecia os recifes.', 'Maru looks at me with his white eye, the one that still sees a little. I told him I knew the reefs.')),
         (st) => (sabe(st, 'rota') ? T('Em Alvena me contaram nove dias. Hoje é o nono.', 'In Alvena they told me nine days. Today is the ninth.')
           : T('Não sei o dia da galera. Esperamos três noites no canal, com o barco parado no caminho dela. Na terceira, a tripulação não dorme e não olha para mim.', 'I don’t know the galley’s day. We wait three nights in the channel, the boat sitting in her path. On the third, the crew doesn’t sleep and doesn’t look at me.')),
       ] },
@@ -374,7 +382,7 @@
       texto: [
         T('Um gancho me puxa para o convés da Sentença. Deixo o corpo mole, a boca entreaberta, um olho meio fechado.', 'A hook drags me onto the Sentence’s deck. I let my body go slack, mouth half open, one eye half shut.'),
         V('D10', T('Estou morta. Os mortos têm toda a paciência do mundo.', 'I am dead. The dead have all the patience in the world.')),
-        (st) => (st.f.miraOuvido ? T('A moça da janela da Ondina tinha razão: na frente de morto, soldado conta tudo.', 'The girl at Ondina’s window was right: in front of the dead, a soldier tells everything.') : T('Na frente de morto, soldado não baixa a voz.', 'In front of the dead, a soldier doesn’t lower his voice.')),
+        (st) => (st.f.miraOuvido ? T('A Mira, da janela da Ondina, tinha razão: na frente de morto, soldado conta tudo.', 'Mira, at Ondina’s window, was right: in front of the dead, a soldier tells everything.') : T('Na frente de morto, soldado não baixa a voz.', 'In front of the dead, a soldier doesn’t lower his voice.')),
       ],
       minijogo: 'morta', jogoId: 'morta',
       depois: (st) => {

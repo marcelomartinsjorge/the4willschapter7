@@ -136,6 +136,22 @@ O plano está em `CAP7_REESCRITA_v3_PLANO.md`. Esta seção diz o que entrou no 
 - **Mídias novas:** a §7 do `MIDIAS_CAP7.md` traz 6 imagens, o vídeo da onda e as falas D20 a D23.
 - **Testes:** 15 partidas automáticas passaram por todos os caminhos novos (motim com lâmina e com razão para ficar, Nhalé salvando, os três jeitos de abrir os olhos), sem erro de script e sem arquivo faltando além dos novos.
 
+## v3.2 · Feedback de leitura (10/11)
+- **Respiro depois de Alvena:** a a11 virou uma noite calma. Ela tira o rosto da Iska, senta com os pés na água, e o que ouviu em Alvena vira plano na boca dela ("Nove dias, no Canal das Garças. Sei onde esperar."). O recrutamento foi para uma página própria (a11b). O "depois" de Alvena ficou com uma linha só.
+- **Três tripulantes, com motivo:** "O barco tem quatro lugares, e o quarto é meu."
+- **b01 sem "é o primeiro a entender":** a faca da Teshka para no meio da lâmina, a canção do Maru acaba no meio de um verso, e o Brann começa a contar as setas.
+- **Carcereiros reconhecíveis:** cada um tem nome e som num parágrafo próprio, entra na Coleção com rosto quando aparece, e as opções mostram o rosto de cada um.
+- **"A cada tantas horas"** virou "de tempos em tempos, sem hora certa".
+- **A Laura sem dossiê:** cada coisa que ela sabe sai de algo que vê na Laura (ela não traz papel, tem pulsos finos para mãos com calos, uma faixa de luto no braço, senta na ponta do banco, olha as moedas da saia). A ligação com a moeda ficou explícita ("a moeda que o menino me deu"), com o tilintar da moeda.
+- **As duas frases:** depois da D23 entra "Volte e ponha a Orla de joelhos. Quero ouvir isso da boca dela." No interrogatório, a frase de ouro tem o rótulo "o que eu quero ouvir da boca dela" e a vermelha tem "o que ela vai concluir de mim". Nas noites, o rótulo é "o que eu quero ouvir dessa boca". A frase que ela carrega desde o fundo continua só no alto da tela, fora dos jogos.
+- **O que a Laura conta:** em c05, "Agora sei o que ela contava desde a porta: as minhas orelhas."
+- **A Mira pelo nome:** em b05 e na estalagem.
+- **As três noites:**
+  - antes de escolher o alvo, ela diz o objetivo e quantas frases dela já andam pela cidade;
+  - de manhã, a frase da noite aparece concreta na boca dos pequenos (inteira ou pela metade);
+  - a Sala dos Mapas diz por onde a leitura começou e onde terminou, e por que o conselho reagiu daquele jeito.
+- **Correção:** quando ela mata o Edric e lê os papéis com a voz dele, o texto agora diz "eu leio" (antes saía "eu mesma, com a voz do Edric, lê").
+
 ## v3.1 · Passe de voz da Madrinha e mídias da reescrita (10/11)
 - **Mídias instaladas:** as 6 imagens da §7 (o cais, as oferendas, a moeda, a Iska, os olhos e a casa da Ondina), o vídeo da onda, as falas D20 a D23 e as versões novas de `d02-cisterna.mp4` e `b07-carroca.mp4`. O capítulo não tem mais nenhuma mídia faltando.
 - **A onda:** o vídeo foi cortado em 6,9 s, porque o fim original escurece. Agora ele entra junto com o recuo do mar (1,9 s depois do toque), o rugido toca quando a parede de água sobe e o branco entra quando a espuma cobre a tela.
