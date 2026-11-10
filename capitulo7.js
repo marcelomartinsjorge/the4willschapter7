@@ -537,7 +537,7 @@ window.LIVRO = {
     { id: 'p1', parte: T('I · A Água', 'I · The Water'), zona: 'fundo', agua: 1, fundo: { img: IMG('a01-fundo'), dim: .55, clima: 'bolhas' },
       cartao: { num: T('Parte I', 'Part I'), nome: T('A Água', 'The Water'), epigrafe: T('Quem sobe do fundo não deve explicação a quem ficou no barco.', 'Whoever rises from the deep owes no explanation to those who stayed in the boat.'), fonte: T('dito de Nove Mastros', 'saying of Nine Masts') } },
 
-    { id: 'a01', zona: 'fundo', agua: 1, frase: 'nasce', fundo: { img: IMG('a01-fundo'), dim: .4, clima: 'bolhas', foco: '55% 45%' },
+    { id: 'a01', zona: 'fundo', agua: 1, frase: 'nasce', fundo: { video: VID('a01-fundo'), img: IMG('a01-fundo'), dim: .4, clima: 'bolhas', foco: '55% 45%' },
       texto: [
         T('Abro os olhos debaixo d’água e respiro. Aqui embaixo respirar é macio: a água entra fria e sai morna.', 'I open my eyes under the water and breathe. Down here breathing is soft: the water goes in cold and comes out warm.'),
         T('Lá em cima a luz se quebra em pedaços. Em volta de mim, moças de cauda nadam em roda e cantam. Param quando me veem de olhos abertos.', 'Up above, the light breaks into pieces. Around me, girls with tails swim in a ring and sing. They stop when they see my eyes open.'),
@@ -609,7 +609,7 @@ window.LIVRO = {
           resultado: [T('A lâmina sai da minha manga e volta. A ponte balança um pouco e para. A água embaixo da cidade aceita o que eu dou a ela.', 'The blade leaves my sleeve and comes back. The bridge sways a little and stops. The water under the city takes what I give it.')] },
       ] } },
 
-    { id: 'a08', zona: 'cais', agua: .5, fundo: { img: IMG('a08-metamorfose'), dim: .4, foco: '60% 40%' },
+    { id: 'a08', zona: 'cais', agua: .5, fundo: { video: VID('a08-metamorfose'), img: IMG('a08-metamorfose'), dim: .4, foco: '60% 40%' },
       texto: [
         T('Fecho os olhos e penso na Iska: a risada, o raio no braço, o peso todo numa perna só.', 'I close my eyes and think of Iska: the laugh, the lightning on her arm, all her weight on one leg.'),
         V('D06', T('A pele puxa. As escamas entram uma por uma, como dentes de pente. As orelhas se dobram e colam no crânio, e o mundo fica seco e alto. Minha boca muda de tamanho.', 'My skin pulls. The scales sink in one by one, like the teeth of a comb. My ears fold and press flat to my skull, and the world goes dry and loud. My mouth changes size.')),
@@ -714,7 +714,7 @@ window.LIVRO = {
         se((st) => !!st.f.rotaSentenca, T('O menino da água de Alvena contou nove dias. Hoje é o nono.', 'The water boy in Alvena counted nine days. Today is the ninth.')),
       ] },
 
-    { id: 'b02', zona: 'galera', agua: .7, fundo: { img: IMG('b02-sentenca'), dim: .4, foco: '60% 45%' },
+    { id: 'b02', zona: 'galera', agua: .7, fundo: { video: VID('b02-sentenca'), img: IMG('b02-sentenca'), dim: .4, foco: '60% 45%' },
       texto: [
         T('A Sentença aparece no fim da tarde. Três mastros, um costado de madeira escura e duas fileiras de besteiros no convés. Ao lado dela, o nosso barco é uma casca de noz.', 'The Sentence appears at the end of the afternoon. Three masts, a hull of dark timber, and two rows of crossbowmen on deck. Beside her, our boat is a nutshell.'),
         T('A tripulação implora para virar. Eu quero ser vista.', 'The crew begs to turn back. I want to be seen.'),

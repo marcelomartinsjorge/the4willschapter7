@@ -104,13 +104,11 @@ ri sozinho | Joseph
   - o cabelo da Laura agora está solto;
   - "ela fala para quem está atrás dela" (antes era "o homem", que estava errado na rota da Justine);
   - a fala do Maru depois de "Conheço" ficou clara.
-- **Sem vídeo, usando só a imagem:** a01-fundo, a08-metamorfose e b02-sentenca. Se você fizer os vídeos, volte o `video: VID(...)` dessas três páginas em `_parts/d_pag1.js`.
-- **Rostos que faltam** (aparece a silhueta): capa (a moça da capa roxa), capitao, desertor, grisalho, hobb, padre, pedagio. O arquivo `capa.png` que chegou era a capa do capítulo e foi para `assets/images/capa.jpg`.
+- **Entregues depois (10/11):** os vídeos a01-fundo, a08-metamorfose e b02-sentenca, e os rostos capa, capitao, desertor, grisalho, hobb, padre e pedagio. O Maru foi refeito.
+- **Não falta mais nenhum rosto, vídeo ou imagem** da lista do capítulo.
 - **Refazer se quiser (◻):**
   - `a07-iska`: a marinheira parece um rapaz, e o texto diz "uma marinheira";
-  - `rostos/maru`: o piloto parece uma senhora;
-  - `d02-cisterna.mp4`: só tem 640×360 e fica mole em tela cheia;
-  - `b02-sentenca`: tem "REDOM" escrito no casco.
+  - `d02-cisterna.mp4`: só tem 640×360 e fica mole em tela cheia (é o único; os outros estão em 1280×720);
 
 ## Pendências
 - As mídias que faltam estão listadas em v1.1, acima. O capítulo funciona sem elas.
