@@ -150,8 +150,10 @@ function NOITE(k) {
   const metade = (f) => { const w = f.replace(/[.!?]+$/, '').split(' '); return w.slice(0, Math.ceil(w.length / 2)).join(' ') + '…'; };
   const ECO = (st) => {
     const r = J(st, 'noite' + (k - 1)).resultado || 'nada', f = fraseDe(st, k - 1);
-    if (r === 'cheia') return T('Na fila do pão, uma moça diz para outra: «' + f + '» Ontem à noite, só uma pessoa tinha dito isso. Dita pela cidade, parece ideia da cidade.',
-      'In the bread line, one girl says to another: «' + en(f) + '» Last night only one person had said it. Said by the city, it sounds like the city’s idea.');
+    if (r === 'cheia') return k === 2 ? T('Na fila do pão, uma moça diz para outra: «' + f + '» Ontem à noite, só uma pessoa tinha dito isso. Dita pela cidade, parece ideia da cidade.',
+      'In the bread line, one girl says to another: «' + en(f) + '» Last night only one person had said it. Said by the city, it sounds like the city’s idea.')
+      : T('Na fonte da praça, uma criada diz para outra: «' + f + '» Ontem à noite, só uma pessoa tinha dito isso. Agora é a cidade que diz.',
+        'At the square’s fountain, one maid says to another: «' + en(f) + '» Last night only one person had said it. Now it is the city saying it.');
     if (r === 'meia') return T('Na boca de um guarda, ouço metade da frase de ontem: «' + metade(f) + '» A outra metade ficou com quem eu não terminei.',
       'In a guard’s mouth I hear half of last night’s sentence: «' + metade(en(f)) + '» The other half stayed with the one I didn’t finish.');
     return k === 2 ? T('Na fila do pão ninguém repete nada da noite passada. A cidade cheira a cal e a pão, e eu tenho uma noite a menos.', 'In the bread line no one repeats anything from last night. The city smells of lime and bread, and I have one night fewer.')
@@ -256,9 +258,9 @@ function NOITE(k) {
       escolha: { id: 'masc' + k, pergunta: T('Quem eu vou ser lá dentro?', 'Who will I be in there?'), opcoes: Object.keys(ROT).map((id) => ({
         id, gesto: true, se: (st) => (MASC[alvo(st)] || []).includes(id) && (PASSAGEM.includes(id) || tem(st, id)), txt: ROT[id],
         aoEscolher: (st) => { if (PASSAGEM.includes(id) && !tem(st, id)) st.colecao.push(id); },
-        resultado: [T('O rosto de {MASC} eu já tenho. A roupa ainda está no corpo do dono, e é com ela que se passa por uma porta.', '{MASC}’s face I already have. The clothes are still on their owner, and it is the clothes that get you through a door.')] })) } },
+        resultado: [T('O rosto de {MASC} eu guardei de dia. Falta a roupa.', 'I kept {MASC}’s face by day. The clothes are still missing.')] })) } },
     { id: 'n' + k + 's', noite: k, zona: 'noite', agua: 0, sal: .32 + k * .08, fundo: { img: IMG('n-noite' + k), dim: .6, clima: k === 2 ? 'chuva' : null },
-      texto: [T('O rosto da hóspede não sai de noite: a Capital já viu a hóspede da Lâmina andar com o guarda atrás. Para chegar perto de {MASC}, subo por um bueiro com outra.', 'The guest’s face doesn’t go out at night: the Capital has seen the Blade’s guest walking with the guard behind her. To get close to {MASC}, I come up through a drain wearing another.')],
+      texto: [T('Para chegar perto de {MASC}, subo por um bueiro com outra cara.', 'To get close to {MASC}, I come up through a drain in another face.')],
       escolha: { id: 'saida' + k, pergunta: T('Com que rosto eu saio?', 'Which face do I go out in?'), opcoes: [
         { id: 'bento', gesto: true, txt: T('O do Bento, o menino aguadeiro. Entra em qualquer casa com a água e sai sem que lembrem dele. Serve para levar e para mentir.', 'Bento’s, the water boy. He goes into any house with the water and leaves without being remembered. Good for taking, and for lying.'),
           resultado: [{ t: T('Penso no Bento até a pele obedecer. Fico pequena, de joelho ralado, com um balde da fonte.', 'I think of Bento until my skin obeys. I turn small, with a scraped knee and a bucket from the fountain.'), veste: 'bento' }] },

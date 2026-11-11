@@ -313,3 +313,34 @@ Três rotas lidas do começo ao fim (Maru/Lio/Brann; Teshka/Nhalé/Brann com mot
 - **O interrogatório:** a Madrinha precisa convencer a Laura de três coisas (o poder, a influência, e o que ela ganha), e a página antes diz isso. Nova pergunta do motivo; nova prova de influência (os mortos do canal, filhos das três casas). A Laura só solta com as duas chaves e ouro; a morte diz o que faltou. A proposta da Laura devolve o motivo da Madrinha.
 - Correção de português no {MASC}: "de o sargento" virou "do sargento", "em um guarda" virou "num guarda".
 - Retratos novos pedidos no MIDIAS (Bento, Lume); até chegarem, cópias do aguadeiro e da Mira.
+
+## v5.6 · 11/11/2026 · auditoria em três camadas (continuidade, causalidade, escrita)
+Pedido do autor: não inventar sistema nem conteúdo novo, tentar quebrar a lógica do capítulo ("como ela sabe disso?", "quando isso aconteceu?", "por que essa pessoa reage assim?"). Três rotas lidas inteiras, todas as falas do interrogatório e os métodos das noites relidos.
+
+**Aprovado pelo autor e aplicado**
+- **A passagem (t06, t06b, d02):** o quarto agora é no térreo do templo, com chão de laje (antes ficava "em cima do templo", e não havia terra embaixo da laje para cortar). Toda noite a água empurra a laje por baixo e desfaz a lama; antes do sol, assenta e fecha a junta. Sem escada: a água a desce e a sobe. Antes de o guarda abrir, ela passa as mãos pelo corpo e a água desce pelas frestas: "Deito seca."
+- **O motivo da Laura (c03b):** Redom brigou com os Grakh pela terra boa a vida inteira; sem guerra em terra, olhou para o mar, e quem olhou primeiro foi a Laura (Alvena, galera na frente de cada aldeia, pirata na forca, conjurador vivo para ela). O pessoal fica com a Laura: na escada, os carcereiros falam que ela pediu os mapas da Boca Seca e que quem matou o irmão ficou lá. A D23 (o deserto e a costa) segue intacta e agora fecha as duas coisas.
+- **O interrogatório:** a pergunta-armadilha que o Wim avisa ("ela pergunta o que já sabe"): que casa da Orla vendeu a rota do Canal das Garças. A verdade, com uma ponta ("foi a sua prata que pagou"), passa; "nenhuma casa vende a Orla" e "não sei" são mentira, as orelhas falam, e a Laura tem o recibo. O corpo dela mostra cada chave: influência, "ela para de olhar para as minhas orelhas; agora só escuta"; motivo, "pela primeira vez, ela sai da ponta do banco". As reações genéricas deixaram de repetir o que as respostas já diziam (o "inclina para a frente" duplicado, a mão na espada duplicada). A ajuda do minijogo não lista mais as duas chaves: diz que ela pergunta o que já sabe e que o corpo dela mostra quando acredita. Limiar de ouro 8 (sete perguntas agora).
+- **As noites:** ficam como estão (o autor: só consequência que afete a história).
+
+**Continuidade (achados e correções)**
+- A **faca** que sai da manga (Iska, motim) não tinha origem: na fila do cais, um velho deixa uma faca de escamar; uma tecelã traz o vestido e a **capa roxa** que ela troca com a moça no mercado (d01s).
+- **Maru** "para de cantar" sem nunca ter cantado: agora "cantou baixo a viagem toda".
+- **"Amanhã"** nas ordens da véspera do canal, quando a espera pode durar três noites: virou "quando ela vier", "quando os outros quiserem voltar", "quando a galera encostar".
+- **Clarividência no canal (a12m):** a água mostrava "onde a galera vai estar amanhã". Agora mostra o único fundo que cabe uma galera de três mastros, e onde ela tem largura para virar.
+- **O preço da costa:** Dunstan, Laura e o cartão diziam três contas diferentes. Agora uma só: cada galera parada custa o imposto de uma aldeia por ano.
+- **O pai da Laura** "morreu nas Goelas" (Sir Joseph): virou "no deserto", para não brigar com a morte dele no Cap. V.
+- **A Laura "enforcou feiticeiras em Alvena"** contradizia a regra de Redom (conjurador vai vivo para ela): agora "os conjuradores que sentaram na frente deste banco antes de você".
+- **"Os corpos tinham as marcas das três casas":** a tripulação pode ter gente sem casa (o Brann). Agora "casas diferentes", dito pelo guarda da porta (na rota do Markus não havia pena atrás dela: entrou um escrivão velho ao lado dele).
+- **"Espião há vinte anos":** Redom só domina a Orla desde a Laura; agora "desde que tomou Alvena".
+- **A Mira** "disse" como os de Redom dormem: nunca disse. Linha retirada.
+- **A volta à Orla** "cumpre a palavra dela": a palavra era ficar na Capital até ela voltar. Agora a Laura não quer a hóspede na Capital sem ela.
+- **A lavadeira mandada para a coluna** ("Eu acho você lá") não aparecia mais: na fila dos odres, ela deixa um odre cheio a mais junto do pé da Madrinha.
+- **"De dia, a cara é minha, mas presa"**: prepara a D16 ("tiro o rosto do dia"), que de outro jeito não fazia sentido para quem anda de dia com a própria cara.
+- **O sargento da Ala Funda** virou "o sargento da guarda", para não confundir com o da Sentença.
+
+**Escrita**
+- Saíram os fechos de máxima: "Redom pensou na magia. Não pensou em peixe."; "Por enquanto."; "vergonha cala a boca de um homem melhor que qualquer ordem".
+- Saiu a regra recitada nas noites ("é com ela que se passa por uma porta") e a explicação repetida da cara da hóspede: agora "O rosto de {MASC} eu guardei de dia. Falta a roupa." e "subo por um bueiro com outra cara".
+- O eco do terceiro dia muda de lugar e de boca (a fonte da praça, uma criada), para não repetir a fila do pão.
+- A trégua não "põe a marca" duas vezes quando alguém já assinou na mesa: "a folha tem a marca de…".

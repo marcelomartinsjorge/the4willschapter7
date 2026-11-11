@@ -89,6 +89,7 @@
         T('De manhã tem fila na prancha do navio. Cada um traz uma moeda e um pedido, e diz o pedido baixo, perto do meu ouvido, como se o resto do cais não estivesse escutando.', 'In the morning there is a line at the ship’s gangplank. Each one brings a coin and a request, and says the request low, close to my ear, as if the rest of the dock weren’t listening.'),
         T('Um pescador quer Alvena de volta, porque o peixe dele apodrece sem porto. Uma mãe quer o filho que a Sentença levou para remar nas galeras. Um rapaz quer que a moça do barco vizinho olhe para ele, e fica vermelho até a ponta das orelhas.', 'A fisherman wants Alvena back, because his fish rots without a port. A mother wants the son the Sentence took to row in the galleys. A young man wants the girl on the next boat to look at him, and goes red to the tips of his ears.'),
         T('Escuto cada um de olhos fechados e não prometo nada. Eles saem da fila achando que eu prometi.', 'I listen to each of them with my eyes closed and promise nothing. They leave the line thinking I did.'),
+        T('Nem todos trazem moeda. Uma tecelã traz um vestido e uma capa, os dois tingidos de roxo, e me veste ali mesmo, na prancha. Um velho deixa no degrau uma faca de escamar, fina como folha, e não pede nada. A faca vai para a manga.', 'Not all of them bring coins. A weaver brings a dress and a cloak, both dyed purple, and dresses me right there on the gangplank. An old man leaves a scaling knife on the step, thin as a leaf, and asks for nothing. The knife goes into my sleeve.'),
       ],
       escolha: { id: 'oferendas', pergunta: T('Como eu recebo?', 'How do I receive them?'), opcoes: [
         { id: 'nomes', gesto: true, tom: 'seduzir', aviso: AV.orla, txt: T('Tocar a testa de cada um e perguntar o nome, perto do ouvido.', 'Touch each forehead and ask the name, close to the ear.'),
@@ -221,16 +222,16 @@
       texto: [
         T('Maru não larga o leme, então sou eu que vou até ele.', 'Maru won’t let go of the tiller, so I go to him.'),
         G('maru', T('Um dos olhos dele é branco. Quando fala comigo, vira esse lado para mim, como se fosse o lado que me vê melhor.', 'One of his eyes is white. When he speaks to me, he turns that side toward me, as if it were the side that sees me best.')),
-        T('— Amanhã você leva o barco pelo canal, de dia, à vista dela — digo. — E quando ela virar o costado, você vira o nosso de lado.', '— Tomorrow you take the boat through the channel, by day, in her sight — I say. — And when she turns her side, you turn ours broadside.'),
-        T('Ele demora. — Pelo canal, Madrinha? De dia? A minha mãe dizia que a Madrinha ensinou o primeiro barco a mentir para o vento. Não a ir de peito aberto contra ele.', 'He takes his time. — Through the channel, Godmother? By day? My mother used to say the Godmother taught the first boat to lie to the wind. Not to go chest-first against it.'),
+        T('— Quando ela vier, você põe o barco no meio do canal, à vista dela — digo. — E quando ela virar o costado, você vira o nosso de lado.', '— When she comes, you put the boat in the middle of the channel, in her sight — I say. — And when she turns her side, you turn ours broadside.'),
+        T('Ele demora. — No meio do canal, Madrinha? À vista? A minha mãe dizia que a Madrinha ensinou o primeiro barco a mentir para o vento. Não a ir de peito aberto contra ele.', 'He takes his time. — Mid-channel, Godmother? In plain sight? My mother used to say the Godmother taught the first boat to lie to the wind. Not to go chest-first against it.'),
       ],
       escolha: { id: 'n_maru', opcoes: [
         { id: 'doce', gesto: true, tom: 'seduzir', aviso: AV.maru, aoEscolher: ganha('maru', 2), txt: T('Encostar atrás dele, com a boca perto da orelha do lado branco.', 'Lean against his back, my mouth close to the ear on his white side.'),
           resultado: [T('— Eu não minto para o vento, Maru. Ele é que acredita em mim.', '— I don’t lie to the wind, Maru. It believes me.'),
             T('Ele fica imóvel, sem respirar, até eu me afastar. Depois amarra um pano branco no leme, para achar o lado certo sem olhar, e treina a virada no escuro até o sol.', 'He goes still, not breathing, until I move away. Then he ties a white rag to the tiller, to find the right side without looking, and practices the turn in the dark until sunrise.')] },
         { id: 'divertida', gesto: true, tom: 'manipular', aviso: AV.maru, aoEscolher: ganha('maru', 1), txt: T('Pôr a mão na água e deixar o mar mostrar a ele.', 'Put my hand in the water and let the sea show him.'),
-          resultado: [T('Debaixo do barco, a água acende em fio. Um caminho claro entre as pedras, que vai longe, até onde a galera vai estar amanhã.', 'Beneath the boat, the water lights up in a thread. A clear path between the rocks, running far, all the way to where the galley will be tomorrow.'),
-            T('— Por aqui ela vem — digo. — E aqui ela vira.', '— She comes this way — I say. — And here she turns.'),
+          resultado: [T('Debaixo do barco, a água acende em fio. Um caminho claro entre as pedras, o único fundo bastante para uma galera de três mastros.', 'Beneath the boat, the water lights up in a thread. A clear path between the rocks, the only deep water enough for a three-masted galley.'),
+            T('— Ela só cabe por aqui — digo. — E só aqui tem largura para virar.', '— She only fits through here — I say. — And only here is there room to turn.'),
             T('Ele olha o fio de luz até apagar. Não fala mais dos recifes.', 'He watches the thread of light until it fades. He doesn’t mention the reefs again.')] },
         { id: 'fria', fala: true, tom: 'intimidar', aviso: AV.maru, txt: T('Sua mãe também dizia que a Madrinha lembra de quem não pagou.', 'Your mother also used to say the Godmother remembers who didn’t pay.'),
           resultado: [T('Ele tira uma moeda do bolso e joga no mar sem pensar, como fazia em menino. Não discute mais.', 'He takes a coin from his pocket and throws it into the sea without thinking, the way he did as a boy. He doesn’t argue again.'),
@@ -245,11 +246,11 @@
       escolha: { id: 'n_lio', opcoes: [
         { id: 'doce', gesto: true, tom: 'seduzir', aviso: AV.lio, aoEscolher: ganha('lio', 1), txt: T('Pôr a mão no peito dele, em cima do coração, até ele parar de tremer.', 'Lay my hand on his chest, over his heart, until he stops trembling.'),
           resultado: [T('Demora. Quando para, eu tiro a mão.', 'It takes a while. When it stops, I take my hand away.'),
-            T('— Amanhã, quando os outros quiserem voltar, você rema para a galera — digo. — Só você.', '— Tomorrow, when the others want to turn back, you row toward the galley — I say. — Only you.'),
+            T('— Quando os outros quiserem voltar, você rema para a galera — digo. — Só você.', '— When the others want to turn back, you row toward the galley — I say. — Only you.'),
             T('Ele dorme sentado no banco, com as mãos já no cabo do remo.', 'He sleeps sitting on the bench, his hands already on the oar.')] },
         { id: 'divertida', gesto: true, tom: 'manipular', aviso: AV.lio, aoEscolher: ganha('lio', 2), txt: T('Estender a mão sobre a cabeça dele.', 'Hold my hand out over his head.'),
           resultado: [T('A água do mar sobe pela borda num fio, passa por cima do barco e cai sobre ele em gotas finas. Ele lambe a boca. Não tem sal.', 'The seawater climbs the side in a thread, passes over the boat, and falls on him in fine drops. He licks his lips. There is no salt.'),
-            T('— Amanhã, quando os outros quiserem voltar, você rema para a galera — digo. — Depois, chove.', '— Tomorrow, when the others want to turn back, you row toward the galley — I say. — Afterward, it rains.'),
+            T('— Quando os outros quiserem voltar, você rema para a galera — digo. — Depois, chove.', '— When the others want to turn back, you row toward the galley — I say. — Afterward, it rains.'),
             T('Ele acredita nas duas coisas do mesmo jeito.', 'He believes both things the same way.')] },
         { id: 'fria', fala: true, tom: 'intimidar', aviso: AV.lio, aoEscolher: ganha('lio', 1), txt: T('Que você reme. Quando os outros quiserem voltar, você rema mais forte.', 'That you row. When the others want to turn back, you row harder.'),
           resultado: [T('Ele faz que sim antes de entender. Depois entende, e faz que sim outra vez, mais devagar.', 'He nods before he understands. Then he understands, and nods again, more slowly.'),
@@ -264,9 +265,9 @@
       escolha: { id: 'n_teshka', opcoes: [
         { id: 'fria', fala: true, tom: 'intimidar', aviso: AV.teshka, flag: 'teshkaGalera', aoEscolher: ganha('teshka', 1), txt: T('O mar ficou com ele porque ele era o melhor. Você está neste barco pelo mesmo motivo.', 'The sea kept him because he was the best. You are on this boat for the same reason.'),
           resultado: [T('A faca para. Ela entende o que é ser dada ao mar e se endireita como quem foi chamada pelo nome.', 'The knife stops. She understands what it is to be given to the sea, and straightens like someone called by name.'),
-            T('— Então amanhã, quando a galera encostar, eu subo primeiro — diz.', '— Then tomorrow, when the galley comes alongside, I go up first — she says.')] },
+            T('— Então, quando a galera encostar, eu subo primeiro — diz.', '— Then when the galley comes alongside, I go up first — she says.')] },
         { id: 'doce', gesto: true, tom: 'seduzir', aviso: AV.teshka, flag: 'teshkaGalera', aoEscolher: ganha('teshka', 1), txt: T('Pôr os dedos molhados no queixo dela e levantar o rosto até o meu.', 'Put my wet fingers under her chin and lift her face to mine.'),
-          resultado: [T('— Agora eu vim — digo. — Amanhã, quando a galera encostar, você sobe primeiro. Eu vou estar olhando.', '— Now I have come — I say. — Tomorrow, when the galley comes alongside, you go up first. I will be watching.'),
+          resultado: [T('— Agora eu vim — digo. — Quando a galera encostar, você sobe primeiro. Eu vou estar olhando.', '— Now I have come — I say. — When the galley comes alongside, you go up first. I will be watching.'),
             T('Ela aguenta o olhar mais do que qualquer um no barco. Depois guarda a faca, tira o gancho de abordagem de baixo do banco e passa a noite enrolando a corda no braço.', 'She holds my gaze longer than anyone on the boat. Then she sheathes the knife, pulls the boarding hook from under the bench, and spends the night winding the rope around her arm.')] },
         { id: 'divertida', fala: true, tom: 'manipular', aviso: AV.teshka, flag: 'teshkaGalera', aoEscolher: ganha('teshka', 2), txt: T('Quem prometeu Alvena da outra vez?', 'Who promised Alvena the last time?'),
           resultado: [T('— Ossian — diz ela, e cospe o nome na água. — Mandou o meu marido na frente e ficou atrás, olhando.', '— Ossian — she says, and spits the name into the water. — Sent my husband in front and stayed behind, watching.'),
@@ -316,7 +317,7 @@
       texto: [
         T('No segundo dia, o Canal das Garças. Paredes de pedra dos dois lados e água funda no meio, por onde a galera passa. Mando baixar a vela e esperar à vista.', 'On the second day, the Heron Channel. Stone walls on both sides and deep water down the middle, where the galley passes. I order the sail lowered and we wait in plain sight.'),
         (st) => (noBarco(st, 'teshka') ? T('Teshka testa o gancho de abordagem no banco e não olha para mim.', 'Teshka tests the boarding hook against the bench and doesn’t look at me.')
-          : noBarco(st, 'maru') ? T('Maru põe o barco no meio do canal, onde qualquer vigia vê, e para de cantar.', 'Maru brings the boat to the middle of the channel, where any lookout can see, and stops singing.')
+          : noBarco(st, 'maru') ? T('Maru, que cantou baixo a viagem toda, põe o barco no meio do canal, onde qualquer vigia vê, e para de cantar.', 'Maru, who has sung under his breath the whole voyage, brings the boat to the middle of the channel, where any lookout can see, and stops singing.')
             : noBarco(st, 'brann') ? T('Brann ri pelo canto da boca e põe a seta mais reta em cima do joelho. — Então é isso. A senhora quer que ela veja a gente.', 'Brann laughs out of the side of his mouth and lays his straightest bolt across his knee. — So that’s it. You want her to see us.')
               : T('Lio não entende. Nhalé entende por ele e bate na quilha com força, de baixo.', 'Lio doesn’t understand. Nhalé understands for him and knocks hard on the keel from below.')),
         (st) => (sabe(st, 'rota') ? T('Em Alvena me contaram nove dias. Hoje é o nono.', 'In Alvena they told me nine days. Today is the ninth.')

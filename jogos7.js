@@ -350,12 +350,15 @@ function interrogatorio(root, c) {
       ops.querySelectorAll('button').forEach((b) => { b.disabled = true; });
       A.escolha(); c.registrar('lamina_' + i, o.id); st.f['lam_' + o.id] = true;
       if (!o.silencio) linhas(log, ['— ' + c.sub(c.tr(val(o.txt, st)))], c, 'ela');
+      const novas = [].concat(o.flag || []).filter((k) => (cfg.chaves || []).includes(k) && !flags.includes(k));
       if (o.flag) flags.push(...[].concat(o.flag));
       setTimeout(() => {
         if (o.mente) { verm += 1; linhas(log, [cfg.orelhas], c, 'nota'); root.classList.remove('orelha'); void root.offsetWidth; root.classList.add('orelha'); }
         linhas(log, lista(o.resp, st), c);
         const rg = cfg.reage || {};
-        const reac = [(o.ouro || 0) >= 2 ? rg.ouro2 : (o.ouro || 0) === 1 ? rg.ouro1 : null, (o.verm || 0) >= 2 ? rg.verm2 : (o.verm || 0) === 1 && !o.mente ? rg.verm1 : null].filter(Boolean);
+        // o corpo dela: quando passa a acreditar numa das chaves, é isso que ele mostra; senão, o ouro e o vermelho
+        const reac = novas.length ? novas.map((k) => rg['chave_' + k]).filter(Boolean)
+          : [(o.ouro || 0) >= 2 ? rg.ouro2 : (o.ouro || 0) === 1 ? rg.ouro1 : null, (o.verm || 0) >= 2 ? rg.verm2 : (o.verm || 0) === 1 && !o.mente ? rg.verm1 : null].filter(Boolean);
         if (reac.length) setTimeout(() => linhas(log, reac, c, 'nota'), BOT() ? 5 : 900);
         ouro += o.ouro || 0; verm += o.verm || 0; pinta();
         // o vermelho cheio: a Laura diz a frase dela

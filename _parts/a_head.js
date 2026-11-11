@@ -76,7 +76,7 @@ const METODO = {
       lume: MR('meio', 'O Tam não acorda. Acorda o ajudante que dorme na baia do lado, e vê a Lume sair da baia do comandante. De manhã a estrebaria toda sabe.', 'Tam doesn’t wake. The helper sleeping in the next stall does, and sees Lume leave the commander’s stall. By morning the whole stable knows.'),
     },
     perto: {
-      lume: MR('meio', 'Ele tira a camisa sozinho, rindo, achando que tem sorte. Amanhã os outros cavalariços vão saber que a Lume desceu na baia dele, e vão rir. Por enquanto.', 'He takes off his shirt himself, laughing, thinking he’s in luck. Tomorrow the other grooms will know Lume came down to his stall, and they’ll laugh. For now.'),
+      lume: MR('meio', 'Ele tira a camisa sozinho, rindo, achando que tem sorte. Amanhã os outros cavalariços vão saber que a Lume desceu na baia dele, e vão rir, até alguém perguntar o que a Lume foi fazer na baia do cavalo do comandante.', 'He takes off his shirt himself, laughing, thinking he’s in luck. Tomorrow the other grooms will know Lume came down to his stall, and they’ll laugh, until someone asks what Lume was doing in the commander’s horse’s stall.'),
       bento: MR('meio', 'Acordo o Tam com o balde: o marechal quer o cavalo cinzento escovado antes do sol, e camisa suja na baia ele não aceita. O Tam me dá a camisa para lavar e vai escovar o cavalo de peito nu. O marechal vai perguntar por quê.', 'I wake Tam with the bucket: the marshal wants the grey horse groomed before sunrise, and won’t have a dirty shirt in the stall. Tam gives me the shirt to wash and goes to groom the horse bare-chested. The marshal will ask why.'),
     },
     matar: MR('errado', 'O feno abafa tudo. Mas antes do sol o marechal desce para ver o cavalo cinzento, como desce toda madrugada, e acha o rapaz.', 'The hay muffles everything. But before sunrise the marshal comes down to see the grey horse, as he does every morning, and finds the young man.'),
@@ -142,7 +142,7 @@ const METODO = {
       lume: MR('errado', 'A farda está no corpo dele, e ele acorda no segundo botão. Mulher pintada no quarto de um sargento vira briga, e a briga chama a ronda. Pulo a janela com a farda, e a ronda acha um sargento de ceroulas e uma história.', 'The uniform is on his body, and he wakes at the second button. A painted woman in a sergeant’s room turns into a brawl, and the brawl brings the watch. I leave by the window with the uniform, and the watch finds a sergeant in his drawers and a story.'),
     },
     perto: {
-      lume: MR('certo', 'Ele bebe sozinho depois do turno. Bebo com ele. Antes do fim da garrafa ele me dá a farda e a vergonha de amanhã, e vergonha cala a boca de um homem melhor que qualquer ordem.', 'He drinks alone after his watch. I drink with him. Before the bottle is done he gives me his uniform and tomorrow’s shame, and shame shuts a man’s mouth better than any order.'),
+      lume: MR('certo', 'Ele bebe sozinho depois do turno. Bebo com ele. Antes do fim da garrafa ele me dá a farda. Amanhã vai ter vergonha demais para contar a alguém.', 'He drinks alone after his watch. I drink with him. Before the bottle is done he gives me his uniform. Tomorrow he’ll be too ashamed to tell anyone.'),
       bento: MR('errado', 'Levo o recado: o quartel quer a farda dele para a revista. O Horne conhece todas as ordens do quartel, e essa não existe. Me segura pela orelha até eu morder a mão dele. Saio com a farda do cabide e um sargento gritando ladrão para a rua.', 'I bring the message: the barracks wants his uniform for inspection. Horne knows every order in the barracks, and that one doesn’t exist. He holds me by the ear until I bite his hand. I leave with the uniform from the peg and a sergeant shouting thief down the street.'),
     },
     matar: MR('meio', 'Espero por ele na volta do turno, numa rua sem luz. De manhã o quartel acha o sargento ali e culpa uma briga de bêbado. Alguém sabe que ele bebia sozinho.', 'I wait for him on his way back from the watch, in an unlit street. In the morning the barracks finds the sergeant there and blames a drunken brawl. Someone knows he drank alone.'),
@@ -281,7 +281,7 @@ const ALA_OPCOES = (filtro) => [
   { id: 'dunstan', de: 'dunstan', gesto: true, tom: 'manipular', txt: T('Soltar uma moeda da barra da saia e deixar perto da grade, onde ele vê.', 'Work a coin loose from my skirt’s hem and leave it by the bars, where he will see it.'),
     resultado: [T('Ouro velho, da Orla. Não digo nada. Na descida seguinte, a moeda some.', 'Old gold, from the Shore. I say nothing. On his next trip down, the coin is gone.'),
       T('Na outra, Dunstan para na frente da cela e conta as moedas do bolso em voz alta. Tem uma a mais.', 'On the next, Dunstan stops at the cell and counts the coins in his pocket out loud. There is one more.'),
-      T('— Sabe quanto custa uma galera parada na costa de vocês? Mais que uma aldeia por ano. Uma galera por aldeia. E a gente aqui com o soldo atrasado.', '— You know what a galley sitting off your coast costs? More than a village a year. A galley for every village. And us down here with our pay late.')] },
+      T('— Sabe quanto custa uma galera parada na costa de vocês? O imposto de uma aldeia, por ano. E tem uma galera parada na frente de cada aldeia. E a gente aqui com o soldo atrasado.', '— You know what a galley sitting off your coast costs? A whole village’s taxes, every year. And there’s a galley sitting off every village. And us down here with our pay late.')] },
 ].map((o) => (filtro ? Object.assign({ se: (st) => filtro(st, o.id) }, o) : o));
 
 // os avisos (estilo Telltale)
@@ -312,7 +312,7 @@ window.LIVRO_UI = {
       mao: 'Um toque. Você escolhe quando.',
       morta: 'Não se mexa. Quem se mexe para de ouvir.',
       anzol: 'A frase de ouro, no alto, é o que você quer ouvir da boca dele. A cada fala, escolha a sua: as palavras acendem quando ele chega perto. Dizer a frase você mesma apaga palavras.',
-      interrogatorio: 'A frase de ouro é o que você quer ouvir da boca dela. A vermelha é o que ela vai concluir de você. Cada resposta acende uma, a outra ou as duas. Mentira acende o vermelho, porque as orelhas falam. As respostas com um rosto vêm de alguém que você ouviu. Ela só solta quem a convence de duas coisas: que a Orla faz o que você manda, e o que você ganha entregando a Orla a Redom. Sem as duas, ou com pouco ouro, ela decreta a sua morte.',
+      interrogatorio: 'A frase de ouro é o que você quer ouvir da boca dela. A vermelha é o que ela vai concluir de você. Cada resposta acende uma, a outra ou as duas. Mentira acende o vermelho, porque as orelhas falam. As respostas com um rosto vêm de alguém que você ouviu. Ela pergunta coisas que já sabe. Leia o corpo dela: ele mostra quando ela começa a acreditar. Se não acreditar, ela decreta a sua morte.',
       ordem: 'Arraste os papéis para mudar a ordem, ou use as setas. Nenhuma palavra muda: só a ordem em que vão ser lidos.',
     },
     comecar: 'Toque para começar',
@@ -335,7 +335,7 @@ window.LIVRO_UI = {
       mao: 'One tap. You choose when.',
       morta: 'Don’t move. Whoever moves stops hearing.',
       anzol: 'The gold sentence at the top is what you want to hear from his mouth. At each line, choose yours: the words light up as he comes closer. Saying the sentence yourself puts words out.',
-      interrogatorio: 'The gold sentence is what you want to hear from her mouth. The red one is what she will conclude about you. Each answer lights one, the other, or both. A lie lights the red, because the ears talk. Answers with a face come from someone you listened to. She only lets go of someone who convinces her of two things: that the Shore does what you tell it, and what you gain by handing the Shore to Redom. Without both, or with too little gold, she orders your death.',
+      interrogatorio: 'The gold sentence is what you want to hear from her mouth. The red one is what she will conclude about you. Each answer lights one, the other, or both. A lie lights the red, because the ears talk. Answers with a face come from someone you listened to. She asks things she already knows. Read her body: it shows when she starts to believe. If she doesn’t believe, she orders your death.',
       ordem: 'Drag the papers to change the order, or use the arrows. No word changes: only the order in which they are read.',
     },
     comecar: 'Tap to begin',
