@@ -5,6 +5,7 @@
 
   // ---------------------------------------------------------------- os desvios: presa (três erros), a trégua que não saiu, o conselho que não ouviu
   desvio: (st, p) => {
+    if (p.id === 'c04' && J(st, 'interrogatorio').morte) return 'morte';
     if ((st.f.erros || 0) >= ERROS_MAX && !p.soDesvio) return 'presa';
     if (p.id === 't04' && (st.f.trChefes || 0) <= 1) return 'falhouTregua';
     if (p.id === 'n3o' && !convenceu(st)) return 'falhouConselho';
@@ -46,12 +47,11 @@
   resumo: (st, lang) => {
     const tr = (x) => (lang === 'en' && window.LIVRO_EN[x] != null ? window.LIVRO_EN[x] : x);
     const t = (pt) => window.LIVRO.subst(tr(pt), st, tr);
-    const tom = Object.entries(st.tom).sort((a, b) => b[1] - a[1])[0][0];
+    const tom = Object.entries(st.tom).filter(([k]) => ['seduzir', 'intimidar', 'manipular'].includes(k)).sort((a, b) => b[1] - a[1])[0][0];
     const frase = t({
-      doce: T('Ela mentiu com carinho do começo ao fim, e todos a quem ela mentiu ficaram agradecidos.', 'She lied tenderly from beginning to end, and everyone she lied to was grateful.'),
-      fria: T('Ela disse a verdade quase sempre. A verdade matou do mesmo jeito.', 'She told the truth nearly every time. The truth killed just the same.'),
-      cruel: T('Quando roubar bastava, ela matou.', 'Where stealing would have done, she killed.'),
-      divertida: T('Ela riu de tudo, inclusive da Lâmina. Os outros não riram junto.', 'She laughed at everything, the Blade included. The others didn’t laugh along.'),
+      seduzir: T('Ela chegou perto de cada um, e cada um deu a ela mais do que ela pediu. Ela não pediu nada.', 'She came close to each of them, and each gave her more than she asked. She asked for nothing.'),
+      intimidar: T('Ela disse em voz alta o que cada um escondia. Depois disso, deixaram de esconder.', 'She said out loud what each of them hid. After that, no one hid anything from her again.'),
+      manipular: T('Todos fizeram o que ela queria, e todos juram que a ideia foi deles.', 'They all did what she wanted, and they all swear the idea was theirs.'),
     }[tom]);
     const disf = st.escolhas.disfarce || 'estrebaria';
     const revela = {
@@ -73,7 +73,7 @@
     const pilares = [
       { titulo: t(T('A tripulação', 'The crew')),
         feito: (lang === 'en' ? 'You took ' : 'Você levou ') + lista(nomesTrip) + '. ' + (salvo(st) ? t(T('A Nhalé levou {ULT} para o fundo, vivo. Os outros, ', 'Nhalé carried {ULT} down to the deep, alive. The others, ')) : '') + (J(st, 'mao').quando === 'cedo' ? t(T('Quem os matou foi a água dela.', 'What killed them was her water.')) : t(T('Quem os matou foram as bestas de Redom, enquanto ela esperava.', 'What killed them was Redom’s crossbows, while she waited.'))),
-        volta: t({ mentira: T('Ela tinha dito a eles que hoje não.', 'She had told them not today.'), verdade: T('Ela tinha dito a verdade, e eles foram assim mesmo.', 'She had told them the truth, and they went anyway.'), olhar: T('Ela não disse nada. Eles foram pelo olhar dela.', 'She said nothing. They went on her look alone.') }[st.escolhas.ordem] || T('Eles foram porque era ela.', 'They went because it was her.')) },
+        volta: t({ mentira: T('Ela tinha dito a eles que hoje não.', 'She had told them not today.'), verdade: T('Ela tinha dito a verdade, e eles foram assim mesmo.', 'She had told them the truth, and they went anyway.'), olhar: T('Ela não disse nada. Passou a mão no rosto de cada um, e eles foram.', 'She said nothing. She ran her hand down each face, and they went.') }[st.escolhas.ordem] || T('Eles foram porque era ela.', 'They went because it was her.')) },
       { titulo: t(T('A Lâmina', 'The Blade')),
         feito: t({ palavra: T('Laura a mandou à Orla com um comandante e a palavra dela.', 'Laura sent her to the Shore with a commander and her word.'), sombra: T('Laura a mandou à Orla com um comandante que não saía do lado dela.', 'Laura sent her to the Shore with a commander who never left her side.'), argola: T('Laura a mandou à Orla com uma argola no pulso.', 'Laura sent her to the Shore with a shackle on her wrist.') }[termos(st)]) + ' ' + t((st.f.trChefes || 0) >= 3 ? T('As três casas assinaram a trégua.', 'All three houses signed the truce.') : T('Duas casas assinaram a trégua.', 'Two houses signed the truce.')),
         volta: [st.f.confessou && t(T('Você disse que foi você que levantou o mar.', 'You said it was you who raised the sea.')), st.f.semente && t(T('Você falou da Boca Seca na frente dela.', 'You spoke of the Dry Mouth in front of her.')), st.f.usouSimon && t(T('Você falou do irmão dela.', 'You spoke of her brother.'))].filter(Boolean).join(' ') || t(T('Ela vai lembrar dos olhos.', 'She will remember the eyes.')) },
@@ -95,14 +95,14 @@
     if (total) n.push(t(T('O ouro vazou', 'The gold leaked')) + ': ' + (total - fechou) + (lang === 'en' ? ' of ' : ' de ') + total + (lang === 'en' ? ' times.' : ' vezes.'));
     const colecao = st.colecao.map((id) => ({ id, nome: t(window.LIVRO.colecao[id] ? window.LIVRO.colecao[id].nome : id) }));
     const R = {
-      chefes: { doce: T('“Redom vai pagar por cada barco.”', '“Redom will pay for every boat.”'), fria: T('“Eu vou a Redom.”', '“I am going to Redom.”'), comida: T('Pediu comida e os fez esperar', 'Asked for food and made them wait'), sarnai: T('Perguntou a Sarnai quem vendeu a rota', 'Asked Sarnai who sold the route') },
+      chefes: { doce: T('Devolveu a cada um o seu pedido', 'Gave each their own request back'), fria: T('“Eu vou a Redom.”', '“I am going to Redom.”'), comida: T('Deixou que falassem até acabar', 'Let them talk until they ran out'), sarnai: T('Perguntou a Sarnai quem vendeu a rota', 'Asked Sarnai who sold the route') },
       oferendas: { nomes: T('Devolveu o nome de cada um', 'Gave each their name back'), chao: T('Deixou as moedas no chão', 'Left the coins on the floor'), mentira: T('Devolveu a moeda de quem mentiu', 'Gave back the liar’s coin') },
-      ordem: { mentira: T('“Ninguém morre hoje.”', '“No one dies today.”'), verdade: T('Tomou o leme, ou a palavra', 'Took the tiller, or the floor'), olhar: T('O olhar, até abaixarem os olhos', 'The look, until they lowered their eyes'), matar: T('A lâmina, em quem tentou virar o barco', 'The blade, for whoever tried to turn the boat'), galera: T('Deu a quem ia fugir uma razão para ficar', 'Gave the one about to flee a reason to stay') },
+      ordem: { mentira: T('“Ninguém morre hoje.”', '“No one dies today.”'), verdade: T('“Vocês foram dados ao mar.”', '“You were given to the sea.”'), olhar: T('A mão molhada em cada rosto', 'The wet hand on every face'), matar: T('A lâmina, em quem tentou virar o barco', 'The blade, for whoever tried to turn the boat'), galera: T('Deu a quem ia fugir uma razão para ficar', 'Gave the one about to flee a reason to stay') },
       rosto: { pegar: T('Pegou a mão', 'Took the hand'), ver: T('Viu afundar', 'Watched it go under'), decorar: T('Decorou o rosto', 'Learned the face'), nhale: T('Deu a mão à Nhalé', 'Gave the hand to Nhalé') },
       olhos: { devagar: T('Abriu os olhos para o sargento', 'Opened her eyes for the sergeant'), sorrir: T('Sorriu para quem a carregava', 'Smiled at the one carrying her'), nome: T('Disse o nome da Laura', 'Said Laura’s name') },
       carcereiro: { wim: T('Wim, o que cantarola', 'Wim, who hums'), garrick: T('Garrick, o que nunca olha', 'Garrick, who never looks'), pell: T('Pell, o que reza', 'Pell, who prays'), dunstan: T('Dunstan, o que conta moedas', 'Dunstan, who counts coins') },
       trRuo: { moeda: T('Pôs uma moeda na mão do Ruo', 'Put a coin in Ruo’s hand'), deixei: T('“A Sentença boia porque eu deixei.”', '“The Sentence floats because I let her.”'), irmao: T('Apontou a Sarnai para o Ruo', 'Pointed Ruo at Sarnai') },
-      lavadeira: { levantar: T('Levantou e seguiu', 'Lifted her and walked on'), usar: T('Mandou para a coluna', 'Sent her to the column'), matar: T('A cisterna', 'The cistern') },
+      lavadeira: { levantar: T('A mão no rosto dela', 'The hand on her face'), usar: T('Mandou para a coluna', 'Sent her to the column'), matar: T('A cisterna', 'The cistern') },
       disfarce: { estrebaria: T('Moço da estrebaria', 'Stable hand'), forja: T('Ajudante de ferreiro', 'Smith’s helper'), ilse: T('Ajudante de curandeiro', 'Healer’s helper'), nell: T('Moça da cozinha', 'Kitchen girl') },
       agua: { um: T('Um odre', 'One skin'), escondida: T('Água escondida', 'Hidden water'), cochos: T('Os cochos', 'The troughs') },
     };
@@ -251,9 +251,9 @@ function NOITE(k) {
     { id: 'n' + k + 'r', noite: k, zona: 'noite', agua: 0, sal: .32 + k * .08, fundo: { img: IMG('n-noite' + k), dim: .62, clima: k === 2 ? 'chuva' : null },
       texto: [T('O rosto já é meu. A roupa ainda está no corpo de quem é dono dele.', 'The face is already mine. The clothes are still on its owner.')],
       escolha: { id: 'traje' + k, pergunta: T('A roupa de {MASC}', '{MASC}’s clothes'), opcoes: [
-        TRAJE('roubar', { tom: 'divertida', txt: T('Roubar enquanto dorme.', 'Steal them while they sleep.') }),
-        TRAJE('seduzir', { tom: 'doce', testemunha: 1, txt: T('Chegar perto e deixar que me dê a roupa.', 'Get close and let them give me the clothes.') }),
-        TRAJE('matar', { tom: 'cruel', corpos: 1, txt: T('Esperar numa rua sem luz.', 'Wait in an unlit street.') }),
+        TRAJE('roubar', { tom: 'manipular', txt: T('Roubar enquanto dorme.', 'Steal them while they sleep.') }),
+        TRAJE('seduzir', { tom: 'seduzir', testemunha: 1, txt: T('Chegar perto e deixar que me dê a roupa.', 'Get close and let them give me the clothes.') }),
+        TRAJE('matar', { tom: 'intimidar', corpos: 1, txt: T('Esperar numa rua sem luz.', 'Wait in an unlit street.') }),
       ] } },
   ];
   if (k === 1) pgs.push({ id: 'n1p', noite: 1, zona: 'noite', agua: 0, sal: .4, fundo: { img: IMG('n-tocha'), dim: .45, foco: '55% 45%' },

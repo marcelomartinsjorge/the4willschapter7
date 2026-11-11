@@ -60,6 +60,7 @@ body.apaga #apagar { opacity: 1; }
 #frase.nasce .fw.turva { animation-name: fwNasceT; }
 @keyframes fwNasce { from { opacity: 0; filter: blur(8px); transform: translateY(6px); } to { opacity: 1; filter: none; transform: none; } }
 @keyframes fwNasceT { from { opacity: 0; filter: blur(8px); transform: translateY(6px); } to { opacity: .55; filter: blur(3.5px); transform: none; } }
+#frase.inteira .fw.nova { opacity: 0; color: #f3c46a; text-shadow: 0 0 14px rgba(240, 170, 60, .55); animation: fwNasce 1.3s ease forwards; animation-delay: calc(var(--j) * .8s + 1.4s); }
 #frase .fw.acende { animation: fwAcende 2.4s ease both; }
 @keyframes fwAcende { 0% { filter: blur(4px); opacity: .5; } 45% { filter: none; opacity: 1; color: #fff6d8; text-shadow: 0 0 26px rgba(255,230,150,.95), 0 0 2px #000; } 100% { filter: none; opacity: 1; } }
 #frase.brilha { animation: fraseBrilha 2.6s ease both; }
@@ -157,9 +158,7 @@ body.na-pedra #bg .bgl.on .img, body.na-pedra #bg .bgl.on video { filter: satura
 .opt .gst { font-style: italic; color: #e7edf0; }
 .opt.de-col { border-color: rgba(138,106,160,.55); }
 .opt.preco::after { font-family: var(--sans); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; margin-left: auto; padding-left: 12px; color: var(--mist); }
-.opt.p-roubar::after { content: '· roubar'; } .opt.p-seduzir::after { content: '· seduzir'; } .opt.p-matar::after { content: '· matar'; color: #d98c80; }
-html[lang="en"] .opt.p-roubar::after { content: '· steal'; } html[lang="en"] .opt.p-seduzir::after { content: '· seduce'; } html[lang="en"] .opt.p-matar::after { content: '· kill'; }
-.opt.jogar .tx { display: block; }
+html[lang="en"] .opt.jogar .tx { display: block; }
 .verbo { display: block; width: max-content; margin-bottom: 4px; padding: 2px 8px; border-radius: 10px; font-family: var(--sans); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
 .verbo.v-ouvir { color: #0c1218; background: #a9c2d8; }
 .verbo.v-poder { color: #fff3dc; background: #2e5560; }

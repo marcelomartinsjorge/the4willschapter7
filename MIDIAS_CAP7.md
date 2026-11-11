@@ -668,3 +668,10 @@ Negative: weapons drawn, crowd, modern objects, text.
 Photorealistic cinematic interior at night: a narrow stone room above an old temple, white limewashed walls, a simple wooden bed with linen, a barred window showing torches of a pale city below. The bed has been pushed aside: a flagstone in the floor is lifted, revealing worn stone steps going down into darkness, a faint blue shimmer of water deep below. A closed heavy wooden door with the shadow of a guard’s boots visible under it. The open flagstone is in the right third of the frame. Cold moonlight and a single candle, film grain.
 Negative: people, text, modern objects.
 ```
+
+
+---
+
+## v5 · 10/11/2026
+
+Nenhuma mídia nova. A dublagem `voz/D24.mp3` (a frase inteira: *Laura takes the best to the Dry Mouth, and the Dry Mouth drinks them all.*) está instalada e toca no fim da coluna (e05), quando a segunda metade da frase sobe no ouro.

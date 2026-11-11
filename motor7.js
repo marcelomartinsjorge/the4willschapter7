@@ -36,7 +36,7 @@ const reduz = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // ---------------------------------------------------------------- estado
 const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => { const r = (Math.random() * 16) | 0; return (c === 'x' ? r : (r & 3) | 8).toString(16); }));
-const novoEstado = () => ({ i: 0, rosto: 'ela', f: {}, escolhas: {}, feitos: {}, jogos: {}, colecao: [], avisos: [], piscadas: {}, tom: { doce: 0, fria: 0, cruel: 0, divertida: 0 }, alarme: 0, corpos: 0, testemunhas: 0, vestiu: [], sessao: uuid() });
+const novoEstado = () => ({ i: 0, rosto: 'ela', f: {}, escolhas: {}, feitos: {}, jogos: {}, colecao: [], avisos: [], piscadas: {}, tom: { seduzir: 0, intimidar: 0, manipular: 0 }, alarme: 0, corpos: 0, testemunhas: 0, vestiu: [], sessao: uuid() });
 let st = novoEstado();
 const salvar = () => { try { localStorage.setItem(SAVE_KEY, JSON.stringify(st)); } catch (e) {} };
 const carregar = () => { try { const j = JSON.parse(localStorage.getItem(SAVE_KEY)); return j && j.sessao ? j : null; } catch (e) { return null; } };
@@ -238,10 +238,14 @@ function frase(modo = 'mostra', acende) {
   if (!fraseEl) return;
   if (modo === 'some') { fraseEl.classList.remove('on', 'fica', 'brilha'); return; }
   const ws = palavrasFrase();
-  fraseEl.innerHTML = ws.map((x, i) => `<span class="fw ${x.turva ? 'turva' : ''} ${x.k && x.k === acende ? 'acende' : ''}" style="--i:${i}">${esc(x.w)}</span>`).join(' ');
-  fraseEl.className = 'on ' + (modo === 'nasce' ? 'nasce' : '') + (modo === 'fica' ? ' fica' : '') + (modo === 'brilha' ? ' brilha' : '') + (st.f.pedra ? ' pedra' : '');
+  // a frase inteira: a metade escondida sobe depois da conhecida, uma palavra por vez, e fica
+  const fim = modo === 'inteira' && L.fraseFim ? (L.fraseFim[LANG] || L.fraseFim.pt) : [];
+  if (fim.length) ws[ws.length - 1] = Object.assign({}, ws[ws.length - 1], { w: ws[ws.length - 1].w + ',' });
+  fraseEl.innerHTML = ws.map((x, i) => `<span class="fw ${x.turva ? 'turva' : ''} ${x.k && x.k === acende ? 'acende' : ''}" style="--i:${i}">${esc(x.w)}</span>`).join(' ')
+    + fim.map((w, j) => ` <span class="fw nova" style="--j:${j}">${esc(w)}</span>`).join('');
+  fraseEl.className = 'on ' + (modo === 'nasce' ? 'nasce' : '') + (modo === 'fica' || modo === 'inteira' ? ' fica' : '') + (modo === 'inteira' ? ' inteira' : '') + (modo === 'brilha' ? ' brilha' : '') + (st.f.pedra ? ' pedra' : '');
   A.ouro(modo === 'brilha' ? .07 : .045);
-  if (modo !== 'fica') fraseT.push(setTimeout(() => fraseEl.classList.remove('on', 'brilha'), modo === 'nasce' ? 9000 : 6200));
+  if (modo !== 'fica' && modo !== 'inteira') fraseT.push(setTimeout(() => fraseEl.classList.remove('on', 'brilha'), modo === 'nasce' ? 9000 : 6200));
 }
 // a palavra que fica nítida: liga a flag e acende a frase com ela limpa
 function fraseAcende(k) {
@@ -618,10 +622,12 @@ function abreEscolha(p) {
   box.innerHTML = `<p class="eyebrow">${e.pergunta ? esc(sub(tr(typeof e.pergunta === 'function' ? e.pergunta(st) : e.pergunta))) : U('oque')}</p>` + ops.map(optHTML).join('');
   box.querySelectorAll('.opt').forEach((b) => b.onclick = () => escolher(p, b.dataset.id));
 }
+// os tons antigos (de saves velhos ou de texto ainda não revisto) caem num dos três verbos
+const TOM_ANTIGO = { doce: 'seduzir', fria: 'intimidar', cruel: 'intimidar', divertida: 'manipular' };
 function aplicar(o) {
   if (!o) return;
   const v = (x) => (typeof x === 'function' ? x(st) : x);
-  if (o.tom) [].concat(v(o.tom)).forEach((k) => { st.tom[k] = (st.tom[k] || 0) + 1; });
+  if (o.tom) [].concat(v(o.tom)).forEach((k) => { k = TOM_ANTIGO[k] || k; st.tom[k] = (st.tom[k] || 0) + 1; });
   if (o.alarme) st.alarme += v(o.alarme);
   if (o.corpos) st.corpos += v(o.corpos);
   if (o.testemunha) st.testemunhas += v(o.testemunha);

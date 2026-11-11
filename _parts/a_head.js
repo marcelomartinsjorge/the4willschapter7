@@ -109,7 +109,7 @@ const METODO = {
   },
   bertha: {
     roubar: MR('meio', 'A porta está aberta, como sempre. Levo o vestido de luto do prego. Uma vizinha me vê sair, me toma por ladra de roupa de morto e vai comentar.', 'The door is open, as always. I take the mourning dress from the nail. A neighbor sees me leave, takes me for a thief of the dead’s clothes, and will talk.'),
-    seduzir: MR('certo', 'Sento e peço que ela conte como foi. Ela conta, e chora, e me dá o xale e o vestido para eu ir rezar pelo filho dela no templo. Dorme agradecida.', 'I sit and ask her to tell me how it was. She tells it, and weeps, and gives me her shawl and her dress so I can go and pray for her son at the temple. She falls asleep grateful.'),
+    seduzir: MR('certo', 'Sento e deixo que ela conte como foi. Ela conta, e chora, e me dá o xale e o vestido para eu ir rezar pelo filho dela no templo. Dorme agradecida.', 'I sit and ask her to tell me how it was. She tells it, and weeps, and gives me her shawl and her dress so I can go and pray for her son at the temple. She falls asleep grateful.'),
     matar: MR('errado', 'Ela abre a porta para mim, porque abre para todos. De tarde, o Ansel vem contar como o filho dela morreu, como vem toda tarde, e acha a casa vazia.', 'She opens the door to me, because she opens it to everyone. In the afternoon Ansel comes to tell how her son died, as he does every afternoon, and finds the house empty.'),
   },
   aldo: {
@@ -180,19 +180,19 @@ const NOMES_ALVO = {
 
 // a Ala Funda: os quatro carcereiros, cada um trabalhado com o que ela aprendeu deles pelo som (dois, em duas escolhas)
 const ALA_OPCOES = (filtro) => [
-  { id: 'wim', de: 'wim', gesto: true, tom: 'divertida', txt: T('Dar ao Wim uma palavra para o buraco da canção.', 'Give Wim a word for the hole in his song.'),
-    resultado: [T('Na terceira descida, ele para no lugar de sempre, onde a palavra some. Da cela, eu dou uma para ele. Errada, e bonita.', 'On his third trip down, he stops in the usual place, where the word goes missing. From the cell, I hand him one. Wrong, and pretty.'),
-      T('Wim ri no degrau, com a tocha na mão. — Não é essa — diz, e fica. A canção dele nunca teve resposta.', 'Wim laughs on the step, torch in hand. — That’s not it — he says, and stays. His song has never had an answer.'),
+  { id: 'wim', de: 'wim', gesto: true, tom: 'seduzir', txt: T('Esperar o Wim parar no buraco da canção e olhar para ele até ele olhar de volta.', 'Wait for Wim to stop at the hole in his song and look at him until he looks back.'),
+    resultado: [T('Na terceira descida, ele para no lugar de sempre, onde a palavra some, e me encontra olhando. Fica. Aqui embaixo, nunca olharam para ele.', 'On his third trip down, he stops in the usual place, where the word goes missing, and finds me looking. He stays. Down here, no one has ever looked at him.'),
+      T('Senta no último degrau, com a tocha no colo, e fala para encher o silêncio.', 'He sits on the bottom step, the torch in his lap, and talks to fill the silence.'),
       T('— A Lâmina desce sozinha, sabia? Sempre. E pergunta o que já sabe, só para ver se a gente mente.', '— The Blade comes down alone, you know? Always. And she asks what she already knows, just to see if you lie.')] },
-  { id: 'garrick', de: 'garrick', fala: true, tom: 'fria', txt: T('Garrick.', 'Garrick.'),
+  { id: 'garrick', de: 'garrick', fala: true, tom: 'intimidar', txt: T('Garrick.', 'Garrick.'),
     resultado: [T('Digo o nome dele no escuro, uma vez. Ele para no meio da escada. Nunca disse o nome perto da cela.', 'I say his name into the dark, once. He stops halfway down the stairs. He has never said his name near the cell.'),
       T('— O comandante Simon dizia que dá azar olhar conjuradora nos olhos — diz, de costas, por fim. — Servi com ele. Era homem de dividir o pão com quem estava de guarda. Na frente dela, ninguém diz o nome dele. Ninguém.', '— Commander Simon used to say it’s bad luck to look a conjurer in the eye — he says at last, with his back to me. — I served under him. He was a man who shared his bread with whoever stood watch. In front of her, no one says his name. No one.')] },
-  { id: 'pell', de: 'pell', gesto: true, tom: 'cruel', txt: T('Rir quando o Pell tropeçar no verso.', 'Laugh when Pell trips on the line.'),
-    resultado: [T('Na volta, ele tropeça no verso de sempre. Da cela, eu rio, uma vez, baixo.', 'On the way back, he trips on the usual line. From the cell, I laugh, once, low.'),
-      T('Pell para no degrau. Uma conjuradora rindo da Juíza ele não deixa passar, e desce para me ensinar.', 'Pell stops on the step. A conjurer laughing at the Judge he will not let pass, and he comes down to teach me.'),
-      T('— A Juíza pesa todo mundo. Até a Lâmina. A Lâmina não reza desde o irmão, e dizem que quer o deserto. Vingança é peso que a Juíza não perdoa.', '— The Judge weighs everyone. Even the Blade. The Blade hasn’t prayed since her brother, and they say she wants the desert. Vengeance is a weight the Judge doesn’t forgive.')] },
-  { id: 'dunstan', de: 'dunstan', gesto: true, tom: 'doce', txt: T('Arrancar uma moeda da barra da saia e deixar no chão, onde ele vê.', 'Pull a coin from my skirt’s hem and leave it on the floor, where he will see it.'),
-    resultado: [T('Ouro velho, da Orla. Deixo perto da grade e não digo nada. Na descida seguinte, a moeda some.', 'Old gold, from the Shore. I leave it near the bars and say nothing. On his next trip down, the coin is gone.'),
+  { id: 'pell', de: 'pell', fala: true, tom: 'manipular', txt: T('A sua Juíza pesa conjuradora também, Pell?', 'Does your Judge weigh conjurers too, Pell?'),
+    resultado: [T('Pell para no degrau. Uma conjuradora perguntando da Juíza ele não deixa sem resposta, e desce para me ensinar.', 'Pell stops on the step. A conjurer asking about the Judge he will not leave unanswered, and he comes down to teach me.'),
+      T('— A Juíza pesa todo mundo. Até a Lâmina. A Lâmina não reza desde o irmão, e dizem que quer o deserto. Vingança é peso que a Juíza não perdoa.', '— The Judge weighs everyone. Even the Blade. The Blade hasn’t prayed since her brother, and they say she wants the desert. Vengeance is a weight the Judge doesn’t forgive.'),
+      T('Ele sobe convencido de que salvou alguém.', 'He goes back up convinced he has saved someone.')] },
+  { id: 'dunstan', de: 'dunstan', gesto: true, tom: 'manipular', txt: T('Soltar uma moeda da barra da saia e deixar perto da grade, onde ele vê.', 'Work a coin loose from my skirt’s hem and leave it by the bars, where he will see it.'),
+    resultado: [T('Ouro velho, da Orla. Não digo nada. Na descida seguinte, a moeda some.', 'Old gold, from the Shore. I say nothing. On his next trip down, the coin is gone.'),
       T('Na outra, Dunstan para na frente da cela e conta as moedas do bolso em voz alta. Tem uma a mais.', 'On the next, Dunstan stops at the cell and counts the coins in his pocket out loud. There is one more.'),
       T('— Sabe quanto custa uma galera parada na costa de vocês? Mais que uma aldeia por ano. Uma galera por aldeia. E a gente aqui com o soldo atrasado.', '— You know what a galley sitting off your coast costs? More than a village a year. A galley for every village. And us down here with our pay late.')] },
 ].map((o) => (filtro ? Object.assign({ se: (st) => filtro(st, o.id) }, o) : o));
@@ -225,7 +225,7 @@ window.LIVRO_UI = {
       mao: 'Um toque. Você escolhe quando.',
       morta: 'Não se mexa. Quem se mexe para de ouvir.',
       anzol: 'A frase de ouro, no alto, é o que você quer ouvir da boca dele. A cada fala, escolha a sua: as palavras acendem quando ele chega perto. Dizer a frase você mesma apaga palavras.',
-      interrogatorio: 'A frase de ouro é o que você quer ouvir da boca dela. A vermelha é o que ela vai concluir de você. Cada resposta acende uma, a outra ou as duas. Mentira acende o vermelho, porque as orelhas falam. As respostas com um rosto vêm de alguém que você ouviu.',
+      interrogatorio: 'A frase de ouro é o que você quer ouvir da boca dela. A vermelha é o que ela vai concluir de você. Cada resposta acende uma, a outra ou as duas. Mentira acende o vermelho, porque as orelhas falam. As respostas com um rosto vêm de alguém que você ouviu. Se o ouro não acender o bastante, ela não acredita em você, e não existe segunda conversa.',
       ordem: 'Arraste os papéis para mudar a ordem, ou use as setas. Nenhuma palavra muda: só a ordem em que vão ser lidos.',
     },
     comecar: 'Toque para começar',
@@ -248,7 +248,7 @@ window.LIVRO_UI = {
       mao: 'One tap. You choose when.',
       morta: 'Don’t move. Whoever moves stops hearing.',
       anzol: 'The gold sentence at the top is what you want to hear from his mouth. At each line, choose yours: the words light up as he comes closer. Saying the sentence yourself puts words out.',
-      interrogatorio: 'The gold sentence is what you want to hear from her mouth. The red one is what she will conclude about you. Each answer lights one, the other, or both. A lie lights the red, because the ears talk. Answers with a face come from someone you listened to.',
+      interrogatorio: 'The gold sentence is what you want to hear from her mouth. The red one is what she will conclude about you. Each answer lights one, the other, or both. A lie lights the red, because the ears talk. Answers with a face come from someone you listened to. If the gold doesn’t light up enough, she doesn’t believe you, and there is no second conversation.',
       ordem: 'Drag the papers to change the order, or use the arrows. No word changes: only the order in which they are read.',
     },
     comecar: 'Tap to begin',
@@ -284,6 +284,11 @@ window.LIVRO = {
   frase: {
     pt: [{ w: 'Laura', k: 'laura' }, { w: 'leva' }, { w: 'os' }, { w: 'melhores' }, { w: 'à' }, { w: 'Boca Seca', k: 'boca' }],
     en: [{ w: 'Laura', k: 'laura' }, { w: 'takes' }, { w: 'the' }, { w: 'best' }, { w: 'to the' }, { w: 'Dry Mouth', k: 'boca' }],
+  },
+  // a metade escondida: só sobe no fim, na coluna
+  fraseFim: {
+    pt: ['e', 'a', 'Boca Seca', 'bebe', 'todos.'],
+    en: ['and', 'the', 'Dry Mouth', 'drinks', 'them all.'],
   },
 
   // ---------------------------------------------------------------- as zonas de som

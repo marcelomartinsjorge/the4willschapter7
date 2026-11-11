@@ -218,3 +218,24 @@ O endereço fica `https://marcelomartinsjorge.github.io/the4willschapter7/`.
 - "4 dias" saiu. Português: "esperar que me ofereça a roupa", "deixar que me dê a roupa", próclise no começo de frase na narração, tempos verbais.
 
 **Checagem (PROMPT_MESTRE v5.4):** muletas dentro do limite (ninguém 7, inteiro 4, devagar 6); moldes ACIMA: 0, com o bloco `motivos cap07` aprovado e instalado (mais 6 motivos novos: guarda da Cidadela, o Lorde Varr, Viúvas do Sal, o comandante Aubert, bate na quilha, resistente igual Grakh).
+
+---
+
+## v5 · 10/11/2026 · a voz da Madrinha (MADRINHA_VOZ v2)
+
+**Os tons viraram verbos.** Toda escolha conta `seduzir`, `intimidar` ou `manipular` (o motor converte os tons antigos de saves velhos). O resumo final diz qual ela mais usou. Os rótulos "· roubar / · seduzir / · matar" que o estilo pendurava nos botões das noites saíram: o botão mostra só o gesto ou a fala.
+
+**Reescrito com a voz nova:**
+- Orla: a água fica lisa quando ela sobe a escada; os chefes (cada um ouve o seu pedido; o vinho sobe das taças; o silêncio que os faz oferecer mais; a pergunta da rota vendida); a fila (o mentiroso coça a orelha).
+- A tripulação como **oferenda ao mar**: as casas trazem os seus melhores aos degraus; ser dado ao mar não é morrer. Textos do minijogo da tripulação, cartões (Teshka quer que o mar devolva o que levou; Brann quer ver se a Madrinha é tinta; Maru quer pegar a Sentença pelos recifes).
+- As duas noites no mar, para os cinco: sem "quanto paga", sem verso cantado errado, sem puxar a Nhalé da água, sem tirar a besta do Brann. Magia à vista: a corrente que vira o barco, a chuva sem sal para o Lio, o mar liso que mostra o canal, a língua d'água que leva a gaivota, o sangue que volta para o corte. Lealdades e flags (maruLado, brannAtira, brannGuarda, teshkaGalera, nhaleAjuda) mantidas.
+- O canal: a tripulação queria cair de noite pelos recifes; ela vai de dia, à vista. Motim da Teshka reescrito. "Vocês foram dados ao mar. O mar já aceitou."
+- **A onda dosada:** ela segura o mar ("O mar quer subir todo. Seguro."), fecha a mão um dedo de cada vez, e os dedos tremem de segurar, não de cansaço.
+- O porão da Sentença: três presos da Orla se ajoelham para ela (a prova que a Laura ouve do guarda).
+- Carcereiros: Wim pelo olhar, Garrick pelo nome, Pell pela pergunta sobre a Juíza (nada de rir da reza), Dunstan pela moeda.
+- **Interrogatório remontado:** a Laura conhece o mito ("Li sobre ela, num livro de povos de fora, ao lado do dragão do norte"); cada opção responde à pergunta feita; "Fui eu" vale mais e custa mais; a pergunta assenta 1,5 s antes das opções. **Ouro abaixo de 6: a Laura decreta a execução**, a página `morte` mostra o pátio, e "Tentar de novo" volta ao começo do interrogatório (c04 é ponto de volta).
+- Nove Mastros: a Sarnai reza **para a Madrinha** e pergunta se ela ouviu; a resposta certa é no ouvido: "— Tenho certeza que sim, querida." O "Não peça a mim. Peça a ele." faz a reza acabar (errada). Ossian: contar barcos (certo), sentar ao lado dele (certo, mas o caderno anota um lado). Ruo: a moeda.
+- Argola, lavadeira, Greta, sombra, coluna: tons novos e gestos sem pedir.
+- **A frase inteira:** no fim da coluna, depois do D19, a frase continua sozinha no ouro: *Laura leva os melhores à Boca Seca, e a Boca Seca bebe todos.* Toca a D24.
+
+**Checagem:** muletas dentro do limite (devagar 9, ninguém 7, inteiro 5); moldes ACIMA: 0.

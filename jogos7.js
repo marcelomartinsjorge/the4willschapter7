@@ -300,8 +300,16 @@ function interrogatorio(root, c) {
     pinta();
     const fim = () => {
       ops.innerHTML = '';
+      // abaixo do limiar, a Lâmina não acredita: decreta a morte (a página volta ao começo do interrogatório)
+      if (cfg.limiar && ouro < cfg.limiar) {
+        root.classList.add('morre'); A.tone(70, 2.2, 'sawtooth', .05, 0, 1.2);
+        lista(cfg.morte, st).forEach((x, n) => setTimeout(() => linhas(log, [x], c, n === 0 || n === 3 ? 'nota' : 'alvo vermelha'), BOT() ? 5 : 700 + n * 1500));
+        c.registrar('interrogatorio', 'morte');
+        setTimeout(() => { ops.innerHTML = `<button class="cta az-fim">${c.esc(J.seguir)}</button>`; ops.querySelector('.az-fim').onclick = () => resolve({ ouro, verm, termos: 'argola', flags, morte: true }); if (BOT()) ops.querySelector('.az-fim').click(); }, BOT() ? 30 : 7400);
+        return;
+      }
       const termos = verm <= 2 ? 'palavra' : verm <= 5 ? 'sombra' : 'argola';
-      // o ouro sempre se completa: a Laura solta. Ela diz a frase de ouro com a boca dela
+      // convencida, a Laura diz a frase de ouro com a boca dela
       ouro = MAXO; pinta(); root.classList.add('diz');
       setTimeout(() => { linhas(log, ['— ' + c.sub(c.tr(cfg.ouro))], c, 'alvo dourada'); A.ouro && A.ouro(.06); }, BOT() ? 10 : 900);
       c.registrar('interrogatorio', termos);
@@ -322,7 +330,7 @@ function interrogatorio(root, c) {
           b.onclick = () => responde(o); ops.appendChild(b);
         });
         if (BOT()) setTimeout(() => responde(sorteio(vis) || vis.slice().sort((a, b) => (b.ouro - b.verm) - (a.ouro - a.verm))[0]), 20);
-      }, BOT() ? 10 : 800);
+      }, BOT() ? 10 : 1500);
     };
     const tecla = (e) => { if (!root.isConnected) return removeEventListener('keydown', tecla); if (/^[1-6]$/.test(e.key)) { const b = ops.querySelectorAll('.az-op')[+e.key - 1]; b && b.click(); } };
     addEventListener('keydown', tecla);
@@ -330,7 +338,7 @@ function interrogatorio(root, c) {
       ops.querySelectorAll('button').forEach((b) => { b.disabled = true; });
       A.escolha(); c.registrar('lamina_' + i, o.id); st.f['lam_' + o.id] = true;
       if (!o.silencio) linhas(log, ['— ' + c.sub(c.tr(val(o.txt, st)))], c, 'ela');
-      if (o.flag) flags.push(o.flag);
+      if (o.flag) flags.push(...[].concat(o.flag));
       setTimeout(() => {
         if (o.mente) { verm += 1; linhas(log, [cfg.orelhas], c, 'nota'); root.classList.remove('orelha'); void root.offsetWidth; root.classList.add('orelha'); }
         linhas(log, lista(o.resp, st), c);
