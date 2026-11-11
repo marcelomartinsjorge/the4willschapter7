@@ -273,3 +273,32 @@ Li o capítulo de ponta a ponta, em português, como leitor. O que mudou:
 - "dado ao mar" declarado como motivo do capítulo no PROMPT_MESTRE (é o costume da oferenda).
 
 **Checagem:** muletas e moldes dentro do limite (0 ACIMA); robô em duas rotas até a Parte V, sem erro.
+
+---
+
+## v5.3 · 11/11/2026 · cada tela de escolha lida como o jogador vê
+
+Agora toda revisão passa por um roteiro (`telas.js`, no scratchpad) que monta cada tela de escolha como ela aparece: as últimas falas antes da escolha, a pergunta, as opções e o resultado de cada uma, em quatro tripulações e com cada amotinado. Corrigido a partir dessa leitura:
+- **Respostas a não-perguntas:** nas páginas do Lio e da Teshka, a última linha antes das opções era a ordem da própria Madrinha, e as opções pareciam responder a ela mesma. Agora a tela termina na fala deles ("A senhora quer o quê de mim?" / "A senhora não veio.") e a tarefa vai dentro da resposta escolhida.
+- **Nhalé:** saiu a tarefa de levar de volta "quem cair perto" (ela não pode saber quem vai cair). Ficam duas respostas à pergunta das velhas: a mão na água, "Conte você", ou "Diga às velhas que eu respondo quando eu voltar".
+- **Iska, em três passos:** na taverna, três mulheres se oferecem e ela fica com a Iska, que vende peixe em Alvena. Primeiro o colo, sem alternativa (a Iska de mentira precisa saber a verdade da cicatriz). Depois a troca de rosto, com o vídeo: a voz sai na primeira, o rosto custa três tentativas, "não sai perfeito, mas basta para os bêbados de Alvena". Só então a escolha: "Amanhã você não põe o pé em Alvena", ou a ponte de corda.
+- **Motim do Brann:** ele não estava no leme; agora abaixa a besta, ou a besta cai na água.
+- **A Sentença:** "se detém a um tiro de besta de nós". Duas respostas só, porque ela quer ser presa: entregar-se pelos seus, ou começar ela mesma ("Brann. Agora.", ou, sem o Brann, "Hoje o mar volta a ser da Orla, e você não dá mais nenhuma ordem"). Maru vira o barco "como eu mandei".
+- **Fila do cais:** ela pergunta o nome antes de devolver (eles não tinham dito).
+- **O aviso preso no canto** ("Teshka vai lembrar disso"): era o aviso que volta e afunda quando a tripulação morre; se o jogador avançava, ele não sumia. Corrigido no motor.
+
+## v5.4 · 11/11/2026 · varredura inteira jogada como jogador (Etapa 6c)
+Três rotas lidas do começo ao fim (Maru/Lio/Brann; Teshka/Nhalé/Brann com motim e argola; Maru/Teshka/Lio com sombra) e todas as telas de escolha montadas, conferidas contra o MADRINHA_VOZ.
+- **A transformação da Iska volta a ser impecável** (sai "três tentativas"): é a primeira, e a dublagem D07 diz "na primeira tentativa".
+- **O dente de ouro tem consequência (a10):** quando o soldado agarra o braço dela, ela leva a mão dele até a cicatriz, pelo caminho que a faca dele fez. Ele para de rir e solta sozinho. A pista do colo da Iska agora serve para alguma coisa.
+- **Ossian (a06b):** os soldados "pagam com a língua" (saiu "pagam com o que contam"). A saída dele não repete mais o "até ele lembrar da porta", que fica só na mesa de Nove Mastros: agora ela diz o nome dele, devagar, e ele sai como quem foi pago.
+- **Teshka (a12t)** chega à proa porque foi chamada ("É a primeira vez que fala comigo"), e não "quando decide".
+- **Brann (a12b):** a opção diz o que ela vai responder ("dizer no ouvido dele quem volta"), em vez de "responder baixo".
+- **O canal (b01):** saiu o segundo "não olha para mim" da mesma tela.
+- **A Sentença (b02c, b03, b04b):** a ordem de ataque não antecipa a onda (a água do canal fica lisa, como a das estacas no dia em que ela subiu); a galera vem chegando antes de a Teshka lançar o gancho ("a um remo do nosso"); ela esconde as mãos "antes que alguém na Sentença veja"; e agora o texto diz como ela vai parar na água ("O nosso barco afunda devagar, cheio da minha água. Passo pela borda e entro no mar, entre os meus.").
+- **A Laura (c03b):** o porquê (os Grakh no fim, os homens presos na costa) vem antes da D23, e a frase-alvo tem dono: "Quero a frase na voz dela: volte e ponha a Orla de joelhos."
+- **Trégua (t04):** com nenhuma casa, o texto dizia "só uma casa". Agora: "a página do comandante continua em branco".
+- **Volta à Capital (d01p, d01s):** ela diz por que volta: "A Orla segura a trégua sem mim. A coluna vai para a Boca Seca, e a frase vai com ela. Eu também vou."
+- **As três noites:** saiu o "cheira a cal e a pão" repetido em dois dias seguidos; cada dia sem eco tem a sua linha, e a última noite sem frase nenhuma também. O Sir Joseph não chama mais de "menina" o moço de recados.
+- **MADRINHA_VOZ:** Maru e Brann na tabela do §4 batem com o texto (sem olho dourado, sem "olho pintado"); §7 marcado como histórico; §5.1 ganha "toda pista tem consequência".
+- Checagem: 0 trechos ACIMA, "conta" figurada 0, nenhuma frase com duas muletas. Robô: três rotas até o fim da Parte V sem erro de JS.

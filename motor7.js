@@ -364,7 +364,8 @@ function afogaAvisos(filtro, ultimo) {
   lista.forEach((a, k) => later(() => {
     const el = document.createElement('div'); el.className = 'toast com-rosto afoga'; const r = rostoDe(sub(tr(a)));
     el.innerHTML = rostoHTML(r) + `<span>${esc(sub(tr(a)))}</span>`; $('#toasts').appendChild(el); A.tone(220 - k * 14, 1.2, 'triangle', .022);
-    later(() => el.classList.add('afunda'), 1300); later(() => el.remove(), 3400);
+    // a remoção não pode depender dos timers da página: se o jogador avança, o aviso ficava preso no canto
+    setTimeout(() => el.classList.add('afunda'), 1300); setTimeout(() => el.remove(), 3400);
   }, k * 650));
   later(() => { const el = toast(sub(tr(ultimo))); el.classList.add('ninguem'); A.tone(98, 2.6, 'sine', .05); }, lista.length * 650 + 1400);
 }

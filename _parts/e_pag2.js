@@ -52,9 +52,9 @@
         se((st) => fezCarcereiro(st, 'garrick'), T('A faixa escura no braço é pelo irmão, o comandante Simon. Na frente dela, o nome dele não se diz.', 'The dark band on her arm is for her brother, Commander Simon. In front of her, his name is not said.')),
         se((st) => tem(st, 'grisalho') || fezCarcereiro(st, 'pell'), T('Senta na ponta do banco, pronta para levantar e partir. Os soldados dela rezam para ela não levar todo mundo para a Boca Seca.', 'She sits on the edge of the stool, ready to get up and leave. Her soldiers pray she won’t take them all to the Dry Mouth.')),
         se((st) => fezCarcereiro(st, 'dunstan'), T('O olhar dela desce para as moedas da minha saia e sobe. O Dunstan contou na escada: a costa custa a Redom uma galera por aldeia.', 'Her eyes drop to the coins on my skirt and come back up. Dunstan counted it out on the stairs: the coast costs Redom a galley for every village.')),
-        V('D23', T('Ela quer o deserto e não pode ir, porque a costa prende as galeras dela. Se a Orla ajoelhar, a costa solta. Quero que ela mesma me mande de volta para fazer a Orla ajoelhar.', 'She wants the desert and can’t go, because the coast ties down her galleys. If the Shore kneels, the coast lets go. I want her to send me back to do it herself.')),
         T('Os Grakh estão no fim, todo soldado de Redom diz isso. A Boca Seca já não assusta Redom, e por isso os homens dela foram mandados para a costa, vigiar a Orla. Ela quer levá-los de volta ao deserto e acabar com o resto.', 'The Grakh are nearly finished, every soldier in Redom says so. The Dry Mouth no longer frightens Redom, and so her men were sent to the coast, to watch the Shore. She wants to take them back to the desert and finish the rest.'),
-        T('Volte e ponha a Orla de joelhos. Quero ouvir isso da boca dela.', 'Go back and bring the Shore to its knees. I want to hear it from her mouth.'),
+        V('D23', T('Ela quer o deserto e não pode ir, porque a costa prende as galeras dela. Se a Orla ajoelhar, a costa solta. Quero que ela mesma me mande de volta para fazer a Orla ajoelhar.', 'She wants the desert and can’t go, because the coast ties down her galleys. If the Shore kneels, the coast lets go. I want her to send me back to do it herself.')),
+        T('Quero a frase na voz dela: volte e ponha a Orla de joelhos.', 'I want the words in her voice: go back and bring the Shore to its knees.'),
       ] },
 
     { id: 'c04', checkpoint: true, zona: 'ala', agua: 0, sal: .25, pedra: true, fundo: { img: IMG('c-laura'), dim: .45, foco: '62% 40%' },
@@ -178,7 +178,7 @@
       texto: (st) => {
         const n = st.f.trChefes || 0;
         if (n <= 1) return [
-          T('Antes do sol, só uma casa põe a marca na folha do caderno. Uma casa não é a Orla, e o comandante sabe disso.', 'Before sunrise, only one house puts its mark on the notebook’s page. One house is not the Shore, and the commander knows it.'),
+          n === 0 ? T('De manhã, a página do comandante continua em branco. Nenhuma das três casas põe a marca.', 'By morning, the commander’s page is still blank. None of the three houses puts its mark on it.') : T('Antes do sol, só uma casa põe a marca na folha do caderno. Uma casa não é a Orla, e o comandante sabe disso.', 'Before sunrise, only one house puts its mark on the notebook’s page. One house is not the Shore, and the commander knows it.'),
           V(null, T('— A Lâmina vai saber que a senhora não manda nem nesta mesa — diz Aubert, e fecha o caderno.', '— The Blade will know you don’t command even this table — says Aubert, and closes the notebook.')),
         ];
         return [
@@ -328,7 +328,7 @@
         { id: 'matar', gesto: true, preco: 'matar', tom: 'intimidar', corpos: 1, alarme: 2, erro: true, txt: T('Esperar que ela vá buscar água no poço.', 'Wait for her to go and draw water at the well.'),
           resultado: [{ t: T('O poço é fundo. Ela cai sem gritar. Mas de manhã os cavaleiros acordam com a cama vazia e uma criada no poço, e isso eles contam.', 'The well is deep. She falls without a scream. But in the morning the knights wake to an empty bed and a maid in the well, and that they will report.'), veste: 'criada' }] },
       ] },
-      depois: [T('Volto para a Capital antes do sol. Dois cavaleiros que perdem a hóspede da Lâmina não vão dizer isso à Lâmina. Vão procurar até a costa.', 'I am back in the Capital before sunrise. Two knights who lose the Blade’s guest won’t tell the Blade so. They’ll search all the way to the coast.')] },
+      depois: [T('A Orla segura a trégua sem mim. A coluna vai para a Boca Seca, e a frase vai com ela. Eu também vou.', 'The Shore will hold the truce without me. The column is going to the Dry Mouth, and the sentence goes with it. So do I.'), T('Volto para a Capital antes do sol. Dois cavaleiros que perdem a hóspede da Lâmina não vão dizer isso à Lâmina. Vão procurar até a costa.', 'I am back in the Capital before sunrise. Two knights who lose the Blade’s guest won’t tell the Blade so. They’ll search all the way to the coast.')] },
 
     { id: 'd01s', se: (st) => termos(st) === 'sombra', zona: 'capital', agua: 0, sal: .4, pedra: false, veste: 'ela', fundo: { img: IMG('d01-sombra'), dim: .5, foco: '60% 45%' },
       texto: [
@@ -340,7 +340,8 @@
           resultado: [{ t: T('Ela sai do mercado de capa roxa, feliz da vida, para o lado do porto. A sombra segue a capa até a costa. Eu saio pelo outro lado, com o rosto dela.', 'She leaves the market in my purple cloak, delighted, toward the harbor. The shadow follows the cloak all the way to the coast. I leave the other way, in her face.'), veste: 'capa' }] },
         { id: 'matar', gesto: true, tom: 'intimidar', corpos: 1, alarme: 2, erro: true, txt: T('Levar a sombra para um beco.', 'Lead the shadow into an alley.'),
           resultado: [{ t: T('Ele entra no beco atrás de mim, porque é o trabalho dele. Não sai. Saio eu, com o rosto da moça da capa. Um homem do comandante que não volta faz o comandante vir procurar.', 'He follows me into the alley, because that is his job. He doesn’t come out. I do, in the face of the girl with the cloak. A commander’s man who doesn’t come back brings the commander looking.'), veste: 'capa' }] },
-      ] } },
+      ] },
+      depois: [T('A Orla segura a trégua sem mim. A coluna vai para a Boca Seca, e a frase vai com ela. Eu também vou.', 'The Shore will hold the truce without me. The column is going to the Dry Mouth, and the sentence goes with it. So do I.')] },
 
     // ===================================================== PARTE VI · A COLUNA
     { id: 'p6', parte: T('VI · A Coluna', 'VI · The Column'), zona: 'coluna', agua: 0, sal: .6, fundo: { img: IMG('e01-acampamento'), dim: .55, clima: 'poeira' },

@@ -87,7 +87,7 @@
     pilares.push({ titulo: t(T('Os grandes', 'The great')), feito: ditos.join(' '), volta: algum ? t(T('Cada um achou que a ideia era dele.', 'Each one thought the idea was his own.')) : t(T('A ideia ficou com ela. A Lâmina levou os melhores do mesmo jeito.', 'The idea stayed with her. The Blade took the best all the same.')) });
     const n = [];
     trip.forEach((k) => { const c = window.LIVRO.colecao[k]; const fimK = c.fim(st); n.push(t(c.nome).split(',')[0] + ': ' + t(fimK || (typeof c.quer === 'function' ? c.quer(st) : c.quer) || '').replace(/^./, (x) => x.toLowerCase())); });
-    n.push((lang === 'en' ? 'Iska: ' : 'Iska: ') + t({ roubar: T('tirou a roupa em cima da mesa da taverna, e conta isso até hoje.', 'stripped on the tavern table, and still tells of it.'), seduzir: T('dormiu no navio da Madrinha, sorrindo.', 'slept on the Godmother’s ship, smiling.'), matar: T('dorme embaixo de Nove Mastros.', 'sleeps under Nine Masts.') }[st.escolhas.roupa1] || T('não soube de nada.', 'never knew a thing.')));
+    n.push((lang === 'en' ? 'Iska: ' : 'Iska: ') + t({ roubar: T('passou o dia no porão do navio, e conta isso até hoje.', 'spent the day in the ship’s hold, and still tells of it.'), seduzir: T('dormiu no navio da Madrinha, sorrindo.', 'slept on the Godmother’s ship, smiling.'), matar: T('dorme embaixo de Nove Mastros.', 'sleeps under Nine Masts.') }[st.escolhas.roupa1] || T('não soube de nada.', 'never knew a thing.')));
     if (st.escolhas.lavadeira) n.push(t(T('A lavadeira', 'The washerwoman')) + ': ' + t(window.LIVRO.colecao.lavadeira.fim(st)).replace(/^./, (x) => x.toLowerCase()));
     n.push(t(T('Rostos vestidos', 'Faces worn')) + ': ' + st.vestiu.length + ' · ' + t(T('corpos que a água guardou', 'bodies the water kept')) + ': ' + st.corpos);
     n.push(t({ um: T('A água: um odre, como todo mundo.', 'The water: one skin, like everyone.'), escondida: T('A água: dois odres e uma bexiga escondida.', 'The water: two skins and a hidden bladder.'), cochos: T('A água: os cochos dos cavalos.', 'The water: the horses’ troughs.') }[st.escolhas.agua] || T('A água: a que der.', 'The water: whatever comes.')));
@@ -136,7 +136,7 @@ function NOITE(k) {
   // de dia ela é a hóspede, com o próprio rosto e o guarda atrás; escolhe de quem guardar o rosto para a noite
   const DIA = {
     1: T('O primeiro dia. Ando pela praça sem rosto emprestado, com o guarda dez passos atrás. Ele me vigia. Eu escolho quem vou ser de noite.', 'The first day. I walk the square with no borrowed face, the guard ten paces behind. He watches me. I choose who I will be tonight.'),
-    2: T('O segundo dia. A Capital cheira a cal e a pão, e quem serve fala alto quando quem manda não está. O guarda boceja.', 'The second day. The Capital smells of lime and bread, and those who serve talk loud when those who rule are away. The guard yawns.'),
+    2: T('O segundo dia. Quem manda está no conselho, e quem serve fala alto. O guarda boceja dez passos atrás de mim.', 'The second day. Those who rule are in council, and those who serve talk loud. The guard yawns ten paces behind me.'),
     3: T('O terceiro dia. Amanhã de manhã o conselho decide. Hoje à noite eu subo à Sala dos Mapas, e preciso de um rosto que a guarda de lá conheça, ou de alguém que me diga como o conselho escuta.', 'The third day. Tomorrow morning the council decides. Tonight I go up to the Map Room, and I need a face the guard there knows, or someone to tell me how the council listens.'),
   };
   // a manhã seguinte: a frase da noite na boca dos pequenos (a cidade produzindo a decisão)
@@ -150,7 +150,8 @@ function NOITE(k) {
       'In the bread line, one girl says to another: «' + en(f) + '» Last night only one person had said it. Said by the city, it sounds like the city’s idea.');
     if (r === 'meia') return T('Na boca de um guarda, ouço metade da frase de ontem: «' + metade(f) + '» A outra metade ficou com quem eu não terminei.',
       'In a guard’s mouth I hear half of last night’s sentence: «' + metade(en(f)) + '» The other half stayed with the one I didn’t finish.');
-    return T('A cidade não repete nada da noite passada. Cheira a cal e a pão, e eu tenho uma noite a menos.', 'The city repeats nothing from last night. It smells of lime and bread, and I have one night fewer.');
+    return k === 2 ? T('Na fila do pão ninguém repete nada da noite passada. A cidade cheira a cal e a pão, e eu tenho uma noite a menos.', 'In the bread line no one repeats anything from last night. The city smells of lime and bread, and I have one night fewer.')
+      : T('Da noite de ontem, a cidade não guardou nada. Sobra esta noite, e é a última.', 'Of last night, the city kept nothing. This night is what’s left, and it is the last.');
   };
   // antes de escolher o alvo: o objetivo, e quantas frases já andam sozinhas
   const RUMO = (st) => {
@@ -158,7 +159,8 @@ function NOITE(k) {
     const n = [1, 2].filter((x) => x < k && J(st, 'noite' + x).resultado === 'cheia').length;
     return n === 2 ? T('Duas frases minhas já andam pela cidade sem mim. Falta a última boca.', 'Two of my sentences already walk the city without me. One last mouth.')
       : n === 1 ? T('Uma frase minha já anda pela cidade sem mim. Preciso de outra.', 'One of my sentences already walks the city without me. I need another.')
-        : T('Nenhuma frase minha anda pela cidade ainda. O conselho não espera.', 'None of my sentences walks the city yet. The council won’t wait.');
+        : k === 3 ? T('Nenhuma frase minha pegou na cidade. O conselho vai decidir com o que tiver na mesa.', 'None of my sentences took hold in the city. The council will decide with whatever is on the table.')
+          : T('Nenhuma frase minha anda pela cidade ainda. O conselho não espera.', 'None of my sentences walks the city yet. The council won’t wait.');
   };
   const NT = {
     1: T('A primeira noite. A Capital Branca apaga as velas cedo e acende as tochas das rondas. Desço pela laje.', 'The first night. The White Capital puts out its candles early and lights the watch torches. I go down through the flagstone.'),

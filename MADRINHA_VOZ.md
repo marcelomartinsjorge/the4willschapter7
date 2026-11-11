@@ -1,6 +1,6 @@
 # A Madrinha · Voz e personalidade (v2, aprovada e aplicada no capítulo v5)
 
-*10/11/2026. Feito a partir da tua revisão depois de jogar a v4 e das tuas respostas às quatro perguntas. Quando aprovado, este documento vale acima de tudo o que está escrito sobre a voz dela no Esqueleto v2 e no Plano v3. Nada do texto do capítulo foi reescrito ainda, a não ser as três correções que você já deu (Ala Funda, "o mar sempre vai ser perigoso", o nome dos quatro carcereiros).*
+*10/11/2026, revisto em 11/11 (v5.4). Feito a partir da tua revisão depois de jogar a v4 e das tuas respostas às quatro perguntas. Vale acima de tudo o que está escrito sobre a voz dela no Esqueleto v2 e no Plano v3. Já está aplicado no capítulo; as amostras do §7 eram de direção e ficaram para trás: o texto que vale é o do jogo (ver as telas montadas da Etapa 6c).*
 
 ---
 
@@ -93,10 +93,10 @@ Aprovada a primeira. A dublagem D24 (a frase inteira, em inglês) toca nesse mom
 | Quem | Povo | Como a vê | Como fala com ela |
 |---|---|---|---|
 | **Nhalé** | Merés | Ela saiu do meio das Merés: é *delas*. Cantaram naquele ponto por três gerações, e desta vez subiu alguém. | Baixo, como dentro de um templo. Pergunta pouco e quer tocar. |
-| **Maru** | Nymae | A santa das lendas da mãe, a que devolve o olho de quem pede direito. | Não consegue olhar muito tempo nos olhos dourados. Fala de costas e conta as lendas da mãe. |
+| **Maru** | Nymae | A santa das lendas da mãe, a que devolve o olho de quem pede direito. | Não aguenta olhar para ela muito tempo. Vira para ela o lado do olho branco e fala das lendas da mãe. |
 | **Teshka** | Nymae | Rezou para a Madrinha sete noites pelo marido, e o marido não voltou. Crê com raiva. | Cobra. É a única que encara. |
 | **Lio** | Nymae | A Madrinha que leva pela mão para o fundo. Morrer com ela é ser escolhido. | Pede para ir junto. |
-| **Brann** | Humano | Em Alvena, já viu muita "santa" de olho pintado vendendo reza. Desconfia, e ela o converte acertando o que não poderia saber. | Cospe quando os outros dizem "Madrinha", até parar de cuspir. |
+| **Brann** | Humano | Em Alvena, Madrinha era qualquer Nymae com truque barato de caneca d'água na porta da taverna. Desconfia, e ela o converte com a água da caneca dele. | Cospe quando os outros dizem "Madrinha", até parar de cuspir. |
 | **Sarnai** | Nymae | Reza **para a Madrinha**, de olhos fechados, na frente dela. Nunca para a Juíza: corrigido. | Só em reza. |
 | **Ossian** | Humano | Crê o bastante para usar: quer o nome dela do lado dele da mesa. | Negocia. |
 | **Ruo** | Merés | Não crê. Pede prova. | Desafia. |
@@ -121,6 +121,7 @@ Aprovada a primeira. A dublagem D24 (a frase inteira, em inglês) toca nesse mom
 - **Sedução sempre com interesse.** Ela só seduz quando quer alguma coisa da pessoa: a Iska conta a verdade da cicatriz porque em Alvena alguém pode perguntar; o Maru treina a virada; o Brann escolhe o alvo. Nunca carinho sem motivo (saiu a mão da Nhalé até o amanhecer).
 - **Os olhos não chamam atenção.** As imagens não mostram olho especial, então o texto também não: quem a reconhece reconhece pelo efeito (a água que para, o silêncio), não pelo ouro do olho. Quando o disfarce escorrega, o que aparece é escama.
 - **No Orla ela não disfarça para pegar nada.** É a deusa deles: quem precisa de rosto e roupa recebe oferecido (a Iska). Disfarce e método só onde ela é estranha, em Alvena e em Redom.
+- **Toda pista tem consequência.** O que ela fica sabendo de alguém volta na história (o dente de ouro da Iska volta no soldado que agarra o braço dela em Alvena).
 - **"Conta" só é número de verdade.** Ninguém "faz a conta", "refaz a conta" ou olha "sem fazer conta". A checagem agora acusa isso com limite zero.
 
 ## 6. Por que a tripulação vai
@@ -139,7 +140,7 @@ Quando ela diz que vai contra a Sentença, as casas não perguntam se podem ir. 
 
 ## 7. Amostras reescritas
 
-*Não é texto final. Serve para você aprovar a direção antes de eu reescrever o capítulo inteiro.*
+*Histórico. Foi a amostra para aprovar a direção; o texto final mudou bastante (uma noite só de tarefas, a Nhalé sem clarividência, a Sarnai com "Tenho certeza que sim, querida"). Para o texto em vigor, ler o jogo.*
 
 ### 7.1 Primeira noite no mar
 
