@@ -92,33 +92,75 @@ function mao(root, c) {
   const { A, L } = c, cfg = L.mao;
   return new Promise((resolve) => {
     fundo(root, cfg.img, 'mo-bg');
-    root.insertAdjacentHTML('beforeend', `<div class="mo-pede"><p>${c.esc(c.tr(cfg.pede))}</p><button class="mo-mao" type="button" aria-label="${c.esc(c.tr(cfg.pede))}"><svg viewBox="0 0 64 64"><path d="M20 40V18a4 4 0 0 1 8 0v14M28 30V12a4 4 0 0 1 8 0v18M36 30V14a4 4 0 0 1 8 0v20M44 34V22a4 4 0 0 1 8 0v18c0 10-7 18-17 18h-3c-6 0-10-3-13-7l-7-10a4 4 0 0 1 6-5l6 6"/></svg></button></div><p class="mo-msg" aria-live="polite"></p><div class="mo-branco"></div>`);
-    const msg = root.querySelector('.mo-msg'), btn = root.querySelector('.mo-mao');
-    let t0 = performance.now(), salva = false, feito = false;
-    root.classList.add('ergue'); A.sfx('bestas-erguem', .5, () => A.hiss(1.2, 800, .5, .04));
-    const tSalva = setTimeout(() => {
+    // o vídeo dela conjurando, se existir, fica atrás da concentração
+    if (cfg.videoConj && !BOT()) { const v = document.createElement('video'); v.className = 'mo-conj'; v.muted = true; v.playsInline = true; v.loop = true; v.autoplay = true; v.src = c.vsrc ? c.vsrc(cfg.videoConj) : cfg.videoConj; v.onerror = () => v.remove(); root.appendChild(v); v.play().then(() => v.classList.add('on')).catch(() => v.remove()); }
+    root.insertAdjacentHTML('beforeend', `<div class="mo-campo"></div><div class="mo-barra"><i></i></div><p class="mo-dica">${c.esc(c.tr(cfg.dica))}</p><div class="mo-pede"><p>${c.esc(c.tr(cfg.pede))}</p><button class="mo-mao" type="button" aria-label="${c.esc(c.tr(cfg.pede))}"><svg viewBox="0 0 64 64"><path d="M20 40V18a4 4 0 0 1 8 0v14M28 30V12a4 4 0 0 1 8 0v18M36 30V14a4 4 0 0 1 8 0v20M44 34V22a4 4 0 0 1 8 0v18c0 10-7 18-17 18h-3c-6 0-10-3-13-7l-7-10a4 4 0 0 1 6-5l6 6"/></svg></button></div><p class="mo-msg" aria-live="polite"></p><div class="mo-branco"></div>`);
+    const msg = root.querySelector('.mo-msg'), btn = root.querySelector('.mo-mao'), campo = root.querySelector('.mo-campo'), barra = root.querySelector('.mo-barra i'), dica = root.querySelector('.mo-dica');
+    let t0 = performance.now(), salva = false, feito = false, cheia = false, carga = 0, pesou = false, acertos = 0, erros = 0, perdidos = 0;
+    const timers = [], pausa = (fn, ms) => { const t = setTimeout(fn, ms); timers.push(t); return t; };
+    root.classList.add('ergue', 'concentra'); A.sfx('bestas-erguem', .5, () => A.hiss(1.2, 800, .5, .04));
+    msg.textContent = c.tr(cfg.conc);
+    // ---- concentrar: o ouro sobe do fundo; o vermelho é o convés (setas, gritos)
+    const desenha = () => { barra.style.width = carga + '%'; root.style.setProperty('--carga', (carga / 100).toFixed(3)); };
+    const muda = (d) => {
+      if (cheia) return; carga = Math.max(0, Math.min(100, carga + d)); desenha();
+      if (!pesou && carga >= 80) { pesou = true; root.classList.add('pesa'); msg.textContent = c.tr(cfg.pesa); A.tone && A.tone(70, 1.6, 'sine', .05, 0, .5); }
+      if (carga >= 100) enche();
+    };
+    const nasce = () => {
+      if (cheia || feito) return;
+      const k = carga / 100, vida = 2600 - 1300 * k, vermelho = !BOT() && Math.random() < .05 + .22 * k;
+      const ativos = campo.querySelectorAll('.mo-g:not(.foi)').length;
+      if (ativos < 2 + Math.round(2 * k)) {
+        const g = document.createElement('button'); g.type = 'button'; g.className = 'mo-g' + (vermelho ? ' verm' : '');
+        g.style.left = (12 + Math.random() * 76) + '%'; g.style.top = (22 + Math.random() * 52) + '%'; g.style.setProperty('--vida', vida + 'ms');
+        g.setAttribute('aria-label', vermelho ? 'convés' : 'água');
+        let foi = false;
+        const some = () => { if (foi) return; foi = true; g.classList.add('foi'); setTimeout(() => g.remove(), 400); };
+        g.onpointerdown = (e) => {
+          e.stopPropagation(); e.preventDefault(); if (foi) return;
+          if (vermelho) { erros++; muda(-15); root.classList.remove('treme'); void root.offsetWidth; root.classList.add('treme'); A.tone && A.tone(140, .5, 'sawtooth', .03, 0, .4); }
+          else { acertos++; muda(9); A.tone && A.tone(330 + carga * 3, .25, 'sine', .03); }
+          g.classList.add(vermelho ? 'errou' : 'pegou'); some();
+        };
+        campo.appendChild(g);
+        setTimeout(() => { if (!foi) { if (!vermelho) { perdidos++; muda(-2); } some(); } }, vida);
+      }
+      pausa(nasce, 900 - 450 * k);
+    };
+    const enche = () => {
+      if (cheia) return; cheia = true; root.classList.remove('concentra'); root.classList.add('cheia');
+      campo.querySelectorAll('.mo-g').forEach((g) => g.remove()); dica.style.opacity = 0;
+      msg.textContent = salva ? c.tr(cfg.gritos) : c.tr(cfg.segura);
+      A.tone && A.tone(55, 2.4, 'sine', .07, 0, .6);
+      pausa(abre, 12000);   // segurar tem limite: depois de um tempo, a água sai sozinha
+    };
+    // a salva vem quando vier; se ela ainda está juntando a água, a tripulação já está no chão quando ela soltar
+    pausa(() => {
       if (feito) return; salva = true; root.classList.add('salva');
       msg.textContent = c.tr(cfg.salva); A.sfx('salva-bestas', .8, () => { for (let i = 0; i < 9; i++) A.hiss(.12, 2600, .9, .06, i * .05); });
-      setTimeout(() => { if (!feito) { msg.textContent = c.tr(cfg.gritos); A.sfx('gritos-tripulacao', .5); } }, 1800);
-    }, 5600);
-    const tAuto = setTimeout(() => abre(), 14000);
+      pausa(() => { if (!feito) { msg.textContent = c.tr(cfg.gritos); A.sfx('gritos-tripulacao', .5); } }, 1800);
+    }, cfg.salvaMs || 22000);
+    // ela é a Madrinha: mesmo distraída, a água vem. Depois da salva, a carga sobe sozinha devagar
+    const sobe = setInterval(() => { if (salva && !cheia && !feito) muda(1.5); }, 300);
     const abre = () => {
-      if (feito) return; feito = true; clearTimeout(tSalva); clearTimeout(tAuto);
-      const quando = salva ? 'tarde' : 'cedo'; c.registrar('abrir_mao', quando);
+      if (feito || !cheia) return; feito = true; timers.forEach(clearTimeout); clearInterval(sobe);
+      const quando = salva ? 'tarde' : 'cedo'; c.registrar('abrir_mao', quando); c.registrar('mao_conc', acertos + '/' + erros + '/' + perdidos);
       root.classList.add('aberta'); btn.disabled = true; msg.textContent = '';
-      // o som some, o mar recua (o vídeo entra junto), o rugido quando a parede de água sobe no vídeo, o branco quando a espuma cobre a tela
       A.duck(true); A.sfx('mar-para', .7, () => A.tone(55, 3, 'sine', .08, 0, .6));
       setTimeout(() => { root.classList.add('puxa'); A.sfx('mar-recua', .8, () => A.hiss(3, 300, .5, .2, 0, 'lowpass')); }, BOT() ? 10 : 1800);
       if (cfg.video && !BOT()) setTimeout(() => { const v = document.createElement('video'); v.className = 'mo-video'; v.muted = true; v.playsInline = true; v.autoplay = true; v.src = cfg.video; v.onerror = () => v.remove(); root.appendChild(v); v.play().then(() => v.classList.add('on')).catch(() => v.remove()); }, 1900);
       setTimeout(() => { root.classList.add('ruge'); A.sfx('onda-gigante', .95, () => { A.tone(40, 4, 'sawtooth', .12, 0, .5); A.hiss(4, 180, .4, .3, 0, 'lowpass'); }); }, BOT() ? 20 : 5100);
       setTimeout(() => { root.classList.add('branco'); }, BOT() ? 30 : 8500);
-      setTimeout(() => { A.duck(false); resolve({ quando, ms: Math.round(performance.now() - t0) }); }, BOT() ? 60 : 11300);
+      setTimeout(() => { A.duck(false); resolve({ quando, ms: Math.round(performance.now() - t0), acertos, erros, perdidos }); }, BOT() ? 60 : 11300);
     };
     btn.onclick = abre;
-    root.addEventListener('pointerdown', (e) => { if (e.target === btn || btn.contains(e.target)) return; abre(); });
-    const tecla = (e) => { if (e.code === 'Space' || e.key === 'Enter') { e.preventDefault(); removeEventListener('keydown', tecla); abre(); } };
+    root.addEventListener('pointerdown', (e) => { if (!cheia || e.target === btn || btn.contains(e.target)) return; abre(); });
+    const tecla = (e) => { if (cheia && (e.code === 'Space' || e.key === 'Enter')) { e.preventDefault(); removeEventListener('keydown', tecla); abre(); } };
     addEventListener('keydown', tecla);
-    if (BOT()) { if (R() > .5) { salva = true; } setTimeout(abre, 50); }
+    desenha();
+    if (BOT()) { if (R() > .5) salva = true; carga = 99; setTimeout(() => { muda(5); abre(); }, 50); }
+    else pausa(nasce, 1200);
   });
 }
 
@@ -312,7 +354,7 @@ function ordem(root, c) {
   const { L, A, U } = c, cfg = L.ordem, J = U('j');
   return new Promise((resolve) => {
     fundo(root, cfg.img, 'or-bg');
-    root.insertAdjacentHTML('beforeend', `<div class="or-in"><p class="or-t">${c.esc(c.lang === 'en' ? 'The council will hear them top to bottom.' : 'O conselho vai ouvir de cima para baixo.')}</p><ol class="or-lista"></ol><div class="or-acoes"><button class="cta or-ok">${c.esc(J.deixar)}</button></div></div>`);
+    root.insertAdjacentHTML('beforeend', `<div class="or-in"><p class="or-t">${c.esc(c.lang === 'en' ? 'The council will hear them top to bottom.' : 'O conselho vai ouvir de cima para baixo.')}</p>${c.st.f.dicaUltimo && cfg.dica ? `<p class="or-dica">${c.esc(c.tr(cfg.dica))}</p>` : ''}<ol class="or-lista"></ol><div class="or-acoes"><button class="cta or-ok">${c.esc(J.deixar)}</button></div></div>`);
     const ol = root.querySelector('.or-lista');
     let ordem_ = cfg.papeis.map((p) => p.id);
     const desenha = () => {
@@ -346,7 +388,22 @@ function ordem(root, c) {
       const acabou = (pos[1] === 0 || pos[4] === 0) && pos[3] >= 2;
       const resultado = agora ? 'cheia' : acabou ? 'nada' : 'meia';
       c.registrar('ordem', ordem_.join(''));
-      resolve({ ordem: ordem_.slice(), resultado });
+      // o ensaio: cada papel, na ordem, e o murmúrio da mesa depois dele
+      const fim = () => resolve({ ordem: ordem_.slice(), resultado });
+      if (!cfg.reage || BOT()) return fim();
+      root.classList.add('lendo');
+      root.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+      const acoes = root.querySelector('.or-acoes');
+      acoes.innerHTML = `<p class="or-ensaio">${c.esc(c.tr(cfg.ensaio))}</p>`;
+      const lis = [...ol.querySelectorAll('.or-p')];
+      lis.forEach((li, n) => setTimeout(() => {
+        lis.forEach((x) => x.classList.remove('lido-agora'));
+        li.classList.add('lido', 'lido-agora');
+        const r = cfg.reage[+li.dataset.id]; const fala = r ? (n <= 1 ? r.cedo : r.tarde) : '';
+        if (fala) li.insertAdjacentHTML('beforeend', `<span class="or-reage">${c.esc(c.tr(fala))}</span>`);
+        A.sfx('papel', .35, () => A.hiss(.18, 3000, .6, .04));
+      }, 400 + n * 2200));
+      setTimeout(() => { lis.forEach((x) => x.classList.remove('lido-agora')); acoes.insertAdjacentHTML('beforeend', `<button class="cta or-fim">${c.esc(J.seguir || 'Seguir')}</button>`); acoes.querySelector('.or-fim').onclick = fim; }, 400 + lis.length * 2200 + 600);
     };
     if (BOT()) setTimeout(() => { ordem_ = window.__rnd ? [1, 2, 3, 4, 5].sort(() => R() - .5) : [3, 2, 1, 4, 5]; root.querySelector('.or-ok').click(); }, 60);
   });

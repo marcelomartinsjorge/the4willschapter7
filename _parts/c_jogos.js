@@ -21,18 +21,20 @@
         : { id: 'cavalarico', rotulo: T('Um cavalariço lavando um cavalo cinzento', 'A stable boy washing a grey horse'), fala: [T('— Esse era do comandante Simon. O marechal Markus mandou separar para a coluna. Ele dorme na sala de armas desde a notícia, sabia? Do lado da baia.', '— This one was Commander Simon’s. Marshal Markus had him set aside for the column. He’s slept in the armory since the news, did you know? Right by the stall.')] },
       { id: 'vinho', rotulo: T('O moço que leva vinho à taverna dos oficiais velhos', 'The boy who carries wine to the old officers’ tavern'), fala: [T('— O Sir Joseph? De manhã a mão dele treme tanto que eu sirvo pela esquerda. Ele diz que quer uma última campanha antes de morrer. Diz toda noite.', '— Sir Joseph? In the mornings his hand shakes so much I pour from the left. He says he wants one last campaign before he dies. Says it every night.')] },
       { id: 'horne', rotulo: T('Um sargento velho no portão do quartel', 'An old sergeant at the barracks gate'), fala: (st) => [{ ajudar: T('— O Lorde Varr? Diz para quem quiser ouvir que deve uma à Lâmina. Desde uma prova do Torneio, vinte anos atrás. Diz isso bêbado e sóbrio.', '— Lord Varr? Tells anyone who’ll listen that he owes the Blade one. Since an exam at the Tourney, twenty years back. Says it drunk and sober.'), errar: T('— O Lorde Varr? Ainda conta a história de um número errado numa prova do Torneio, vinte anos atrás. Conta bêbado. Ainda não ri.', '— Lord Varr? Still tells the story of a wrong number on a Tourney exam, twenty years back. Tells it drunk. Still doesn’t laugh.') }[c4(st).varr] || T('— O Lorde Varr? Comanda a infantaria. Nunca foi escolhido para nada que desse canção, e sabe disso.', '— Lord Varr? Commands the infantry. Never been chosen for anything worth a song, and he knows it.')] },
-    ] },
-    dia2: { pick: 1, titulo: T('O segundo dia', 'The second day'), gente: [
       { id: 'bertha', rotulo: T('Uma mulher de luto na porta de casa', 'A woman in mourning at her door'), fala: [T('— O menino Ansel vem toda tarde me contar como o meu filho morreu nas Goelas. Conta igual. Eu deixo, porque ele precisa contar mais do que eu preciso ouvir.', '— The boy Ansel comes every afternoon to tell me how my son died at the Gullets. Tells it the same. I let him, because he needs to tell it more than I need to hear it.')] },
-      { id: 'edric', rotulo: T('Um escrivão comprando tinta na feira', 'A clerk buying ink at the market'), fala: [T('— De manhã eu leio os relatórios para o conselho. Em voz alta, na ordem em que estão na pasta. Ali, papel não muda de lugar. Eles nem leem; escutam.', '— In the mornings I read the reports to the council. Aloud, in the order they lie in the folder. Paper doesn’t move there. They don’t even read; they listen.')] },
-      { id: 'viuva', rotulo: T('Uma viúva na fila da pensão', 'A widow in the pension line'), fala: [T('— O meu marido morreu atrás deles numa duna. A duna estava vazia quando ele subiu. Eles somem, os bichos. Todo mundo sabe que eles somem.', '— My husband died chasing them up a dune. The dune was empty when he climbed it. They vanish, those beasts. Everyone knows they vanish.')] },
     ] },
-    dia3: { pick: 1, titulo: T('O terceiro dia', 'The third day'), gente: (st) => [
-      { id: 'aldo', rotulo: T('Um curandeiro saindo da enfermaria do quartel', 'A healer leaving the barracks infirmary'), fala: [T('— O sentinela que voltou das Goelas? Acorda gritando que o Grakh olhou para ele. Olhou, só isso. Eu dou chá. Não adianta.', '— The sentry who came back from the Gullets? He wakes up shouting that the Grakh looked at him. Looked, that’s all. I give him tea. It does nothing.')] },
-      { id: 'maud', rotulo: T('Uma mulher alta discutindo com um vendedor de selas', 'A tall woman arguing with a saddle seller'), fala: [T('— Para o meu irmão, o Lorde Varr. Se ele não for, alguém vai ter que segurá-lo em casa, e esse alguém sou eu. Ele não suporta ver os outros partirem sem ele.', '— For my brother, Lord Varr. If he doesn’t go, someone will have to hold him at home, and that someone is me. He can’t stand to watch the others leave without him.')] },
+    dia2: { pick: 1, titulo: T('O segundo dia', 'The second day'), gente: (st) => [
       circulo(st) === 'justine'
         ? { id: 'dama', rotulo: T('Uma dama de companhia esperando a liteira', 'A lady-in-waiting waiting for her litter'), fala: [T('— A Guardiã escreveu a lei que deixa a Lâmina ir à guerra quando quiser. Escreveu numa noite. Nunca vi lei tão curta.', '— The Keeper wrote the law that lets the Blade go to war whenever she wants. Wrote it in one night. I never saw a law so short.')] }
         : { id: 'escudeiro', rotulo: T('Um escudeiro limpando uma espada de pau', 'A squire cleaning a wooden sword'), fala: [T('— É do comandante Simon. O marechal pegou ele depois do Torneio, com quinze anos, quando o mestre de armas já não tinha o que ensinar. No primeiro dia derrubou ele onze vezes com esta aqui, o marechal conta. Só conta isso.', '— It was Commander Simon’s. The marshal took him on after the Tourney, at fifteen, when the master-at-arms had nothing left to teach him. The first day he knocked him down eleven times with this one, the marshal says. That’s all he says.'), T('— Eu queria ir na coluna. Dizem que escudeiro não vai.', '— I wanted to go with the column. They say squires don’t.')] },
+      { id: 'viuva', rotulo: T('Uma viúva na fila da pensão', 'A widow in the pension line'), fala: [T('— O meu marido morreu atrás deles numa duna. A duna estava vazia quando ele subiu. Eles somem, os bichos. Todo mundo sabe que eles somem.', '— My husband died chasing them up a dune. The dune was empty when he climbed it. They vanish, those beasts. Everyone knows they vanish.')] },
+      { id: 'maud', rotulo: T('Uma mulher alta discutindo com um vendedor de selas', 'A tall woman arguing with a saddle seller'), fala: [T('— Para o meu irmão, o Lorde Varr. Se ele não for, alguém vai ter que segurá-lo em casa, e esse alguém sou eu. Ele não suporta ver os outros partirem sem ele.', '— For my brother, Lord Varr. If he doesn’t go, someone will have to hold him at home, and that someone is me. He can’t stand to watch the others leave without him.')] },
+      { id: 'aldo', rotulo: T('Um curandeiro saindo da enfermaria do quartel', 'A healer leaving the barracks infirmary'), fala: [T('— O sentinela que voltou das Goelas? Acorda gritando que o Grakh olhou para ele. Olhou, só isso. Eu dou chá. Não adianta.', '— The sentry who came back from the Gullets? He wakes up shouting that the Grakh looked at him. Looked, that’s all. I give him tea. It does nothing.')] },
+    ] },
+    dia3: { pick: 1, titulo: T('O terceiro dia', 'The third day'), gente: [
+      { id: 'edric', rotulo: T('Um escrivão comprando tinta na feira', 'A clerk buying ink at the market'), fala: [T('— De manhã eu leio os relatórios para o conselho. Em voz alta, na ordem em que estão na pasta. Ali, papel não muda de lugar. Eles nem leem; escutam.', '— In the mornings I read the reports to the council. Aloud, in the order they lie in the folder. Paper doesn’t move there. They don’t even read; they listen.')] },
+      { id: 'guarda', flag: 'dicaEdric', rotulo: T('Um guarda da Cidadela no fim do turno', 'A Citadel guard at the end of his watch'), fala: [T('— A Sala dos Mapas? Só sobe quem tem a chave e cara conhecida. O Edric sobe toda madrugada para arrumar a pasta, e para o Edric os guardas nem olham.', '— The Map Room? Only those with the key and a known face go up. Edric goes up every morning before dawn to tidy the folder, and the guards don’t even look at Edric.')] },
+      { id: 'criadaC', flag: 'dicaUltimo', rotulo: T('Uma criada que serve água ao conselho', 'A maid who serves water to the council'), fala: [T('— Os velhos? Escutam o primeiro papel com sono e o último com fome. O que eles ouvem por último é o que levam para o almoço, e voltam do almoço decididos.', '— The old men? They hear the first paper sleepy and the last one hungry. Whatever they hear last is what they take to lunch, and they come back from lunch decided.')] },
     ] },
   },
 
@@ -50,14 +52,14 @@
   morta: {
     img: IMG('s05-conves'), dura: 46,
     falas: [
-      { t: 1.5, txt: T('— Essa ainda respira.', '— This one’s still breathing.') },
-      { t: 4.5, txt: T('— Respira nada. Puxa para o convés, que o capitão quer contar os corpos.', '— Breathing nothing. Haul her up, the captain wants the bodies counted.') },
+      { t: 1.5, txt: T('— Mais uma da Orla. Puxa pelo cabelo, que pelo braço escorrega.', '— Another one from the Shore. Pull her by the hair, the arm’s too slippery.') },
+      { t: 4.5, txt: T('— Joga com os outros. O capitão quer os corpos contados antes de Alvena.', '— Throw her with the rest. The captain wants the bodies counted before Alvena.') },
       { t: 10, card: 'capitao', txt: T('— Conta direito, Hobb. O capitão vende os mortos por peso em Alvena e paga a casa da Ondina com o que sobra.', '— Count right, Hobb. The captain sells the dead by weight in Alvena and pays Ondina’s house with what’s left.') },
-      { t: 17, card: 'hobb', txt: T('— Meu primo serve na Cidadela. Diz que a Lâmina não come desde que o irmão morreu. Manda o prato de volta cheio.', '— My cousin serves at the Citadel. Says the Blade hasn’t eaten since her brother died. Sends the plate back full.') },
+      { t: 17, card: 'hobb', txt: T('— Pena que morreu. Conjuradora viva vai para a Lâmina, e quem leva ganha folga. Meu primo serve na Cidadela. Diz que a Lâmina não come desde que o irmão morreu. Manda o prato de volta cheio.', '— Shame she’s dead. A live conjurer goes to the Blade, and whoever brings her in gets leave. My cousin serves at the Citadel. Says the Blade hasn’t eaten since her brother died. Sends the plate back full.') },
       { t: 21, se: (st) => brannAtira(st), txt: T('— Quem acertou o mestre dos besteiros? Daquela casca de noz?', '— Who hit the master of crossbows? From that nutshell?') },
-      { t: 25, card: 'grisalho', frase: 'boca', txt: T('— E agora? Boca Seca outra vez? Se ela quiser vingança, vai todo mundo, e o deserto come metade.', '— And now? The Dry Mouth again? If she wants vengeance, everyone goes, and the desert eats half.') },
+      { t: 25, card: 'grisalho', frase: 'boca', txt: T('— Quem não come quer guerra. Ela vai querer a Boca Seca outra vez. Se for por vingança, vai todo mundo, e o deserto come metade.', '— Someone who won’t eat wants war. She’ll want the Dry Mouth again. If it’s for vengeance, everyone goes, and the desert eats half.') },
       { t: 29, se: (st) => maruLado(st), txt: T('— O mastro do meio quebrou igual graveto. Mar parado não faz isso.', '— The middle mast snapped like a twig. A still sea doesn’t do that.') },
-      { t: 33, txt: T('— Olha o ombro dela. Seta inteira dentro, e nada. Essa desgraçada é dura igual Grakh.', '— Look at her shoulder. Whole bolt in, and nothing. This bitch is tough as a Grakh.') },
+      { t: 33, txt: T('— Essa nem esfriou. — É o sol. Joga no monte.', '— This one isn’t even cold. — It’s the sun. Throw her on the pile.') },
       { t: 40, txt: T('— Os da Orla vão para a balança de Alvena. Separa os que não estão faltando pedaço.', '— The Shore’s lot go to the scales at Alvena. Set aside the ones with nothing missing.') },
     ],
     mexe1: T('Um dedo meu se mexe.', 'One of my fingers moves.'),
@@ -69,7 +71,12 @@
 
   // ---------------------------------------------------------------- ABRIR A MÃO
   mao: {
-    img: IMG('s03-costado'), video: VID('b03-onda'),
+    img: IMG('s03-costado'), video: VID('b03-onda'), videoConj: VID('b03-conjura'), salvaMs: 22000,
+    // concentrar (o ouro sobe do fundo; o vermelho é o convés) e depois escolher a hora de soltar
+    conc: T('Trazer a água do fundo.', 'Bring up the water from the deep.'),
+    dica: T('Toque o ouro antes que ele apague. O vermelho é o barulho do convés: não toque.', 'Touch the gold before it fades. The red is the noise of the deck: don’t touch it.'),
+    pesa: T('A água pesa. Qualquer outra já teria soltado.', 'The water is heavy. Anyone else would have let go by now.'),
+    segura: T('Está na minha mão. Eu escolho a hora.', 'It is in my hand. I choose the moment.'),
     pede: T('Abrir a mão.', 'Open the hand.'),
     salva: T('— Bestas! — grita alguém em cima da galera.', '— Crossbows! — someone shouts on the galley.'),
     gritos: T('A salva desce. Alguém grita o meu nome, que eu não tenho.', 'The volley comes down. Someone shouts my name, which I don’t have.'),
@@ -314,4 +321,14 @@
       { id: 4, txt: T('Os poços das Goelas continuam com Redom.', 'The wells of the Gullets remain with Redom.') },
       { id: 5, txt: T('Batedores: a Pira se move para o norte.', 'Scouts: the Pyre is moving north.') },
     ],
+    // a leitura de manhã, ensaiada na cabeça dela: o que o conselho murmura depois de cada papel, conforme o lugar dele
+    reage: {
+      1: { cedo: T('— Perto da metade? Então acabou para eles.', '— Near half? Then it’s over for them.'), tarde: T('— Perderam metade, e mesmo assim se mexem.', '— They lost half, and still they move.') },
+      2: { cedo: T('A mesa fica quieta. Alguém olha para a cadeira vazia da Lâmina.', 'The table goes quiet. Someone looks at the Blade’s empty chair.'), tarde: T('— O comandante… — e ninguém termina.', '— The commander… — and no one finishes.') },
+      3: { cedo: T('— Vivo? O grande? E deixou o menino voltar?', '— Alive? The big one? And he let the boy come back?'), tarde: T('— Um sentinela assustado. Viu o que quis ver.', '— A frightened sentry. He saw what he wanted to see.') },
+      4: { cedo: T('— Os poços são nossos. Ganhamos.', '— The wells are ours. We won.'), tarde: T('— Pelo menos os poços.', '— At least the wells.') },
+      5: { cedo: T('— Para o norte. Estão indo embora. Melhor assim.', '— North. They’re leaving. All the better.'), tarde: T('— Para o norte. Fugindo. Vivo e fugindo.', '— North. Running. Alive and running.') },
+    },
+    dica: T('O que eles ouvem por último é o que levam para o almoço.', 'Whatever they hear last is what they take to lunch.'),
+    ensaio: T('Leio os papéis na cabeça, na voz do Edric, e escuto a mesa.', 'I read the papers in my head, in Edric’s voice, and listen to the table.'),
   },

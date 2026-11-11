@@ -43,7 +43,10 @@ const carregar = () => { try { const j = JSON.parse(localStorage.getItem(SAVE_KE
 let ANTES = {}; try { ANTES = JSON.parse(localStorage.getItem('aqv_estado') || '{}') || {}; } catch (e) {}
 window.AQV_ANTES = ANTES;
 const P = L.paginas;
-const visivel = (p) => !p.se || p.se(st);
+// páginas de desvio (presa, falhou) só abrem por L.desvio; nunca na sequência
+const visivel = (p) => !p.soDesvio && (!p.se || p.se(st));
+// o erro na Capital: conta, avisa, e no terceiro ela é presa (L.desvio leva à página de prisão)
+const erra = () => { st.f.erros = (st.f.erros || 0) + 1; const a = L.avisoErro && L.avisoErro(st); if (a) later(() => toast(sub(tr(a))), 1700); };
 const idxVis = (from, dir) => { let i = from + dir; while (i >= 0 && i < P.length && !visivel(P[i])) i += dir; return i; };
 
 // ---------------------------------------------------------------- áudio (Web Audio)
@@ -481,8 +484,10 @@ function render(dir = 1) {
   clearTimers(); cuesPend = []; A.stopNarr(); linkUsados.clear();
   document.body.classList.remove('apaga', 'vaza', 'dor');
   const p = P[st.i]; if (!p) return;
+  // o ponto de volta: guarda o estado inteiro ao entrar pela primeira vez
+  if (p.checkpoint && !st.feitos['ck:' + p.id]) { st.feitos['ck:' + p.id] = 1; const c = Object.assign({}, st); delete c.ckpt; st.ckpt = JSON.stringify(c); }
   if (p.aoEntrar && !st.feitos['in:' + p.id]) { st.feitos['in:' + p.id] = 1; p.aoEntrar(st, { toast: (t) => later(() => toast(sub(tr(t))), 600), guarda, veste }); }
-  if (p.pedra != null) { st.f.pedra = !!p.pedra; }
+  if (p.pedra != null) { st.f.pedra = !!(typeof p.pedra === 'function' ? p.pedra(st) : p.pedra); }
   setFundo(resolveFundo(p));
   Agua.set(p.agua != null ? (typeof p.agua === 'function' ? p.agua(st) : p.agua) : (L.aguaDe ? L.aguaDe(st, p) : 0));
   Sal.set(p.sal != null ? (typeof p.sal === 'function' ? p.sal(st) : p.sal) : (L.salDe ? L.salDe(st, p) : 0));
@@ -520,7 +525,7 @@ function render(dir = 1) {
   if (p.afoga && dir >= 0 && !st.feitos['af:' + p.id]) { st.feitos['af:' + p.id] = 1; later(() => afogaAvisos(p.afoga.filtro, p.afoga.ultimo), p.afoga.ms || 1400); }
   dor(!!p.dor && dir >= 0);
   btnPrev.disabled = idxVis(st.i, -1) < 0; btnPrev.textContent = U('voltar');
-  btnNext.textContent = p.fim ? U('fim') : U('prox');
+  btnNext.textContent = p.fim ? U('fim') : p.volta ? U('tentar') : U('prox');
   st.feitos[p.id] = st.feitos[p.id] || 1; salvar();
   panel.scrollTop = 0;
 }
@@ -575,6 +580,7 @@ function renderPiscar(p, dir, sonsPag) {
       else A.tone(140, 1.2, 'sawtooth', .03, 0, .7);
       setTimeout(() => ov.remove(), 900);
       if (!ok && g.aoFalhar) g.aoFalhar(st);
+      if (!ok && g.erro && (typeof g.erro !== 'function' || g.erro(st))) erra();
       later(() => fecha(ok), 700);
     };
     const toque = (e) => {
@@ -622,6 +628,7 @@ function aplicar(o) {
   if (o.flag) [].concat(v(o.flag)).forEach((f) => { st.f[f] = true; });
   if (o.guarda) [].concat(v(o.guarda)).filter(Boolean).forEach((g) => later(() => guarda(g), 900));
   if (o.aoEscolher) o.aoEscolher(st);
+  if (o.erro && v(o.erro)) erra();
   const av = v(o.aviso);
   if (av) { [].concat(av).forEach((a, k) => { st.avisos.push(a); later(() => toast(sub(tr(a))), 700 + k * 900); }); }
 }
@@ -701,6 +708,15 @@ function irProxima2() {
   cuesPend.forEach((c) => c.tocar()); cuesPend = [];
   if (p && p.aoSair && !st.feitos['out:' + p.id]) { st.feitos['out:' + p.id] = 1; p.aoSair(st, { guarda, veste }); }
   if (p && p.fim) return resumo();
+  // presa ou derrotada: volta ao ponto guardado (a saída da cela), com tudo o que veio depois desfeito
+  if (p && p.volta && st.ckpt) {
+    const tent = (st.tentativas || 0) + 1, ck = st.ckpt;
+    st = JSON.parse(ck); st.ckpt = ck; st.tentativas = tent; st.feitos['ck:' + P[st.i].id] = 1;
+    P.forEach((x) => { delete x._revelado; delete x._saindo; });
+    salvar(); A.ctx && A.virar(); render(1); return;
+  }
+  const d = L.desvio && L.desvio(st, p);
+  if (d) { const k = P.findIndex((x) => x.id === d); if (k >= 0 && k !== st.i) { st.i = k; A.ctx && A.virar(); render(1); return; } }
   const j = idxVis(st.i, 1); if (j >= P.length) return resumo();
   st.i = j; A.ctx && A.virar(); render(1);
 }

@@ -188,3 +188,33 @@ O script trava em 30 grupos de 3 palavras. Quase todos são nomes próprios (cas
 Use o `subir_cap7.ps1`. Ele descompacta o zip da pasta Downloads, copia para `C:\projetos\the4willschapter7` e faz o commit e o push. Na primeira vez, ligue o Pages em Settings > Pages > Branch `main` / `(root)`. Para as próximas versões, é só rodar de novo.
 
 O endereço fica `https://marcelomartinsjorge.github.io/the4willschapter7/`.
+
+---
+
+## v4 · 10/11/2026 · o feedback jogando o capítulo inteiro
+
+**Estrutura nova depois da cela.** A Laura manda a Madrinha a Nove Mastros com o comandante Aubert (a escolta muda com os termos do interrogatório: palavra, sombra ou argola). Lá ela convence os três chefes diante do caderno dele (Parte IV · A Trégua, três escolhas: Sarnai, Ossian, Ruo; cada resposta conta chefes convencidos e o quanto o caderno desconfia). Se só uma casa assina, a Laura a devolve à Ala Funda e o capítulo volta ao início da Parte IV. Com duas ou três, a carta pede três meses sem pirataria "enquanto as casas decidem", Redom vê as velas sumirem, e a Laura a guarda como hóspede num quarto em cima do templo do Cavaleiro, sobre a cisterna. As semanas passam; a coluna é montada há um mês; o conselho decide em três dias. As noites são saídas escondidas pela laje e pelo bueiro, com volta antes do sol. No fim, a Laura cumpre a palavra e a manda de volta à Orla com escolta (Greta ou a sombra), e ela some e entra na coluna (Parte VI).
+
+**Checkpoint.** O cartão da Parte IV guarda o estado inteiro. Três desvios voltam para ele: três erros na Capital (presa), trégua com uma casa só, conselho não convencido (pontos das noites: cheia 2, meia 1; precisa de 4). O botão diz "Tentar de novo". `st.tentativas` conta as voltas.
+
+**Método com consequência.** Cada rosto (14 nas noites, 4 na coluna, Greta, a sombra, o ferreiro) tem um jeito certo, um meio e um errado; a pista está na descrição do rosto ("dorme sozinha na sacristia e confessa tudo de manhã"). O errado conta um erro e mostra aviso ("A Capital começou a procurar." / "Mais um rastro, e a Capital me acha."); olho que vaza na Capital (tocha, lavadeira) também conta. Tabela em `METODO` e `METODO_C` (a_head.js).
+
+**A Sala dos Mapas** é sempre a terceira noite. O terceiro dia oferece o Edric (rosto), um guarda (pista: ninguém olha para o Edric) ou a criada que serve água ao conselho (pista: o último papel é o que eles levam para o almoço). Depois de "Deixar assim", ela ensaia a leitura: cada papel acende e a mesa murmura, conforme a posição.
+
+**A magia (b03).** Narração de concentração antes; minijogo novo inspirado no do Aheryn: brilhos dourados sobem da água funda, tocar antes de apagar enche a barra; o vermelho é o convés e custa água; acelera perto do fim ("Qualquer outra já teria soltado."). Cheia, ela escolhe a hora de abrir a mão. A salva vem aos 22 s: quem demora a encher já solta "tarde". Depois: a onda varre o convés, o número de mortos de Redom soma o que a tripulação fez (14 a 26), Nhalé puxa soldados para o fundo, os dedos dela não fecham mais.
+
+**Outros pontos do feedback, um por um:**
+- Rota vendida: o Ruo agora conta que o irmão saiu por uma rota que só três casas conheciam e a galera já esperava. O D04 (dublado) fica claro depois disso. Cartão do Ruo atualizado.
+- "Luva molhada" saiu: ela devolve o rosto da Iska com nojo da boca dela.
+- Olhos: "estranhos/esquisitos" viraram "acesos demais".
+- Segunda noite no mar com cada tripulante (a13*): Maru e o olho, Lio e o fundo, Teshka e a faca, Nhalé e o secar, Brann e a gaivota. A Nhalé não pergunta mais de cheiro: estava na roda que cantava quando ela acordou.
+- Fingir de morta: os soldados acham que ela morreu do começo ao fim; "resistente igual Grakh" só quando descobrem que está viva (b05b).
+- Ala Funda: ela aprende tudo pelo que ouve (rampa, soldados, sargento gritando os nomes).
+- D23 ganhou o complemento: os Grakh estão no fim, por isso os homens dela foram para a costa; ela quer levá-los ao deserto.
+- "Contava as minhas orelhas" virou "as vezes em que o ouro acendia nos meus olhos".
+- O ferreiro virou cena (bueiro, forja, martelo), e a opção diz o que faz: "obrigá-lo a abrir a argola e depois matá-lo".
+- Tela tremendo: a água só refrata debaixo d'água (a01, b03, b04, cisterna).
+- Primeiro dia: ela anda com o próprio rosto e o guarda atrás; o jogo diz "Ouvir um, guardar o rosto"; a pergunta da noite é "Que rosto eu visto esta noite?".
+- "4 dias" saiu. Português: "esperar que me ofereça a roupa", "deixar que me dê a roupa", próclise no começo de frase na narração, tempos verbais.
+
+**Checagem (PROMPT_MESTRE v5.4):** muletas dentro do limite (ninguém 7, inteiro 4, devagar 6); moldes ACIMA: 0, com o bloco `motivos cap07` aprovado e instalado (mais 6 motivos novos: guarda da Cidadela, o Lorde Varr, Viúvas do Sal, o comandante Aubert, bate na quilha, resistente igual Grakh).

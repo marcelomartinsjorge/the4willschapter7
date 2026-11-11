@@ -634,3 +634,37 @@ Com a mesma voz e o mesmo microfone das D01 a D19, leve e molhada, perto do ouvi
 | `D21.mp3` | I need her to see me. Alive. | **Página b03.** Ela está de pé na proa do barquinho, de frente para a galera, com os besteiros erguendo as armas. É o eco da D20. Diga calma, quase carinhosa, sem pressa, como quem espera alguém chegar. Faça uma pausa curta antes de "Alive." |
 | `D22.mp3` | Laura will come down. Before she does, I want to know her. Until then, there is time to work two of them. | **Página c01.** Ela está na cela de pedra surda, depois de aprender os quatro carcereiros pelo som dos passos. Use uma paciência fria, íntima, com o prazer de quem tem tempo. Diga "work" com um meio sorriso. |
 | `D23.mp3` | She wants the desert and can’t go, because the coast ties down her galleys. If the Shore kneels, the coast lets go. I want her to send me back to do it herself. | **Página c03b.** A Laura acabou de sentar na frente dela, e é o pensamento dela antes da primeira pergunta. Diga num sussurro rápido e seguro, como um plano dito ao próprio ouvido. Desacelere em "do it herself". |
+
+---
+
+## Novas da v4 (feedback de 10/11/2026)
+
+Nada aqui trava o capítulo: enquanto a mídia não chega, o jogo usa a imagem que já existe e o cartão do Aubert mostra o rosto em branco.
+
+### `rostos/aubert.jpg` ⭐ · Flow · o comandante Aubert (cartão da Coleção)
+**Contexto:** o oficial que a Laura manda com a Madrinha a Nove Mastros. Faz a barba todo dia, até na estrada, e escreve tudo num caderno de couro. Não é guerreiro de linha de frente: é o homem que relata à Lâmina.
+```
+Photorealistic cinematic head-and-shoulders portrait, plain dark background, soft side light. Commander Aubert of Redom: a man of about forty-five, lean, clean-shaven, completely bald head, narrow severe face, attentive pale grey eyes, thin lips pressed in concentration; a high-collared dark red-brown officer’s coat with a small ship-and-anchor emblem embroidered on the chest; a worn leather-bound notebook held against his chest, a quill in his hand. Calm, precise, unreadable. Film grain, shallow depth of field.
+Negative: helmet, armor plates, beard, stubble, smile, fantasy jewelry, modern clothes, glasses, text, watermark.
+```
+
+### `video/b03-conjura.mp4` ⭐ · Flow (REF-MADRINHA) · fundo do minijogo da magia (em loop)
+**Contexto:** página b03, antes de ela abrir a mão. Ela está de pé na proa do barco pequeno, de frente para a Sentença, de olhos fechados, puxando a água do fundo. O vídeo toca em loop atrás dos brilhos dourados do minijogo, então precisa de pouca ação e nenhum corte. Sem a onda (a onda já é o `b03-onda.mp4`). 6 a 8 segundos, câmera quase parada.
+```
+Photorealistic cinematic medium shot at dusk on a calm grey sea channel. The Godmother (a Nymae woman who looks about thirty, petite and slender; smooth blue-grey skin with very fine iridescent scales; translucent fin-shaped ears swept back; long dark navy-blue hair, wet; large molten-gold eyes, faintly luminous; plum leather bodice, violet silk skirt, short aubergine coat, small old-gold coins on chains at her wrists and waist) stands at the bow of a small fishing boat, eyes closed, both arms slightly raised and hands half-open, fingers trembling with strain. Around the hull the water darkens and begins to rise in slow, heavy swells; thin threads of golden light rise from the deep toward her hands; the coins on her chains lift and float as if underwater. In the soft-focus background, a large dark three-masted war galley with rows of crossbowmen. Slow push-in, almost static, no cuts, no wave crashing. Navy, violet and old-gold palette, film grain.
+Negative: giant wave, explosion, open eyes, smiling, text, lettering on the ship, extra people in the boat, fast camera movement.
+```
+
+### `t03-aubert-mesa.jpg` · Flow (REF-MADRINHA) · opcional · a cabine com Redom na mesa (t03 a t03r)
+**Contexto:** a mesma cabine dos chefes (a04), agora com o comandante sentado com o caderno aberto. Instalada (Aubert careca, de túnica vinho). **O texto fica à esquerda: a mesa e o Aubert no centro-direita.**
+```
+Photorealistic cinematic interior of a large old ship’s cabin at night, lantern light, dark wood, nets and charts on the walls. At a heavy table sit an old Nymae woman praying with closed eyes, a tattooed human man with lightning drawn on his neck, and a Redom officer in a high-collared red-brown coat writing in a leather notebook, a quill in hand, an untouched cup of wine beside him. A young man stands in the doorway with arms crossed. The Godmother (REF-MADRINHA, purple clothes, gold eyes) stands at the head of the table, one hand resting on it, looking at the officer’s notebook with a faint smile. The group is in the center-right of the frame. Warm amber and deep purple palette, film grain.
+Negative: weapons drawn, crowd, modern objects, text.
+```
+
+### `t06-quarto.jpg` · Flow · opcional · o quarto da hóspede, em cima do templo (t06)
+**Contexto:** o quarto onde a Laura a hospeda, com guarda na porta. Embaixo da cama, a laje solta que desce à cisterna. Hoje usamos `d03-capital`. **Sem a Madrinha na imagem; o sujeito (a laje aberta) à direita.**
+```
+Photorealistic cinematic interior at night: a narrow stone room above an old temple, white limewashed walls, a simple wooden bed with linen, a barred window showing torches of a pale city below. The bed has been pushed aside: a flagstone in the floor is lifted, revealing worn stone steps going down into darkness, a faint blue shimmer of water deep below. A closed heavy wooden door with the shadow of a guard’s boots visible under it. The open flagstone is in the right third of the frame. Cold moonlight and a single candle, film grain.
+Negative: people, text, modern objects.
+```

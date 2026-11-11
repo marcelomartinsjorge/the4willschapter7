@@ -35,7 +35,7 @@ body.agua-on #bg { filter: url(#agua); }
     radial-gradient(ellipse 12% 6% at 85% 60%, rgba(170,230,240,.08), transparent 70%);
   mix-blend-mode: screen; animation: caustica 14s ease-in-out infinite alternate; }
 body[data-zona="fundo"] #caustica, body[data-zona="cisterna"] #caustica, body.na-capa #caustica { opacity: 1; }
-body[data-zona="cais"] #caustica, body[data-zona="mar"] #caustica { opacity: .45; }
+body[data-zona="mar"] #caustica { opacity: .25; }
 @keyframes caustica { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(3%, -2%) scale(1.06); } 100% { transform: translate(-2%, 2%) scale(1.02); } }
 #fx { z-index: 3; }
 
@@ -314,7 +314,16 @@ html[lang="en"] .opt.p-roubar::after { content: '· steal'; } html[lang="en"] .o
 .or-setas { display: flex; flex-direction: column; gap: 4px; }
 .or-setas button { width: 34px; height: 26px; border: 1px solid rgba(60,40,20,.4); background: rgba(255,255,255,.35); color: #3a2a18; cursor: pointer; font-size: 12px; }
 .or-setas button:disabled { opacity: .3; cursor: default; }
-.or-acoes { margin-top: 18px; }
+.or-acoes { margin-top: 18px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.or-dica { margin: -6px 0 14px; font-family: var(--serif); font-style: italic; font-size: 15px; color: #e8d7a8; text-align: center; max-width: 560px; }
+.or-p { flex-wrap: wrap; }
+.jg-ordem.lendo .or-p { cursor: default; opacity: .55; transition: opacity .5s ease, transform .5s ease; }
+.jg-ordem.lendo .or-p.lido { opacity: .9; }
+.jg-ordem.lendo .or-p.lido-agora { opacity: 1; transform: scale(1.02); box-shadow: 0 10px 30px rgba(0,0,0,.6), 0 0 0 2px rgba(201,162,74,.7); }
+.jg-ordem.lendo .or-setas { visibility: hidden; }
+.or-reage { flex-basis: 100%; padding-left: calc(1.4em + 12px); font-style: italic; font-size: .9em; color: #6a3a22; animation: orReage .8s ease both; }
+@keyframes orReage { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.or-ensaio { margin: 0; font-family: var(--serif); font-style: italic; color: var(--mist); text-align: center; }
 
 @media (max-width: 700px) {
   #frase { top: 56px; font-size: 16px; }
@@ -337,6 +346,30 @@ html[lang="en"] .opt.p-roubar::after { content: '· steal'; } html[lang="en"] .o
 .es-perg li.ok { color: var(--gold-hot); }
 .es-perg li.ok::before { background: var(--gold); box-shadow: 0 0 10px rgba(241,213,138,.7); }
 .az-op .de-txt { display: block; margin-top: 3px; font-family: var(--sans); font-style: normal; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); opacity: .85; }
+/* concentrar: o ouro que sobe do fundo, o vermelho do convés, a barra de água */
+.mo-conj { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.2s; z-index: 1; pointer-events: none; }
+.mo-conj.on { opacity: .9; }
+.jg-mao.aberta .mo-conj { opacity: 0; }
+.mo-campo { position: absolute; inset: 0; z-index: 3; }
+.mo-g { position: absolute; width: 74px; height: 74px; margin: -37px 0 0 -37px; border-radius: 50%; border: 0; padding: 0; cursor: pointer; touch-action: none;
+  background: radial-gradient(circle, rgba(255,226,150,.95) 0 16%, rgba(241,200,110,.55) 30%, rgba(201,162,74,.12) 62%, transparent 70%);
+  box-shadow: 0 0 22px rgba(241,200,110,.55); animation: moNasce .35s ease-out both; }
+.mo-g::after { content: ''; position: absolute; inset: 4px; border-radius: 50%; border: 2px solid rgba(255,230,160,.85); animation: moVida var(--vida) linear forwards; }
+.mo-g.verm { background: radial-gradient(circle, rgba(255,120,90,.9) 0 14%, rgba(190,40,30,.5) 32%, rgba(120,20,15,.12) 62%, transparent 70%); box-shadow: 0 0 18px rgba(200,50,40,.5); }
+.mo-g.verm::after { border-color: rgba(255,120,100,.8); }
+.mo-g.foi { opacity: 0; transform: scale(.6); transition: opacity .35s, transform .35s; pointer-events: none; }
+.mo-g.pegou { opacity: 0; transform: scale(1.8); transition: opacity .4s, transform .4s; }
+@keyframes moNasce { from { opacity: 0; transform: scale(.3) translateY(20px); } to { opacity: 1; transform: none; } }
+@keyframes moVida { from { transform: scale(1); opacity: 1; } to { transform: scale(.15); opacity: .3; } }
+.mo-barra { position: absolute; z-index: 3; left: 50%; top: 11%; width: min(420px, 70%); height: 6px; transform: translateX(-50%); background: rgba(255,255,255,.12); border: 1px solid rgba(201,162,74,.5); }
+.mo-barra i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #2a6f86, #9fd6e6, var(--gold-hot)); box-shadow: 0 0 12px rgba(159,214,230,.6); transition: width .25s; }
+.mo-dica { position: absolute; z-index: 3; left: 0; right: 0; bottom: 8%; margin: 0; text-align: center; font-family: var(--sans); font-size: 13px; letter-spacing: .04em; color: var(--mist); text-shadow: 0 1px 4px #000; transition: opacity .6s; padding: 0 16px; }
+.jg-mao.concentra .mo-pede { opacity: 0; pointer-events: none; }
+.jg-mao.cheia .mo-pede { animation: moSobe .8s ease-out both; }
+@keyframes moSobe { from { opacity: 0; transform: translate(-50%, 20px); } to { opacity: 1; transform: translate(-50%, 0); } }
+.jg-mao.cheia .mo-barra, .jg-mao.aberta .mo-barra { opacity: 0; transition: opacity .8s; }
+.jg-mao.pesa .mo-bg { filter: brightness(.75) saturate(1.2) hue-rotate(-8deg); }
+.jg-mao.treme .mo-campo { animation: ruge .12s linear 3; }
 .mo-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.2s; z-index: 2; pointer-events: none; }
 .mo-video.on { opacity: 1; }
 /* v3.2: as duas frases da Lâmina com rótulo, para não confundir com a frase que ela carrega */
