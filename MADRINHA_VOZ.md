@@ -177,7 +177,14 @@ Quando ela diz que vai contra a Sentença, as casas não perguntam se podem ir. 
 
 **O problema de hoje.** As opções aparecem antes de a pergunta assentar e nem sempre respondem a ela. E o ouro sempre se completa sozinho, então a Laura solta a Madrinha de qualquer jeito, e o jogador nunca sente que convenceu. **A partir de agora o ouro é a crença da Laura no poder dela, e decide os termos** (palavra, sombra ou argola) junto com o vermelho.
 
-**O que a Madrinha precisa provar:** que entra na Orla onde Redom não entra há cem anos, e que, com a Orla quieta, os homens da Laura ficam livres para a Boca Seca.
+**O que a Madrinha precisa provar (v5.5, pedido do autor):** três coisas, e a página antes do interrogatório diz isso ao jogador.
+1. Que foi ela que levantou o mar (o poder).
+2. Que a Orla faz o que ela manda (a influência entre as facções). Provas: os presos ajoelhados no porão, as dívidas entre as casas (rosto da Sarnai), ou os mortos do canal, filhos das três casas no mesmo barco.
+3. **Um motivo que a Laura compre para ela entregar a Orla a Redom.** A Laura não acredita em quem dá de graça. A mentira que funciona: *a Orla não tem lei, tem dívida; casa vende casa e o pescador paga a forca; com Redom na mesa a dívida acaba, e quem sentou Redom na mesa fica com o que sobrar.* A ambição pura (*a Orla de joelhos para Redom ajoelha primeiro para mim*) também convence, mas acende o vermelho. "Paz para a Orla" é mentira e a Laura ri: quem quer paz não quebra a maior galera da costa.
+
+**A Laura só solta a Madrinha com as duas chaves (influência e motivo) e ouro suficiente.** Faltando uma, a morte diz qual faltou: *"Você me mostrou o mar. Não me mostrou uma casa da Orla que faça o que você manda"* ou *"Você não me disse o que ganha com isso. Quem entrega a própria casa sem dizer o preço, ou é santa, ou mente."* Depois, na proposta, a Laura devolve o motivo: *"Você quer a Orla com lei, e você do lado de quem escreve a lei. Eu quero a costa quieta. Por três meses, as duas coisas cabem no mesmo barco."*
+
+*(Abaixo, a primeira montagem, de antes da v5.5. Entre a pergunta 4 e a 5 entrou a pergunta do motivo: "— Digamos que a Orla faça o que você manda. Por que você me daria a Orla?" A última virou "— E de mim, o que você quer?")*
 
 1. **"— Nome."**
    - *Na Orla me chamam de Madrinha.* → A Laura conhece o mito: — A Madrinha da Orla é história para marinheiro não ter medo do escuro. Li sobre ela. *(+1 ouro, abre a pergunta 3.)*

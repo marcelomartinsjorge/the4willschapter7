@@ -263,7 +263,7 @@ function anzol(root, c) {
         vis.forEach((o, n) => {
           const b = document.createElement('button'); b.className = 'opt az-op t-' + o.tipo; b.type = 'button';
           const de = val(o.de, st);
-          b.innerHTML = `<span class="k">${n + 1}</span>${de ? `<i class="rosto mini" style="background-image:${bg(c, de)}"></i>` : ''}<span class="tx">${o.tipo === 'silencio' ? `<em>${c.esc(U('silencioR'))}</em>` : '“' + c.esc(c.sub(c.tr(val(o.txt, st)))) + '”'}</span><small class="tp">${c.esc(J[o.tipo] || '')}</small>`;
+          b.innerHTML = `<span class="k">${n + 1}</span>${de ? `<i class="rosto mini" style="background-image:${bg(c, de)}"></i>` : ''}<span class="tx">${o.tipo === 'silencio' ? `<em>${c.esc(U('silencioR'))}</em>` : '“' + c.esc(c.sub(c.tr(val(o.txt, st)))) + '”'}</span>`;
           b.onclick = () => escolhe(o);
           ops.appendChild(b);
         });
@@ -300,7 +300,7 @@ function interrogatorio(root, c) {
       <div class="iq-verm">${wv.map((w, i) => `<span class="vw" style="--i:${i}">${c.esc(w)}</span>`).join(' ')}<small class="iq-rot">${c.esc(U('iqVerm'))}</small></div><div class="iq-orelhas"><i></i><i></i></div>`);
     const log = root.querySelector('.az-log'), ops = root.querySelector('.az-ops'), so = [...root.querySelectorAll('.aw')], sv = [...root.querySelectorAll('.vw')];
     let ouro = 0, verm = 0, i = 0, disse = false; const flags = [];
-    const MAXO = 8, MAXV = 6;
+    const MAXO = 10, MAXV = 6;
     const pinta = () => {
       const no = Math.round(clamp(ouro / MAXO, 0, 1) * wo.length), nv = Math.round(clamp(verm / MAXV, 0, 1) * wv.length);
       so.forEach((s, j) => s.classList.toggle('on', j < no)); sv.forEach((s, j) => { const on = j < nv; if (on && !s.classList.contains('on')) A.tone(150 - j * 6, .5, 'triangle', .025); s.classList.toggle('on', on); });
@@ -310,7 +310,10 @@ function interrogatorio(root, c) {
     const fim = () => {
       ops.innerHTML = '';
       // abaixo do limiar, a Lâmina não acredita: decreta a morte (a página volta ao começo do interrogatório)
-      if (cfg.limiar && ouro < cfg.limiar) {
+      const faltam = (cfg.chaves || []).filter((k) => !flags.includes(k));
+      const falta = faltam.length > 1 ? 'pouco' : faltam[0] || (cfg.limiar && ouro < cfg.limiar ? 'pouco' : null);
+      st.f.iqFalta = falta;
+      if (falta) {
         root.classList.add('morre'); A.tone(70, 2.2, 'sawtooth', .05, 0, 1.2);
         lista(cfg.morte, st).forEach((x, n) => setTimeout(() => linhas(log, [x], c, n === 0 || n === 3 ? 'nota' : 'alvo vermelha'), BOT() ? 5 : 700 + n * 1500));
         c.registrar('interrogatorio', 'morte');

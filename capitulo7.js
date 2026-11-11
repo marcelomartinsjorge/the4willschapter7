@@ -66,75 +66,162 @@ const trSusp = (st) => { st.f.trSusp = (st.f.trSusp || 0) + 1; };
 const ERROS_MAX = 3;
 const convenceu = (st) => [1, 2, 3].reduce((a, k) => a + ({ cheia: 2, meia: 1 }[J(st, 'noite' + k).resultado] || 0), 0) >= 4;
 const MR = (c, pt, en) => [c, T(pt, en)];
+// como ela pega a roupa do dono do rosto, à noite. O resultado cruza o jeito do dono (sono, o que ele quer, quem está perto)
+// com o rosto com que ela sai: o Bento (menino aguadeiro: entra em qualquer casa, ninguém repara) ou a Lume (Casa das Lanternas:
+// ninguém diz não para ela, ninguém esquece). roubar · perto (Lume seduz; Bento engana; com o moço de recados, a Lume paga) · matar
 const METODO = {
   cavalarico: {
-    roubar: MR('certo', 'O Tam dorme de boca aberta no feno, e a roupa dele está pendurada no prego da baia. O cavalo cinzento me vê tirar e guarda o segredo.', 'Tam sleeps open-mouthed in the hay, and his clothes hang on the nail in the stall. The grey horse watches me take them and keeps the secret.'),
-    seduzir: MR('meio', 'Ele tira a camisa sozinho, rindo, achando que tem sorte. Amanhã vai contar aos outros cavalariços da mulher bonita da baia, e os outros vão rir. Por enquanto.', 'He takes off his shirt himself, laughing, thinking he’s in luck. Tomorrow he’ll tell the other grooms about the beautiful woman in the stall, and the others will laugh. For now.'),
-    matar: MR('errado', 'O feno abafa tudo. Mas antes do sol o marechal desce para ver o cavalo cinzento, como desce toda madrugada, e acha o menino.', 'The hay muffles everything. But before sunrise the marshal comes down to see the grey horse, as he does every morning, and finds the boy.'),
+    roubar: {
+      bento: MR('certo', 'O Tam dorme de boca aberta no feno, e a roupa dele está pendurada no prego da baia. O cavalo cinzento me vê tirar e guarda o segredo.', 'Tam sleeps open-mouthed in the hay, and his clothes hang on the nail in the stall. The grey horse watches me take them and keeps the secret.'),
+      lume: MR('meio', 'O Tam não acorda. Acorda o ajudante que dorme na baia do lado, e vê a Lume sair da baia do comandante. De manhã a estrebaria toda sabe.', 'Tam doesn’t wake. The helper sleeping in the next stall does, and sees Lume leave the commander’s stall. By morning the whole stable knows.'),
+    },
+    perto: {
+      lume: MR('meio', 'Ele tira a camisa sozinho, rindo, achando que tem sorte. Amanhã os outros cavalariços vão saber que a Lume desceu na baia dele, e vão rir. Por enquanto.', 'He takes off his shirt himself, laughing, thinking he’s in luck. Tomorrow the other grooms will know Lume came down to his stall, and they’ll laugh. For now.'),
+      bento: MR('meio', 'Acordo o Tam com o balde: o marechal quer o cavalo cinzento escovado antes do sol, e camisa suja na baia ele não aceita. O Tam me dá a camisa para lavar e vai escovar o cavalo de peito nu. O marechal vai perguntar por quê.', 'I wake Tam with the bucket: the marshal wants the grey horse groomed before sunrise, and won’t have a dirty shirt in the stall. Tam gives me the shirt to wash and goes to groom the horse bare-chested. The marshal will ask why.'),
+    },
+    matar: MR('errado', 'O feno abafa tudo. Mas antes do sol o marechal desce para ver o cavalo cinzento, como desce toda madrugada, e acha o rapaz.', 'The hay muffles everything. But before sunrise the marshal comes down to see the grey horse, as he does every morning, and finds the young man.'),
   },
   escudeiro: {
-    roubar: MR('errado', 'São doze meninos na mesma sala, e um deles dorme mal. Acorda comigo de joelhos no baú e grita "ladrão" para a sala. Saio pela janela com a roupa, e doze bocas vão contar.', 'Twelve boys in one room, and one of them sleeps badly. He wakes to find me kneeling at the chest and shouts "thief" to the room. I leave by the window with the clothes, and twelve mouths will tell it.'),
-    seduzir: MR('certo', 'Chamo o Corin para fora com um dedo. Ele vem, porque nunca foi chamado. Dá-me a roupa e a espada de pau e vai ficar calado, porque no alojamento ia virar piada: uma mulher daquelas, e justo ele.', 'I call Corin outside with one finger. He comes, because he has never been called. He gives me his clothes and the wooden sword and will keep quiet, because in the barracks it would become a joke: a woman like that, and him of all people.'),
+    roubar: {
+      bento: MR('errado', 'São doze escudeiros na mesma sala, e um deles dorme mal. Acorda comigo de joelhos no baú e grita "ladrão" para a sala. Saio pela janela com a roupa, e doze bocas vão contar.', 'Twelve squires in one room, and one of them sleeps badly. He wakes to find me kneeling at the chest and shouts "thief" to the room. I leave by the window with the clothes, and twelve mouths will talk.'),
+      lume: MR('errado', 'Doze escudeiros na mesma sala, e sempre tem um acordado. Uma saia vermelha entre as camas acorda os outros onze. Saio pela janela com a roupa do Corin e onze bocas para contar.', 'Twelve squires in one room, and one is always awake. A red skirt between the beds wakes the other eleven. I leave by the window with Corin’s clothes and eleven mouths to tell it.'),
+    },
+    perto: {
+      lume: MR('certo', 'Chamo o Corin para fora com um dedo. Ele vem, porque nunca foi chamado. Me dá a roupa e a espada de pau e vai ficar calado, porque no alojamento ia virar piada: uma moça daquelas, e justo ele.', 'I call Corin outside with one finger. He comes, because he has never been called. He gives me his clothes and the wooden sword and will keep quiet, because in the barracks it would become a joke: a girl like that, and him of all people.'),
+      bento: MR('meio', 'Entro com o balde e um recado: o comandante quer a roupa de gala do Corin para a coluna. Ele me entrega a roupa e a espada de pau, orgulhoso. De manhã conta aos onze que vai na coluna, e alguém vai perguntar ao comandante.', 'I come in with the bucket and a message: the commander wants Corin’s dress clothes for the column. He hands me the clothes and the wooden sword, proud. In the morning he tells the eleven he’s going with the column, and someone will ask the commander.'),
+    },
     matar: MR('meio', 'Espero que ele saia para a latrina. Um bueiro da Rua das Fontes desce até a cisterna. De manhã, os escudeiros contam onze e acham que o décimo segundo fugiu para a coluna.', 'I wait for him to go out to the latrine. A drain on Fountain Street runs down to the cistern. In the morning the squires count eleven and decide the twelfth ran off to the column.'),
   },
   novica: {
-    roubar: MR('certo', 'A irmã Ada dorme sozinha na sacristia, com o hábito dobrado no banco. Levo o hábito e deixo o banco arrumado. Amanhã ela jura que esqueceu onde pôs.', 'Sister Ada sleeps alone in the sacristy, her habit folded on the bench. I take the habit and leave the bench tidy. Tomorrow she’ll swear she forgot where she put it.'),
-    seduzir: MR('errado', 'Ela me dá o hábito tremendo, e de manhã confessa tudo ao padre da Juíza, com detalhe. O padre conta à Guardiã. A Guardiã escreve.', 'She gives me the habit trembling, and in the morning she confesses everything to the Judge’s priest, in detail. The priest tells the Keeper. The Keeper writes it down.'),
+    roubar: {
+      bento: MR('certo', 'A irmã Ada dorme sozinha na sacristia, com o hábito dobrado no banco. Levo o hábito e deixo o banco arrumado. Amanhã ela jura que esqueceu onde pôs.', 'Sister Ada sleeps alone in the sacristy, her habit folded on the bench. I take the habit and leave the bench tidy. Tomorrow she’ll swear she forgot where she put it.'),
+      lume: MR('certo', 'Porta de capela não tem tranca. A noviça dorme de terço na mão. Levo o hábito e deixo o banco como estava.', 'A chapel door has no lock. The novice sleeps with her beads in her hand. I take the habit and leave the bench as it was.'),
+    },
+    perto: {
+      lume: MR('errado', 'Peço à noviça que ouça a confissão de uma moça da vida. Ela ouve, vermelha, e me empresta o hábito para eu rezar sem vergonha. De manhã confessa tudo ao padre da Juíza, com detalhe. O padre conta à Guardiã. A Guardiã escreve.', 'I ask the novice to hear the confession of a girl of the street. She listens, blushing, and lends me her habit so I can pray without shame. In the morning she confesses everything to the Judge’s priest, in detail. The priest tells the Keeper. The Keeper writes it down.'),
+      bento: MR('meio', 'Bato na sacristia com o balde: a Guardiã quer o hábito da irmã para benzer. Ela me entrega. De manhã confessa ao padre que deu o hábito a um menino, e o padre vai perguntar à Guardiã.', 'I knock at the sacristy with the bucket: the Keeper wants the sister’s habit, to bless it. She hands it over. In the morning she confesses to the priest that she gave her habit to a boy, and the priest will ask the Keeper.'),
+    },
     matar: MR('meio', 'A sacristia tem uma porta para o pátio, e o pátio tem um poço. De manhã a capela procura a noviça e acha que ela fugiu do voto, como fogem as noviças.', 'The sacristy has a door to the yard, and the yard has a well. In the morning the chapel looks for the novice and decides she fled her vow, as novices do.'),
   },
   dama: {
-    roubar: MR('meio', 'Tiro um vestido do meio de vinte. A criada que conta os vestidos vai dar falta de um e, desta vez, culpar a lavanderia.', 'I take one gown out of twenty. The maid who counts the gowns will miss one and, this time, blame the laundry.'),
-    seduzir: MR('certo', 'Digo a ela que a Guardiã precisa de alguém de confiança esta noite. Lady Elsbeth me empresta o vestido com as próprias mãos e ainda me ajuda com os laços. Vai passar a semana achando que fez parte de alguma coisa.', 'I tell her the Keeper needs someone she can trust tonight. Lady Elsbeth lends me the gown with her own hands and even helps me with the laces. She’ll spend the week believing she was part of something.'),
+    roubar: {
+      bento: MR('meio', 'Entro com a água do banho e saio com um vestido do meio de vinte. A criada que conta os vestidos vai dar falta de um e, desta vez, culpar a lavanderia.', 'I come in with the bathwater and leave with one gown out of twenty. The maid who counts the gowns will miss one and, this time, blame the laundry.'),
+      lume: MR('errado', 'A criada que conta os vestidos dorme na porta do quarto. Uma mulher pintada no corredor de uma dama da Guardiã é escândalo, e ela grita. Saio com o vestido e com a casa acordada atrás.', 'The maid who counts the gowns sleeps at the bedroom door. A painted woman in the corridor of one of the Keeper’s ladies is a scandal, and she screams. I leave with the gown and the house awake behind me.'),
+    },
+    perto: {
+      lume: MR('errado', 'Lady Elsbeth não deixa a Lume passar da porta e manda chamar a guarda. Desço pela janela da antessala com um vestido do baú. No café, ela conta tudo à Guardiã.', 'Lady Elsbeth doesn’t let Lume past her door and calls the guard. I leave through the anteroom window with a gown from the chest. At breakfast, she tells the Keeper everything.'),
+      bento: MR('certo', 'Levo um recado: a Guardiã precisa de alguém de confiança esta noite e pede o vestido azul de Lady Elsbeth para uma sobrinha. Ela me entrega o vestido com as próprias mãos. Vai passar a semana achando que fez parte de alguma coisa.', 'I bring a message: the Keeper needs someone she can trust tonight and asks for Lady Elsbeth’s blue gown for a niece. She hands me the gown with her own hands. She’ll spend the week believing she was part of something.'),
+    },
     matar: MR('errado', 'Aperto o laço do vestido no pescoço dela até ela parar. Uma dama da Guardiã não some quieta: de manhã a casa toda procura, e quem procura acha.', 'I tighten the gown’s lace around her neck until she stops. A lady of the Keeper’s doesn’t vanish quietly: in the morning the whole house searches, and those who search find.'),
   },
   vinho: {
-    roubar: MR('certo', 'Pip dorme bêbado na adega, abraçado no vinho que rouba do velho. Tiro a roupa dele como se tira a casca de uma fruta. Ele nem muda de lado.', 'Pip sleeps drunk in the cellar, hugging the wine he steals from the old man. I peel his clothes off like the rind of a fruit. He doesn’t even turn over.'),
-    seduzir: MR('meio', 'Ele me dá a roupa e um gole. Amanhã vai contar na taverna que dormiu com uma mulher que cheirava a mar, e os velhos vão rir dele. Um vai rir menos.', 'He gives me his clothes and a swallow of wine. Tomorrow he’ll tell the tavern he slept with a woman with golden eyes, and the old men will laugh at him. One will laugh less.'),
+    roubar: {
+      bento: MR('certo', 'Pip dorme bêbado na adega, abraçado no vinho que rouba do velho. Tiro a roupa dele como se tira a casca de uma fruta. Ele nem muda de lado.', 'Pip sleeps drunk in the cellar, hugging the wine he steals from the old man. I peel his clothes off like the rind of a fruit. He doesn’t even turn over.'),
+      lume: MR('meio', 'Pip abre um olho, sorri para a Lume e volta a dormir sem a roupa. Amanhã vai jurar na taverna que a Lume desceu à adega por ele.', 'Pip opens one eye, smiles at Lume, and goes back to sleep without his clothes. Tomorrow he’ll swear at the tavern that Lume came down to the cellar for him.'),
+    },
+    perto: {
+      lume: MR('meio', 'Ele me dá a roupa e um gole. Amanhã vai contar na taverna que dormiu com uma moça que cheirava a mar, e os velhos vão rir dele. Um vai rir menos.', 'He gives me his clothes and a swallow of wine. Tomorrow he’ll tell the tavern he slept with a girl who smelled of the sea, and the old men will laugh at him. One will laugh less.'),
+      bento: MR('meio', 'Acordo o Pip com o balde: o taverneiro quer a roupa dele lavada, de tanto vinho. Ele tira e volta a dormir. Quando acordar, vai pedir a roupa ao taverneiro, que não mandou menino algum.', 'I wake Pip with the bucket: the tavern keeper wants his clothes washed, they’re so soaked in wine. He strips and goes back to sleep. When he wakes he’ll ask the tavern keeper for his clothes, and the tavern keeper sent no boy.'),
+    },
     matar: MR('errado', 'Ele não acorda nem para morrer. De manhã, o Sir Joseph pede o vinho pela esquerda, e quem serve é outro. Um velho que já foi general repara em quem falta.', 'He doesn’t wake even to die. In the morning Sir Joseph calls for wine from the left, and someone else pours. An old man who was once a general notices who is missing.'),
   },
   viuva: {
-    roubar: MR('errado', 'Hilde dorme mal desde a duna. Acorda com o rangido do baú e me vê de costas, com o vestido dela na mão. Grita o nome do marido morto, e a rua acende.', 'Hilde has slept badly since the dune. She wakes at the creak of the chest and sees my back, her dress in my hand. She screams her dead husband’s name, and the street lights up.'),
-    seduzir: MR('meio', 'Sento com ela e escuto a história da duna, e depois escuto de novo. Ela me dá o vestido de luto, de presente, para a moça bonita que escutou. Amanhã, na fila da pensão, vai falar de mim.', 'I sit with her and listen to the dune story, and then I listen again. She gives me her mourning dress as a gift, for the pretty girl who listened. Tomorrow, in the pension line, she’ll talk about me.'),
+    roubar: {
+      bento: MR('errado', 'Hilde dorme mal desde a duna. Acorda com o rangido do baú e me vê de costas, com o vestido dela na mão. Grita o nome do marido morto, e a rua acende.', 'Hilde has slept badly since the dune. She wakes at the creak of the chest and sees my back, her dress in my hand. She screams her dead husband’s name, and the street lights up.'),
+      lume: MR('errado', 'Hilde acorda com o primeiro rangido e vê uma mulher pintada no quarto dela, com o vestido dela na mão. Grita o nome do marido morto, e a rua acende.', 'Hilde wakes at the first creak and sees a painted woman in her room, her dress in hand. She screams her dead husband’s name, and the street lights up.'),
+    },
+    perto: {
+      lume: MR('meio', 'Sento com ela e escuto a história da duna, e depois escuto de novo. Ela me dá o vestido de luto, de presente, para a moça que escutou. Amanhã, na fila da pensão, vai falar de mim.', 'I sit with her and listen to the dune story, and then I listen again. She gives me her mourning dress as a gift, for the girl who listened. Tomorrow, in the pension line, she’ll talk about me.'),
+      bento: MR('meio', 'Bato com o balde: a pensão precisa do vestido preto para costurar a fita das viúvas. Ela me entrega. Amanhã vai à pensão perguntar pela fita.', 'I knock with the bucket: the pension office needs her black dress to sew on the widows’ ribbon. She hands it over. Tomorrow she’ll go to the pension office to ask about the ribbon.'),
+    },
     matar: MR('certo', 'A Hilde não recebe visita desde a pensão. A água da cisterna aceita, e a casa dela vai ficar fechada muito tempo antes que alguém bata.', 'No one has visited Hilde since the pension. The cistern’s water accepts her, and her house will stay shut a long time before anyone knocks.'),
   },
   horne: {
-    roubar: MR('errado', 'Tiro a farda dele do corpo, botão por botão, e no último ele acorda. Saio pelo telhado com a farda e um sargento gritando atrás.', 'I take his uniform off him button by button, and on the last one he wakes. I leave over the roof with the uniform and a sergeant shouting behind me.'),
-    seduzir: MR('certo', 'Ele bebe sozinho depois do turno. Bebo com ele. Antes do fim da garrafa ele me dá a farda e a vergonha de amanhã, e vergonha cala a boca de um homem melhor que qualquer ordem.', 'He drinks alone after his watch. I drink with him. Before the bottle is done he gives me his uniform and tomorrow’s shame, and shame shuts a man’s mouth better than any order.'),
+    roubar: {
+      bento: MR('errado', 'Ele dorme de farda. Tiro botão por botão, e no último ele acorda. Saio pelo telhado com a farda e um sargento gritando atrás.', 'He sleeps in his uniform. I take it off him button by button, and on the last one he wakes. I leave over the roof with the uniform and a sergeant shouting behind me.'),
+      lume: MR('errado', 'A farda está no corpo dele, e ele acorda no segundo botão. Mulher pintada no quarto de um sargento vira briga, e a briga chama a ronda. Pulo a janela com a farda, e a ronda acha um sargento de ceroulas e uma história.', 'The uniform is on his body, and he wakes at the second button. A painted woman in a sergeant’s room turns into a brawl, and the brawl brings the watch. I leave by the window with the uniform, and the watch finds a sergeant in his drawers and a story.'),
+    },
+    perto: {
+      lume: MR('certo', 'Ele bebe sozinho depois do turno. Bebo com ele. Antes do fim da garrafa ele me dá a farda e a vergonha de amanhã, e vergonha cala a boca de um homem melhor que qualquer ordem.', 'He drinks alone after his watch. I drink with him. Before the bottle is done he gives me his uniform and tomorrow’s shame, and shame shuts a man’s mouth better than any order.'),
+      bento: MR('errado', 'Levo o recado: o quartel quer a farda dele para a revista. O Horne conhece todas as ordens do quartel, e essa não existe. Me segura pela orelha até eu morder a mão dele. Saio com a farda do cabide e um sargento gritando ladrão para a rua.', 'I bring the message: the barracks wants his uniform for inspection. Horne knows every order in the barracks, and that one doesn’t exist. He holds me by the ear until I bite his hand. I leave with the uniform from the peg and a sergeant shouting thief down the street.'),
+    },
     matar: MR('meio', 'Espero por ele na volta do turno, numa rua sem luz. De manhã o quartel acha o sargento ali e culpa uma briga de bêbado. Alguém sabe que ele bebia sozinho.', 'I wait for him on his way back from the watch, in an unlit street. In the morning the barracks finds the sergeant there and blames a drunken brawl. Someone knows he drank alone.'),
   },
   maud: {
-    roubar: MR('certo', 'Maud dorme no quarto de cima, e o guarda-roupa fica na antessala. As criadas roncam na cozinha. Saio com o vestido e com a capa, que ela nunca usa.', 'Maud sleeps upstairs, and the wardrobe stands in the anteroom. The maids snore in the kitchen. I leave with the gown and with the cloak she never wears.'),
-    seduzir: MR('meio', 'Maud repara em tudo, até em mim. Empresta-me o vestido por curiosidade, e no café conta ao irmão de uma moça estranha que sabia demais sobre canções.', 'Maud notices everything, even me. She lends me the gown out of curiosity, and at breakfast she tells her brother about a strange girl who knew too much about songs.'),
+    roubar: {
+      bento: MR('certo', 'Entro pela cozinha com a água. A Maud dorme no quarto de cima, e o guarda-roupa fica na antessala. As criadas roncam. Saio com o vestido e com a capa, que ela nunca usa.', 'I come in through the kitchen with the water. Maud sleeps upstairs, and the wardrobe stands in the anteroom. The maids snore. I leave with the gown and with the cloak she never wears.'),
+      lume: MR('meio', 'As criadas roncam, e eu saio com o vestido. Mas o perfume de lanterna fica na antessala, e a Maud repara em tudo. De manhã pergunta quem esteve ali.', 'The maids snore, and I leave with the gown. But the lantern perfume lingers in the anteroom, and Maud notices everything. In the morning she asks who was there.'),
+    },
+    perto: {
+      lume: MR('meio', 'Maud repara em tudo, até em mim. Me empresta o vestido por curiosidade, e no café conta ao irmão de uma moça estranha que sabia demais sobre canções.', 'Maud notices everything, even me. She lends me the gown out of curiosity, and at breakfast she tells her brother about a strange girl who knew too much about songs.'),
+      bento: MR('errado', 'A Maud olha o menino de cima a baixo e pergunta de que fonte ele vem. Digo uma. Ela me entrega o vestido velho, sorrindo, e de manhã manda a criada à fonte. Lá, o Bento de verdade jura que nunca subiu aquela escada.', 'Maud looks the boy up and down and asks which fountain he comes from. I name one. She hands me the old gown, smiling, and in the morning sends her maid to the fountain. There, the real Bento swears he never climbed those stairs.'),
+    },
     matar: MR('errado', 'Subo a escada sem acordar as criadas. Mas a irmã de um lorde não some: de manhã o Lorde Varr tem um motivo para ficar em casa, e a Capital tem uma pergunta.', 'I climb the stairs without waking the maids. But a lord’s sister doesn’t vanish: in the morning Lord Varr has a reason to stay home, and the Capital has a question.'),
   },
   bertha: {
-    roubar: MR('meio', 'A porta está aberta, como sempre. Levo o vestido de luto do prego. Uma vizinha me vê sair, me toma por ladra de roupa de morto e vai comentar.', 'The door is open, as always. I take the mourning dress from the nail. A neighbor sees me leave, takes me for a thief of the dead’s clothes, and will talk.'),
-    seduzir: MR('certo', 'Sento e deixo que ela conte como foi. Ela conta, e chora, e me dá o xale e o vestido para eu ir rezar pelo filho dela no templo. Dorme agradecida.', 'I sit and ask her to tell me how it was. She tells it, and weeps, and gives me her shawl and her dress so I can go and pray for her son at the temple. She falls asleep grateful.'),
+    roubar: {
+      bento: MR('meio', 'A porta está aberta, como sempre. Levo o vestido de luto do prego. Uma vizinha me vê sair, toma o menino por ladrão de roupa de morto e vai comentar.', 'The door is open, as always. I take the mourning dress from the nail. A neighbor sees me leave, takes the boy for a thief of the dead’s clothes, and will talk.'),
+      lume: MR('meio', 'A porta está aberta. Levo o vestido preto do prego. Uma vizinha vê a Lume sair da casa da mãe do morto, e a rua vai falar disso por um mês.', 'The door is open. I take the black dress from the nail. A neighbor sees Lume leave the dead man’s mother’s house, and the street will talk about it for a month.'),
+    },
+    perto: {
+      lume: MR('certo', 'Sento e deixo que ela conte como foi. Ela conta, e chora, e me dá o xale e o vestido para eu ir rezar pelo filho dela no templo. Dorme agradecida.', 'I sit and let her tell me how it was. She tells it, and weeps, and gives me her shawl and her dress so I can go and pray for her son at the temple. She sleeps grateful.'),
+      bento: MR('meio', 'Digo que o Ansel pediu o xale para levar ao templo. Ela me dá o xale e o vestido. De tarde, pergunta ao Ansel se ele rezou.', 'I say Ansel asked for the shawl to take to the temple. She gives me the shawl and the dress. In the afternoon she asks Ansel whether he prayed.'),
+    },
     matar: MR('errado', 'Ela abre a porta para mim, porque abre para todos. De tarde, o Ansel vem contar como o filho dela morreu, como vem toda tarde, e acha a casa vazia.', 'She opens the door to me, because she opens it to everyone. In the afternoon Ansel comes to tell how her son died, as he does every afternoon, and finds the house empty.'),
   },
   aldo: {
-    roubar: MR('meio', 'O avental dele está no gancho da enfermaria. Um doente acordado me vê pegar e não diz nada agora. Vai dizer amanhã, ao próprio Aldo, que conversa com todos.', 'His apron hangs on the infirmary hook. A patient who is awake sees me take it and says nothing now. He’ll say it tomorrow, to Aldo himself, who talks with them all.'),
-    seduzir: MR('errado', 'Ele fala comigo até o galo, de cada doente, de cada chá. De manhã vai falar de mim a cada doente, e um deles é o sentinela.', 'He talks to me until cockcrow, about every patient, every tea. In the morning he’ll talk about me to every patient, and one of them is the sentry.'),
+    roubar: {
+      bento: MR('meio', 'O avental dele está no gancho da enfermaria. Um doente acordado vê o menino pegar e não diz nada agora. Vai dizer amanhã, ao próprio Aldo, que conversa com todos.', 'His apron hangs on the infirmary hook. A patient who is awake sees the boy take it and says nothing now. He’ll say it tomorrow, to Aldo himself, who talks with everyone.'),
+      lume: MR('meio', 'O avental está no gancho. Um doente acordado vê uma mulher de vermelho entre as camas e acha que é o fim chegando. Conta ao Aldo quando ele acordar.', 'The apron is on the hook. A patient who is awake sees a woman in red between the beds and thinks the end has come for him. He tells Aldo when he wakes.'),
+    },
+    perto: {
+      lume: MR('errado', 'Ele fala comigo até o galo, de cada doente, de cada chá, e me empresta o avental para eu não sujar a saia. De manhã vai falar de mim a cada doente, e um deles é o sentinela.', 'He talks to me until cockcrow, about every patient, every tea, and lends me his apron so I won’t soil my skirt. In the morning he’ll talk about me to every patient, and one of them is the sentry.'),
+      bento: MR('errado', 'Digo que o médico do marechal pediu o avental emprestado. O Aldo me dá o avental e a vida do médico do marechal, de brinde. Amanhã vai agradecer ao médico, pessoalmente.', 'I say the marshal’s physician asked to borrow the apron. Aldo gives me the apron and the physician’s life story, free of charge. Tomorrow he’ll go thank the physician, in person.'),
+    },
     matar: MR('certo', 'Na enfermaria morre gente toda noite. De manhã tem um morto a mais na fileira, e quem conta os mortos não confere os nomes.', 'In the infirmary people die every night. In the morning there is one more dead man in the row, and whoever counts the dead doesn’t check the names.'),
   },
   edric: {
-    roubar: MR('certo', 'Edric dorme pesado em cima da loja de tinta. Levo a roupa e a chave da Sala dos Mapas e devolvo as duas antes que ele acorde para ler.', 'Edric sleeps heavily above the ink shop. I take his clothes and the Map Room key, and I put both back before he wakes to read.'),
-    seduzir: MR('errado', 'Ele me deixa entrar e conta tudo de si. Amanhã vai contar de mim a quem estiver perto, na sala do conselho, enquanto arruma a pasta que alguém mexeu.', 'He lets me in and tells me everything about himself. Tomorrow he’ll tell about me to whoever is near, in the council room, while he straightens the folder someone has touched.'),
+    roubar: {
+      bento: MR('certo', 'Edric dorme pesado em cima da loja de tinta. Levo a roupa e a chave da Sala dos Mapas e devolvo as duas antes que ele acorde para ler.', 'Edric sleeps heavily above the ink shop. I take his clothes and the Map Room key, and I put both back before he wakes to read.'),
+      lume: MR('meio', 'Levo a roupa e a chave. Mas a loja fica numa rua de escrivães, e um deles, voltando tarde, vê a Lume sair da porta do Edric. De manhã o Edric vai ouvir a piada, e vai contar a todos.', 'I take the clothes and the key. But the shop is on a street of clerks, and one of them, coming home late, sees Lume leave Edric’s door. In the morning Edric will hear the joke, and tell it to everyone.'),
+    },
+    perto: {
+      lume: MR('errado', 'Ele me deixa entrar, conta tudo de si e dorme no meio de uma frase. Saio com a roupa e com a chave. Amanhã vai contar de mim a quem estiver perto, na sala do conselho, enquanto arruma a pasta que alguém mexeu.', 'He lets me in, tells me everything about himself, and falls asleep mid-sentence. I leave with the clothes and the key. Tomorrow he’ll tell about me to whoever is near, in the council room, while he straightens the folder someone touched.'),
+      bento: MR('errado', 'Digo que a Cidadela quer a chave da Sala dos Mapas esta noite. O Edric não solta a chave, mas me manda escovar o casaco enquanto procura a ordem por escrito. A chave, eu tiro do bolso do casaco. Amanhã ele vai contar a todos que alguém pediu.', 'I say the Citadel wants the Map Room key tonight. Edric won’t give up the key, but sends me to brush his coat while he looks for the written order. The key I take from the coat pocket. Tomorrow he’ll tell everyone someone asked.'),
+    },
     matar: MR('meio', 'Ele morre dormindo, em cima da tinta. Amanhã, quem lê os papéis no conselho sou eu, com a voz dele. Depois a loja fica fechada, e alguém vai perguntar por quê.', 'He dies asleep, above the ink. Tomorrow I am the one who reads the papers to the council, in his voice. Afterward the shop stays shut, and someone will ask why.'),
   },
   guarda: {
-    roubar: MR('meio', 'O guarda dorme no catre do posto, e a farda de reserva está no baú. Levo. Amanhã o baú vai ter uma farda a menos, e o sargento dele conta fardas.', 'The guard sleeps on the post’s cot, and the spare uniform is in the chest. I take it. Tomorrow the chest will be one uniform short, and his sergeant counts uniforms.'),
-    seduzir: MR('certo', 'Novo no posto e sozinho no turno da noite, ele me empresta a farda por uma hora e passa o resto da vida achando que sonhou.', 'New to the post and alone on the night watch. He lends me his uniform for an hour and spends the rest of his life thinking he dreamed it.'),
+    roubar: {
+      bento: MR('meio', 'O guarda dorme no catre do posto, e a farda de reserva está no baú. Levo. Amanhã o baú vai ter uma farda a menos, e o sargento dele conta fardas.', 'The guard sleeps on the post’s cot, and the spare uniform is in the chest. I take it. Tomorrow the chest will be one uniform short, and his sergeant counts uniforms.'),
+      lume: MR('meio', 'Levo a farda de reserva do baú. Amanhã o sargento dele conta fardas, e o guarda lembra do cheiro de lanterna no posto.', 'I take the spare uniform from the chest. Tomorrow his sergeant counts uniforms, and the guard remembers the smell of lantern oil at the post.'),
+    },
+    perto: {
+      lume: MR('certo', 'Novo no posto e sozinho no turno da noite, ele me empresta a farda por uma hora e passa o resto da vida achando que sonhou.', 'New to the post and alone on the night watch, he lends me his uniform for an hour and spends the rest of his life thinking he dreamed it.'),
+      bento: MR('certo', 'Levo o recado do sargento: a farda de reserva vai para a lavanderia esta noite. Ele é novo no posto e obedece a qualquer ordem. Me entrega a farda dobrada.', 'I bring the sergeant’s message: the spare uniform goes to the laundry tonight. He is new to the post and obeys any order. He hands me the uniform folded.'),
+    },
     matar: MR('errado', 'Ele morre no posto, sozinho, como estava. E um guarda que falta ao turno faz a Cidadela toda dobrar o turno.', 'He dies at his post, alone, as he was. And a guard who misses his watch makes the whole Citadel double the watch.'),
   },
   criadaC: {
-    roubar: MR('certo', 'As criadas do palácio dormem dez num quarto e penduram a roupa no mesmo varal. Uma peça a menos no varal é coisa de todo dia.', 'The palace maids sleep ten to a room and hang their clothes on the same line. One piece less on the line happens every day.'),
-    seduzir: MR('meio', 'Ela me dá a roupa e uma fofoca de graça. Amanhã vai dar a fofoca de mim para as outras nove.', 'She gives me her clothes and a piece of gossip for free. Tomorrow she’ll give the gossip about me to the other nine.'),
+    roubar: {
+      bento: MR('certo', 'As criadas do palácio dormem dez num quarto e penduram a roupa no mesmo varal. Uma peça a menos no varal é coisa de todo dia.', 'The palace maids sleep ten to a room and hang their clothes on the same line. One piece less on the line happens every day.'),
+      lume: MR('certo', 'O varal das criadas fica no pátio dos fundos, longe das camas. Uma peça a menos no varal é coisa de todo dia.', 'The maids’ washing line is in the back yard, far from the beds. One piece less on the line happens every day.'),
+    },
+    perto: {
+      lume: MR('meio', 'Ela me dá a roupa e uma fofoca de graça. Amanhã vai dar a fofoca de mim para as outras nove.', 'She gives me her clothes and a piece of gossip for free. Tomorrow she’ll give the gossip about me to the other nine.'),
+      bento: MR('meio', 'Levo água para o quarto das criadas e saio com uma roupa do varal no fundo do balde. Uma delas me vê e acha graça. Amanhã vai rir com as outras nove do menino da água.', 'I carry water to the maids’ room and leave with a piece from the line at the bottom of the bucket. One of them sees me and finds it funny. Tomorrow she’ll laugh with the other nine about the water boy.'),
+    },
     matar: MR('errado', 'Espero uma delas no corredor dos banhos. Mas dez criadas dormem no mesmo quarto, e de manhã nove acordam e contam.', 'I wait for one of them in the bath corridor. But ten maids sleep in one room, and in the morning nine wake up and count.'),
   },
   moco: {
-    roubar: MR('meio', 'Os moços de recados dormem num monte, embaixo da escada. Puxo uma camisa do monte, e o monte resmunga. Um deles vai lembrar de uma sombra.', 'The errand boys sleep in a heap under the stairs. I pull a shirt from the heap, and the heap grumbles. One of them will remember a shadow.'),
-    seduzir: MR('certo', 'Mostro uma moeda. Ele me dá a roupa, a corrida da manhã e o nome do sargento que bate nele. Por uma moeda, esquece o resto.', 'I show him a coin. He gives me his clothes, his morning run, and the name of the sergeant who beats him. For a coin, he forgets the rest.'),
+    roubar: {
+      bento: MR('certo', 'Os moços de recados dormem num monte, embaixo da escada. Mais um menino no monte não chama atenção. Saio dele com uma camisa.', 'The errand boys sleep in a heap under the stairs. One more boy in the heap draws no notice. I come out of it with a shirt.'),
+      lume: MR('meio', 'Uma saia vermelha embaixo da escada acorda o monte. Saio com uma camisa e com risada atrás. Um deles vai lembrar dela.', 'A red skirt under the stairs wakes the whole heap. I leave with a shirt and laughter behind me. One of them will remember her.'),
+    },
+    perto: {
+      lume: MR('certo', 'Mostro uma moeda. Ele me dá a roupa, a corrida da manhã e o nome do sargento que bate nele. Por uma moeda, esquece o resto.', 'I show him a coin. He gives me his clothes, his morning run, and the name of the sergeant who beats him. For a coin, he forgets the rest.'),
+      bento: MR('certo', 'Troco de camisa com ele por uma moeda, de menino para menino. Ele nem pergunta.', 'I swap shirts with him for a coin, boy to boy. He doesn’t even ask.'),
+    },
     matar: MR('errado', 'É leve de carregar até o bueiro. Mas menino de recado tem mãe, e mãe não para de procurar.', 'He is light to carry to the drain. But an errand boy has a mother, and a mother doesn’t stop looking.'),
   },
 };
@@ -225,7 +312,7 @@ window.LIVRO_UI = {
       mao: 'Um toque. Você escolhe quando.',
       morta: 'Não se mexa. Quem se mexe para de ouvir.',
       anzol: 'A frase de ouro, no alto, é o que você quer ouvir da boca dele. A cada fala, escolha a sua: as palavras acendem quando ele chega perto. Dizer a frase você mesma apaga palavras.',
-      interrogatorio: 'A frase de ouro é o que você quer ouvir da boca dela. A vermelha é o que ela vai concluir de você. Cada resposta acende uma, a outra ou as duas. Mentira acende o vermelho, porque as orelhas falam. As respostas com um rosto vêm de alguém que você ouviu. Se o ouro não acender o bastante, ela não acredita em você, e não existe segunda conversa.',
+      interrogatorio: 'A frase de ouro é o que você quer ouvir da boca dela. A vermelha é o que ela vai concluir de você. Cada resposta acende uma, a outra ou as duas. Mentira acende o vermelho, porque as orelhas falam. As respostas com um rosto vêm de alguém que você ouviu. Ela só solta quem a convence de duas coisas: que a Orla faz o que você manda, e o que você ganha entregando a Orla a Redom. Sem as duas, ou com pouco ouro, ela decreta a sua morte.',
       ordem: 'Arraste os papéis para mudar a ordem, ou use as setas. Nenhuma palavra muda: só a ordem em que vão ser lidos.',
     },
     comecar: 'Toque para começar',
@@ -248,7 +335,7 @@ window.LIVRO_UI = {
       mao: 'One tap. You choose when.',
       morta: 'Don’t move. Whoever moves stops hearing.',
       anzol: 'The gold sentence at the top is what you want to hear from his mouth. At each line, choose yours: the words light up as he comes closer. Saying the sentence yourself puts words out.',
-      interrogatorio: 'The gold sentence is what you want to hear from her mouth. The red one is what she will conclude about you. Each answer lights one, the other, or both. A lie lights the red, because the ears talk. Answers with a face come from someone you listened to. If the gold doesn’t light up enough, she doesn’t believe you, and there is no second conversation.',
+      interrogatorio: 'The gold sentence is what you want to hear from her mouth. The red one is what she will conclude about you. Each answer lights one, the other, or both. A lie lights the red, because the ears talk. Answers with a face come from someone you listened to. She only lets go of someone who convinces her of two things: that the Shore does what you tell it, and what you gain by handing the Shore to Redom. Without both, or with too little gold, she orders your death.',
       ordem: 'Drag the papers to change the order, or use the arrows. No word changes: only the order in which they are read.',
     },
     comecar: 'Tap to begin',
@@ -367,6 +454,9 @@ window.LIVRO = {
     lavadeira: { img: ROSTO('lavadeira'), nome: T('A lavadeira', 'The washerwoman'), quer: T('voltar para a água.', 'to go back to the water.'),
       fim: (st) => ({ levantar: T('Voltou para a roupa dos soldados.', 'Went back to the soldiers’ laundry.'), usar: T('Vai carregar água na coluna.', 'Will carry water in the column.'), matar: T('Dorme na cisterna.', 'Sleeps in the cistern.') }[st.escolhas.lavadeira] || null), morto: (st) => st.escolhas.lavadeira === 'matar' },
     aubert: { lugar: 'redom', img: ROSTO('aubert'), nome: T('O comandante Aubert', 'Commander Aubert'), quer: T('levar à Lâmina, por escrito, tudo o que viu.', 'to bring the Blade everything he saw, in writing.'), naoDiz: T('que conta velas quando não consegue contar palavras.', 'that he counts sails when he can’t count words.') },
+    // os dois rostos de saída: com eles ela chega perto de quem tem a roupa
+    bento: { img: ROSTO('bento'), veste: true, nome: T('Bento, menino aguadeiro', 'Bento, the water boy'), quer: T('uma moeda por balde.', 'a coin a bucket.') },
+    lume: { img: ROSTO('lume'), veste: true, nome: T('Lume, da Casa das Lanternas', 'Lume, of the House of Lanterns'), quer: T('que paguem antes.', 'to be paid first.') },
     // os rostos que eu vi de passagem (servem de máscara quando não há outra)
     guarda: { img: ROSTO('guarda'), veste: true, nome: T('Um guarda da Cidadela', 'A Citadel guard'), quer: T('o fim do turno.', 'the end of his watch.') },
     criadaC: { img: ROSTO('criadaC'), veste: true, nome: T('Uma criada do palácio', 'A palace maid'), quer: T('passar sem ser notada.', 'to pass unnoticed.') },
@@ -664,15 +754,19 @@ window.LIVRO = {
       verm1: T('Ela olha para as minhas orelhas.', 'She looks at my ears.'),
     },
     // abaixo disto, a Lâmina não acredita: decreta a morte, e o jogo volta ao começo do interrogatório
-    limiar: 6,
-    morte: [T('Ela se levanta. O banco arrasta na pedra.', 'She stands. The stool scrapes on the stone.'),
-      T('— Você fala como as feiticeiras que eu enforquei em Alvena. Bonito, e nada.', '— You talk like the witches I hanged at Alvena. Pretty, and nothing.'),
+    limiar: 7,
+    // além do ouro, ela só solta quem provou as duas coisas: que a Orla obedece, e o que a Madrinha ganha com isso
+    chaves: ['influencia', 'motivo'],
+    morte: (st) => [T('Ela se levanta. O banco arrasta na pedra.', 'She stands. The stool scrapes on the stone.'),
+      st.f.iqFalta === 'influencia' ? T('— Você me fala do mar. Não me mostrou uma casa da Orla que faça o que você manda. Mar eu não sento na mesa do conselho.', '— You talk to me about the sea. You didn’t show me one house of the Shore that does what you say. I can’t seat the sea at the council table.')
+        : st.f.iqFalta === 'motivo' ? T('— Você não me disse o que ganha com isso. Quem entrega a própria casa sem dizer o preço, ou é santa, ou mente. Santa eu nunca vi.', '— You didn’t tell me what you gain. Whoever hands over her own house without naming the price is either a saint or a liar. I’ve never seen a saint.')
+          : T('— Você fala como as feiticeiras que eu enforquei em Alvena. Bonito, e nada.', '— You talk like the witches I hanged at Alvena. Pretty, and nothing.'),
       T('— Ao amanhecer, no pátio. Sem nome no livro.', '— At dawn, in the yard. No name in the book.'),
       T('A porta fecha, e a tocha vai junto.', 'The door shuts, and the torch goes with it.')],
     perguntas: [
       { fala: T('— Nome.', '— Name.'), ops: [
         { id: 'madrinha', txt: T('Na Orla me chamam de Madrinha.', 'On the Shore they call me Godmother.'), ouro: 1, verm: 0, resp: [T('— A Madrinha da Orla. — Ela não ri. — Li sobre ela, num livro de povos de fora, ao lado do dragão do norte. História para marinheiro não ter medo do escuro.', '— The Shore’s Godmother. — She doesn’t laugh. — I read about her, in a book of outland peoples, next to the dragon of the north. A story so sailors won’t fear the dark.')] },
-        { id: 'porao', txt: T('Pergunte aos seus soldados como os presos da Orla me chamavam no porão.', 'Ask your soldiers what the Shore’s prisoners called me in the hold.'), ouro: 2, verm: 0, resp: [T('Ela não se vira. O guarda atrás dela fala sozinho, para a parede.', 'She doesn’t turn. The guard behind her speaks on his own, to the wall.'), T('— Se ajoelharam, comandante. Os três. Com as correntes.', '— They knelt, commander. All three. In their chains.'), T('Ela não tira os olhos de mim enquanto ele fala.', 'She doesn’t take her eyes off me while he speaks.')] },
+        { id: 'porao', txt: T('Pergunte aos seus soldados como os presos da Orla me chamavam no porão.', 'Ask your soldiers what the Shore’s prisoners called me in the hold.'), ouro: 2, verm: 0, flag: 'influencia', resp: [T('Ela não se vira. O guarda atrás dela fala sozinho, para a parede.', 'She doesn’t turn. The guard behind her speaks on his own, to the wall.'), T('— Se ajoelharam, comandante. Os três. Com as correntes.', '— They knelt, commander. All three. In their chains.'), T('Ela não tira os olhos de mim enquanto ele fala.', 'She doesn’t take her eyes off me while he speaks.')] },
         { id: 'perto', txt: T('Pergunte de novo. Mais perto.', 'Ask again. Closer.'), ouro: 1, verm: 2, resp: [T('Ela não chega mais perto. Olha a minha boca, depois as minhas mãos, depois a boca outra vez.', 'She doesn’t come closer. She looks at my mouth, then my hands, then my mouth again.'), T('— Você faz isso com todo mundo. Comigo, não.', '— You do that to everyone. Not to me.')] },
         { id: 'nao', txt: T('Não tenho.', 'I don’t have one.'), ouro: 0, verm: 0, resp: [T('— Todo mundo tem. Até os Grakh têm.', '— Everyone has one. Even the Grakh do.')] },
       ] },
@@ -688,13 +782,24 @@ window.LIVRO = {
         { id: 'vi', txt: T('Eu vi de perto. Mais perto que os seus homens.', 'I saw it up close. Closer than your men.'), ouro: 1, verm: 0, resp: [T('— Viu.', '— You did.'), T('Ela guarda a resposta e não diz onde.', 'She puts the answer away and doesn’t say where.')] },
         { id: 'quer', mente: true, txt: T('O mar da Orla sobe quando quer.', 'The Shore’s sea rises when it likes.'), ouro: 0, verm: 1, resp: [T('— Sobe. Nunca subiu em cima de uma galera de Redom.', '— It does. It never rose over a Redom galley.')] },
       ] },
-      { fala: T('— A Orla não tem líder. Redom sabe disso há cem anos.', '— The Shore has no leader. Redom has known that for a hundred years.'), ops: [
-        { id: 'nos', de: 'sarnai', txt: T('Não tem líder. Tem dívida. Sarnai deve barcos a Ossian. Alguém da casa de Sarnai vendeu à sua galera a rota do irmão de Ruo. Eu sei quem deve a quem.', 'It has no leader. It has debts. Sarnai owes Ossian boats. Someone of Sarnai’s house sold your galley the route of Ruo’s brother. I know who owes whom.'), ouro: 3, verm: 0, resp: [T('Ela se inclina para a frente. Atrás dela, a pena corre.', 'She leans forward. Behind her, the quill runs.'), T('— Redom paga espião na Orla há vinte anos. Nenhum me trouxe isso.', '— Redom has paid spies on the Shore for twenty years. Not one brought me that.')] },
-        { id: 'mar', txt: T('Tem a quem o mar obedece. E ela está na sua cela.', 'It has the one the sea obeys. And she is in your cell.'), ouro: 2, verm: 1, resp: [T('— Na minha cela, tudo obedece a mim.', '— In my cell, nothing obeys anyone but me.'), T('Mas não manda a vara voltar a bater nas grades.', 'But she doesn’t send the rod back to the bars.')] },
+      { fala: T('— A Orla não tem líder. Redom sabe disso há cem anos. Três casas que se odeiam não sentam numa mesa por causa de uma lenda.', '— The Shore has no leader. Redom has known that for a hundred years. Three houses that hate each other don’t sit at one table for the sake of a legend.'), ops: [
+        { id: 'nos', de: 'sarnai', txt: T('Não tem líder. Tem dívida. Sarnai deve barcos a Ossian. Alguém da casa de Sarnai vendeu à sua galera a rota do irmão de Ruo. Eu sei quem deve a quem.', 'It has no leader. It has debts. Sarnai owes Ossian boats. Someone of Sarnai’s house sold your galley the route of Ruo’s brother. I know who owes whom.'), ouro: 3, verm: 0, flag: 'influencia', resp: [T('Ela se inclina para a frente. Atrás dela, a pena corre.', 'She leans forward. Behind her, the quill runs.'), T('— Redom paga espião na Orla há vinte anos. Nenhum me trouxe isso.', '— Redom has paid spies on the Shore for twenty years. Not one brought me that.')] },
+        { id: 'mortos', txt: T('Os mortos daquele canal eram os melhores filhos das três casas. Pergunte quem os mandou para morrer comigo.', 'The dead in that channel were the best sons of the three houses. Ask who sent them to die with me.'), ouro: 2, verm: 1, flag: 'influencia', resp: [T('Atrás dela, a pena para. — Os corpos tinham as marcas das três casas, comandante. Juntos, no mesmo barco.', 'Behind her, the quill stops. — The bodies bore the marks of all three houses, commander. Together, in the same boat.'), T('— Três casas que não dividem nem a água — diz ela. — E deram os filhos a você.', '— Three houses that won’t even share water — she says. — And they gave you their sons.')] },
+        { id: 'mar', txt: T('Tem a quem o mar obedece. E ela está na sua cela.', 'It has the one the sea obeys. And she is in your cell.'), ouro: 1, verm: 1, resp: [T('— Na minha cela, tudo obedece a mim. E mar não assina tratado.', '— In my cell, everything obeys me. And the sea doesn’t sign treaties.')] },
         { id: 'agora', txt: T('Agora tem.', 'Now it does.'), ouro: 1, verm: 1, resp: [T('— Desde quando?', '— Since when?'), T('— Desde que eu subi.', '— Since I came up.')] },
         { id: 'segue', mente: true, txt: T('A Orla me segue.', 'The Shore follows me.'), ouro: 0, verm: 1, resp: [T('— Seguiu você até a minha galera. E morreu toda.', '— It followed you to my galley. And all of it died.')] },
       ] },
-      { fala: T('— O que você quer?', '— What do you want?'), ops: [
+      { fala: T('— Digamos que a Orla faça o que você manda. Por que você me daria a Orla?', '— Say the Shore does what you tell it. Why would you give the Shore to me?'), ops: [
+        { id: 'ordem', txt: T('Porque a Orla não tem lei, tem dívida. Uma casa vende a outra, e quem paga a sua forca é o pescador. Com Redom na mesa, a dívida acaba. E quem sentou Redom na mesa fica com o que sobrar.', 'Because the Shore has no law, it has debts. One house sells another, and the fisherman pays for your gallows. With Redom at the table, the debts end. And whoever seated Redom at the table keeps what’s left.'), ouro: 3, verm: 0, flag: 'motivo',
+          resp: [T('— Ordem. Com você do lado de quem dá a ordem. — Ela pesa a frase, devagar. — Isso eu entendo.', '— Order. With you on the side that gives the orders. — She weighs the sentence, slowly. — That I understand.')] },
+        { id: 'dona', txt: T('Porque uma Orla de joelhos para Redom ajoelha primeiro para mim.', 'Because a Shore on its knees to Redom kneels to me first.'), ouro: 2, verm: 2, flag: 'motivo',
+          resp: [T('— Você quer ser a dona da costa, com a minha bandeira em cima.', '— You want to own the coast, with my flag over it.'), T('A mão dela volta para o joelho. — Pelo menos quer alguma coisa.', 'Her hand goes back to her knee. — At least you want something.')] },
+        { id: 'ganha', txt: T('Porque Redom vai ganhar de qualquer jeito. Melhor que ganhe comigo dentro.', 'Because Redom will win either way. Better it wins with me inside.'), ouro: 1, verm: 0,
+          resp: [T('— Vai. Então eu não preciso de você.', '— It will. Then I don’t need you.')] },
+        { id: 'paz', mente: true, txt: T('Estou cansada de enterrar os meus. A Orla precisa de paz.', 'I’m tired of burying my own. The Shore needs peace.'), ouro: 0, verm: 1,
+          resp: [T('— Quem quer paz não quebra a maior galera da costa.', '— Whoever wants peace doesn’t break the biggest galley on the coast.')] },
+      ] },
+      { fala: T('— E de mim, o que você quer?', '— And from me, what do you want?'), ops: [
         { id: 'prazo', txt: T('Um escrivão seu e um barco. Em três meses, conte as velas na costa.', 'A scribe of yours and a boat. In three months, count the sails on the coast.'), ouro: 2, verm: 0, resp: [T('Ela se inclina para a frente.', 'She leans forward.'), T('— E se as velas não sumirem?', '— And if the sails don’t vanish?'), T('— Então a sua forca continua no mesmo lugar, esperando por mim.', '— Then your gallows stays where it is, waiting for me.')] },
         { id: 'galera', de: (st) => (fezCarcereiro(st, 'dunstan') ? 'dunstan' : null), txt: T('Que Redom pare de pagar uma galera por aldeia. A costa custa a você mais que uma guerra.', 'For Redom to stop paying a galley for every village. The coast costs you more than a war.'), ouro: 2, verm: 0, resp: [T('— Quem te contou o preço de uma galera?', '— Who told you what a galley costs?'), T('— Os seus carcereiros contam moedas alto na escada.', '— Your jailers count their coins out loud on the stairs.')] },
         { id: 'irmao', de: (st) => (fezCarcereiro(st, 'garrick') ? 'garrick' : tem(st, 'hobb') ? 'hobb' : null), txt: T('Que os seus homens voltem para onde querem estar. No deserto, com quem matou o seu irmão.', 'For your men to go back where they want to be. In the desert, with whoever killed your brother.'), ouro: 2, verm: 2, flag: 'usouSimon',
@@ -1279,6 +1384,7 @@ window.LIVRO = {
         se((st) => fezCarcereiro(st, 'dunstan'), T('O olhar dela desce para as moedas da minha saia e sobe. O Dunstan contou na escada: a costa custa a Redom uma galera por aldeia.', 'Her eyes drop to the coins on my skirt and come back up. Dunstan counted it out on the stairs: the coast costs Redom a galley for every village.')),
         T('Os Grakh estão no fim, todo soldado de Redom diz isso. A Boca Seca já não assusta Redom, e por isso os homens dela foram mandados para a costa, vigiar a Orla. Ela quer levá-los de volta ao deserto e acabar com o resto.', 'The Grakh are nearly finished, every soldier in Redom says so. The Dry Mouth no longer frightens Redom, and so her men were sent to the coast, to watch the Shore. She wants to take them back to the desert and finish the rest.'),
         V('D23', T('Ela quer o deserto e não pode ir, porque a costa prende as galeras dela. Se a Orla ajoelhar, a costa solta. Quero que ela mesma me mande de volta para fazer a Orla ajoelhar.', 'She wants the desert and can’t go, because the coast ties down her galleys. If the Shore kneels, the coast lets go. I want her to send me back to do it herself.')),
+        T('Para isso, ela tem de acreditar em três coisas. Que fui eu que levantei o mar. Que a Orla faz o que eu mando. E que eu ganho alguma coisa entregando a Orla a Redom, porque a Lâmina não acredita em quem dá de graça.', 'For that, she has to believe three things. That it was I who raised the sea. That the Shore does what I tell it. And that I gain something by handing the Shore to Redom, because the Blade doesn’t believe in anyone who gives for free.'),
         T('Quero a frase na voz dela: volte e ponha a Orla de joelhos.', 'I want the words in her voice: go back and bring the Shore to its knees.'),
       ] },
 
@@ -1289,7 +1395,9 @@ window.LIVRO = {
       minijogo: 'interrogatorio', jogoId: 'interrogatorio', mgNome: T('Responder à Lâmina', 'Answer the Blade'),
       aoTerminar: (st, r) => { (r.flags || []).forEach((f) => { st.f[f] = true; }); if (st.f.usouSimon) st.f.semente = true; },
       depois: (st) => (J(st, 'interrogatorio').morte ? [T('Fico no escuro com o que eu disse. Não serviu para nada.', 'I stay in the dark with what I said. None of it was any use.')] : [
-        T('Ela fala para quem está atrás dela, e não para mim.', 'She speaks to the person behind her, not to me.'),
+        st.f.lam_dona ? V(null, T('— Você quer ser dona da Orla. Eu quero a costa quieta. Uma dona eu sei onde achar, se ela mentir para mim.', '— You want to own the Shore. I want the coast quiet. An owner I know where to find, if she lies to me.'))
+          : V(null, T('— Você quer a Orla com lei, e você do lado de quem escreve a lei. Eu quero a costa quieta. Por três meses, as duas coisas cabem no mesmo barco.', '— You want the Shore with a law, and yourself on the side of whoever writes it. I want the coast quiet. For three months, both things fit in the same boat.')),
+        T('Depois fala para quem está atrás dela, e não para mim.', 'Then she speaks to the person behind her, not to me.'),
         V(null, T('— Tomar a Orla pela força custa décadas, porque lá só se chega de barco. Uma mulher que traga as facções vale mais que uma forca.', '— Taking the Shore by force costs decades, because you only get there by boat. A woman who brings the factions in is worth more than a gallows.')),
         V(null, T('— O comandante Aubert leva você a Nove Mastros. Você põe os chefes na mesa, e ele escreve o que eles prometerem. Depois você volta com ele e fica na Capital, como minha hóspede, até eu ver as velas sumirem da costa.', '— Commander Aubert takes you to Nine Masts. You bring the chiefs to the table, and he writes down what they promise. Then you come back with him and stay here, as my guest, until I see the sails vanish from the coast.')),
         V(null, { palavra: T('— Sem argolas. Você tem a minha palavra, e eu quero a sua.', '— No shackles. You have my word, and I want yours.'),
@@ -1374,12 +1482,12 @@ window.LIVRO = {
         { id: 'contar', fala: true, tom: 'manipular', aoEscolher: (st) => trChefe(st), txt: T('Redom vai precisar de alguém que conte os barcos da Orla. Melhor que você, Ossian, só eu.', 'Redom will need someone to count the Shore’s boats. Only I count better than you, Ossian.'),
           resultado: [T('Ossian demora um segundo para entender e meio segundo para sorrir. Já se vê na mesa de Redom, contando barcos por dinheiro.', 'Ossian takes one second to understand and half a second to smile. He already sees himself at Redom’s table, counting boats for money.'),
             T('Aubert anota o nome dele e sublinha. O que o Ossian contar para Redom, vai contar para mim primeiro.', 'Aubert writes his name and underlines it. Whatever Ossian counts for Redom, he will count for me first.')] },
-        { id: 'pagar', gesto: true, tom: 'seduzir', aoEscolher: (st) => { trChefe(st); trSusp(st); }, txt: T('Sentar ao lado dele, perto, com o joelho encostado no dele.', 'Sit beside him, close, my knee against his.'),
-          resultado: [T('Ossian se endireita na cadeira como quem ganhou a mesa. Põe a marca dos Mastreiros primeiro, alto, para os outros verem com quem eu sentei.', 'Ossian straightens in his chair like a man who has won the whole table. He puts the Mastmen’s mark down first, loudly, so the others see whom I sat with.'),
-            T('Aubert escreve que a prisioneira senta do lado dos Mastreiros, e sublinha. A Lâmina vai ler que eu já escolhi um lado.', 'Aubert writes that the prisoner sits on the Mastmen’s side, and underlines it. The Blade will read that I have already chosen a side.')] },
-        { id: 'porta', gesto: true, tom: 'intimidar', txt: T('Olhar para ele até ele lembrar onde fica a porta.', 'Look at him until he remembers where the door is.'),
-          resultado: [T('Ele lembra. Sai sem resposta e sem o meu nome do lado dele da mesa. Os Mastreiros vão esperar o Ossian decidir, e o Ossian não decide nada sem ver para que lado o vento sopra.', 'He remembers. He leaves without an answer and without my name on his side of the table. The Mastmen will wait for Ossian to decide, and Ossian decides nothing until he sees which way the wind blows.'),
-            T('Aubert anota: um dos três saiu.', 'Aubert notes: one of the three walked out.')] },
+        { id: 'pagar', gesto: true, tom: 'seduzir', aoEscolher: (st) => { trChefe(st); trSusp(st); }, txt: T('Sentar ao lado dele, com o joelho no dele, e dizer baixo: “Você não confia em mim, Ossian? O que eu faço é sempre o melhor para os meus.”', 'Sit beside him, my knee against his, and say low: “Don’t you trust me, Ossian? What I do is always best for my own.”'),
+          resultado: [T('Ossian se endireita na cadeira como quem ganhou a mesa. Põe a marca dos Mastreiros primeiro, alto, para os outros verem quem a Madrinha chama de seu.', 'Ossian straightens in his chair like a man who has won the whole table. He puts the Mastmen’s mark down first, loudly, so the others see whom the Godmother calls her own.'),
+            T('Aubert ouviu o “os meus”. Escreve que a prisioneira senta do lado dos Mastreiros, e sublinha. A Lâmina vai ler que eu já escolhi um lado.', 'Aubert heard the “my own”. He writes that the prisoner sits on the Mastmen’s side, and underlines it. The Blade will read that I have already chosen a side.')] },
+        { id: 'porta', fala: true, tom: 'intimidar', txt: T('A Orla ganha o que eu deixar, Ossian. E você ganha continuar sentado nessa cadeira.', 'The Shore gains whatever I allow, Ossian. And you gain the right to stay in that chair.'),
+          resultado: [T('Ossian continua sentado, mas o sorriso some. Não assina. Os Mastreiros vão esperar o Ossian decidir, e o Ossian não decide nada sem ver para que lado o vento sopra.', 'Ossian stays seated, but the smile goes. He doesn’t sign. The Mastmen will wait for Ossian to decide, and Ossian decides nothing until he sees which way the wind blows.'),
+            T('Aubert anota: a prisioneira ameaça os próprios chefes, e um dos três não assinou.', 'Aubert notes: the prisoner threatens her own chiefs, and one of the three didn’t sign.')] },
       ] } },
 
     { id: 't03r', zona: 'cabine', agua: 0, sal: .15, pedra: (st) => termos(st) === 'argola', fundo: { img: IMG('t03-aubert-mesa'), dim: .62, foco: '60% 50%' },
@@ -1387,9 +1495,9 @@ window.LIVRO = {
         T('Ruo não senta. Fala da porta, alto, para o comandante ouvir: a Sentença ainda boia, e o irmão dele não.', 'Ruo doesn’t sit. He speaks from the door, loudly, for the commander to hear: the Sentence still floats, and his brother doesn’t.'),
       ],
       escolha: { id: 'trRuo', pergunta: T('Ruo', 'Ruo'), opcoes: [
-        { id: 'moeda', gesto: true, tom: 'manipular', aoEscolher: (st) => trChefe(st), txt: T('Soltar uma moeda da barra da saia e pôr na mão dele.', 'Work a coin loose from my hem and put it in his hand.'),
+        { id: 'moeda', gesto: true, tom: 'manipular', aoEscolher: (st) => trChefe(st), txt: T('Pôr uma moeda na mão dele, como a Orla faz com a Madrinha antes de enganar alguém.', 'Put a coin in his hand, the way the Shore does for the Godmother before fooling someone.'),
           resultado: [{ moeda: true, t: T('Fecho os dedos dele por cima da moeda.', 'I close his fingers over the coin.') },
-            T('Na Orla, quem vai enganar alguém paga a Madrinha antes. Ruo olha a moeda, depois o comandante, e entende quem está sendo enganado. Entra, senta, e diz que o Recife espera três meses.', 'On the Shore, whoever means to fool someone pays the Godmother first. Ruo looks at the coin, then at the commander, and understands who is being fooled. He comes in, sits, and says the Reef will wait three months.'),
+            T('Desta vez é a Madrinha que paga. Ruo olha a moeda, depois o comandante, e entende quem vai ser enganado. Entra, senta, e diz que o Recife espera três meses.', 'This time it is the Godmother who pays. Ruo looks at the coin, then at the commander, and understands who is going to be fooled. He comes in, sits, and says the Reef will wait three months.'),
             T('Aubert escreve: presente de paz.', 'Aubert writes: a gift of peace.')] },
         { id: 'deixei', fala: true, tom: 'intimidar', aoEscolher: (st) => { trChefe(st); trSusp(st); }, txt: T('A Sentença boia porque eu deixei, Ruo.', 'The Sentence floats because I let her, Ruo.'),
           resultado: [T('Ruo descruza os braços. Entra e senta.', 'Ruo uncrosses his arms. He comes in and sits.'),
@@ -1437,32 +1545,33 @@ window.LIVRO = {
         T('A hospedagem da Lâmina é um quarto em cima do templo do Cavaleiro, com cama de verdade e um guarda na porta. De manhã ele destranca e confere: uma hóspede. À noite, tranca.', 'The Blade’s hospitality is a room above the Knight’s temple, with a real bed and a guard at the door. In the morning he unlocks it and checks: one guest. At night, he locks it.'),
         termos(st) === 'sombra' ? T('Do lado de fora, numa cadeira encostada na porta, dorme o homem que o comandante deixou para mim.', 'Outside, on a chair tilted against the door, sleeps the man the commander left for me.') : null,
         T('De dia, posso andar pela praça e pelo mercado, com o guarda dez passos atrás. Ele vigia a minha cara. As caras que eu olho, ele não vigia.', 'By day I may walk the square and the market, with the guard ten paces behind. He watches my face. The faces I look at, he doesn’t watch.'),
-        T('Na primeira noite, embaixo da cama, uma laje mexe. Embaixo da laje, uma escada de pedra desce para o escuro, e o escuro cheira a água parada.', 'On the first night, under the bed, a flagstone shifts. Under the flagstone, stone steps go down into the dark, and the dark smells of still water.'),
       ].filter(Boolean) },
 
-    // com a argola, o rosto não muda: ela precisa sair dela antes das noites
+    // com a argola, a pedra bebe o rosto e a água. Mas a pele embaixo do ferro é dela, e molhada escorrega
     { id: 't06a', se: (st) => termos(st) === 'argola', zona: 'capital', agua: 0, sal: .3, pedra: true, veste: 'ela', fundo: { img: IMG('d01-argola'), dim: .45, foco: '55% 50%' },
       texto: [
-        T('Com a argola no pulso, o rosto não muda, e de manhã o guarda confere a argola junto com a hóspede.', 'With the shackle on my wrist, my face won’t change, and in the morning the guard checks the shackle along with the guest.'),
-        G('ferreiro', T('A argola tem a marca de um ferreiro da Rua das Forjas. A escada embaixo da laje dá numa cisterna, e a cisterna dá num bueiro da Rua das Fontes, a três ruas da forja dele.', 'The shackle bears the mark of a smith on Forge Street. The stairs under the flagstone lead to a cistern, and the cistern to a drain on Fountain Street, three streets from his forge.')),
-      ],
-      escolha: { id: 'argola', pergunta: T('A argola', 'The shackle'), opcoes: [
-        { id: 'polegar', gesto: true, tom: 'intimidar', flag: 'polegar', txt: T('Quebrar o polegar, para a mão sair da argola e voltar quando eu quiser.', 'Break my thumb, so the hand can slip out of the shackle and back in whenever I want.'),
-          resultado: [T('Encosto a mão numa pedra e piso. O estalo é pequeno. A mão passa pela argola como peixe por uma rede rasgada.', 'I set my hand on a stone and step on it. The crack is small. The hand slides through the shackle like a fish through a torn net.'),
-            T('Enfaixo com um pedaço da barra da roupa e escondo na manga. De manhã a mão volta para dentro da argola, e o guarda confere: uma hóspede, uma argola.', 'I bind it with a strip from my hem and hide it in my sleeve. In the morning the hand goes back into the shackle, and the guard checks: one guest, one shackle.')] },
-        { id: 'seduz', gesto: true, tom: 'seduzir', testemunha: 1, txt: T('Ir de noite até o ferreiro, com a minha cara, e deixar que ele ofereça a chave.', 'Go to the smith by night, in my own face, and let him offer the key.'),
-          resultado: [T('Desço pela laje e saio pelo bueiro, de capuz, sem rosto emprestado. O ferreiro dorme em cima da forja e abre a porta de camisa, com o martelo na mão.', 'I go down through the flagstone and out through the drain, hooded, with no borrowed face. The smith sleeps above his forge and opens the door in his shirt, hammer in hand.'),
-            T('Mostro o pulso, e deixo que ele olhe o resto. Não peço nada. Ele acende a forja sozinho, faz uma chave antes do galo e não pergunta de quem é a argola. Vai ficar com a minha voz na cabeça por uns dias.', 'I show him my wrist, and let him look at the rest. I ask for nothing. He lights the forge himself, makes a key before cockcrow, and doesn’t ask whose shackle it is. He’ll keep my voice in his head for a few days.'),
-            T('A chave eu guardo embaixo da língua.', 'The key I keep under my tongue.')] },
-        { id: 'mata', gesto: true, tom: 'intimidar', corpos: 1, alarme: 2, erro: true, txt: T('Ir de noite até o ferreiro, obrigá-lo a abrir a argola e depois matá-lo.', 'Go to the smith by night, make him open the shackle, and then kill him.'),
-          resultado: [T('Saio pelo bueiro com o capuz baixo. O ferreiro atende com o martelo na mão.', 'I go out through the drain with my hood low. The smith answers with his hammer in his hand.'),
-            T('Abre a argola com a minha lâmina no pescoço. Faz uma chave sem que eu diga nada, porque a lâmina continua lá. Depois a forja esfria.', 'He opens the shackle with my blade at his throat. He makes a key without my saying a word, because the blade is still there. Then the forge goes cold.'),
-            T('Na Rua das Forjas, uma forja fria de manhã chama mais gente que uma quente.', 'On Forge Street, a cold forge in the morning draws more people than a hot one.')] },
-      ] } },
+        T('Com a argola no pulso, a pedra engole o que eu sei fazer. O rosto não muda, e a água não me ouve. De manhã o guarda confere a argola junto com a hóspede.', 'With the shackle on my wrist, the stone swallows what I can do. My face won’t change, and the water won’t hear me. In the morning the guard checks the shackle along with the guest.'),
+        T('Mas a pele embaixo do ferro ainda é minha. De noite, molho o pulso na bacia e deixo a pele lembrar de onde veio. Ela fica lisa como peixe tirado agora do mar, e a mão escorrega pela argola sem quebrar nada.', 'But the skin under the iron is still mine. At night I wet my wrist in the basin and let the skin remember where it came from. It turns slick as a fish just pulled from the sea, and the hand slides out of the shackle without breaking anything.'),
+        T('Antes do sol, a mão volta para dentro do ferro. Redom pensou na magia. Não pensou em peixe.', 'Before sunrise, the hand goes back inside the iron. Redom thought of magic. It didn’t think of fish.'),
+      ] },
+
+    // a primeira noite: a água da cisterna esquecida corta a passagem, por baixo da cama
+    { id: 't06b', zona: 'capital', agua: .4, sal: .3, pedra: false, veste: 'ela', fundo: { img: IMG('t06-quarto'), dim: .55, foco: '70% 55%' },
+      texto: [
+        T('Na primeira noite, deitada no escuro, sinto água embaixo do chão. Muita água, parada há tanto tempo que esqueceu o sal. O templo do Cavaleiro foi construído em cima de uma cisterna que a cidade esqueceu.', 'On the first night, lying in the dark, I feel water under the floor. A great deal of water, still for so long it has forgotten salt. The Knight’s temple was built on top of a cistern the city forgot.'),
+        T('Chamo essa água para cima. Ela sobe pelas frestas, fina como linha e dura como faca, e corta a argamassa em volta da laje embaixo da cama sem barulho nenhum. Depois corta a terra embaixo da laje, até a cisterna.', 'I call that water up. It rises through the cracks, thin as thread and hard as a blade, and cuts the mortar around the flagstone under the bed without a sound. Then it cuts the earth beneath the flagstone, all the way to the cistern.'),
+        T('Redom vigia a porta, a janela e o meu rosto. Ninguém em Redom pensou que água corta pedra.', 'Redom watches the door, the window, and my face. No one in Redom thought water cuts stone.'),
+        T('Antes do sol, a laje volta para o lugar. A junta fica fina como um fio de cabelo, e eu fecho com lama de cal. De manhã o guarda confere: uma hóspede, uma cama, um chão.', 'Before sunrise, the flagstone goes back in its place. The seam is as thin as a hair, and I seal it with lime mud. In the morning the guard checks: one guest, one bed, one floor.'),
+      ] },
 
     { id: 'd02', zona: 'cisterna', agua: .9, sal: .12, pedra: false, veste: 'ela', fundo: { video: VID('d02-cisterna'), img: IMG('d02-cisterna'), dim: .45, clima: 'bolhas', foco: '55% 50%' },
       texto: [
-        T('Embaixo do templo do Cavaleiro tem uma cisterna velha, de colunas, que a cidade esqueceu. A água é parada e tem gosto de cal. Serve.', 'Under the Knight’s temple there is an old cistern, full of columns, that the city has forgotten. The water is still and tastes of lime. It will do.'),
+        T('A cisterna é de colunas, mais velha que o templo. Não tem porta nem escada, e a água tem gosto de cal. Dela saem os canais de esgoto que correm por baixo da Capital inteira, até os bueiros da Rua das Fontes e da rua das lavanderias.', 'The cistern is all columns, older than the temple. It has no door and no stairs, and the water tastes of lime. From it run the sewer channels that pass beneath the whole Capital, up to the drains on Fountain Street and the street of laundries.'),
+        T('Nas semanas antes do conselho, aprendo a Capital por baixo. Cada bueiro é uma porta, e nenhum tem guarda.', 'In the weeks before the council, I learn the Capital from underneath. Every drain is a door, and none has a guard.'),
+        T('Por cima, de dia, guardo os rostos que olho na praça. Dois servem para qualquer noite.', 'Up above, by day, I keep the faces I look at in the square. Two of them serve for any night.'),
+        G('bento', T('O do Bento, um menino que carrega água das fontes para as casas. Com o balde, entra e sai de qualquer cozinha, e menino de balde não tem nome.', 'Bento’s, a boy who carries water from the fountains to the houses. With his bucket he goes in and out of any kitchen, and a boy with a bucket has no name.')),
+        G('lume', T('O da Lume, a mais cara da Casa das Lanternas. Abre qualquer porta de homem, e nenhuma em silêncio.', 'Lume’s, the dearest at the House of Lanterns. She opens any man’s door, and none of them quietly.')),
+        T('A minha cara eu nunca levo para a noite. É a cara da hóspede da Lâmina, e a Capital toda já viu essa cara com o guarda atrás.', 'My own face I never take into the night. It is the face of the Blade’s guest, and the whole Capital has seen it with the guard behind.'),
         V('D16', T('Toda noite, depois do trabalho, eu tiro o rosto do dia e durmo lá embaixo, na minha pele, no escuro. É a única hora em que a água me segura.', 'Every night, after the work, I take off the day’s face and sleep down there, in my own skin, in the dark. It is the only hour when the water holds me.')),
         T('O sal some um pouco. No dia seguinte volta, maior.', 'The salt fades a little. The next day it comes back, larger.'),
         T('Antes de o guarda abrir a porta, já estou na cama, seca.', 'Before the guard opens the door, I am already in bed, dry.'),
@@ -1474,7 +1583,7 @@ window.LIVRO = {
 
     { id: 'd03', zona: 'capital', agua: 0, sal: .3, fundo: { img: IMG('d03-capital'), dim: .45, clima: 'poeiraCal', foco: '55% 40%' },
       texto: [
-        T('As semanas passam. Da janela do quarto vejo as tropas da costa voltando para a Capital, uma leva por semana, com a poeira na frente. A Orla está quieta, e Redom não sabe o que fazer com tanto soldado parado.', 'The weeks pass. From my window I watch the coast troops coming back to the Capital, one company a week, dust in front of them. The Shore is quiet, and Redom doesn’t know what to do with so many idle soldiers.'),
+        T('Da janela do quarto vejo as tropas da costa voltando para a Capital, uma leva por semana, com a poeira na frente. A Orla está quieta, e Redom não sabe o que fazer com tanto soldado parado.', 'From my window I watch the coast troops coming back to the Capital, one company a week, dust in front of them. The Shore is quiet, and Redom doesn’t know what to do with so many idle soldiers.'),
         T('Fora dos muros, a coluna para a Boca Seca está sendo montada há um mês: carroças, forjas, sacos de sal. Falta o conselho decidir quem vai, e quantos. Decide daqui a três dias.', 'Outside the walls, the column for the Dry Mouth has been assembling for a month: wagons, forges, sacks of salt. The council has still to decide who goes, and how many. It decides in three days.'),
         V('D17', T('Tenho três noites. De dia, ouço os pequenos. De noite, visto um deles e vou atrás dos grandes. Não dá para todos. Escolho.', 'I have three nights. By day I listen to the small. By night I wear one of them and go after the great. There isn’t time for all. I choose.')),
       ] },
@@ -1484,7 +1593,7 @@ window.LIVRO = {
     // a lavadeira: na volta da primeira noite, antes do sol, ainda com o rosto da noite
     { id: 'l01', zona: 'capital', agua: 0, sal: .38, veste: (st) => window.LIVRO.mascNoite(st, 1), fundo: { img: IMG('l01-lavadeira'), dim: .45, lado: 'dir', foco: '35% 55%' },
       texto: [
-        T('Na volta, antes do sol, corto caminho por uma rua de lavanderias. As lavadeiras já estão na água. Entre as mulheres de Redom, uma Nymae lava roupa de soldado, com uma argola de cativa no tornozelo. Veio de algum barco que a Sentença tomou.', 'On the way back, before sunrise, I cut through a street of laundries. The washerwomen are already in the water. Among the women of Redom, a Nymae washes soldiers’ clothes, a captive’s ring on her ankle. She came from some boat the Sentence took.'),
+        T('Na volta, antes do sol, corto caminho pela rua das lavanderias, até o bueiro. As lavadeiras já estão na água. Entre as mulheres de Redom, uma Nymae lava roupa de soldado, com uma argola de cativa no tornozelo. Veio de algum barco que a Sentença tomou.', 'On the way back, before sunrise, I cut through the street of laundries, toward the drain. The washerwomen are already in the water. Among the women of Redom, a Nymae washes soldiers’ clothes, a captive’s ring on her ankle. She came from some boat the Sentence took.'),
         T('Quando eu passo, a água do tanque dela fica lisa, e a roupa para de boiar. Ela levanta os olhos para mim, que estou com o rosto de {MASC}, e não vê {MASC}.', 'As I pass, the water in her trough goes smooth, and the washing stops floating. She lifts her eyes to me, in the face of {MASC}, and does not see {MASC}.'),
         T('Larga a roupa na água e se ajoelha na lama, no meio da rua. As outras param de bater roupa.', 'She drops the laundry in the water and kneels in the mud, in the middle of the street. The others stop beating their washing.'),
         T('Tantos olhos de uma vez pesam no rosto emprestado, e ele escorrega.', 'So many eyes at once weigh on the borrowed face, and it slips.'),
@@ -1504,7 +1613,7 @@ window.LIVRO = {
         { id: 'usar', fala: true, tom: 'manipular', flag: 'lavadeiraColuna', aviso: AV.lavadeira, txt: T('Levante. Quando a coluna sair, carregue água nela. Eu acho você lá.', 'Get up. When the column marches, carry water in it. I’ll find you there.'),
           resultado: [T('Ela beija a minha mão emprestada e diz que sim. Vai pedir. Vão aceitar: uma Nymae carrega água melhor que qualquer um.', 'She kisses my borrowed hand and says yes. She’ll ask. They’ll take her: a Nymae carries water better than anyone.')] },
         { id: 'matar', gesto: true, tom: 'intimidar', corpos: 1, aviso: AV.ninguem, txt: T('Voltar na noite seguinte e levá-la para a cisterna.', 'Come back the next night and take her to the cistern.'),
-          resultado: [T('Na noite seguinte eu volto. Ela vem comigo até a cisterna sem perguntar nada, porque sou eu. Lá embaixo, a água fica com ela.', 'The next night I come back. She follows me to the cistern without asking anything, because it is me. Down there, the water keeps her.')] },
+          resultado: [T('Na noite seguinte eu volto. Ela desce comigo pelo bueiro e anda pelo esgoto até a cisterna sem perguntar nada, porque sou eu. Lá embaixo, a água fica com ela.', 'The next night I come back. She goes down the drain with me and walks the sewer to the cistern without asking anything, because it is me. Down there, the water keeps her.')] },
       ] } },
 
     ...NOITE(2),
@@ -1587,7 +1696,7 @@ window.LIVRO = {
       ] } },
 
     { id: 'e02', zona: 'coluna', agua: 0, sal: .62, fundo: { img: IMG('e02-tenda'), dim: .5, foco: '55% 45%' },
-      texto: [T('A roupa, uma última vez.', 'The clothes, one last time.')],
+      texto: [T('A roupa, uma última vez.', 'The clothes, one last time.'), { t: T('Até a roupa estar no meu corpo, ando pelo acampamento com a cara da Lume. Acampamento de exército sempre tem lugar para ela, e soldado nenhum pergunta o que ela faz ali.', 'Until they are on my body, I walk the camp in Lume’s face. An army camp always has room for her, and no soldier asks what she is doing there.'), veste: 'lume' }],
       escolha: { id: 'trajeColuna', pergunta: (st) => T('A roupa de {DISFARCE}', '{DISFARCE}’s clothes'), opcoes: [
         { id: 'roubar', gesto: true, preco: 'roubar', tom: 'manipular', alarme: 1, erro: (st) => METODO_COLUNA(st, 'roubar')[0] === 'errado', txt: T('Roubar enquanto dorme.', 'Steal them while they sleep.'), resultado: (st) => [{ t: METODO_COLUNA(st, 'roubar')[1], veste: st.escolhas.disfarce }] },
         { id: 'seduzir', gesto: true, preco: 'seduzir', tom: 'seduzir', testemunha: 1, erro: (st) => METODO_COLUNA(st, 'seduzir')[0] === 'errado', txt: T('Chegar perto demais e esperar que me ofereça a roupa.', 'Stand too close and wait to be offered the clothes.'), resultado: (st) => [{ t: METODO_COLUNA(st, 'seduzir')[1], veste: st.escolhas.disfarce }] },
@@ -1617,7 +1726,7 @@ window.LIVRO = {
     { id: 'e05', zona: 'coluna', agua: 0, sal: .85, frase: 'fica', aoEntrar: (st) => { st.f.fraseLaura = true; st.f.fraseBoca = true; }, fundo: { video: VID('e05-saida'), img: IMG('e05-saida'), dim: .42, clima: 'poeira', foco: '55% 45%' },
       texto: [
         T('A coluna sai pelo portão sul da Capital Branca. Eu caminho atrás dos cavalos, com o rosto de {DISFARCE}.', 'The column leaves by the south gate of the White Capital. I walk behind the horses, in {DISFARCE}’s face.'),
-        (st) => (st.f.polegar ? T('A mão enfaixada segura o odre. Lá na frente, um ponto de cabelo cor de trigo monta um cavalo cinzento.', 'My bound hand holds the waterskin. Far ahead, a spot of wheat-colored hair rides a grey horse.') : T('Lá na frente, um ponto de cabelo cor de trigo monta um cavalo cinzento.', 'Far ahead, a spot of wheat-colored hair rides a grey horse.')),
+        T('Lá na frente, um ponto de cabelo cor de trigo monta um cavalo cinzento.', 'Far ahead, a spot of wheat-colored hair rides a grey horse.'),
         T('O sol de Redom ainda nem é o do deserto, e a pele do meu pulso já repuxa embaixo da manga. Provo o meu lábio. O sal está seco.', 'Redom’s sun isn’t even the desert’s yet, and the skin of my wrist already pulls tight under the sleeve. I taste my lip. The salt is dry.'),
         { t: T('A moeda anda pelos nós dos meus dedos.', 'The coin walks across my knuckles.'), moeda: true },
         V('D19', T('A frase está completa. Atrás dela não tem mais nada escrito.', 'The sentence is complete. Behind it, nothing else is written.')),
@@ -1654,8 +1763,8 @@ window.LIVRO = {
       interrogatorio: { ouro: it.ouro || 0, vermelho: it.verm || 0, termos: termos(st) },
       tregua: { chefes: st.f.trChefes || 0, suspeita: st.f.trSusp || 0, sarnai: st.escolhas.trSarnai || null, ossian: st.escolhas.trOssian || null, ruo: st.escolhas.trRuo || null }, erros: st.f.erros || 0, tentativas: st.tentativas || 0,
       semente: !!st.f.semente, usouSimon: !!st.f.usouSimon, confessou: !!st.f.confessou,
-      fuga: st.escolhas.trajeCriada || st.escolhas.sombra || st.escolhas.argola || null, polegar: !!st.f.polegar,
-      alvos: [1, 2, 3].map((k) => ({ alvo: window.LIVRO.alvoNoite(st, k), mascara: st.escolhas['masc' + k] || null, roupa: st.escolhas['traje' + k] || null, resultado: J(st, 'noite' + k).resultado || null })),
+      fuga: st.escolhas.trajeCriada || st.escolhas.sombra || null,
+      alvos: [1, 2, 3].map((k) => ({ alvo: window.LIVRO.alvoNoite(st, k), mascara: st.escolhas['masc' + k] || null, saida: st.escolhas['saida' + k] || null, roupa: st.escolhas['traje' + k] || null, resultado: J(st, 'noite' + k).resultado || null })),
       lavadeira: st.escolhas.lavadeira || null, piscadas: Object.assign({}, st.piscadas), rostos: st.vestiu.slice(), corpos: st.corpos, testemunhas: st.testemunhas,
       alarme: st.alarme, disfarce: st.escolhas.disfarce || null, agua: st.escolhas.agua || null, intendenteViu: !!st.f.intendenteViu,
       tom: Object.assign({}, st.tom), colecao: st.colecao.slice(), consorte: consorte(st), escolhas: st.escolhas,
@@ -1755,6 +1864,10 @@ const CURTO = {
 window.LIVRO.subst = (s, st, tr) => {
   if (typeof s !== 'string' || s.indexOf('{') < 0) return s;
   const p = window.LIVRO.paginas[st.i] || {}, k = p.noite || 1;
+  // "de o sargento" > "do sargento", "em a irmã" > "na irmã"
+  const contrai = (prep, nome) => { const m = /^(o|a|os|as|um|uma) (.*)$/.exec(nome); if (!m || (prep === 'de' && /^um/.test(m[1]))) return prep + ' ' + nome; return (prep === 'de' ? 'd' : 'n') + m[1] + ' ' + m[2]; };
+  const nomeMasc = () => tr(CURTO[window.LIVRO.mascNoite(st, k)] || CURTO.criadaC), nomeDisf = () => tr(CURTO[st.escolhas.disfarce] || CURTO.estrebaria);
+  s = s.replace(/\b(de|em) \{MASC\}/g, (x, prep) => contrai(prep, nomeMasc())).replace(/\b(de|em) \{DISFARCE\}/g, (x, prep) => contrai(prep, nomeDisf()));
   return s.replace(/\{MOT\}/g, () => NOME_TRIP[st.f.motim || st.f.motimMorto] || '').replace(/\{ULT\}/g, () => NOME_TRIP[st.f.ultimo] || '').replace(/\{MASC\}/g, () => tr(CURTO[window.LIVRO.mascNoite(st, k)] || CURTO.criadaC))
     .replace(/\{DISFARCE\}/g, () => tr(CURTO[st.escolhas.disfarce] || CURTO.estrebaria))
     .replace(/\{LEITOR\}/g, () => (window.LIVRO.mascNoite(st, k) === 'edric' && st.escolhas['traje' + k] === 'matar' ? tr(T('eu mesma, com a voz do Edric', 'I myself, in Edric’s voice')) : tr(T('o Edric', 'Edric'))));
@@ -1802,20 +1915,20 @@ function NOITE(k) {
   const PASSAGEM = ['guarda', 'criadaC', 'moco'];
   // cada rosto traz a pista do jeito certo de pegar a roupa
   const ROT = {
-    cavalarico: T('O rosto do Tam, o cavalariço que dorme na baia do cavalo cinzento do comandante Simon, onde o marechal desce toda madrugada.', 'The face of Tam, the stable boy who sleeps in the commander’s horse’s stall, where the marshal comes down every morning before dawn.'),
-    escudeiro: T('O rosto do Corin, o escudeiro da espada de pau, que dorme com mais onze na mesma sala e faria tudo para ser notado.', 'The face of Corin, the squire with the wooden sword, who sleeps with eleven others in one room and would do anything to be noticed.'),
-    novica: T('O rosto da irmã Ada, a noviça que dorme sozinha na sacristia e confessa tudo de manhã.', 'The face of Sister Ada, the novice who sleeps alone in the sacristy and confesses everything in the morning.'),
-    dama: T('O rosto de Lady Elsbeth, a dama de companhia que tem vinte vestidos contados e quer muito ser vista perto de quem importa.', 'The face of Lady Elsbeth, the lady-in-waiting with twenty counted gowns who badly wants to be seen near people who matter.'),
-    vinho: T('O rosto do Pip, o moço que serve vinho pela esquerda e dorme bêbado na adega.', 'The face of Pip, the boy who pours from the left and sleeps drunk in the cellar.'),
-    viuva: T('O rosto da Hilde, a viúva da duna vazia, que mora sozinha, não recebe visita e dorme mal desde a notícia.', 'The face of Hilde, the widow of the empty dune, who lives alone, has no visitors, and has slept badly since the news.'),
-    horne: T('O rosto do sargento Horne, viúvo, que bebe sozinho depois do turno e dorme de farda.', 'The face of Sergeant Horne, a widower, who drinks alone after his watch and sleeps in his uniform.'),
-    maud: T('O rosto da Maud, a irmã dele, que dorme no andar de cima e repara em tudo.', 'The face of Maud, his sister, who sleeps upstairs and notices everything.'),
-    bertha: T('O rosto da Bertha, a mãe que deixa a porta aberta para quem vier falar do filho.', 'The face of Bertha, the mother who leaves her door open to anyone who comes to talk about her son.'),
-    aldo: T('O rosto do mestre Aldo, o curandeiro que dorme na enfermaria, entre doentes que morrem toda noite, e conversa com todos.', 'The face of Master Aldo, the healer who sleeps in the infirmary, among patients who die every night, and talks with them all.'),
-    edric: T('O rosto do Edric, o escrivão que dorme pesado em cima da loja de tinta e conta a todo mundo tudo o que acontece com ele.', 'The face of Edric, the clerk who sleeps heavily above the ink shop and tells everyone everything that happens to him.'),
-    guarda: T('O rosto de um guarda da Cidadela que vi de passagem: novo no posto, sozinho no turno da noite.', 'The face of a Citadel guard I saw in passing: new to the post, alone on the night watch.'),
-    criadaC: T('O rosto de uma criada do palácio que vi de passagem, das que dormem dez num quarto e penduram a roupa no mesmo varal.', 'The face of a palace maid I saw in passing, one of those who sleep ten to a room and hang their clothes on the same line.'),
-    moco: T('O rosto de um moço de recados que vi de passagem, dos que fazem qualquer coisa por uma moeda.', 'The face of an errand boy I saw in passing, the kind who will do anything for a coin.'),
+    cavalarico: T('O rosto do Tam, cavalariço. Dorme no feno da baia do cavalo cinzento, e nem trovão o acorda. O marechal desce para ver o cavalo toda madrugada.', 'The face of Tam, the groom. He sleeps in the hay of the grey horse’s stall, and not even thunder wakes him. The marshal comes down to see the horse every morning before dawn.'),
+    escudeiro: T('O rosto do Corin, o escudeiro mais velho do alojamento, já passado da idade de ser armado. Dorme com mais onze na mesma sala, e sempre tem um acordado. Faria tudo para ser notado.', 'The face of Corin, the oldest squire in the barracks, already past the age to be knighted. He sleeps with eleven others in one room, and one is always awake. He would do anything to be noticed.'),
+    novica: T('O rosto da irmã Ada, a noviça. Dorme sozinha na sacristia, com o sono pesado de quem reza muito, e de manhã confessa tudo ao padre.', 'The face of Sister Ada, the novice. She sleeps alone in the sacristy, the heavy sleep of someone who prays a lot, and in the morning she confesses everything to the priest.'),
+    dama: T('O rosto de Lady Elsbeth, dama de companhia da Guardiã. Tem vinte vestidos contados por uma criada e quer muito ser vista perto de quem importa. Moça de lanterna não passa da porta dela.', 'The face of Lady Elsbeth, the Keeper’s lady-in-waiting. She has twenty gowns counted by a maid and badly wants to be seen near people who matter. A lantern girl doesn’t get past her door.'),
+    vinho: T('O rosto do Pip, o moço que serve vinho ao Sir Joseph pela esquerda. Dorme bêbado na adega.', 'The face of Pip, the young man who pours Sir Joseph’s wine from the left. He sleeps drunk in the cellar.'),
+    viuva: T('O rosto da Hilde, a viúva da duna vazia. Mora sozinha, não recebe visita, e desde a notícia acorda com qualquer rangido.', 'The face of Hilde, the widow of the empty dune. She lives alone, has no visitors, and since the news she wakes at any creak.'),
+    horne: T('O rosto do sargento Horne, viúvo. Bebe sozinho depois do turno, dorme de farda e conhece todas as ordens do quartel.', 'The face of Sergeant Horne, a widower. He drinks alone after his watch, sleeps in his uniform, and knows every order in the barracks.'),
+    maud: T('O rosto da Maud, a irmã do Lorde Varr. Dorme no andar de cima, o guarda-roupa fica embaixo, e ela repara em tudo e em todos.', 'The face of Maud, Lord Varr’s sister. She sleeps upstairs, the wardrobe is downstairs, and she notices everything and everyone.'),
+    bertha: T('O rosto da Bertha, a mãe do sentinela morto. Deixa a porta aberta para quem vier falar do filho, e gosta de quem fica para ouvir.', 'The face of Bertha, the dead sentry’s mother. She leaves her door open to anyone who comes to talk about her son, and loves whoever stays to listen.'),
+    aldo: T('O rosto do mestre Aldo, o curandeiro. Dorme na enfermaria, entre doentes que morrem toda noite, e conversa com todos, até com os que morrem.', 'The face of Master Aldo, the healer. He sleeps in the infirmary, among patients who die every night, and talks with all of them, even the dying.'),
+    edric: T('O rosto do Edric, o escrivão do conselho. Dorme pesado em cima da loja de tinta, guarda a chave da Sala dos Mapas e conta a todo mundo tudo o que acontece com ele.', 'The face of Edric, the council clerk. He sleeps heavily above the ink shop, keeps the Map Room key, and tells everyone everything that happens to him.'),
+    guarda: T('O rosto de um guarda da Cidadela que vi de passagem. Novo no posto, sozinho no turno da noite, e ainda obedece a qualquer ordem.', 'The face of a Citadel guard I saw in passing. New to the post, alone on the night watch, and still obeys any order.'),
+    criadaC: T('O rosto de uma criada do palácio que vi de passagem. Dormem dez num quarto e penduram a roupa no mesmo varal.', 'The face of a palace maid I saw in passing. They sleep ten to a room and hang their clothes on the same line.'),
+    moco: T('O rosto de um moço de recados que vi de passagem. Dormem num monte embaixo da escada e fazem qualquer coisa por uma moeda.', 'The face of an errand boy I saw in passing. They sleep in a heap under the stairs and will do anything for a coin.'),
   };
   // a manhã depois da Sala dos Mapas: a ordem que ela deixou, dita, e o que essa ordem fez no conselho
   const PAPEL = {
@@ -1853,10 +1966,13 @@ function NOITE(k) {
   const VOLTA = {
     2: T('Volto pelo bueiro com a chuva. Quando o guarda abre a porta, estou na cama, e só o travesseiro está molhado.', 'I come back through the drain with the rain. When the guard opens the door, I am in bed, and only the pillow is wet.'),
   };
-  const metodo = (st, m) => (METODO[window.LIVRO.mascNoite(st, k)] || METODO.criadaC)[m];
+  // a roupa: o jeito do dono × o rosto com que ela saiu (Bento ou Lume)
+  const saida = (st) => st.escolhas['saida' + k] || 'bento';
+  const metodo = (st, m) => { const M = METODO[window.LIVRO.mascNoite(st, k)] || METODO.criadaC; return m === 'matar' ? M.matar : m === 'roubar' ? M.roubar[saida(st)] : M.perto[saida(st)]; };
+  const VESTE = (st) => ({ t: T('Visto a roupa. Penso em {MASC} até a pele obedecer.', 'I put on the clothes. I think of {MASC} until my skin obeys.'), veste: window.LIVRO.mascNoite(st, k) });
   const TRAJE = (m, extra) => Object.assign({ id: m, gesto: true, preco: m,
     erro: (st) => metodo(st, m)[0] === 'errado', alarme: (st) => ({ errado: 2, meio: 1 }[metodo(st, m)[0]] || 0),
-    resultado: (st) => [metodo(st, m)[1]] }, extra);
+    resultado: (st) => [metodo(st, m)[1], VESTE(st)] }, extra);
   const pgs = [
     { id: 'n' + k + 'd', noite: k, zona: 'capital', agua: 0, sal: .3 + k * .08, veste: 'ela',
       fundo: { img: IMG('n-dia' + k), dim: .45, clima: 'poeiraCal', foco: '55% 45%' },
@@ -1875,16 +1991,26 @@ function NOITE(k) {
         texto: (st) => [NT[3], RUMO(st), T('Esta noite não tem boca para trabalhar. Tem papel, na Sala dos Mapas.', 'Tonight there is no mouth to work. There is paper, in the Map Room.')] },
     { id: 'n' + k + 'm', noite: k, zona: 'noite', agua: 0, sal: .32 + k * .08, fundo: { img: IMG('n-noite' + k), dim: .58, clima: k === 2 ? 'chuva' : null },
       texto: (st) => [alvo(st) === 'mapas' ? T('A Sala dos Mapas fica no alto da Cidadela. A guarda deixa entrar quem tem a chave e um rosto que ela conhece.', 'The Map Room is high in the Citadel. The guard lets in whoever has the key and a face it knows.') : window.LIVRO.anzol[alvo(st)].lugar],
-      escolha: { id: 'masc' + k, pergunta: T('Que rosto eu visto esta noite?', 'Which face do I wear tonight?'), opcoes: Object.keys(ROT).map((id) => ({
+      escolha: { id: 'masc' + k, pergunta: T('Quem eu vou ser lá dentro?', 'Who will I be in there?'), opcoes: Object.keys(ROT).map((id) => ({
         id, gesto: true, se: (st) => (MASC[alvo(st)] || []).includes(id) && (PASSAGEM.includes(id) || tem(st, id)), txt: ROT[id],
         aoEscolher: (st) => { if (PASSAGEM.includes(id) && !tem(st, id)) st.colecao.push(id); },
-        resultado: [{ t: T('Penso em {MASC} até a pele obedecer.', 'I think of {MASC} until my skin obeys.'), veste: id }] })) } },
+        resultado: [T('O rosto de {MASC} eu já tenho. A roupa ainda está no corpo do dono, e é com ela que se passa por uma porta.', '{MASC}’s face I already have. The clothes are still on their owner, and it is the clothes that get you through a door.')] })) } },
+    { id: 'n' + k + 's', noite: k, zona: 'noite', agua: 0, sal: .32 + k * .08, fundo: { img: IMG('n-noite' + k), dim: .6, clima: k === 2 ? 'chuva' : null },
+      texto: [T('O rosto da hóspede não sai de noite: a Capital já viu a hóspede da Lâmina andar com o guarda atrás. Para chegar perto de {MASC}, subo por um bueiro com outra.', 'The guest’s face doesn’t go out at night: the Capital has seen the Blade’s guest walking with the guard behind her. To get close to {MASC}, I come up through a drain wearing another.')],
+      escolha: { id: 'saida' + k, pergunta: T('Com que rosto eu saio?', 'Which face do I go out in?'), opcoes: [
+        { id: 'bento', gesto: true, txt: T('O do Bento, o menino aguadeiro. Entra em qualquer casa com a água e sai sem que lembrem dele. Serve para levar e para mentir.', 'Bento’s, the water boy. He goes into any house with the water and leaves without being remembered. Good for taking, and for lying.'),
+          resultado: [{ t: T('Penso no Bento até a pele obedecer. Fico pequena, de joelho ralado, com um balde da fonte.', 'I think of Bento until my skin obeys. I turn small, with a scraped knee and a bucket from the fountain.'), veste: 'bento' }] },
+        { id: 'lume', gesto: true, txt: T('O da Lume, da Casa das Lanternas. Quase todo mundo diz sim a ela, e todo mundo lembra. Serve para chegar perto.', 'Lume’s, from the House of Lanterns. Almost everyone says yes to her, and everyone remembers. Good for getting close.'),
+          resultado: [{ t: T('Penso na Lume até a pele obedecer. A boca fica mais cheia, e o cabelo cheira a óleo de lanterna.', 'I think of Lume until my skin obeys. My mouth grows fuller, and my hair smells of lantern oil.'), veste: 'lume' }] },
+      ] } },
     { id: 'n' + k + 'r', noite: k, zona: 'noite', agua: 0, sal: .32 + k * .08, fundo: { img: IMG('n-noite' + k), dim: .62, clima: k === 2 ? 'chuva' : null },
-      texto: [T('O rosto já é meu. A roupa ainda está no corpo de quem é dono dele.', 'The face is already mine. The clothes are still on its owner.')],
+      texto: (st) => [saida(st) === 'lume' ? T('Com a cara da Lume, chego perto de {MASC}.', 'In Lume’s face, I get close to {MASC}.') : T('Com a cara do Bento e o balde na mão, chego perto de {MASC}.', 'In Bento’s face, bucket in hand, I get close to {MASC}.')],
       escolha: { id: 'traje' + k, pergunta: T('A roupa de {MASC}', '{MASC}’s clothes'), opcoes: [
-        TRAJE('roubar', { tom: 'manipular', txt: T('Roubar enquanto dorme.', 'Steal them while they sleep.') }),
-        TRAJE('seduzir', { tom: 'seduzir', testemunha: 1, txt: T('Chegar perto e deixar que me dê a roupa.', 'Get close and let them give me the clothes.') }),
-        TRAJE('matar', { tom: 'intimidar', corpos: 1, txt: T('Esperar numa rua sem luz.', 'Wait in an unlit street.') }),
+        TRAJE('roubar', { tom: 'manipular', txt: T('Levar a roupa enquanto {MASC} dorme.', 'Take the clothes while {MASC} sleeps.') }),
+        TRAJE('seduzir', { tom: 'seduzir', testemunha: 1, se: (st) => saida(st) === 'lume' && window.LIVRO.mascNoite(st, k) !== 'moco', txt: T('Chegar perto, como a Lume, e deixar que {MASC} me dê a roupa.', 'Get close, as Lume, and let {MASC} give me the clothes.') }),
+        TRAJE('moeda', { tom: 'manipular', se: (st) => saida(st) === 'lume' && window.LIVRO.mascNoite(st, k) === 'moco', txt: T('Mostrar uma moeda ao moço e pedir a roupa.', 'Show the boy a coin and ask for the clothes.') }),
+        TRAJE('enganar', { tom: 'manipular', se: (st) => saida(st) === 'bento', txt: T('Bater na porta com um recado inventado e pedir a roupa.', 'Knock with a made-up message and ask for the clothes.') }),
+        TRAJE('matar', { tom: 'intimidar', corpos: 1, txt: T('Matar {MASC} e sair com a roupa.', 'Kill {MASC} and leave with the clothes.') }),
       ] } },
   ];
   if (k === 1) pgs.push({ id: 'n1p', noite: 1, zona: 'noite', agua: 0, sal: .4, fundo: { img: IMG('n-tocha'), dim: .45, foco: '55% 45%' },

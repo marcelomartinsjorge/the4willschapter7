@@ -48,6 +48,9 @@
     lavadeira: { img: ROSTO('lavadeira'), nome: T('A lavadeira', 'The washerwoman'), quer: T('voltar para a água.', 'to go back to the water.'),
       fim: (st) => ({ levantar: T('Voltou para a roupa dos soldados.', 'Went back to the soldiers’ laundry.'), usar: T('Vai carregar água na coluna.', 'Will carry water in the column.'), matar: T('Dorme na cisterna.', 'Sleeps in the cistern.') }[st.escolhas.lavadeira] || null), morto: (st) => st.escolhas.lavadeira === 'matar' },
     aubert: { lugar: 'redom', img: ROSTO('aubert'), nome: T('O comandante Aubert', 'Commander Aubert'), quer: T('levar à Lâmina, por escrito, tudo o que viu.', 'to bring the Blade everything he saw, in writing.'), naoDiz: T('que conta velas quando não consegue contar palavras.', 'that he counts sails when he can’t count words.') },
+    // os dois rostos de saída: com eles ela chega perto de quem tem a roupa
+    bento: { img: ROSTO('bento'), veste: true, nome: T('Bento, menino aguadeiro', 'Bento, the water boy'), quer: T('uma moeda por balde.', 'a coin a bucket.') },
+    lume: { img: ROSTO('lume'), veste: true, nome: T('Lume, da Casa das Lanternas', 'Lume, of the House of Lanterns'), quer: T('que paguem antes.', 'to be paid first.') },
     // os rostos que eu vi de passagem (servem de máscara quando não há outra)
     guarda: { img: ROSTO('guarda'), veste: true, nome: T('Um guarda da Cidadela', 'A Citadel guard'), quer: T('o fim do turno.', 'the end of his watch.') },
     criadaC: { img: ROSTO('criadaC'), veste: true, nome: T('Uma criada do palácio', 'A palace maid'), quer: T('passar sem ser notada.', 'to pass unnoticed.') },

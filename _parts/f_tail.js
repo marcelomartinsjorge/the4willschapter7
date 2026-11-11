@@ -25,8 +25,8 @@
       interrogatorio: { ouro: it.ouro || 0, vermelho: it.verm || 0, termos: termos(st) },
       tregua: { chefes: st.f.trChefes || 0, suspeita: st.f.trSusp || 0, sarnai: st.escolhas.trSarnai || null, ossian: st.escolhas.trOssian || null, ruo: st.escolhas.trRuo || null }, erros: st.f.erros || 0, tentativas: st.tentativas || 0,
       semente: !!st.f.semente, usouSimon: !!st.f.usouSimon, confessou: !!st.f.confessou,
-      fuga: st.escolhas.trajeCriada || st.escolhas.sombra || st.escolhas.argola || null, polegar: !!st.f.polegar,
-      alvos: [1, 2, 3].map((k) => ({ alvo: window.LIVRO.alvoNoite(st, k), mascara: st.escolhas['masc' + k] || null, roupa: st.escolhas['traje' + k] || null, resultado: J(st, 'noite' + k).resultado || null })),
+      fuga: st.escolhas.trajeCriada || st.escolhas.sombra || null,
+      alvos: [1, 2, 3].map((k) => ({ alvo: window.LIVRO.alvoNoite(st, k), mascara: st.escolhas['masc' + k] || null, saida: st.escolhas['saida' + k] || null, roupa: st.escolhas['traje' + k] || null, resultado: J(st, 'noite' + k).resultado || null })),
       lavadeira: st.escolhas.lavadeira || null, piscadas: Object.assign({}, st.piscadas), rostos: st.vestiu.slice(), corpos: st.corpos, testemunhas: st.testemunhas,
       alarme: st.alarme, disfarce: st.escolhas.disfarce || null, agua: st.escolhas.agua || null, intendenteViu: !!st.f.intendenteViu,
       tom: Object.assign({}, st.tom), colecao: st.colecao.slice(), consorte: consorte(st), escolhas: st.escolhas,
@@ -126,6 +126,10 @@ const CURTO = {
 window.LIVRO.subst = (s, st, tr) => {
   if (typeof s !== 'string' || s.indexOf('{') < 0) return s;
   const p = window.LIVRO.paginas[st.i] || {}, k = p.noite || 1;
+  // "de o sargento" > "do sargento", "em a irmã" > "na irmã"
+  const contrai = (prep, nome) => { const m = /^(o|a|os|as|um|uma) (.*)$/.exec(nome); if (!m || (prep === 'de' && /^um/.test(m[1]))) return prep + ' ' + nome; return (prep === 'de' ? 'd' : 'n') + m[1] + ' ' + m[2]; };
+  const nomeMasc = () => tr(CURTO[window.LIVRO.mascNoite(st, k)] || CURTO.criadaC), nomeDisf = () => tr(CURTO[st.escolhas.disfarce] || CURTO.estrebaria);
+  s = s.replace(/\b(de|em) \{MASC\}/g, (x, prep) => contrai(prep, nomeMasc())).replace(/\b(de|em) \{DISFARCE\}/g, (x, prep) => contrai(prep, nomeDisf()));
   return s.replace(/\{MOT\}/g, () => NOME_TRIP[st.f.motim || st.f.motimMorto] || '').replace(/\{ULT\}/g, () => NOME_TRIP[st.f.ultimo] || '').replace(/\{MASC\}/g, () => tr(CURTO[window.LIVRO.mascNoite(st, k)] || CURTO.criadaC))
     .replace(/\{DISFARCE\}/g, () => tr(CURTO[st.escolhas.disfarce] || CURTO.estrebaria))
     .replace(/\{LEITOR\}/g, () => (window.LIVRO.mascNoite(st, k) === 'edric' && st.escolhas['traje' + k] === 'matar' ? tr(T('eu mesma, com a voz do Edric', 'I myself, in Edric’s voice')) : tr(T('o Edric', 'Edric'))));
@@ -173,20 +177,20 @@ function NOITE(k) {
   const PASSAGEM = ['guarda', 'criadaC', 'moco'];
   // cada rosto traz a pista do jeito certo de pegar a roupa
   const ROT = {
-    cavalarico: T('O rosto do Tam, o cavalariço que dorme na baia do cavalo cinzento do comandante Simon, onde o marechal desce toda madrugada.', 'The face of Tam, the stable boy who sleeps in the commander’s horse’s stall, where the marshal comes down every morning before dawn.'),
-    escudeiro: T('O rosto do Corin, o escudeiro da espada de pau, que dorme com mais onze na mesma sala e faria tudo para ser notado.', 'The face of Corin, the squire with the wooden sword, who sleeps with eleven others in one room and would do anything to be noticed.'),
-    novica: T('O rosto da irmã Ada, a noviça que dorme sozinha na sacristia e confessa tudo de manhã.', 'The face of Sister Ada, the novice who sleeps alone in the sacristy and confesses everything in the morning.'),
-    dama: T('O rosto de Lady Elsbeth, a dama de companhia que tem vinte vestidos contados e quer muito ser vista perto de quem importa.', 'The face of Lady Elsbeth, the lady-in-waiting with twenty counted gowns who badly wants to be seen near people who matter.'),
-    vinho: T('O rosto do Pip, o moço que serve vinho pela esquerda e dorme bêbado na adega.', 'The face of Pip, the boy who pours from the left and sleeps drunk in the cellar.'),
-    viuva: T('O rosto da Hilde, a viúva da duna vazia, que mora sozinha, não recebe visita e dorme mal desde a notícia.', 'The face of Hilde, the widow of the empty dune, who lives alone, has no visitors, and has slept badly since the news.'),
-    horne: T('O rosto do sargento Horne, viúvo, que bebe sozinho depois do turno e dorme de farda.', 'The face of Sergeant Horne, a widower, who drinks alone after his watch and sleeps in his uniform.'),
-    maud: T('O rosto da Maud, a irmã dele, que dorme no andar de cima e repara em tudo.', 'The face of Maud, his sister, who sleeps upstairs and notices everything.'),
-    bertha: T('O rosto da Bertha, a mãe que deixa a porta aberta para quem vier falar do filho.', 'The face of Bertha, the mother who leaves her door open to anyone who comes to talk about her son.'),
-    aldo: T('O rosto do mestre Aldo, o curandeiro que dorme na enfermaria, entre doentes que morrem toda noite, e conversa com todos.', 'The face of Master Aldo, the healer who sleeps in the infirmary, among patients who die every night, and talks with them all.'),
-    edric: T('O rosto do Edric, o escrivão que dorme pesado em cima da loja de tinta e conta a todo mundo tudo o que acontece com ele.', 'The face of Edric, the clerk who sleeps heavily above the ink shop and tells everyone everything that happens to him.'),
-    guarda: T('O rosto de um guarda da Cidadela que vi de passagem: novo no posto, sozinho no turno da noite.', 'The face of a Citadel guard I saw in passing: new to the post, alone on the night watch.'),
-    criadaC: T('O rosto de uma criada do palácio que vi de passagem, das que dormem dez num quarto e penduram a roupa no mesmo varal.', 'The face of a palace maid I saw in passing, one of those who sleep ten to a room and hang their clothes on the same line.'),
-    moco: T('O rosto de um moço de recados que vi de passagem, dos que fazem qualquer coisa por uma moeda.', 'The face of an errand boy I saw in passing, the kind who will do anything for a coin.'),
+    cavalarico: T('O rosto do Tam, cavalariço. Dorme no feno da baia do cavalo cinzento, e nem trovão o acorda. O marechal desce para ver o cavalo toda madrugada.', 'The face of Tam, the groom. He sleeps in the hay of the grey horse’s stall, and not even thunder wakes him. The marshal comes down to see the horse every morning before dawn.'),
+    escudeiro: T('O rosto do Corin, o escudeiro mais velho do alojamento, já passado da idade de ser armado. Dorme com mais onze na mesma sala, e sempre tem um acordado. Faria tudo para ser notado.', 'The face of Corin, the oldest squire in the barracks, already past the age to be knighted. He sleeps with eleven others in one room, and one is always awake. He would do anything to be noticed.'),
+    novica: T('O rosto da irmã Ada, a noviça. Dorme sozinha na sacristia, com o sono pesado de quem reza muito, e de manhã confessa tudo ao padre.', 'The face of Sister Ada, the novice. She sleeps alone in the sacristy, the heavy sleep of someone who prays a lot, and in the morning she confesses everything to the priest.'),
+    dama: T('O rosto de Lady Elsbeth, dama de companhia da Guardiã. Tem vinte vestidos contados por uma criada e quer muito ser vista perto de quem importa. Moça de lanterna não passa da porta dela.', 'The face of Lady Elsbeth, the Keeper’s lady-in-waiting. She has twenty gowns counted by a maid and badly wants to be seen near people who matter. A lantern girl doesn’t get past her door.'),
+    vinho: T('O rosto do Pip, o moço que serve vinho ao Sir Joseph pela esquerda. Dorme bêbado na adega.', 'The face of Pip, the young man who pours Sir Joseph’s wine from the left. He sleeps drunk in the cellar.'),
+    viuva: T('O rosto da Hilde, a viúva da duna vazia. Mora sozinha, não recebe visita, e desde a notícia acorda com qualquer rangido.', 'The face of Hilde, the widow of the empty dune. She lives alone, has no visitors, and since the news she wakes at any creak.'),
+    horne: T('O rosto do sargento Horne, viúvo. Bebe sozinho depois do turno, dorme de farda e conhece todas as ordens do quartel.', 'The face of Sergeant Horne, a widower. He drinks alone after his watch, sleeps in his uniform, and knows every order in the barracks.'),
+    maud: T('O rosto da Maud, a irmã do Lorde Varr. Dorme no andar de cima, o guarda-roupa fica embaixo, e ela repara em tudo e em todos.', 'The face of Maud, Lord Varr’s sister. She sleeps upstairs, the wardrobe is downstairs, and she notices everything and everyone.'),
+    bertha: T('O rosto da Bertha, a mãe do sentinela morto. Deixa a porta aberta para quem vier falar do filho, e gosta de quem fica para ouvir.', 'The face of Bertha, the dead sentry’s mother. She leaves her door open to anyone who comes to talk about her son, and loves whoever stays to listen.'),
+    aldo: T('O rosto do mestre Aldo, o curandeiro. Dorme na enfermaria, entre doentes que morrem toda noite, e conversa com todos, até com os que morrem.', 'The face of Master Aldo, the healer. He sleeps in the infirmary, among patients who die every night, and talks with all of them, even the dying.'),
+    edric: T('O rosto do Edric, o escrivão do conselho. Dorme pesado em cima da loja de tinta, guarda a chave da Sala dos Mapas e conta a todo mundo tudo o que acontece com ele.', 'The face of Edric, the council clerk. He sleeps heavily above the ink shop, keeps the Map Room key, and tells everyone everything that happens to him.'),
+    guarda: T('O rosto de um guarda da Cidadela que vi de passagem. Novo no posto, sozinho no turno da noite, e ainda obedece a qualquer ordem.', 'The face of a Citadel guard I saw in passing. New to the post, alone on the night watch, and still obeys any order.'),
+    criadaC: T('O rosto de uma criada do palácio que vi de passagem. Dormem dez num quarto e penduram a roupa no mesmo varal.', 'The face of a palace maid I saw in passing. They sleep ten to a room and hang their clothes on the same line.'),
+    moco: T('O rosto de um moço de recados que vi de passagem. Dormem num monte embaixo da escada e fazem qualquer coisa por uma moeda.', 'The face of an errand boy I saw in passing. They sleep in a heap under the stairs and will do anything for a coin.'),
   };
   // a manhã depois da Sala dos Mapas: a ordem que ela deixou, dita, e o que essa ordem fez no conselho
   const PAPEL = {
@@ -224,10 +228,13 @@ function NOITE(k) {
   const VOLTA = {
     2: T('Volto pelo bueiro com a chuva. Quando o guarda abre a porta, estou na cama, e só o travesseiro está molhado.', 'I come back through the drain with the rain. When the guard opens the door, I am in bed, and only the pillow is wet.'),
   };
-  const metodo = (st, m) => (METODO[window.LIVRO.mascNoite(st, k)] || METODO.criadaC)[m];
+  // a roupa: o jeito do dono × o rosto com que ela saiu (Bento ou Lume)
+  const saida = (st) => st.escolhas['saida' + k] || 'bento';
+  const metodo = (st, m) => { const M = METODO[window.LIVRO.mascNoite(st, k)] || METODO.criadaC; return m === 'matar' ? M.matar : m === 'roubar' ? M.roubar[saida(st)] : M.perto[saida(st)]; };
+  const VESTE = (st) => ({ t: T('Visto a roupa. Penso em {MASC} até a pele obedecer.', 'I put on the clothes. I think of {MASC} until my skin obeys.'), veste: window.LIVRO.mascNoite(st, k) });
   const TRAJE = (m, extra) => Object.assign({ id: m, gesto: true, preco: m,
     erro: (st) => metodo(st, m)[0] === 'errado', alarme: (st) => ({ errado: 2, meio: 1 }[metodo(st, m)[0]] || 0),
-    resultado: (st) => [metodo(st, m)[1]] }, extra);
+    resultado: (st) => [metodo(st, m)[1], VESTE(st)] }, extra);
   const pgs = [
     { id: 'n' + k + 'd', noite: k, zona: 'capital', agua: 0, sal: .3 + k * .08, veste: 'ela',
       fundo: { img: IMG('n-dia' + k), dim: .45, clima: 'poeiraCal', foco: '55% 45%' },
@@ -246,16 +253,26 @@ function NOITE(k) {
         texto: (st) => [NT[3], RUMO(st), T('Esta noite não tem boca para trabalhar. Tem papel, na Sala dos Mapas.', 'Tonight there is no mouth to work. There is paper, in the Map Room.')] },
     { id: 'n' + k + 'm', noite: k, zona: 'noite', agua: 0, sal: .32 + k * .08, fundo: { img: IMG('n-noite' + k), dim: .58, clima: k === 2 ? 'chuva' : null },
       texto: (st) => [alvo(st) === 'mapas' ? T('A Sala dos Mapas fica no alto da Cidadela. A guarda deixa entrar quem tem a chave e um rosto que ela conhece.', 'The Map Room is high in the Citadel. The guard lets in whoever has the key and a face it knows.') : window.LIVRO.anzol[alvo(st)].lugar],
-      escolha: { id: 'masc' + k, pergunta: T('Que rosto eu visto esta noite?', 'Which face do I wear tonight?'), opcoes: Object.keys(ROT).map((id) => ({
+      escolha: { id: 'masc' + k, pergunta: T('Quem eu vou ser lá dentro?', 'Who will I be in there?'), opcoes: Object.keys(ROT).map((id) => ({
         id, gesto: true, se: (st) => (MASC[alvo(st)] || []).includes(id) && (PASSAGEM.includes(id) || tem(st, id)), txt: ROT[id],
         aoEscolher: (st) => { if (PASSAGEM.includes(id) && !tem(st, id)) st.colecao.push(id); },
-        resultado: [{ t: T('Penso em {MASC} até a pele obedecer.', 'I think of {MASC} until my skin obeys.'), veste: id }] })) } },
+        resultado: [T('O rosto de {MASC} eu já tenho. A roupa ainda está no corpo do dono, e é com ela que se passa por uma porta.', '{MASC}’s face I already have. The clothes are still on their owner, and it is the clothes that get you through a door.')] })) } },
+    { id: 'n' + k + 's', noite: k, zona: 'noite', agua: 0, sal: .32 + k * .08, fundo: { img: IMG('n-noite' + k), dim: .6, clima: k === 2 ? 'chuva' : null },
+      texto: [T('O rosto da hóspede não sai de noite: a Capital já viu a hóspede da Lâmina andar com o guarda atrás. Para chegar perto de {MASC}, subo por um bueiro com outra.', 'The guest’s face doesn’t go out at night: the Capital has seen the Blade’s guest walking with the guard behind her. To get close to {MASC}, I come up through a drain wearing another.')],
+      escolha: { id: 'saida' + k, pergunta: T('Com que rosto eu saio?', 'Which face do I go out in?'), opcoes: [
+        { id: 'bento', gesto: true, txt: T('O do Bento, o menino aguadeiro. Entra em qualquer casa com a água e sai sem que lembrem dele. Serve para levar e para mentir.', 'Bento’s, the water boy. He goes into any house with the water and leaves without being remembered. Good for taking, and for lying.'),
+          resultado: [{ t: T('Penso no Bento até a pele obedecer. Fico pequena, de joelho ralado, com um balde da fonte.', 'I think of Bento until my skin obeys. I turn small, with a scraped knee and a bucket from the fountain.'), veste: 'bento' }] },
+        { id: 'lume', gesto: true, txt: T('O da Lume, da Casa das Lanternas. Quase todo mundo diz sim a ela, e todo mundo lembra. Serve para chegar perto.', 'Lume’s, from the House of Lanterns. Almost everyone says yes to her, and everyone remembers. Good for getting close.'),
+          resultado: [{ t: T('Penso na Lume até a pele obedecer. A boca fica mais cheia, e o cabelo cheira a óleo de lanterna.', 'I think of Lume until my skin obeys. My mouth grows fuller, and my hair smells of lantern oil.'), veste: 'lume' }] },
+      ] } },
     { id: 'n' + k + 'r', noite: k, zona: 'noite', agua: 0, sal: .32 + k * .08, fundo: { img: IMG('n-noite' + k), dim: .62, clima: k === 2 ? 'chuva' : null },
-      texto: [T('O rosto já é meu. A roupa ainda está no corpo de quem é dono dele.', 'The face is already mine. The clothes are still on its owner.')],
+      texto: (st) => [saida(st) === 'lume' ? T('Com a cara da Lume, chego perto de {MASC}.', 'In Lume’s face, I get close to {MASC}.') : T('Com a cara do Bento e o balde na mão, chego perto de {MASC}.', 'In Bento’s face, bucket in hand, I get close to {MASC}.')],
       escolha: { id: 'traje' + k, pergunta: T('A roupa de {MASC}', '{MASC}’s clothes'), opcoes: [
-        TRAJE('roubar', { tom: 'manipular', txt: T('Roubar enquanto dorme.', 'Steal them while they sleep.') }),
-        TRAJE('seduzir', { tom: 'seduzir', testemunha: 1, txt: T('Chegar perto e deixar que me dê a roupa.', 'Get close and let them give me the clothes.') }),
-        TRAJE('matar', { tom: 'intimidar', corpos: 1, txt: T('Esperar numa rua sem luz.', 'Wait in an unlit street.') }),
+        TRAJE('roubar', { tom: 'manipular', txt: T('Levar a roupa enquanto {MASC} dorme.', 'Take the clothes while {MASC} sleeps.') }),
+        TRAJE('seduzir', { tom: 'seduzir', testemunha: 1, se: (st) => saida(st) === 'lume' && window.LIVRO.mascNoite(st, k) !== 'moco', txt: T('Chegar perto, como a Lume, e deixar que {MASC} me dê a roupa.', 'Get close, as Lume, and let {MASC} give me the clothes.') }),
+        TRAJE('moeda', { tom: 'manipular', se: (st) => saida(st) === 'lume' && window.LIVRO.mascNoite(st, k) === 'moco', txt: T('Mostrar uma moeda ao moço e pedir a roupa.', 'Show the boy a coin and ask for the clothes.') }),
+        TRAJE('enganar', { tom: 'manipular', se: (st) => saida(st) === 'bento', txt: T('Bater na porta com um recado inventado e pedir a roupa.', 'Knock with a made-up message and ask for the clothes.') }),
+        TRAJE('matar', { tom: 'intimidar', corpos: 1, txt: T('Matar {MASC} e sair com a roupa.', 'Kill {MASC} and leave with the clothes.') }),
       ] } },
   ];
   if (k === 1) pgs.push({ id: 'n1p', noite: 1, zona: 'noite', agua: 0, sal: .4, fundo: { img: IMG('n-tocha'), dim: .45, foco: '55% 45%' },

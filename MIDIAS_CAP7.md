@@ -675,3 +675,26 @@ Negative: people, text, modern objects.
 ## v5 · 10/11/2026
 
 Nenhuma mídia nova. A dublagem `voz/D24.mp3` (a frase inteira: *Laura takes the best to the Dry Mouth, and the Dry Mouth drinks them all.*) está instalada e toca no fim da coluna (e05), quando a segunda metade da frase sobe no ouro.
+
+---
+
+## v5.5 · 11/11/2026 · os rostos de saída da noite
+
+Enquanto os retratos não chegam, o jogo usa `aguadeiro.jpg` como Bento e `mira.jpg` como Lume (cópias provisórias).
+
+### `rostos/bento.jpg` ⭐ · GPT · Bento, o menino aguadeiro da Capital (cartão da Coleção)
+**Contexto:** um menino que carrega água das fontes para as casas da Capital Branca. É o rosto com que a Madrinha entra nas casas para roubar ou para mentir. Sempre com balde.
+```
+Photorealistic cinematic head-and-shoulders portrait, plain dark background, soft side light. Bento, a water-carrier boy of a pale stone capital city: a skinny human boy of about eleven, sun-browned skin, short messy brown hair, a scraped cheek, quick clever eyes, a patched linen shirt darkened with water at the shoulder where a wooden bucket yoke rests. Alert, cheeky, forgettable. Film grain, shallow depth of field.
+Negative: armor, weapons, jewelry, modern clothes, fantasy ears, text, watermark.
+```
+
+### `rostos/lume.jpg` ⭐ · GPT · Lume, da Casa das Lanternas (cartão da Coleção)
+**Contexto:** a mulher mais cara da Casa das Lanternas, na Capital. É o rosto com que a Madrinha chega perto de quem tem a roupa: quase todo mundo diz sim a ela, e todo mundo lembra.
+```
+Photorealistic cinematic head-and-shoulders portrait, plain dark background, warm lantern light from one side. Lume, a courtesan of a pale stone capital city: a woman of about twenty-eight, olive skin, heavy dark hair pinned up with a red ribbon, kohl-lined dark eyes, a full mouth with a knowing half-smile, small gold earrings; a deep red dress with a modest high neckline and a thin shawl. Confident, amused, unforgettable. Film grain, shallow depth of field.
+Negative: nudity, cleavage, lingerie, modern makeup, modern clothes, fantasy ears, text, watermark.
+```
+
+### `t06-quarto.jpg` · opcional · refazer
+A imagem instalada mostra degraus descendo pela laje. Agora não há escada: a água da cisterna cortou um buraco limpo embaixo da cama. Se quiser refazer, troque no prompt de `t06-quarto` (seção “Novas da v4”) a frase dos degraus por: *“a flagstone lifted and set aside, revealing a clean-cut square shaft going straight down into darkness, a faint blue shimmer of still water deep below, the edges of the cut smooth as if sliced”*.
