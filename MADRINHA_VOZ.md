@@ -117,6 +117,12 @@ Aprovada a primeira. A dublagem D24 (a frase inteira, em inglês) toca nesse mom
 
 ---
 
+### 5.1 Acréscimos da revisão de 11/11
+- **Sedução sempre com interesse.** Ela só seduz quando quer alguma coisa da pessoa: a Iska conta a verdade da cicatriz porque em Alvena alguém pode perguntar; o Maru treina a virada; o Brann escolhe o alvo. Nunca carinho sem motivo (saiu a mão da Nhalé até o amanhecer).
+- **Os olhos não chamam atenção.** As imagens não mostram olho especial, então o texto também não: quem a reconhece reconhece pelo efeito (a água que para, o silêncio), não pelo ouro do olho. Quando o disfarce escorrega, o que aparece é escama.
+- **No Orla ela não disfarça para pegar nada.** É a deusa deles: quem precisa de rosto e roupa recebe oferecido (a Iska). Disfarce e método só onde ela é estranha, em Alvena e em Redom.
+- **"Conta" só é número de verdade.** Ninguém "faz a conta", "refaz a conta" ou olha "sem fazer conta". A checagem agora acusa isso com limite zero.
+
 ## 6. Por que a tripulação vai
 
 **Na Orla, quando uma casa quer uma coisa grande do mar, oferece o melhor dela ao mar.** É costume velho. Um barco sai com o melhor piloto, a melhor capitã e o melhor besteiro, e nem todos voltam. Ninguém chama isso de morrer, e sim de *ser dado ao mar*, que guarda o que ama.

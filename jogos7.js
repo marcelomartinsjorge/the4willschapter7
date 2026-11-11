@@ -102,8 +102,17 @@ function mao(root, c) {
     msg.textContent = c.tr(cfg.conc);
     // ---- concentrar: o ouro sobe do fundo; o vermelho é o convés (setas, gritos)
     const desenha = () => { barra.style.width = carga + '%'; root.style.setProperty('--carga', (carga / 100).toFixed(3)); };
+    // os sons do jogo: o acerto é uma gota que afina conforme o mar sobe; o erro é o convés batendo; o perdido, a água escorrendo
+    const som = {
+      gota: () => { const f = 420 + carga * 6; A.tone(f, .35, 'sine', .11); A.tone(f * 1.5, .5, 'sine', .06, .05); A.tone(f * 2, .3, 'triangle', .025, .1); A.hiss(.25, 900 + carga * 20, .8, .05, 0, 'lowpass'); },
+      convés: () => { A.tone(95, .45, 'square', .09, 0, .5); A.tone(60, .7, 'sine', .14); A.hiss(.18, 2400, .5, .12); },
+      perdeu: () => { A.tone(300, .4, 'sine', .035, 0, .6); },
+      degrau: (n) => { [0, 4, 7].forEach((st_, j) => A.tone(196 * Math.pow(2, (st_ + n * 2) / 12), 1.4, 'sine', .05, j * .09)); A.hiss(1.2, 400, .5, .08, 0, 'lowpass'); },
+    };
+    let degraus = 0;
     const muda = (d) => {
       if (cheia) return; carga = Math.max(0, Math.min(100, carga + d)); desenha();
+      const n = Math.floor(carga / 25); if (n > degraus) { degraus = n; if (n < 4) som.degrau(n); }
       if (!pesou && carga >= 80) { pesou = true; root.classList.add('pesa'); msg.textContent = c.tr(cfg.pesa); A.tone && A.tone(70, 1.6, 'sine', .05, 0, .5); }
       if (carga >= 100) enche();
     };
@@ -119,12 +128,12 @@ function mao(root, c) {
         const some = () => { if (foi) return; foi = true; g.classList.add('foi'); setTimeout(() => g.remove(), 400); };
         g.onpointerdown = (e) => {
           e.stopPropagation(); e.preventDefault(); if (foi) return;
-          if (vermelho) { erros++; muda(-15); root.classList.remove('treme'); void root.offsetWidth; root.classList.add('treme'); A.tone && A.tone(140, .5, 'sawtooth', .03, 0, .4); }
-          else { acertos++; muda(9); A.tone && A.tone(330 + carga * 3, .25, 'sine', .03); }
+          if (vermelho) { erros++; muda(-15); root.classList.remove('treme'); void root.offsetWidth; root.classList.add('treme'); som.convés(); }
+          else { acertos++; muda(9); som.gota(); }
           g.classList.add(vermelho ? 'errou' : 'pegou'); some();
         };
         campo.appendChild(g);
-        setTimeout(() => { if (!foi) { if (!vermelho) { perdidos++; muda(-2); } some(); } }, vida);
+        setTimeout(() => { if (!foi) { if (!vermelho) { perdidos++; muda(-2); som.perdeu(); } some(); } }, vida);
       }
       pausa(nasce, 900 - 450 * k);
     };

@@ -272,7 +272,7 @@
     orelhas: T('Minhas orelhas colam no crânio. Ela olha para elas, e não para a minha boca.', 'My ears press flat to my skull. She looks at them, and not at my mouth.'),
     // o que o rosto dela faz depois de cada resposta: o jogador lê a conta sem ver números
     reage: {
-      ouro2: T('Ela se inclina para a frente. A conta muda de lado.', 'She leans forward. Her count changes sides.'),
+      ouro2: T('Ela se inclina para a frente.', 'She leans forward.'),
       ouro1: T('Ela guarda a resposta.', 'She puts the answer away.'),
       verm2: T('Atrás dela, uma mão desce até o cabo da espada.', 'Behind her, a hand drops to a sword hilt.'),
       verm1: T('Ela olha para as minhas orelhas.', 'She looks at my ears.'),
@@ -291,7 +291,7 @@
         { id: 'nao', txt: T('Não tenho.', 'I don’t have one.'), ouro: 0, verm: 0, resp: [T('— Todo mundo tem. Até os Grakh têm.', '— Everyone has one. Even the Grakh do.')] },
       ] },
       { fala: T('— Um barco de pesca contra a maior galera da costa. Por quê?', '— A fishing boat against the biggest galley on the coast. Why?'), ops: [
-        { id: 'trazer', txt: T('Eu queria que me trouxessem até você.', 'I wanted them to bring me to you.'), ouro: 2, verm: 0, resp: [T('Ela não responde. Os olhos dela param em mim e contam alguma coisa que eu ainda não sei o que é.', 'She doesn’t answer. Her eyes stop on me and count something I can’t name yet.')] },
+        { id: 'trazer', txt: T('Eu queria que me trouxessem até você.', 'I wanted them to bring me to you.'), ouro: 2, verm: 0, resp: [T('Ela não responde. Fica me olhando, como se a resposta ainda não tivesse acabado.', 'She doesn’t answer. She keeps looking at me, as if the answer weren’t finished yet.')] },
         { id: 'conte', txt: T('Quantos dos seus voltaram daquele canal, Lâmina? Conte. Depois me pergunte de novo.', 'How many of yours came back from that channel, Blade? Count. Then ask me again.'), ouro: 2, verm: 1, resp: [T('Atrás dela, a pena para no papel.', 'Behind her, the quill stops on the page.'), T('— Sei quantos não voltaram — diz ela. — Contei um por um. Agora responda.', '— I know how many didn’t come back — she says. — I counted them one by one. Now answer.'), T('— Eu respondi.', '— I did.')] },
         { id: 'morde', txt: T('Para Redom saber que o mar sempre vai ser perigoso.', 'So Redom would know the sea will always be dangerous.'), ouro: 1, verm: 1, resp: [T('— O mar. Não você.', '— The sea. Not you.')] },
         { id: 'piloto', mente: true, txt: T('O meu piloto errou o canal.', 'My pilot took the wrong channel.'), ouro: 0, verm: 1, resp: [T('— O seu piloto morreu. É fácil pôr a culpa em morto.', '— Your pilot is dead. It’s easy to blame the dead.')] },

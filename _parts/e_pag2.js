@@ -14,7 +14,7 @@
         G('wim', T('Wim cantarola sempre a mesma canção, para o turno passar mais depressa, e esquece sempre a mesma palavra, no mesmo lugar.', 'Wim always hums the same song, to make the shift go faster, and always forgets the same word, in the same place.')),
         G('garrick', T('Garrick desce sem nunca olhar para dentro da cela. Os outros dizem o nome dele. Ele, nunca.', 'Garrick comes down without ever looking into the cell. The others say his name. He never does.')),
         G('pell', T('Pell reza para a Juíza na volta, alto e sério, e tropeça sempre no mesmo verso.', 'Pell prays to the Judge on the way back, loud and solemn, and always trips on the same line.')),
-        G('dunstan', T('Dunstan conta as moedas do bolso, degrau por degrau, e nunca chega na conta que quer.', 'Dunstan counts the coins in his pocket, step by step, and never reaches the sum he wants.')),
+        G('dunstan', T('Dunstan conta as moedas do bolso, degrau por degrau, e o total nunca dá o que ele quer.', 'Dunstan counts the coins in his pocket, step by step, and the total never comes to what he wants.')),
         V('D22', T('A Laura vai descer. Antes dela, quero saber dela. Até lá, dá tempo de trabalhar dois.', 'Laura will come down. Before she does, I want to know her. Until then, there is time to work two of them.')),
       ],
       escolha: { id: 'carcereiro', pergunta: T('Qual eu trabalho primeiro?', 'Which one do I work first?'), opcoes: ALA_OPCOES() } },
@@ -34,11 +34,11 @@
     { id: 'c03', zona: 'ala', agua: 0, sal: .25, pedra: true, sons: [{ sfx: 'porta-cela', p: 0, v: .7 }], fundo: { img: IMG('c03-laura'), dim: .42, foco: '60% 40%' },
       texto: [
         T('No oitavo pão a porta abre sem bater, porque a porta é dela.', 'On the eighth loaf the door opens without a knock, because the door is hers.'),
-        { moeda: true, t: T('Ela tem o rosto da moeda que o menino me deu, com o queixo mais baixo, e os olhos são verdes, coisa que a prata não conta. O cabelo é cor de trigo, solto, de quem não teve tempo de prender. Tem calos nas mãos e olheiras de quem não dorme. Nenhuma coroa. Uma faixa escura amarrada no braço.', 'She has the face from the coin the boy gave me, with the chin lower, and her eyes are green, which silver doesn’t tell. Her hair is the color of wheat, loose, like someone who had no time to tie it. She has calluses on her hands and the shadows of someone who doesn’t sleep. No crown. A dark band tied around her arm.') },
+        { moeda: true, t: T('Ela tem o rosto da moeda que o menino me deu, com o queixo mais baixo, e os olhos são verdes, coisa que a prata não mostra. O cabelo é cor de trigo, solto, de quem não teve tempo de prender. Tem calos nas mãos e olheiras de quem não dorme. Nenhuma coroa. Uma faixa escura amarrada no braço.', 'She has the face from the coin the boy gave me, with the chin lower, and her eyes are green, which silver doesn’t tell. Her hair is the color of wheat, loose, like someone who had no time to tie it. She has calluses on her hands and the shadows of someone who doesn’t sleep. No crown. A dark band tied around her arm.') },
         (st) => (consorte(st) === 'markus' ? T('Atrás dela, na porta, um homem alto com a mão no punho da espada. Ela não olha para ele, e ele não olha para outra coisa que não seja ela.', 'Behind her, in the doorway, a tall man with his hand on his sword hilt. She doesn’t look at him, and he looks at nothing but her.')
           : consorte(st) === 'justine' ? T('Atrás dela, uma mulher de pena entre os dentes e um livro aberto no braço. Escreve antes de a Laura falar.', 'Behind her, a woman with a quill between her teeth and a book open on her arm. She writes before Laura speaks.')
             : T('Atrás dela, um oficial velho com uma pena e um livro aberto no braço.', 'Behind her, an old officer with a quill and a book open on his arm.')),
-        V('D15', T('Ela conta. A boca não se mexe, mas os olhos param em mim de quando em quando, e eu ainda não descobri o que ela está contando.', 'She counts. Her lips don’t move, but her eyes stop on me every so many things, and I haven’t worked out yet what she is counting.')),
+        V('D15', T('Ela me lê. A boca não se mexe, mas os olhos param em mim de quando em quando, e eu ainda não descobri o que ela procura.', 'She reads me. Her lips don’t move, but her eyes stop on me now and then, and I haven’t worked out yet what she is looking for.')),
         T('A vara desce nas grades no meio da primeira pergunta.', 'The rod comes down on the bars in the middle of the first question.'),
         V(null, T('— Parem com isso. Quero ela pensando.', '— Stop that. I want her thinking.')),
       ] },
@@ -82,10 +82,10 @@
     { id: 'c05', zona: 'ala', agua: 0, sal: .25, pedra: true, fundo: { img: IMG('c03-laura'), dim: .55, foco: '60% 40%' },
       aoEntrar: (st, ctx) => { st.avisos.push(AV.laura); ctx.toast(AV.laura); },
       texto: [
-        T('Na porta, ela para e se vira. Abaixa a tocha devagar, até a cela quase apagar.', 'At the door, she stops and turns. She lowers the torch slowly, until the cell is nearly dark.'),
-        V(null, T('— Já vi muitos de vocês. Nenhum tinha olho que acende quando a tocha baixa.', '— I’ve seen plenty of your kind. None had eyes that light up when the torch goes down.')),
+        T('Na porta, ela para e se vira. Traz a tocha de volta até a grade, perto do meu rosto, e espera.', 'At the door, she stops and turns. She brings the torch back to the bars, close to my face, and waits.'),
+        V(null, T('— Já interroguei muitos de vocês. Todos tinham medo de mim. Você, não.', '— I’ve questioned plenty of your kind. Every one of them was afraid of me. You aren’t.')),
         T('Ela não espera resposta. A porta fecha sem bater.', 'She doesn’t wait for an answer. The door shuts without a sound.'),
-        T('Agora sei o que ela contava desde a porta: as vezes em que o ouro acendia nos meus olhos.', 'Now I know what she was counting from the door: the times the gold lit up in my eyes.'),
+        T('Agora sei o que ela procurava desde a porta: o meu medo. Não achou.', 'Now I know what she was looking for from the door: my fear. She didn’t find it.'),
         G('laura', T('Guardo o rosto dela com os outros. É o único em que eu não sei o que a pessoa quer.', 'I keep her face with the others. It is the only one where I don’t know what the person wants.')),
       ] },
 
@@ -96,7 +96,7 @@
 
     { id: 't01', zona: 'mar', agua: 0, sal: .2, pedra: (st) => termos(st) === 'argola', veste: 'ela', fundo: { img: IMG('b02-sentenca'), dim: .45, foco: '60% 45%' },
       texto: (st) => [
-        G('aubert', T('O comandante Aubert faz a barba toda manhã, até na estrada, e escreve tudo num caderno de capa de couro. Na carroça, senta na minha frente e escreve que eu olho pela grade.', 'Commander Aubert shaves every morning, even on the road, and writes everything in a leather-bound notebook. In the cart he sits facing me and writes down that I look through the bars.')),
+        G('aubert', T('O comandante Aubert raspa a cabeça e a barba toda manhã, até na estrada, e escreve tudo num caderno de capa de couro. Na carroça, senta na minha frente e escreve que eu olho pela grade.', 'Commander Aubert shaves his head and his beard every morning, even on the road, and writes everything in a leather-bound notebook. In the cart he sits facing me and writes down that I look through the bars.')),
         { palavra: T('Na primeira parada, manda tirar as argolas, porque a Lâmina mandou. Escreve isso também.', 'At the first stop he has the shackles taken off, because the Blade ordered it. He writes that down too.'),
           sombra: T('À noite ele dorme sentado, de frente para mim, com a faca no colo. Acorda cada vez que eu me mexo.', 'At night he sleeps sitting up, facing me, with the knife in his lap. He wakes every time I move.'),
           argola: T('Uma argola continua no meu pulso esquerdo. A chave ele guarda num cordão, por dentro da camisa.', 'One shackle stays on my left wrist. The key he keeps on a cord, inside his shirt.') }[termos(st)],
@@ -123,7 +123,7 @@
 
     { id: 't03s', zona: 'cabine', agua: 0, sal: .15, pedra: (st) => termos(st) === 'argola', fundo: { img: IMG('t03-aubert-mesa'), dim: .62, foco: '60% 50%' },
       texto: [
-        T('Sarnai reza com as pálpebras baixas e as mãos juntas em cima da mesa, e a reza é para mim. Em voz alta, na frente de Redom. Pede o porto de Alvena aberto, e foi a casa dela que vendeu a rota.', 'Sarnai prays with her eyelids lowered, her hands joined on the table, and the prayer is to me. Out loud, in front of Redom. She asks for the port of Alvena opened, and it was her house that sold the route.'),
+        T('Sarnai reza com as pálpebras baixas e as mãos juntas sobre a mesa, e a reza é para mim. Em voz alta, na frente de Redom. Pede o porto de Alvena aberto, e foi a casa dela que vendeu a rota.', 'Sarnai prays with her eyelids lowered, her hands joined on the table, and the prayer is to me. Out loud, in front of Redom. She asks for the port of Alvena opened, and it was her house that sold the route.'),
         T('Aubert escreve que a velha reza para a prisioneira.', 'Aubert writes that the old woman prays to the prisoner.'),
         T('No fim, sem abrir os olhos, ela pergunta mais baixo: — A senhora ouviu as minhas rezas, Madrinha? Todas essas noites?', 'At the end, without opening her eyes, she asks more quietly: — Did you hear my prayers, Godmother? All those nights?'),
       ],
@@ -136,7 +136,7 @@
           resultado: [T('Sarnai abre os olhos no meio da reza. Diz que sim a tudo, depressa, para eu não dizer mais nada.', 'Sarnai opens her eyes mid-prayer. She says yes to everything, quickly, so I won’t say anything more.'),
             T('Aubert levanta a pena. Olha para Sarnai, depois para mim, e escreve uma linha comprida. Agora o caderno sabe que a Orla vende os seus, e que eu sei quem.', 'Aubert lifts the quill. He looks at Sarnai, then at me, and writes a long line. Now the notebook knows the Shore sells its own, and that I know who.')] },
         { id: 'mesa', fala: true, tom: 'manipular', txt: T('Não peça a mim, Sarnai. Peça a ele.', 'Don’t ask me, Sarnai. Ask him.'),
-          resultado: [T('Ela abre os olhos e vê o comandante, com a pena parada no ar. A Madrinha mandou a velha pedir a Redom, na frente de Redom.', 'She opens her eyes and sees the commander, quill still in the air. The Godmother has told the old woman to ask Redom, in front of Redom.'),
+          resultado: [T('Ela abre os olhos e vê o comandante, com a pena parada no ar. Eu acabei de mandá-la pedir a Redom, na frente de Redom.', 'She opens her eyes and sees the commander, quill still in the air. I have just told her to ask Redom, in front of Redom.'),
             T('A reza acaba ali. Sarnai junta as mãos no colo e responde a todo o resto com a boca dura: vai pensar.', 'The prayer ends there. Sarnai folds her hands in her lap and answers everything else with a hard mouth: she will think about it.'),
             T('Aubert escreve: a velha não obedece.', 'Aubert writes: the old woman does not obey.')] },
       ] } },
@@ -153,7 +153,7 @@
           resultado: [T('Ossian se endireita na cadeira como quem ganhou a mesa. Põe a marca dos Mastreiros primeiro, alto, para os outros verem com quem eu sentei.', 'Ossian straightens in his chair like a man who has won the whole table. He puts the Mastmen’s mark down first, loudly, so the others see whom I sat with.'),
             T('Aubert escreve que a prisioneira senta do lado dos Mastreiros, e sublinha. A Lâmina vai ler que eu já escolhi um lado.', 'Aubert writes that the prisoner sits on the Mastmen’s side, and underlines it. The Blade will read that I have already chosen a side.')] },
         { id: 'porta', gesto: true, tom: 'intimidar', txt: T('Olhar para ele até ele lembrar onde fica a porta.', 'Look at him until he remembers where the door is.'),
-          resultado: [T('Ele lembra. Sai sem resposta e sem o meu nome do lado dele da mesa. Os Mastreiros vão esperar o Ossian decidir, e o Ossian vai fazer contas.', 'He remembers. He leaves without an answer and without my name on his side of the table. The Mastmen will wait for Ossian to decide, and Ossian will do his sums.'),
+          resultado: [T('Ele lembra. Sai sem resposta e sem o meu nome do lado dele da mesa. Os Mastreiros vão esperar o Ossian decidir, e o Ossian não decide nada sem ver para que lado o vento sopra.', 'He remembers. He leaves without an answer and without my name on his side of the table. The Mastmen will wait for Ossian to decide, and Ossian decides nothing until he sees which way the wind blows.'),
             T('Aubert anota: um dos três saiu.', 'Aubert notes: one of the three walked out.')] },
       ] } },
 
@@ -186,8 +186,8 @@
             : T('Antes do sol, duas casas põem a marca numa folha do caderno do comandante. A terceira manda dizer que não toca em barco de Redom enquanto as outras não tocarem.', 'Before sunrise, two houses put their mark on a page of the commander’s notebook. The third sends word that it won’t touch a Redom boat while the others don’t.'),
           T('Não é rendição. É uma trégua: três meses sem pirataria na costa, enquanto as casas decidem o resto.', 'It isn’t surrender. It is a truce: three months without piracy on the coast, while the houses decide the rest.'),
           T('Três meses. A Orla nunca decidiu nada em três meses. A Lâmina não sabe disso.', 'Three months. The Shore has never decided anything in three months. The Blade doesn’t know that.'),
-          T('Na volta, da amurada da Sentença, Aubert conta as velas da Orla ao longo da costa. Toda manhã ele conta menos.', 'On the way back, from the Sentence’s rail, Aubert counts the Shore’s sails along the coast. Every morning he counts fewer.'),
-          (st.f.trSusp || 0) >= 2 ? T('O caderno dele engorda mais que a folha das casas.', 'His notebook grows fatter than the houses’ page.') : T('Ele escreve menos a cada dia. Um homem que conta velas para de contar palavras.', 'He writes less each day. A man counting sails stops counting words.'),
+          T('Na volta, da amurada da Sentença, Aubert anota as velas da Orla ao longo da costa. Toda manhã a linha é mais curta.', 'On the way back, from the Sentence’s rail, Aubert writes down the Shore’s sails along the coast. Every morning the line is shorter.'),
+          (st.f.trSusp || 0) >= 2 ? T('O caderno dele engorda mais que a folha das casas.', 'His notebook grows fatter than the houses’ page.') : T('Ele escreve menos a cada dia. Quando o mar fica vazio, o caderno não tem mais o que dizer.', 'He writes less each day. When the sea goes empty, the notebook has nothing left to say.'),
         ];
       } },
 
@@ -209,7 +209,7 @@
 
     { id: 't06', zona: 'capital', agua: 0, sal: .28, pedra: (st) => termos(st) === 'argola', veste: 'ela', fundo: { img: IMG('t06-quarto'), dim: .45, foco: '70% 55%' },
       texto: (st) => [
-        T('A hospedagem da Lâmina é um quarto em cima do templo do Cavaleiro, com cama de verdade e um guarda na porta. De manhã ele abre e conta: uma hóspede. À noite, tranca.', 'The Blade’s hospitality is a room above the Knight’s temple, with a real bed and a guard at the door. In the morning he opens it and counts: one guest. At night, he locks it.'),
+        T('A hospedagem da Lâmina é um quarto em cima do templo do Cavaleiro, com cama de verdade e um guarda na porta. De manhã ele destranca e confere: uma hóspede. À noite, tranca.', 'The Blade’s hospitality is a room above the Knight’s temple, with a real bed and a guard at the door. In the morning he unlocks it and checks: one guest. At night, he locks it.'),
         termos(st) === 'sombra' ? T('Do lado de fora, numa cadeira encostada na porta, dorme o homem que o comandante deixou para mim.', 'Outside, on a chair tilted against the door, sleeps the man the commander left for me.') : null,
         T('De dia, posso andar pela praça e pelo mercado, com o guarda dez passos atrás. Ele vigia a minha cara. As caras que eu olho, ele não vigia.', 'By day I may walk the square and the market, with the guard ten paces behind. He watches my face. The faces I look at, he doesn’t watch.'),
         T('Na primeira noite, embaixo da cama, uma laje mexe. Embaixo da laje, uma escada de pedra desce para o escuro, e o escuro cheira a água parada.', 'On the first night, under the bed, a flagstone shifts. Under the flagstone, stone steps go down into the dark, and the dark smells of still water.'),
@@ -218,13 +218,13 @@
     // com a argola, o rosto não muda: ela precisa sair dela antes das noites
     { id: 't06a', se: (st) => termos(st) === 'argola', zona: 'capital', agua: 0, sal: .3, pedra: true, veste: 'ela', fundo: { img: IMG('d01-argola'), dim: .45, foco: '55% 50%' },
       texto: [
-        T('Com a argola no pulso, o rosto não muda, e de manhã o guarda conta a argola junto com a hóspede.', 'With the shackle on my wrist, my face won’t change, and in the morning the guard counts the shackle along with the guest.'),
+        T('Com a argola no pulso, o rosto não muda, e de manhã o guarda confere a argola junto com a hóspede.', 'With the shackle on my wrist, my face won’t change, and in the morning the guard checks the shackle along with the guest.'),
         G('ferreiro', T('A argola tem a marca de um ferreiro da Rua das Forjas. A escada embaixo da laje dá numa cisterna, e a cisterna dá num bueiro da Rua das Fontes, a três ruas da forja dele.', 'The shackle bears the mark of a smith on Forge Street. The stairs under the flagstone lead to a cistern, and the cistern to a drain on Fountain Street, three streets from his forge.')),
       ],
       escolha: { id: 'argola', pergunta: T('A argola', 'The shackle'), opcoes: [
         { id: 'polegar', gesto: true, tom: 'intimidar', flag: 'polegar', txt: T('Quebrar o polegar, para a mão sair da argola e voltar quando eu quiser.', 'Break my thumb, so the hand can slip out of the shackle and back in whenever I want.'),
           resultado: [T('Encosto a mão numa pedra e piso. O estalo é pequeno. A mão passa pela argola como peixe por uma rede rasgada.', 'I set my hand on a stone and step on it. The crack is small. The hand slides through the shackle like a fish through a torn net.'),
-            T('Enfaixo com um pedaço da barra da roupa e escondo na manga. De manhã a mão volta para dentro da argola, e o guarda conta: uma hóspede, uma argola.', 'I bind it with a strip from my hem and hide it in my sleeve. In the morning the hand goes back into the shackle, and the guard counts: one guest, one shackle.')] },
+            T('Enfaixo com um pedaço da barra da roupa e escondo na manga. De manhã a mão volta para dentro da argola, e o guarda confere: uma hóspede, uma argola.', 'I bind it with a strip from my hem and hide it in my sleeve. In the morning the hand goes back into the shackle, and the guard checks: one guest, one shackle.')] },
         { id: 'seduz', gesto: true, tom: 'seduzir', testemunha: 1, txt: T('Ir de noite até o ferreiro, com a minha cara, e deixar que ele ofereça a chave.', 'Go to the smith by night, in my own face, and let him offer the key.'),
           resultado: [T('Desço pela laje e saio pelo bueiro, de capuz, sem rosto emprestado. O ferreiro dorme em cima da forja e abre a porta de camisa, com o martelo na mão.', 'I go down through the flagstone and out through the drain, hooded, with no borrowed face. The smith sleeps above his forge and opens the door in his shirt, hammer in hand.'),
             T('Mostro o pulso, e deixo que ele olhe o resto. Não peço nada. Ele acende a forja sozinho, faz uma chave antes do galo e não pergunta de quem é a argola. Vai ficar com a minha voz na cabeça por uns dias.', 'I show him my wrist, and let him look at the rest. I ask for nothing. He lights the forge himself, makes a key before cockcrow, and doesn’t ask whose shackle it is. He’ll keep my voice in his head for a few days.'),
@@ -260,13 +260,13 @@
     { id: 'l01', zona: 'capital', agua: 0, sal: .38, veste: (st) => window.LIVRO.mascNoite(st, 1), fundo: { img: IMG('l01-lavadeira'), dim: .45, lado: 'dir', foco: '35% 55%' },
       texto: [
         T('Na volta, antes do sol, corto caminho por uma rua de lavanderias. As lavadeiras já estão na água. Entre as mulheres de Redom, uma Nymae lava roupa de soldado, com uma argola de cativa no tornozelo. Veio de algum barco que a Sentença tomou.', 'On the way back, before sunrise, I cut through a street of laundries. The washerwomen are already in the water. Among the women of Redom, a Nymae washes soldiers’ clothes, a captive’s ring on her ankle. She came from some boat the Sentence took.'),
-        T('Ela levanta os olhos amarelos para mim, que estou com o rosto de {MASC}, e vê o ouro.', 'She lifts her yellow eyes to me, in the face of {MASC}, and sees the gold.'),
+        T('Quando eu passo, a água do tanque dela fica lisa, e a roupa para de boiar. Ela levanta os olhos para mim, que estou com o rosto de {MASC}, e não vê {MASC}.', 'As I pass, the water in her trough goes smooth, and the washing stops floating. She lifts her eyes to me, in the face of {MASC}, and does not see {MASC}.'),
         T('Larga a roupa na água e se ajoelha na lama, no meio da rua. As outras param de bater roupa.', 'She drops the laundry in the water and kneels in the mud, in the middle of the street. The others stop beating their washing.'),
-        T('O susto me pega pelas costas, e o rosto emprestado escorrega.', 'The start takes me from behind, and the borrowed face slips.'),
+        T('Tantos olhos de uma vez pesam no rosto emprestado, e ele escorrega.', 'So many eyes at once weigh on the borrowed face, and it slips.'),
       ],
       piscar: { id: 'p2', antes: 4, erro: true, aoFalhar: (st) => { st.alarme += 1; },
         ok: [T('Fecho os olhos a tempo. Só ela viu.', 'I close my eyes in time. Only she saw.')],
-        falha: [T('Demoro. Um soldado que passa com a roupa suja no braço vê um brilho no meu rosto e para, com a mão no cinto.', 'I’m too slow. A soldier passing with dirty clothes over his arm sees a glint in my face and stops, his hand on his belt.')] } },
+        falha: [T('Demoro. Um soldado que passa com a roupa suja no braço vê escama no meu pescoço e para, com a mão no cinto.', 'I’m too slow. A soldier passing with dirty clothes over his arm sees scales on my neck and stops, his hand on his belt.')] } },
 
     { id: 'l02', zona: 'capital', agua: 0, sal: .38, fundo: { img: IMG('l01-lavadeira'), dim: .58, lado: 'dir', foco: '35% 55%' },
       texto: [
@@ -289,7 +289,7 @@
     { id: 'presa', soDesvio: true, volta: true, zona: 'ala', agua: 0, sal: .3, pedra: true, fundo: { img: IMG('c02-cela'), dim: .5, lado: 'dir', foco: '35% 50%' },
       texto: [
         T('Desta vez, quando eu subo pela laje, o guarda está sentado na minha cama, com a tocha acesa e dois soldados atrás.', 'This time, when I come up through the flagstone, the guard is sitting on my bed, with the torch lit and two soldiers behind him.'),
-        T('Alguém em Redom juntou as roupas que sumiram, as bocas que contaram, os olhos que acenderam na rua. A conta deu em mim.', 'Someone in Redom put together the clothes that went missing, the mouths that talked, the eyes that lit up in the street. The sum came out to me.'),
+        T('Alguém em Redom juntou as roupas que sumiram, as bocas que contaram, os rostos que escorregaram na rua. Tudo levou até mim.', 'Someone in Redom put together the clothes that went missing, the mouths that talked, the faces that slipped in the street. All of it led to me.'),
         T('A pedra surda volta para os meus pulsos, e a escada da Ala Funda desce outra vez.', 'The deafstone goes back on my wrists, and the stairs of the Deep Ward go down again.'),
       ] },
 
@@ -305,7 +305,7 @@
       texto: (st) => {
         const cheias = trabalhados(st).filter((a) => resultadoDe(st, a) === 'cheia').length;
         return [
-          T('Na manhã seguinte os pequenos contam antes dos arautos. A moça do pão conta, o cavalariço conta, o menino que corre com recados conta: a Lâmina leva os melhores à Boca Seca.', 'The next morning the small folk tell it before the heralds. The bread girl tells it, the stable boy tells it, the boy who runs errands tells it: the Blade takes the best to the Dry Mouth.'),
+          T('Na manhã seguinte os pequenos sabem antes dos arautos. A moça do pão, o cavalariço, o menino dos recados, todos dizem a mesma coisa: a Lâmina leva os melhores à Boca Seca.', 'The next morning the small folk know before the heralds. The bread girl, the stable boy, the errand boy, all of them say the same thing: the Blade takes the best to the Dry Mouth.'),
           cheias >= 2 ? T('No conselho, dizem, três vozes falaram a mesma coisa com palavras diferentes, e cada uma achou que era a primeira.', 'In council, they say, three voices said the same thing in different words, and each thought it was the first.')
             : T('No conselho, dizem, uma voz falou mais alto que as outras, e as outras foram atrás.', 'In council, they say, one voice spoke louder than the rest, and the rest followed.'),
           V('D18', T('A frase na minha cabeça brilha uma vez e fica quieta, sem sumir.', 'The sentence in my head shines once and goes quiet, without fading.')),
@@ -328,7 +328,7 @@
         { id: 'matar', gesto: true, preco: 'matar', tom: 'intimidar', corpos: 1, alarme: 2, erro: true, txt: T('Esperar que ela vá buscar água no poço.', 'Wait for her to go and draw water at the well.'),
           resultado: [{ t: T('O poço é fundo. Ela cai sem gritar. Mas de manhã os cavaleiros acordam com a cama vazia e uma criada no poço, e isso eles contam.', 'The well is deep. She falls without a scream. But in the morning the knights wake to an empty bed and a maid in the well, and that they will report.'), veste: 'criada' }] },
       ] },
-      depois: [T('Volto para a Capital antes do sol. Dois cavaleiros que perdem a hóspede da Lâmina não contam para a Lâmina. Vão procurar até a costa.', 'I am back in the Capital before sunrise. Two knights who lose the Blade’s guest don’t tell the Blade. They’ll search all the way to the coast.')] },
+      depois: [T('Volto para a Capital antes do sol. Dois cavaleiros que perdem a hóspede da Lâmina não vão dizer isso à Lâmina. Vão procurar até a costa.', 'I am back in the Capital before sunrise. Two knights who lose the Blade’s guest won’t tell the Blade so. They’ll search all the way to the coast.')] },
 
     { id: 'd01s', se: (st) => termos(st) === 'sombra', zona: 'capital', agua: 0, sal: .4, pedra: false, veste: 'ela', fundo: { img: IMG('d01-sombra'), dim: .5, foco: '60% 45%' },
       texto: [
@@ -382,11 +382,11 @@
     { id: 'e04', zona: 'coluna', agua: 0, sal: .72, fundo: { img: IMG('e04-revista'), dim: .45, lado: 'dir', foco: '35% 40%' },
       texto: [
         G('intendente', T('Na revista dos servos, um intendente passa pela fila puxando os queixos para a luz. Olha os dentes, como se olham os de um cavalo.', 'At the servants’ muster, a steward walks the line pulling chins up to the light. He looks at the teeth, the way you look at a horse’s.')),
-        T('Chega em mim. Os dedos dele são quentes e secos, e o sol bate direto nos meus olhos.', 'He reaches me. His fingers are hot and dry, and the sun hits my eyes full on.'),
+        T('Chega em mim. Os dedos dele são quentes e secos, e o sol bate direto no meu rosto. Embaixo do queixo, a pele emprestada começa a repuxar.', 'He reaches me. His fingers are hot and dry, and the sun hits my face full on. Under my chin, the borrowed skin begins to pull.'),
       ],
       piscar: { id: 'p4', antes: 2, aoFalhar: (st) => { st.f.intendenteViu = true; },
-        ok: [T('Aperto os olhos contra o sol, igual ao servo da frente. Ele passa ao próximo.', 'I squint against the sun, like the servant before me. He moves on to the next.')],
-        falha: [T('Demoro. Ele franze a testa, olha uma segunda vez, e segue. Vai lembrar de mim no calor.', 'I’m too slow. He frowns, looks a second time, and moves on. He’ll remember me in the heat.')] } },
+        ok: [T('Seguro o rosto no lugar e deixo que ele vire o meu queixo como o de qualquer servo. Ele passa ao próximo.', 'I hold the face in place and let him turn my chin like any servant’s. He moves on to the next.')],
+        falha: [T('Demoro. Ele sente a pele áspera embaixo do dedo, franze a testa e segue. Vai lembrar de mim no calor.', 'I’m too slow. He feels rough skin under his finger, frowns, and moves on. He’ll remember me in the heat.')] } },
 
     { id: 'e05', zona: 'coluna', agua: 0, sal: .85, frase: 'fica', aoEntrar: (st) => { st.f.fraseLaura = true; st.f.fraseBoca = true; }, fundo: { video: VID('e05-saida'), img: IMG('e05-saida'), dim: .42, clima: 'poeira', foco: '55% 45%' },
       texto: [

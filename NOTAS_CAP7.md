@@ -239,3 +239,37 @@ O endereço fica `https://marcelomartinsjorge.github.io/the4willschapter7/`.
 - **A frase inteira:** no fim da coluna, depois do D19, a frase continua sozinha no ouro: *Laura leva os melhores à Boca Seca, e a Boca Seca bebe todos.* Toca a D24.
 
 **Checagem:** muletas dentro do limite (devagar 9, ninguém 7, inteiro 5); moldes ACIMA: 0.
+
+---
+
+## v5.1 · 11/11/2026 · o teu teste até a onda
+
+- **A velha da escada:** sem "conta"; ela se ajoelha e o choro escorre nos pés da Madrinha, que recua para não molhar a saia e sorri; ela toma o sorriso por bênção. Espera os chefes das maiores casas (não "os mais velhos"). A Sentença: "Desde que a Lâmina subiu, cada ano é pior que o outro. O mar está ficando vermelho, Madrinha. Vermelho das bandeirolas de Redom."
+- **A cabine:** "Cada uma acha que é mais importante que as outras duas." Ruo: "Conheço esse olhar: desconfia de mim. Dou a ele o meu melhor sorriso." "E eu, de algum jeito, sei todos eles, como se a Orla fosse a minha enseada." Toda resposta fecha a conversa: o navio passa a ser dela e ela recebe o povo ao nascer do sol. Rota da Sarnai: "Não existe segredo entre um peixe e o mar." O vinho que subia virou o navio inteiro subindo um palmo.
+- **Alvena e a Iska:** Alvena é de Redom (meio dia de vela, na costa). Na Orla ninguém precisa ser enganado: três mulheres humanas oferecem rosto e roupa; ela fica com a Iska porque os soldados de Alvena conhecem a cara dela. A escolha agora é o que fazer com a Iska: no colo, saber a verdade da cicatriz (um soldado de dente de ouro, que aparece no mercado); mandá-la se esconder, porque Alvena não pode ver duas; ou garantir na ponte que só exista uma. Saiu o varal.
+- **As noites no mar viraram uma noite só, a véspera do canal:** cada tripulante recebe uma tarefa (Maru vira o barco de lado, Lio rema quando os outros quiserem voltar, Teshka sobe primeiro, Nhalé leva de volta quem cair perto, Brann derruba o oficial da proa). O jeito de dar a tarefa muda a lealdade. Saíram a gaivota, o "seca ou não seca", a faca na mão, o "quanto paga". Brann: "truque barato com caneca d'água".
+- **A Sentença chama antes de atirar** (página nova b02c): o oficial da trombeta pede casa, carga e destino. Ela pode tentar poupar todos ("Sou a dona da Orla. Levem a mim"), chamá-lo para buscá-la (a galera encosta, e a onda leva os besteiros de uma vez) ou mandar virar. Tudo acaba nas bestas. É esse oficial que o Brann derruba.
+- **A onda:** "Ela acorda borbulhando, como se a água sentisse raiva." O minijogo ganhou som: gota que afina conforme o mar sobe, pancada de convés no vermelho, escorrido no perdido e um acorde a cada quarto da barra. Depois do Continuar, na linha "A onda é mais alta que os mastros deles", toca o teu `onda-cinematica`.
+- **Olhos:** o menino de Alvena vê escama, não ouro.
+- **Checagem:** "conta" figurada entrou como muleta de limite zero no script e no PROMPT_MESTRE (v5.5). Muletas e moldes: 0 acima.
+- **Imagem nova** `t03-aubert-mesa` instalada.
+
+---
+
+## v5.2 · 11/11/2026 · leitura do capítulo inteiro
+
+Li o capítulo de ponta a ponta, em português, como leitor. O que mudou:
+- **A velha:** saiu a "barra da saia" (ela acabou de sair do mar). Ficou: "Choro de gente é mais grosso que água do mar. Tiro o pé de baixo dele, sem pressa, e sorrio para ela."
+- **"Meu barco" antes de haver barco:** a Iska dorme no navio dela, e ela senta na popa do navio.
+- **Medo:** deusa não leva susto. Em Alvena, quem faz o rosto escorregar é a dor do aperto do soldado; na lavanderia, o peso de tantos olhos.
+- **Olhos:** nada mais acende ou denuncia pelo olho. A lavadeira Nymae a reconhece porque a água do tanque fica lisa quando ela passa (o mesmo sinal do cais). O guarda da tocha diz "O seu rosto…". O intendente sente a pele emprestada repuxar no queixo. A tela final diz "O rosto escorregou", não "o ouro vazou".
+- **A Laura na cela:** o que ela procurava não era ouro no olho, era medo. "— Já interroguei muitos de vocês. Todos tinham medo de mim. Você, não." / "Agora sei o que ela procurava desde a porta: o meu medo. Não achou." A tela final diz "Ela vai lembrar que você não teve medo."
+- **Continuidade da Teshka:** ela não diz mais o nome do Ossian antes de a Madrinha perguntar quem prometeu Alvena.
+- **Maru:** não "vem por último" (aparece primeiro); ela vai até ele no leme.
+- **Lio:** boia "de boca aberta para o céu, esperando a chuva que eu prometi" (se ela fez chover) ou "com o pano ainda enrolado no braço". O cartão quer "ser dado ao mar no lugar do irmão".
+- **Aubert** raspa a cabeça e a barba toda manhã (bate com o retrato).
+- **Sarnai:** a narradora não chama a si mesma de "a Madrinha".
+- **"Conta" restante, trocado:** o guarda "confere" a hóspede e a argola; Aubert "anota" as velas; os pequenos "sabem" antes dos arautos; Dunstan e "o total nunca dá o que ele quer".
+- "dado ao mar" declarado como motivo do capítulo no PROMPT_MESTRE (é o costume da oferenda).
+
+**Checagem:** muletas e moldes dentro do limite (0 ACIMA); robô em duas rotas até a Parte V, sem erro.
