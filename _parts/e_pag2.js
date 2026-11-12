@@ -56,7 +56,7 @@
         se((st) => fezCarcereiro(st, 'dunstan'), T('O olhar dela desce para as moedas da minha saia e sobe. O Dunstan contou na escada: cada galera parada na costa custa a Redom o imposto de uma aldeia por ano.', 'Her eyes drop to the coins on my skirt and come back up. Dunstan counted it out on the stairs: every galley sitting on the coast costs Redom a village’s taxes a year.')),
         V('D23', T('Ela quer o deserto e não pode ir, porque a costa prende as galeras dela. Se a Orla ajoelhar, a costa solta. Quero que ela mesma me mande de volta para fazer a Orla ajoelhar.', 'She wants the desert and can’t go, because the coast ties down her galleys. If the Shore kneels, the coast lets go. I want her to send me back to do it herself.')),
         T('Para isso, ela tem de acreditar em três coisas. Que fui eu que levantei o mar. Que a Orla faz o que eu mando. E que eu ganho alguma coisa entregando a Orla a Redom.', 'For that, she has to believe three things. That it was I who raised the sea. That the Shore does what I tell it. And that I gain something by handing the Shore to Redom.'),
-        T('Quero a frase na voz dela: volte e ponha a Orla de joelhos.', 'I want the words in her voice: go back and bring the Shore to its knees.'),
+        T('Não vou pedir nada. A ordem tem que sair da boca dela como ideia dela.', 'I will not ask for anything. The order has to come out of her mouth as her own idea.'),
       ] },
 
     { id: 'c04', checkpoint: true, zona: 'ala', agua: 0, sal: .25, pedra: true, fundo: { img: IMG('c-laura'), dim: .45, foco: '62% 40%' },
@@ -182,14 +182,14 @@
       texto: (st) => {
         const n = st.f.trChefes || 0;
         if (n <= 1) return [
-          n === 0 ? T('De manhã, a página do comandante continua em branco. Nenhuma das três casas põe a marca.', 'By morning, the commander’s page is still blank. None of the three houses puts its mark on it.') : T('Antes do sol, a folha do caderno tem a marca de uma casa só. Uma casa não é a Orla, e o comandante sabe disso.', 'Before sunrise, the notebook’s page bears the mark of one house only. One house is not the Shore, and the commander knows it.'),
+          n === 0 ? T('De manhã, a página do comandante continua em branco. Nenhuma das três casas põe a marca.', 'By morning, the commander’s page is still blank. None of the three houses puts its mark on it.') : T('Antes do sol, a folha do caderno tem a marca de uma casa só.', 'Before sunrise, the notebook’s page bears the mark of one house only.'),
           V(null, T('— A Lâmina vai saber que a senhora não manda nem nesta mesa — diz Aubert, e fecha o caderno.', '— The Blade will know you don’t command even this table — says Aubert, and closes the notebook.')),
         ];
         return [
           n === 3 ? T('Antes do sol, a folha do caderno do comandante tem a marca das três casas.', 'Before sunrise, the page of the commander’s notebook bears the mark of all three houses.')
             : T('Antes do sol, a folha do caderno do comandante tem a marca de duas casas. A terceira manda dizer que não toca em barco de Redom enquanto as outras não tocarem.', 'Before sunrise, the page of the commander’s notebook bears the mark of two houses. The third sends word that it won’t touch a Redom boat while the others don’t.'),
           T('Não é rendição. É uma trégua: três meses sem pirataria na costa, enquanto as casas decidem o resto.', 'It isn’t surrender. It is a truce: three months without piracy on the coast, while the houses decide the rest.'),
-          T('Três meses. A Orla nunca decidiu nada em três meses. A Laura não sabe disso.', 'Three months. The Shore has never decided anything in three months. Laura doesn’t know that.'),
+          T('Três meses.', 'Three months.'),
           T('Na volta, da amurada da Sentença, Aubert anota as velas da Orla ao longo da costa. Toda manhã a linha é mais curta.', 'On the way back, from the Sentence’s rail, Aubert writes down the Shore’s sails along the coast. Every morning the line is shorter.'),
           (st.f.trSusp || 0) >= 2 ? T('O caderno dele engorda mais que a folha das casas.', 'His notebook grows fatter than the houses’ page.') : T('Ele escreve menos a cada dia. Quando o mar fica vazio, o caderno não tem mais o que dizer.', 'He writes less each day. When the sea goes empty, the notebook has nothing left to say.'),
         ];
@@ -231,14 +231,14 @@
       texto: [
         T('Na primeira noite, deitada no escuro, sinto água embaixo do chão. Muita água, parada há tanto tempo que esqueceu o sal. O templo do Cavaleiro foi construído em cima de uma cisterna que a cidade esqueceu.', 'On the first night, lying in the dark, I feel water under the floor. A great deal of water, still for so long it has forgotten salt. The Knight’s temple was built on top of a cistern the city forgot.'),
         T('Chamo essa água para cima. Ela sobe pelas frestas, fina como linha e dura como faca, e corta a argamassa em volta da laje embaixo da cama sem barulho nenhum. Depois corta a terra embaixo da laje, até a cisterna.', 'I call that water up. It rises through the cracks, thin as thread and hard as a blade, and cuts the mortar around the flagstone under the bed without a sound. Then it cuts the earth beneath the flagstone, all the way to the cistern.'),
-        T('Redom vigia a porta, a janela e o meu rosto. Ninguém em Redom pensou que água corta pedra.', 'Redom watches the door, the window, and my face. No one in Redom thought water cuts stone.'),
+        T('Redom vigia a porta, a janela e o meu rosto.', 'Redom watches the door, the window, and my face.'),
         T('Antes do sol, a laje volta para o lugar. A junta fica fina como um fio de cabelo, e eu fecho com lama de cal.', 'Before sunrise, the flagstone goes back in its place. The seam is as thin as a hair, and I seal it with lime mud.'),
         T('Daí em diante é sempre assim. De noite, a água empurra a laje por baixo e desfaz a lama. Antes do sol, assenta a laje e fecha a junta. Quando o guarda destranca a porta, acha o que deixou: uma hóspede, uma cama, um chão.', 'From then on it is always the same. At night, the water pushes the flagstone up from below and washes the mud away. Before sunrise, it settles the stone and closes the seam. When the guard unlocks the door, he finds what he left: one guest, one bed, one floor.'),
       ] },
 
     { id: 'd02', zona: 'cisterna', agua: .9, sal: .12, pedra: false, veste: 'ela', fundo: { video: VID('d02-cisterna'), img: IMG('d02-cisterna'), dim: .45, clima: 'bolhas', foco: '55% 50%' },
       texto: [
-        T('A cisterna é de colunas, mais velha que o templo, e a água tem gosto de cal. Não tem porta nem escada: a água sobe pelo buraco até a minha cintura e me desce, e antes do sol me sobe de volta. Dela saem os canais de esgoto que correm por baixo da Capital inteira, até os bueiros da Rua das Fontes e da rua das lavanderias.', 'The cistern is all columns, older than the temple, and the water tastes of lime. It has no door and no stairs: the water rises up the shaft to my waist and lowers me down, and before sunrise it lifts me back the same way. From it run the sewer channels that pass beneath the whole Capital, up to the drains on Fountain Street and the street of laundries.'),
+        T('A cisterna é de colunas, mais velha que o templo, e a água tem gosto de cal. Não tem porta nem escada. A laje do quarto é inteira, e embaixo dela fica a cisterna: a água desfaz a junta, eu desço levada por ela, e a junta se fecha atrás de mim. Antes do sol, o mesmo caminho ao contrário. Da cisterna saem os canais de esgoto que correm por baixo da Capital inteira, até os bueiros da Rua das Fontes e da rua das lavanderias.', 'The cistern is all columns, older than the temple, and the water tastes of lime. It has no door and no stairs. The flagstone of my room is whole, and the cistern lies beneath it: the water undoes the joint, I go down carried by it, and the joint closes behind me. Before sunrise, the same way in reverse. From the cistern run the sewer channels that pass beneath the whole Capital, up to the drains on Fountain Street and the street of laundries.'),
         T('Nas semanas antes do conselho, aprendo a Capital por baixo. Cada bueiro é uma porta, e nenhum tem guarda.', 'In the weeks before the council, I learn the Capital from underneath. Every drain is a door, and none has a guard.'),
         T('Por cima, de dia, guardo os rostos que olho na praça. Dois servem para qualquer noite.', 'Up above, by day, I keep the faces I look at in the square. Two of them serve for any night.'),
         G('bento', T('O do Bento, um menino que carrega água das fontes para as casas. Com o balde, entra e sai de qualquer cozinha, e menino de balde não tem nome.', 'Bento’s, a boy who carries water from the fountains to the houses. With his bucket he goes in and out of any kitchen, and a boy with a bucket has no name.')),
@@ -350,7 +350,11 @@
         { id: 'matar', gesto: true, tom: 'intimidar', corpos: 1, alarme: 2, erro: true, txt: T('Levar a sombra para um beco e matá-lo lá.', 'Lead the shadow into an alley and kill him there.'),
           resultado: [{ t: T('Ele entra no beco atrás de mim, porque é o trabalho dele. Não sai. Saio eu, com o rosto da moça da capa. Um homem do comandante que não volta faz o comandante vir procurar.', 'He follows me into the alley, because that is his job. He doesn’t come out. I do, in the face of the girl with the cloak. A commander’s man who doesn’t come back brings the commander looking.'), veste: 'capa' }] },
       ] },
-      depois: [T('A Orla segura a trégua sem mim. A coluna vai para a Boca Seca, e a frase vai com ela. Eu também vou.', 'The Shore will hold the truce without me. The column is going to the Dry Mouth, and the sentence goes with it. So do I.')] },
+      depois: (st) => [
+        T('Dou a volta pelos fundos das forjas e entro de novo pela porta das carroças de lenha, no rosto da moça da capa. Quem carrega lenha para uma coluna não é parado.', 'I circle round behind the forges and come back in by the gate of the firewood carts, in the face of the girl with the cloak. No one stops a person carrying wood for a column.'),
+        ...(st.escolhas.sombra === 'matar' ? [T('Quando o comandante achar o corpo, a hóspede que ele procura já estará na cozinha do exército.', 'By the time the commander finds the body, the guest he is looking for will already be in the army’s kitchen.')] : []),
+        T('A Orla segura a trégua sem mim. A coluna vai para a Boca Seca, e a frase vai com ela. Eu também vou.', 'The Shore will hold the truce without me. The column is going to the Dry Mouth, and the sentence goes with it. So do I.'),
+      ] },
 
     // ===================================================== PARTE VI · A COLUNA
     { id: 'p6', parte: T('VI · A Coluna', 'VI · The Column'), zona: 'coluna', agua: 0, sal: .6, fundo: { img: IMG('e01-acampamento'), dim: .55, clima: 'poeira' },
@@ -371,7 +375,7 @@
       ] } },
 
     { id: 'e02', zona: 'coluna', agua: 0, sal: .62, fundo: { img: IMG('e02-tenda'), dim: .5, foco: '55% 45%' },
-      texto: [T('A roupa, uma última vez.', 'The clothes, one last time.'), { t: T('Até a roupa estar no meu corpo, ando pelo acampamento com a cara da Lume. Acampamento de exército sempre tem lugar para ela, e soldado nenhum pergunta o que ela faz ali.', 'Until they are on my body, I walk the camp in Lume’s face. An army camp always has room for her, and no soldier asks what she is doing there.'), veste: 'lume' }],
+      texto: [T('A roupa, uma última vez.', 'The clothes, one last time.'), { t: T('Até a roupa estar no meu corpo, ando pelo acampamento com a cara da Lume, levando um cesto de pão para a cozinha dos oficiais. Ninguém olha duas vezes para o cesto.', 'Until they are on my body, I walk the camp in Lume’s face, carrying a basket of bread to the officers’ kitchen. No one looks twice at the basket.'), veste: 'lume' }],
       escolha: { id: 'trajeColuna', pergunta: (st) => T('A roupa de {DISFARCE}', '{DISFARCE}’s clothes'), opcoes: [
         { id: 'roubar', gesto: true, preco: 'roubar', tom: 'manipular', alarme: 1, erro: (st) => METODO_COLUNA(st, 'roubar')[0] === 'errado', txt: T('Pegar a roupa de {DISFARCE} enquanto dorme.', 'Take {DISFARCE}’s clothes while they sleep.'), resultado: (st) => [{ t: METODO_COLUNA(st, 'roubar')[1], veste: st.escolhas.disfarce }] },
         { id: 'seduzir', gesto: true, preco: 'seduzir', tom: 'seduzir', testemunha: 1, erro: (st) => METODO_COLUNA(st, 'seduzir')[0] === 'errado', txt: T('Usar a cara da Lume para ganhar a roupa de {DISFARCE}.', 'Use Lume’s face to win {DISFARCE}’s clothes.'), resultado: (st) => [{ t: METODO_COLUNA(st, 'seduzir')[1], veste: st.escolhas.disfarce }] },
