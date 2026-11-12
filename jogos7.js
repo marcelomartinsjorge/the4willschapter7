@@ -25,6 +25,14 @@ function fundo(root, img, extra = '') {
   root.insertAdjacentHTML('beforeend', `<div class="j7-bg ${extra}" style="background-image:url('${img}')"></div><div class="j7-veu"></div>`);
 }
 // o texto que vai entrando, uma linha de cada vez (falas com travessão ganham outra cor)
+// depois da resposta do outro, o leitor lê no tempo dele: o jogo só segue quando ele clica em Continuar
+function continuar(ops, c, fn, ms) {
+  setTimeout(() => {
+    if (BOT()) return fn();
+    ops.innerHTML = `<button class="cta az-cont">${c.esc(c.U('continuar'))}</button>`;
+    const b = ops.querySelector('.az-cont'); b.onclick = () => { ops.innerHTML = ''; fn(); }; b.focus();
+  }, ms);
+}
 function linhas(el, arr, c, cls = '') {
   arr.forEach((t, i) => {
     const s = c.sub(c.tr(t)); const p = document.createElement('p');
@@ -280,7 +288,7 @@ function anzol(root, c) {
         linhas(log, lista(o.resp, st), c);
         u += o.u; if (o.tipo === 'direto') { farpas++; root.classList.remove('farpa'); void root.offsetWidth; root.classList.add('farpa'); A.tone(180, .7, 'sawtooth', .03, 0, .7); }
         acende(); i++;
-        setTimeout(() => (farpas >= 2 ? terminar(true) : troca()), BOT() ? 10 : 1500 + lista(o.resp, st).length * 600);
+        continuar(ops, c, () => (farpas >= 2 ? terminar(true) : troca()), BOT() ? 10 : 600 + lista(o.resp, st).length * 450);
       }, BOT() ? 10 : 600);
     };
     setTimeout(troca, BOT() ? 10 : 900);
@@ -364,7 +372,7 @@ function interrogatorio(root, c) {
         // o vermelho cheio: a Laura diz a frase dela
         if (verm >= MAXV && !disse) { disse = true; setTimeout(() => { linhas(log, ['— ' + c.sub(c.tr(cfg.verm))], c, 'alvo vermelha'); A.tone(98, 1.6, 'sawtooth', .04, 0, .8); }, BOT() ? 10 : 1400); }
         i++;
-        setTimeout(pergunta, BOT() ? 20 : 2200 + lista(o.resp, st).length * 650 + (disse ? 1200 : 0));
+        continuar(ops, c, pergunta, BOT() ? 20 : 900 + lista(o.resp, st).length * 450 + (reac.length ? 600 : 0) + (disse ? 1400 : 0));
       }, BOT() ? 10 : 700);
     };
     setTimeout(pergunta, BOT() ? 10 : 900);

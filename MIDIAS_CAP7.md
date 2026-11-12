@@ -698,3 +698,10 @@ Negative: nudity, cleavage, lingerie, modern makeup, modern clothes, fantasy ear
 
 ### `t06-quarto.jpg` · opcional · refazer
 A imagem instalada mostra degraus descendo pela laje. Agora não há escada: a água da cisterna cortou um buraco limpo embaixo da cama. Se quiser refazer, troque no prompt de `t06-quarto` (seção “Novas da v4”) a frase dos degraus por: *“a flagstone lifted and set aside, revealing a clean-cut square shaft going straight down into darkness, a faint blue shimmer of still water deep below, the edges of the cut smooth as if sliced”*.
+
+## v5.7 · recebidas e encaixadas
+- `assets/audio/voz/D25.mp3` — a descida até a água do fundo (b03).
+- `assets/audio/voz/D26.mp3` — "She reads me…" (c03), no lugar da D15.
+- `assets/images/b03-onda.jpg` — a onda batendo na Sentença (fundo do parágrafo da onda).
+- `assets/images/t05-laura-aubert.jpg` — a Laura recebe o Aubert (t05).
+- `assets/images/rostos/bento.jpg`, `rostos/lume.jpg`, `t06-quarto.jpg` — encaixadas na v5.6.

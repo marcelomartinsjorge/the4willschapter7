@@ -76,10 +76,10 @@ const METODO = {
       lume: MR('meio', 'O Tam não acorda. Acorda o ajudante que dorme na baia do lado, e vê a Lume sair da baia do comandante. De manhã a estrebaria toda sabe.', 'Tam doesn’t wake. The helper sleeping in the next stall does, and sees Lume leave the commander’s stall. By morning the whole stable knows.'),
     },
     perto: {
-      lume: MR('meio', 'Ele tira a camisa sozinho, rindo, achando que tem sorte. Amanhã os outros cavalariços vão saber que a Lume desceu na baia dele, e vão rir, até alguém perguntar o que a Lume foi fazer na baia do cavalo do comandante.', 'He takes off his shirt himself, laughing, thinking he’s in luck. Tomorrow the other grooms will know Lume came down to his stall, and they’ll laugh, until someone asks what Lume was doing in the commander’s horse’s stall.'),
+      lume: MR('meio', 'Desço na baia do Tam e sento no feno junto dele, com a saia levantada até o joelho. Ele tira a camisa sozinho, rindo, achando que tem sorte. Amanhã os outros cavalariços vão saber que a Lume desceu na baia dele, e vão rir, até alguém perguntar o que a Lume foi fazer na baia do cavalo do comandante.', 'I go down to Tam’s stall and sit in the hay beside him, my skirt pulled up to the knee. He takes off his shirt himself, laughing, thinking he’s in luck. Tomorrow the other grooms will know Lume came down to his stall, and they’ll laugh, until someone asks what Lume was doing in the commander’s horse’s stall.'),
       bento: MR('meio', 'Acordo o Tam com o balde: o marechal quer o cavalo cinzento escovado antes do sol, e camisa suja na baia ele não aceita. O Tam me dá a camisa para lavar e vai escovar o cavalo de peito nu. O marechal vai perguntar por quê.', 'I wake Tam with the bucket: the marshal wants the grey horse groomed before sunrise, and won’t have a dirty shirt in the stall. Tam gives me the shirt to wash and goes to groom the horse bare-chested. The marshal will ask why.'),
     },
-    matar: MR('errado', 'O feno abafa tudo. Mas antes do sol o marechal desce para ver o cavalo cinzento, como desce toda madrugada, e acha o rapaz.', 'The hay muffles everything. But before sunrise the marshal comes down to see the grey horse, as he does every morning, and finds the young man.'),
+    matar: MR('errado', 'Aperto o rosto do Tam contra o feno até o corpo dele amolecer. O feno abafa tudo. Mas antes do sol o marechal desce para ver o cavalo cinzento, como desce toda madrugada, e acha o rapaz.', 'I press Tam’s face into the hay until his body goes slack. The hay muffles everything. But before sunrise the marshal comes down to see the grey horse, as he does every morning, and finds the young man.'),
   },
   escudeiro: {
     roubar: {
@@ -90,7 +90,7 @@ const METODO = {
       lume: MR('certo', 'Chamo o Corin para fora com um dedo. Ele vem, porque nunca foi chamado. Me dá a roupa e a espada de pau e vai ficar calado, porque no alojamento ia virar piada: uma moça daquelas, e justo ele.', 'I call Corin outside with one finger. He comes, because he has never been called. He gives me his clothes and the wooden sword and will keep quiet, because in the barracks it would become a joke: a girl like that, and him of all people.'),
       bento: MR('meio', 'Entro com o balde e um recado: o comandante quer a roupa de gala do Corin para a coluna. Ele me entrega a roupa e a espada de pau, orgulhoso. De manhã conta aos onze que vai na coluna, e alguém vai perguntar ao comandante.', 'I come in with the bucket and a message: the commander wants Corin’s dress clothes for the column. He hands me the clothes and the wooden sword, proud. In the morning he tells the eleven he’s going with the column, and someone will ask the commander.'),
     },
-    matar: MR('meio', 'Espero que ele saia para a latrina. Um bueiro da Rua das Fontes desce até a cisterna. De manhã, os escudeiros contam onze e acham que o décimo segundo fugiu para a coluna.', 'I wait for him to go out to the latrine. A drain on Fountain Street runs down to the cistern. In the morning the squires count eleven and decide the twelfth ran off to the column.'),
+    matar: MR('meio', 'Espero que ele saia para a latrina e afogo o Corin no tanque de lavar. Um bueiro da Rua das Fontes desce até a cisterna. De manhã, os escudeiros contam onze e acham que o décimo segundo fugiu para a coluna.', 'I wait for him to go out to the latrine and drown Corin in the washing trough. A drain on Fountain Street runs down to the cistern. In the morning the squires count eleven and decide the twelfth ran off to the column.'),
   },
   novica: {
     roubar: {
@@ -101,7 +101,7 @@ const METODO = {
       lume: MR('errado', 'Peço à noviça que ouça a confissão de uma moça da vida. Ela ouve, vermelha, e me empresta o hábito para eu rezar sem vergonha. De manhã confessa tudo ao padre da Juíza, com detalhe. O padre conta à Guardiã. A Guardiã escreve.', 'I ask the novice to hear the confession of a girl of the street. She listens, blushing, and lends me her habit so I can pray without shame. In the morning she confesses everything to the Judge’s priest, in detail. The priest tells the Keeper. The Keeper writes it down.'),
       bento: MR('meio', 'Bato na sacristia com o balde: a Guardiã quer o hábito da irmã para benzer. Ela me entrega. De manhã confessa ao padre que deu o hábito a um menino, e o padre vai perguntar à Guardiã.', 'I knock at the sacristy with the bucket: the Keeper wants the sister’s habit, to bless it. She hands it over. In the morning she confesses to the priest that she gave her habit to a boy, and the priest will ask the Keeper.'),
     },
-    matar: MR('meio', 'A sacristia tem uma porta para o pátio, e o pátio tem um poço. De manhã a capela procura a noviça e acha que ela fugiu do voto, como fogem as noviças.', 'The sacristy has a door to the yard, and the yard has a well. In the morning the chapel looks for the novice and decides she fled her vow, as novices do.'),
+    matar: MR('meio', 'A sacristia tem uma porta para o pátio, e o pátio tem um poço. Levo a noviça até lá pela mão, e ela vem rezando. De manhã a capela procura a noviça e acha que ela fugiu do voto, como fogem as noviças.', 'The sacristy has a door to the yard, and the yard has a well. I lead the novice there by the hand, and she comes praying. In the morning the chapel looks for the novice and decides she fled her vow, as novices do.'),
   },
   dama: {
     roubar: {
@@ -120,10 +120,10 @@ const METODO = {
       lume: MR('meio', 'Pip abre um olho, sorri para a Lume e volta a dormir sem a roupa. Amanhã vai jurar na taverna que a Lume desceu à adega por ele.', 'Pip opens one eye, smiles at Lume, and goes back to sleep without his clothes. Tomorrow he’ll swear at the tavern that Lume came down to the cellar for him.'),
     },
     perto: {
-      lume: MR('meio', 'Ele me dá a roupa e um gole. Amanhã vai contar na taverna que dormiu com uma moça que cheirava a mar, e os velhos vão rir dele. Um vai rir menos.', 'He gives me his clothes and a swallow of wine. Tomorrow he’ll tell the tavern he slept with a girl who smelled of the sea, and the old men will laugh at him. One will laugh less.'),
+      lume: MR('meio', 'Desço à adega e bebo com ele no gargalo do vinho que ele rouba do velho. Ele me dá a roupa e um gole. Amanhã vai contar na taverna que dormiu com uma moça que cheirava a mar, e os velhos vão rir dele. Um vai rir menos.', 'I go down to the cellar and drink with him from the neck of the wine he steals from the old man. He gives me his clothes and a swallow of wine. Tomorrow he’ll tell the tavern he slept with a girl who smelled of the sea, and the old men will laugh at him. One will laugh less.'),
       bento: MR('meio', 'Acordo o Pip com o balde: o taverneiro quer a roupa dele lavada, de tanto vinho. Ele tira e volta a dormir. Quando acordar, vai pedir a roupa ao taverneiro, que não mandou menino algum.', 'I wake Pip with the bucket: the tavern keeper wants his clothes washed, they’re so soaked in wine. He strips and goes back to sleep. When he wakes he’ll ask the tavern keeper for his clothes, and the tavern keeper sent no boy.'),
     },
-    matar: MR('errado', 'Ele não acorda nem para morrer. De manhã, o Sir Joseph pede o vinho pela esquerda, e quem serve é outro. Um velho que já foi general repara em quem falta.', 'He doesn’t wake even to die. In the morning Sir Joseph calls for wine from the left, and someone else pours. An old man who was once a general notices who is missing.'),
+    matar: MR('errado', 'Faço o vinho derramado descer pela boca do Pip. Ele não acorda nem para morrer. De manhã, o Sir Joseph pede o vinho pela esquerda, e quem serve é outro. Um velho que já foi general repara em quem falta.', 'I make the spilled wine run down Pip’s mouth. He doesn’t wake even to die. In the morning Sir Joseph calls for wine from the left, and someone else pours. An old man who was once a general notices who is missing.'),
   },
   viuva: {
     roubar: {
@@ -134,7 +134,7 @@ const METODO = {
       lume: MR('meio', 'Sento com ela e escuto a história da duna, e depois escuto de novo. Ela me dá o vestido de luto, de presente, para a moça que escutou. Amanhã, na fila da pensão, vai falar de mim.', 'I sit with her and listen to the dune story, and then I listen again. She gives me her mourning dress as a gift, for the girl who listened. Tomorrow, in the pension line, she’ll talk about me.'),
       bento: MR('meio', 'Bato com o balde: a pensão precisa do vestido preto para costurar a fita das viúvas. Ela me entrega. Amanhã vai à pensão perguntar pela fita.', 'I knock with the bucket: the pension office needs her black dress to sew on the widows’ ribbon. She hands it over. Tomorrow she’ll go to the pension office to ask about the ribbon.'),
     },
-    matar: MR('certo', 'A Hilde não recebe visita desde a pensão. A água da cisterna aceita, e a casa dela vai ficar fechada muito tempo antes que alguém bata.', 'No one has visited Hilde since the pension. The cistern’s water accepts her, and her house will stay shut a long time before anyone knocks.'),
+    matar: MR('certo', 'Seguro a Hilde dentro da tina do banho até a água parar de mexer. A Hilde não recebe visita desde a pensão. A água da cisterna aceita, e a casa dela vai ficar fechada muito tempo antes que alguém bata.', 'I hold Hilde under in the bath until the water stops moving. No one has visited Hilde since the pension. The cistern’s water accepts her, and her house will stay shut a long time before anyone knocks.'),
   },
   horne: {
     roubar: {
@@ -145,18 +145,18 @@ const METODO = {
       lume: MR('certo', 'Ele bebe sozinho depois do turno. Bebo com ele. Antes do fim da garrafa ele me dá a farda. Amanhã vai ter vergonha demais para contar a alguém.', 'He drinks alone after his watch. I drink with him. Before the bottle is done he gives me his uniform. Tomorrow he’ll be too ashamed to tell anyone.'),
       bento: MR('errado', 'Levo o recado: o quartel quer a farda dele para a revista. O Horne conhece todas as ordens do quartel, e essa não existe. Me segura pela orelha até eu morder a mão dele. Saio com a farda do cabide e um sargento gritando ladrão para a rua.', 'I bring the message: the barracks wants his uniform for inspection. Horne knows every order in the barracks, and that one doesn’t exist. He holds me by the ear until I bite his hand. I leave with the uniform from the peg and a sergeant shouting thief down the street.'),
     },
-    matar: MR('meio', 'Espero por ele na volta do turno, numa rua sem luz. De manhã o quartel acha o sargento ali e culpa uma briga de bêbado. Alguém sabe que ele bebia sozinho.', 'I wait for him on his way back from the watch, in an unlit street. In the morning the barracks finds the sergeant there and blames a drunken brawl. Someone knows he drank alone.'),
+    matar: MR('meio', 'Espero por ele na volta do turno, numa rua sem luz, e quebro o pescoço dele contra o muro. De manhã o quartel acha o sargento ali e culpa uma briga de bêbado. Alguém sabe que ele bebia sozinho.', 'I wait for him on his way back from the watch, in an unlit street, and break his neck against the wall. In the morning the barracks finds the sergeant there and blames a drunken brawl. Someone knows he drank alone.'),
   },
   maud: {
     roubar: {
       bento: MR('certo', 'Entro pela cozinha com a água. A Maud dorme no quarto de cima, e o guarda-roupa fica na antessala. As criadas roncam. Saio com o vestido e com a capa, que ela nunca usa.', 'I come in through the kitchen with the water. Maud sleeps upstairs, and the wardrobe stands in the anteroom. The maids snore. I leave with the gown and with the cloak she never wears.'),
-      lume: MR('meio', 'As criadas roncam, e eu saio com o vestido. Mas o perfume de lanterna fica na antessala, e a Maud repara em tudo. De manhã pergunta quem esteve ali.', 'The maids snore, and I leave with the gown. But the lantern perfume lingers in the anteroom, and Maud notices everything. In the morning she asks who was there.'),
+      lume: MR('meio', 'As criadas roncam, e eu saio com o vestido. Mas o cheiro de água de rosas fica na antessala, e a Maud repara em tudo. De manhã pergunta quem esteve ali.', 'The maids snore, and I leave with the gown. But the rosewater lingers in the anteroom, and Maud notices everything. In the morning she asks who was there.'),
     },
     perto: {
-      lume: MR('meio', 'Maud repara em tudo, até em mim. Me empresta o vestido por curiosidade, e no café conta ao irmão de uma moça estranha que sabia demais sobre canções.', 'Maud notices everything, even me. She lends me the gown out of curiosity, and at breakfast she tells her brother about a strange girl who knew too much about songs.'),
+      lume: MR('meio', 'Bato na porta da Maud cantando baixo uma canção da Orla que ela nunca ouviu. Maud repara em tudo, até em mim. Me empresta o vestido por curiosidade, e no café conta ao irmão de uma moça estranha que sabia demais sobre canções.', 'I knock at Maud’s door, softly singing a Shore song she has never heard. Maud notices everything, even me. She lends me the gown out of curiosity, and at breakfast she tells her brother about a strange girl who knew too much about songs.'),
       bento: MR('errado', 'A Maud olha o menino de cima a baixo e pergunta de que fonte ele vem. Digo uma. Ela me entrega o vestido velho, sorrindo, e de manhã manda a criada à fonte. Lá, o Bento de verdade jura que nunca subiu aquela escada.', 'Maud looks the boy up and down and asks which fountain he comes from. I name one. She hands me the old gown, smiling, and in the morning sends her maid to the fountain. There, the real Bento swears he never climbed those stairs.'),
     },
-    matar: MR('errado', 'Subo a escada sem acordar as criadas. Mas a irmã de um lorde não some: de manhã o Lorde Varr tem um motivo para ficar em casa, e a Capital tem uma pergunta.', 'I climb the stairs without waking the maids. But a lord’s sister doesn’t vanish: in the morning Lord Varr has a reason to stay home, and the Capital has a question.'),
+    matar: MR('errado', 'Subo a escada sem acordar as criadas e aperto o travesseiro no rosto da Maud até ela parar. Mas a irmã de um lorde não some: de manhã o Lorde Varr tem um motivo para ficar em casa, e a Capital tem uma pergunta.', 'I climb the stairs without waking the maids and press the pillow over Maud’s face until she stops. But a lord’s sister doesn’t vanish: in the morning Lord Varr has a reason to stay home, and the Capital has a question.'),
   },
   bertha: {
     roubar: {
@@ -167,7 +167,7 @@ const METODO = {
       lume: MR('certo', 'Sento e deixo que ela conte como foi. Ela conta, e chora, e me dá o xale e o vestido para eu ir rezar pelo filho dela no templo. Dorme agradecida.', 'I sit and let her tell me how it was. She tells it, and weeps, and gives me her shawl and her dress so I can go and pray for her son at the temple. She sleeps grateful.'),
       bento: MR('meio', 'Digo que o Ansel pediu o xale para levar ao templo. Ela me dá o xale e o vestido. De tarde, pergunta ao Ansel se ele rezou.', 'I say Ansel asked for the shawl to take to the temple. She gives me the shawl and the dress. In the afternoon she asks Ansel whether he prayed.'),
     },
-    matar: MR('errado', 'Ela abre a porta para mim, porque abre para todos. De tarde, o Ansel vem contar como o filho dela morreu, como vem toda tarde, e acha a casa vazia.', 'She opens the door to me, because she opens it to everyone. In the afternoon Ansel comes to tell how her son died, as he does every afternoon, and finds the house empty.'),
+    matar: MR('errado', 'Ela abre a porta para mim, porque abre para todos. Fecho a porta, e fecho a boca dela com a mão até acabar. De tarde, o Ansel vem contar como o filho dela morreu, como vem toda tarde, e acha a casa vazia.', 'She opens the door to me, because she opens it to everyone. I close the door, and close her mouth with my hand until it is over. In the afternoon Ansel comes to tell how her son died, as he does every afternoon, and finds the house empty.'),
   },
   aldo: {
     roubar: {
@@ -175,10 +175,10 @@ const METODO = {
       lume: MR('meio', 'O avental está no gancho. Um doente acordado vê uma mulher de vermelho entre as camas e acha que é o fim chegando. Conta ao Aldo quando ele acordar.', 'The apron is on the hook. A patient who is awake sees a woman in red between the beds and thinks the end has come for him. He tells Aldo when he wakes.'),
     },
     perto: {
-      lume: MR('errado', 'Ele fala comigo até o galo, de cada doente, de cada chá, e me empresta o avental para eu não sujar a saia. De manhã vai falar de mim a cada doente, e um deles é o sentinela.', 'He talks to me until cockcrow, about every patient, every tea, and lends me his apron so I won’t soil my skirt. In the morning he’ll talk about me to every patient, and one of them is the sentry.'),
+      lume: MR('errado', 'Entro na enfermaria com um corte de mentira na mão. Ele fala comigo até o galo, de cada doente, de cada chá, e me empresta o avental para eu não sujar a saia. De manhã vai falar de mim a cada doente, e um deles é o sentinela.', 'I walk into the infirmary with a pretend cut on my hand. He talks to me until cockcrow, about every patient, every tea, and lends me his apron so I won’t soil my skirt. In the morning he’ll talk about me to every patient, and one of them is the sentry.'),
       bento: MR('errado', 'Digo que o médico do marechal pediu o avental emprestado. O Aldo me dá o avental e a vida do médico do marechal, de brinde. Amanhã vai agradecer ao médico, pessoalmente.', 'I say the marshal’s physician asked to borrow the apron. Aldo gives me the apron and the physician’s life story, free of charge. Tomorrow he’ll go thank the physician, in person.'),
     },
-    matar: MR('certo', 'Na enfermaria morre gente toda noite. De manhã tem um morto a mais na fileira, e quem conta os mortos não confere os nomes.', 'In the infirmary people die every night. In the morning there is one more dead man in the row, and whoever counts the dead doesn’t check the names.'),
+    matar: MR('certo', 'O Aldo dorme numa cama da fileira dos doentes. A água do jarro entra no peito dele, porque eu mando. Na enfermaria morre gente toda noite. De manhã tem um morto a mais na fileira, e quem conta os mortos não confere os nomes.', 'Aldo sleeps in a bed in the row of the sick. The water from the jug goes into his chest, because I tell it to. In the infirmary people die every night. In the morning there is one more dead man in the row, and whoever counts the dead doesn’t check the names.'),
   },
   edric: {
     roubar: {
@@ -186,21 +186,21 @@ const METODO = {
       lume: MR('meio', 'Levo a roupa e a chave. Mas a loja fica numa rua de escrivães, e um deles, voltando tarde, vê a Lume sair da porta do Edric. De manhã o Edric vai ouvir a piada, e vai contar a todos.', 'I take the clothes and the key. But the shop is on a street of clerks, and one of them, coming home late, sees Lume leave Edric’s door. In the morning Edric will hear the joke, and tell it to everyone.'),
     },
     perto: {
-      lume: MR('errado', 'Ele me deixa entrar, conta tudo de si e dorme no meio de uma frase. Saio com a roupa e com a chave. Amanhã vai contar de mim a quem estiver perto, na sala do conselho, enquanto arruma a pasta que alguém mexeu.', 'He lets me in, tells me everything about himself, and falls asleep mid-sentence. I leave with the clothes and the key. Tomorrow he’ll tell about me to whoever is near, in the council room, while he straightens the folder someone touched.'),
+      lume: MR('errado', 'Bato na loja de tinta dizendo que perdi a chave de casa e que a rua está escura. Ele me deixa entrar, conta tudo de si e dorme no meio de uma frase. Saio com a roupa e com a chave. Amanhã vai contar de mim a quem estiver perto, na sala do conselho, enquanto arruma a pasta que alguém mexeu.', 'I knock at the ink shop saying I’ve lost my house key and the street is dark. He lets me in, tells me everything about himself, and falls asleep mid-sentence. I leave with the clothes and the key. Tomorrow he’ll tell about me to whoever is near, in the council room, while he straightens the folder someone touched.'),
       bento: MR('errado', 'Digo que a Cidadela quer a chave da Sala dos Mapas esta noite. O Edric não solta a chave, mas me manda escovar o casaco enquanto procura a ordem por escrito. A chave, eu tiro do bolso do casaco. Amanhã ele vai contar a todos que alguém pediu.', 'I say the Citadel wants the Map Room key tonight. Edric won’t give up the key, but sends me to brush his coat while he looks for the written order. The key I take from the coat pocket. Tomorrow he’ll tell everyone someone asked.'),
     },
-    matar: MR('meio', 'Ele morre dormindo, em cima da tinta. Amanhã, quem lê os papéis no conselho sou eu, com a voz dele. Depois a loja fica fechada, e alguém vai perguntar por quê.', 'He dies asleep, above the ink. Tomorrow I am the one who reads the papers to the council, in his voice. Afterward the shop stays shut, and someone will ask why.'),
+    matar: MR('meio', 'Despejo a água do tinteiro na garganta dele sem tocar no tinteiro. Ele morre dormindo, em cima da tinta. Amanhã, quem lê os papéis no conselho sou eu, com a voz dele. Depois a loja fica fechada, e alguém vai perguntar por quê.', 'I pour the inkwell’s water down his throat without touching the inkwell. He dies asleep, above the ink. Tomorrow I am the one who reads the papers to the council, in his voice. Afterward the shop stays shut, and someone will ask why.'),
   },
   guarda: {
     roubar: {
       bento: MR('meio', 'O guarda dorme no catre do posto, e a farda de reserva está no baú. Levo. Amanhã o baú vai ter uma farda a menos, e o sargento dele conta fardas.', 'The guard sleeps on the post’s cot, and the spare uniform is in the chest. I take it. Tomorrow the chest will be one uniform short, and his sergeant counts uniforms.'),
-      lume: MR('meio', 'Levo a farda de reserva do baú. Amanhã o sargento dele conta fardas, e o guarda lembra do cheiro de lanterna no posto.', 'I take the spare uniform from the chest. Tomorrow his sergeant counts uniforms, and the guard remembers the smell of lantern oil at the post.'),
+      lume: MR('meio', 'Levo a farda de reserva do baú. Amanhã o sargento dele conta fardas, e o guarda lembra do cheiro de água de rosas no posto.', 'I take the spare uniform from the chest. Tomorrow his sergeant counts uniforms, and the guard remembers the smell of rosewater at the post.'),
     },
     perto: {
-      lume: MR('certo', 'Novo no posto e sozinho no turno da noite, ele me empresta a farda por uma hora e passa o resto da vida achando que sonhou.', 'New to the post and alone on the night watch, he lends me his uniform for an hour and spends the rest of his life thinking he dreamed it.'),
+      lume: MR('certo', 'Paro no posto com uma lanterna apagada e peço fogo. Ele é novo no posto e está sozinho no turno da noite. Entre uma brasa e outra, me empresta a farda por uma hora e passa o resto da vida achando que sonhou.', 'I stop at the post with an unlit lantern and ask for a light. He is new to the post and alone on the night watch. Between one ember and the next, he lends me his uniform for an hour and spends the rest of his life thinking he dreamed it.'),
       bento: MR('certo', 'Levo o recado do sargento: a farda de reserva vai para a lavanderia esta noite. Ele é novo no posto e obedece a qualquer ordem. Me entrega a farda dobrada.', 'I bring the sergeant’s message: the spare uniform goes to the laundry tonight. He is new to the post and obeys any order. He hands me the uniform folded.'),
     },
-    matar: MR('errado', 'Ele morre no posto, sozinho, como estava. E um guarda que falta ao turno faz a Cidadela toda dobrar o turno.', 'He dies at his post, alone, as he was. And a guard who misses his watch makes the whole Citadel double the watch.'),
+    matar: MR('errado', 'Chamo a água do cantil dele para dentro do peito. Ele morre no posto, sozinho, como estava. E um guarda que falta ao turno faz a Cidadela toda dobrar o turno.', 'I call the water from his flask down into his chest. He dies at his post, alone, as he was. And a guard who misses his watch makes the whole Citadel double the watch.'),
   },
   criadaC: {
     roubar: {
@@ -208,10 +208,10 @@ const METODO = {
       lume: MR('certo', 'O varal das criadas fica no pátio dos fundos, longe das camas. Uma peça a menos no varal é coisa de todo dia.', 'The maids’ washing line is in the back yard, far from the beds. One piece less on the line happens every day.'),
     },
     perto: {
-      lume: MR('meio', 'Ela me dá a roupa e uma fofoca de graça. Amanhã vai dar a fofoca de mim para as outras nove.', 'She gives me her clothes and a piece of gossip for free. Tomorrow she’ll give the gossip about me to the other nine.'),
+      lume: MR('meio', 'Ajudo a criada a recolher o varal e conto uma fofoca de um capitão da guarda. Ela me dá a roupa e uma fofoca de graça. Amanhã vai dar a fofoca de mim para as outras nove.', 'I help the maid take in the washing and tell her a piece of gossip about a captain of the guard. She gives me her clothes and a piece of gossip for free. Tomorrow she’ll give the gossip about me to the other nine.'),
       bento: MR('meio', 'Levo água para o quarto das criadas e saio com uma roupa do varal no fundo do balde. Uma delas me vê e acha graça. Amanhã vai rir com as outras nove do menino da água.', 'I carry water to the maids’ room and leave with a piece from the line at the bottom of the bucket. One of them sees me and finds it funny. Tomorrow she’ll laugh with the other nine about the water boy.'),
     },
-    matar: MR('errado', 'Espero uma delas no corredor dos banhos. Mas dez criadas dormem no mesmo quarto, e de manhã nove acordam e contam.', 'I wait for one of them in the bath corridor. But ten maids sleep in one room, and in the morning nine wake up and count.'),
+    matar: MR('errado', 'Espero uma delas no corredor dos banhos e afogo na tina. Mas dez criadas dormem no mesmo quarto, e de manhã nove acordam e contam.', 'I wait for one of them in the bath corridor and drown her in the tub. But ten maids sleep in one room, and in the morning nine wake up and count.'),
   },
   moco: {
     roubar: {
@@ -222,29 +222,29 @@ const METODO = {
       lume: MR('certo', 'Mostro uma moeda. Ele me dá a roupa, a corrida da manhã e o nome do sargento que bate nele. Por uma moeda, esquece o resto.', 'I show him a coin. He gives me his clothes, his morning run, and the name of the sergeant who beats him. For a coin, he forgets the rest.'),
       bento: MR('certo', 'Troco de camisa com ele por uma moeda, de menino para menino. Ele nem pergunta.', 'I swap shirts with him for a coin, boy to boy. He doesn’t even ask.'),
     },
-    matar: MR('errado', 'É leve de carregar até o bueiro. Mas menino de recado tem mãe, e mãe não para de procurar.', 'He is light to carry to the drain. But an errand boy has a mother, and a mother doesn’t stop looking.'),
+    matar: MR('errado', 'Aperto o pescoço do moço até ele parar de chutar. É leve de carregar até o bueiro. Mas menino de recado tem mãe, e mãe não para de procurar.', 'I squeeze the boy’s neck until he stops kicking. He is light to carry to the drain. But an errand boy has a mother, and a mother doesn’t stop looking.'),
   },
 };
 const METODO_C = {
   estrebaria: {
     roubar: MR('certo', 'Wil dorme no feno com os cavalos, e os cavalos me deixam passar. Amanhã ele vai sair da coluna procurando a própria camisa, e a coluna não espera.', 'Wil sleeps in the hay with the horses, and the horses let me by. Tomorrow he’ll leave the column looking for his own shirt, and the column won’t wait.'),
-    seduzir: MR('meio', 'Ganho a roupa e um lugar no fogo. E alguém que vai me procurar com os olhos a viagem toda.', 'I get the clothes and a place by the fire. And someone whose eyes will look for me the whole way.'),
-    matar: MR('errado', 'Uma carroça de feno guarda o resto. Mas os cavalos sentem o cheiro de sangue no feno e passam a manhã empinando, e o cavalariço-chefe quer saber por quê.', 'A hay wagon keeps the rest. But the horses smell the blood in the hay and spend the morning rearing, and the head groom wants to know why.'),
+    seduzir: MR('meio', 'Sento no feno do lado do Wil e rio das piadas dele. Antes da meia-noite ele me dá a camisa, para eu não passar frio. Ganho também um lugar no fogo. E alguém que vai me procurar com os olhos a viagem toda.', 'I sit in the hay beside Wil and laugh at his jokes. Before midnight he gives me his shirt, so I won’t be cold. I get a place by the fire too. And someone whose eyes will look for me the whole way.'),
+    matar: MR('errado', 'Espero o Wil dormir e aperto o rosto dele contra o feno até ele ficar quieto. Uma carroça de feno guarda o resto. Mas os cavalos sentem o cheiro de sangue no feno e passam a manhã empinando, e o cavalariço-chefe quer saber por quê.', 'I wait for Wil to fall asleep and press his face into the hay until he goes still. A hay wagon keeps the rest. But the horses smell the blood in the hay and spend the morning rearing, and the head groom wants to know why.'),
   },
   forja: {
     roubar: MR('errado', 'Bram acorda com a primeira tábua que range, de martelo na mão. Saio correndo com a roupa e ele grita "ladrão" para o acampamento.', 'Bram wakes at the first creaking board, hammer in hand. I run off with the clothes and he shouts "thief" to the camp.'),
     seduzir: MR('certo', 'Ajudo no fole até ele suar. Ele tira a camisa sozinho e me dá, para eu também não morrer de calor. Vai lembrar só disso: que fez calor.', 'I work the bellows until he sweats. He takes off his shirt himself and gives it to me, so I won’t die of the heat either. That’s all he’ll remember: that it was hot.'),
-    matar: MR('meio', 'A forja é quente o bastante para não sobrar nada. De manhã o ferreiro procura o ajudante, xinga e pega outro.', 'The forge is hot enough to leave nothing. In the morning the smith looks for his helper, curses, and takes another.'),
+    matar: MR('meio', 'A água do balde de têmpera sobe pela garganta do Bram. A forja é quente o bastante para não sobrar nada. De manhã o ferreiro procura o ajudante, xinga e pega outro.', 'The water from the quenching bucket climbs into Bram’s throat. The forge is hot enough to leave nothing. In the morning the smith looks for his helper, curses, and takes another.'),
   },
   ilse: {
     roubar: MR('certo', 'Ilse dorme sentada, cansada demais para deitar. Tiro o avental dela do banco e ela não acorda nem quando um ferido geme.', 'Ilse sleeps sitting up, too tired to lie down. I take her apron from the bench and she doesn’t wake even when a wounded man groans.'),
-    seduzir: MR('meio', 'Ela me dá o avental e me ensina a enrolar atadura. De manhã vai contar ao curandeiro da moça que sabia mais que ela.', 'She gives me her apron and teaches me to roll a bandage. In the morning she’ll tell the healer about the girl who knew more than she did.'),
-    matar: MR('errado', 'Faço sem barulho. Mas a vinte passos da tenda da Lâmina a guarda nunca dorme, e um dos guardas ouve.', 'I do it without a sound. But twenty paces from the Blade’s tent the guard never sleeps, and one of the guards hears.'),
+    seduzir: MR('meio', 'Ajudo a Ilse a trocar as ataduras até o fim da fila de feridos. Ela me dá o avental e me ensina a enrolar atadura. De manhã vai contar ao curandeiro da moça que sabia mais que ela.', 'I help Ilse change dressings to the end of the line of wounded. She gives me her apron and teaches me to roll a bandage. In the morning she’ll tell the healer about the girl who knew more than she did.'),
+    matar: MR('errado', 'A água do balde de ataduras desce pela garganta dela, sem barulho. Mas a vinte passos da tenda da Laura a guarda nunca dorme, e um dos guardas ouve.', 'The water from the dressings bucket runs down her throat, without a sound. But twenty paces from Laura’s tent the guard never sleeps, and one of the guards hears.'),
   },
   nell: {
     roubar: MR('errado', 'Nell dorme com a faca do sal no avental. Acorda quando eu toco o avental, e a faca acorda antes dela. Saio com a roupa e com um corte, e a cozinha toda ouve.', 'Nell sleeps with the salt knife in her apron. She wakes when I touch the apron, and the knife wakes before she does. I leave with the clothes and a cut, and the whole kitchen hears.'),
     seduzir: MR('certo', 'Divido o sal com ela, uma pitada de cada vez, até ela rir. Ela me dá a roupa e o lugar dela perto do barril, e guarda segredo, porque nunca dividiram nada com ela.', 'I share the salt with her, a pinch at a time, until she laughs. She gives me her clothes and her place by the barrel, and keeps the secret, because no one has ever shared anything with her.'),
-    matar: MR('meio', 'Os sacos de sal guardam o resto. Na cozinha falta uma moça, e o cozinheiro acha que ela fugiu da marcha, como fogem tantos.', 'The salt sacks keep the rest. The kitchen is one girl short, and the cook decides she ran from the march, as so many do.'),
+    matar: MR('meio', 'Encho o peito da Nell com a água do barril, devagar, para a faca dela não acordar. Os sacos de sal guardam o resto. Na cozinha falta uma moça, e o cozinheiro acha que ela fugiu da marcha, como fogem tantos.', 'I fill Nell’s chest with the barrel’s water, slowly, so her knife won’t wake. The salt sacks keep the rest. The kitchen is one girl short, and the cook decides she ran from the march, as so many do.'),
   },
 };
 const METODO_COLUNA = (st, m) => (METODO_C[st.escolhas.disfarce] || METODO_C.estrebaria)[m];
@@ -303,7 +303,7 @@ window.LIVRO_UI = {
     parte: 'Parte', prox: 'Próxima', tentar: 'Tentar de novo', fim: 'Encerrar o capítulo', voltar: '← Voltar', continuar: 'Continuar', oque: 'O que eu faço?', escolheu: 'Você escolheu:', silencio: 'não dizer nada', silencioR: 'Silêncio', momento: 'Momento de jogo',
     colecaoT: 'A Coleção', colecaoSub: 'Os rostos que eu guardo', colecaoNovo: 'Na Coleção', colecaoVazia: 'Nenhum rosto ainda.', serve: 'serve agora', deTxt: 'de', iqOuro: 'o que eu quero ouvir da boca dela', anzolOuro: 'o que eu quero ouvir dessa boca', iqVerm: 'o que ela vai concluir de mim', lugares: { orla: 'A Orla', sentenca: 'A Sentença', redom: 'Redom', coluna: 'A coluna' }, quer: 'Quer', naoDiz: 'Não diz', disse: 'Disse', vestivel: 'tenho a roupa',
     dicaVeu: 'O rosto que ela veste fica no alto. Toque nele para abrir a Coleção.', piscarDica: 'Toque duas vezes. Rápido.',
-    mg: { escuta: 'Os pequenos', tripulacao: 'A tripulação', mao: 'Abrir a mão', morta: 'A Morta', anzol: 'O Anzol', interrogatorio: 'A Lâmina', ordem: 'A Ordem' },
+    mg: { escuta: 'Os pequenos', tripulacao: 'A tripulação', mao: 'Abrir a mão', morta: 'A Morta', anzol: 'O Anzol', interrogatorio: 'A Laura', ordem: 'A Ordem' },
     verbo: { ouvir: 'Ouvir', poder: 'Poder', esperar: 'Esperar', anzol: 'Anzol', ler: 'Ler' },
     verboDe: { escuta: 'ouvir', tripulacao: 'ouvir', mao: 'poder', morta: 'esperar', anzol: 'anzol', interrogatorio: 'anzol', ordem: 'ler' },
     dica: {
@@ -326,7 +326,7 @@ window.LIVRO_UI = {
     parte: 'Part', prox: 'Next', tentar: 'Try again', fim: 'Close the chapter', voltar: '← Back', continuar: 'Continue', oque: 'What do I do?', escolheu: 'You chose:', silencio: 'say nothing', silencioR: 'Silence', momento: 'Moment of play',
     colecaoT: 'The Collection', colecaoSub: 'The faces I keep', colecaoNovo: 'In the Collection', colecaoVazia: 'No faces yet.', serve: 'useful now', deTxt: 'from', iqOuro: 'what I want to hear from her mouth', anzolOuro: 'what I want to hear from that mouth', iqVerm: 'what she will conclude about me', lugares: { orla: 'The Shore', sentenca: 'The Sentence', redom: 'Redom', coluna: 'The column' }, quer: 'Wants', naoDiz: 'Doesn’t say', disse: 'Said', vestivel: 'I have the clothes',
     dicaVeu: 'The face she wears stays at the top. Tap it to open the Collection.', piscarDica: 'Tap twice. Quick.',
-    mg: { escuta: 'The small folk', tripulacao: 'The crew', mao: 'Open the hand', morta: 'The Dead Woman', anzol: 'The Hook', interrogatorio: 'The Blade', ordem: 'The Order' },
+    mg: { escuta: 'The small folk', tripulacao: 'The crew', mao: 'Open the hand', morta: 'The Dead Woman', anzol: 'The Hook', interrogatorio: 'Laura', ordem: 'The Order' },
     verbo: { ouvir: 'Listen', poder: 'Power', esperar: 'Wait', anzol: 'Hook', ler: 'Read' },
     verboDe: { escuta: 'ouvir', tripulacao: 'ouvir', mao: 'poder', morta: 'esperar', anzol: 'anzol', interrogatorio: 'anzol', ordem: 'ler' },
     dica: {

@@ -158,7 +158,7 @@
 
     joseph: {
       img: IMG('n-joseph'), lugar: T('A taverna dos oficiais velhos, tarde da noite', 'The old officers’ tavern, late at night'),
-      ideia: T('Pouco, e ele escapa outra vez.', 'Too few, and he slips away again.'), falador: true, mascaras: { vinho: 1, viuva: 1 },
+      ideia: T('Com pouca gente, os Grakh escapam outra vez.', 'With too few men, the Grakh slip away again.'), falador: true, mascaras: { vinho: 1, viuva: 1 },
       trocas: [
         { fala: T('— Mais vinho. E não me olha para a mão.', '— More wine. And don’t look at my hand.'), ops: [
           { id: 'p', tipo: 'porta', de: 'vinho', u: 2, txt: T('Eu sirvo pela esquerda, senhor, para o copo ficar do lado bom.', 'I pour from the left, sir, so the cup stays on the good side.'), resp: [T('Ele ri sozinho, alto, e a taça gira na mão boa.', 'He laughs to himself, loud, and the cup turns in his good hand.'), T('— Esperto. Ela era assim, aos dezesseis.', '— Clever. She was like that, at sixteen.')] },
@@ -185,7 +185,7 @@
         ] },
       ],
       fim: {
-        cheia: [T('Ele bate a taça na mesa.', 'He slams the cup on the table.'), { t: T('«Pouco, e ele escapa outra vez.', '«Too few, and he slips away again.') }, T('— Vou dizer isso a ela amanhã, na cara. Uma vez na vida ela vai ter que ouvir um velho.', '— I’ll tell her tomorrow, to her face. Once in her life she’ll have to listen to an old man.')],
+        cheia: [T('Ele bate a taça na mesa.', 'He slams the cup on the table.'), { t: T('«Com pouca gente, os Grakh escapam outra vez.', '«With too few men, the Grakh slip away again.') }, T('— Vou dizer isso a ela amanhã, na cara. Uma vez na vida ela vai ter que ouvir um velho.', '— I’ll tell her tomorrow, to her face. Once in her life she’ll have to listen to an old man.')],
         meia: [T('— Eu vou falar. Ela não vai ouvir, mas eu vou falar.', '— I’ll speak. She won’t listen, but I’ll speak.'), T('Velho que fala para não ser ouvido grita mais alto.', 'An old man who speaks not to be heard shouts louder.')],
         nada: [T('— Pode ir. O vinho eu sirvo sozinho.', '— You can go. I’ll pour the wine myself.'), T('Ele derrama metade na mesa e não liga.', 'He spills half on the table and doesn’t care.')],
       },
@@ -304,8 +304,8 @@
       ] },
       { fala: T('— Um barco de pesca contra a maior galera da costa. Por quê?', '— A fishing boat against the biggest galley on the coast. Why?'), ops: [
         { id: 'trazer', txt: T('Eu queria que me trouxessem até você.', 'I wanted them to bring me to you.'), ouro: 2, verm: 0, resp: [T('Ela não responde. Fica me olhando, como se a resposta ainda não tivesse acabado.', 'She doesn’t answer. She keeps looking at me, as if the answer weren’t finished yet.')] },
-        { id: 'conte', txt: T('Quantos dos seus voltaram daquele canal, Lâmina? Conte. Depois me pergunte de novo.', 'How many of yours came back from that channel, Blade? Count. Then ask me again.'), ouro: 2, verm: 1, resp: [T('Atrás dela, a pena para no papel.', 'Behind her, the quill stops on the page.'), T('— Sei quantos não voltaram — diz ela. — Contei um por um. Agora responda.', '— I know how many didn’t come back — she says. — I counted them one by one. Now answer.'), T('— Eu respondi.', '— I did.')] },
-        { id: 'morde', txt: T('Para Redom saber que o mar sempre vai ser perigoso.', 'So Redom would know the sea will always be dangerous.'), ouro: 1, verm: 1, resp: [T('— O mar. Não você.', '— The sea. Not you.')] },
+        { id: 'conte', txt: T('Quantos dos seus voltaram daquele canal, Laura? Conte. Depois me pergunte de novo.', 'How many of yours came back from that channel, Laura? Count. Then ask me again.'), ouro: 2, verm: 1, resp: [T('Atrás dela, a pena para no papel.', 'Behind her, the quill stops on the page.'), T('— Sei quantos não voltaram — diz ela. — Contei um por um. Agora responda.', '— I know how many didn’t come back — she says. — I counted them one by one. Now answer.'), T('— Eu respondi.', '— I did.')] },
+        { id: 'morde', txt: T('Para Redom saber que, sem paz na Orla, o mar sempre vai ser perigoso.', 'So Redom would know that without peace on the Shore, the sea will always be dangerous.'), ouro: 1, verm: 1, resp: [T('— O mar. Não você.', '— The sea. Not you.')] },
         { id: 'piloto', mente: true, txt: T('O meu piloto errou o canal.', 'My pilot took the wrong channel.'), ouro: 0, verm: 1, resp: [T('— O seu piloto morreu. É fácil pôr a culpa em morto.', '— Your pilot is dead. It’s easy to blame the dead.')] },
       ] },
       { fala: (st) => (maruLado(st) ? T('— Os meus homens viram o mar subir. Um mar parado, que respirou fundo e quebrou o mastro da maior galera da costa.', '— My men saw the sea rise. A still sea, that took a deep breath and broke the mast of the biggest galley on the coast.') : T('— Os meus homens viram o mar subir. Um mar parado, que respirou fundo e varreu o convés da maior galera da costa.', '— My men saw the sea rise. A still sea, that took a deep breath and swept the deck of the biggest galley on the coast.')), ops: [
@@ -356,7 +356,7 @@
     // a leitura de manhã, ensaiada na cabeça dela: o que o conselho murmura depois de cada papel, conforme o lugar dele
     reage: {
       1: { cedo: T('— Perto da metade? Então acabou para eles.', '— Near half? Then it’s over for them.'), tarde: T('— Perderam metade, e mesmo assim se mexem.', '— They lost half, and still they move.') },
-      2: { cedo: T('A mesa fica quieta. Alguém olha para a cadeira vazia da Lâmina.', 'The table goes quiet. Someone looks at the Blade’s empty chair.'), tarde: T('— O comandante… — e ninguém termina.', '— The commander… — and no one finishes.') },
+      2: { cedo: T('A mesa fica quieta. Alguém olha para a cadeira vazia da Laura.', 'The table goes quiet. Someone looks at Laura’s empty chair.'), tarde: T('— O comandante… — e ninguém termina.', '— The commander… — and no one finishes.') },
       3: { cedo: T('— Vivo? O grande? E deixou o menino voltar?', '— Alive? The big one? And he let the boy come back?'), tarde: T('— Um sentinela assustado. Viu o que quis ver.', '— A frightened sentry. He saw what he wanted to see.') },
       4: { cedo: T('— Os poços são nossos. Ganhamos.', '— The wells are ours. We won.'), tarde: T('— Pelo menos os poços.', '— At least the wells.') },
       5: { cedo: T('— Para o norte. Estão indo embora. Melhor assim.', '— North. They’re leaving. All the better.'), tarde: T('— Para o norte. Fugindo. Vivo e fugindo.', '— North. Running. Alive and running.') },

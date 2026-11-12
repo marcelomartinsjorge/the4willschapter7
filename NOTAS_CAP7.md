@@ -344,3 +344,33 @@ Pedido do autor: não inventar sistema nem conteúdo novo, tentar quebrar a lóg
 - Saiu a regra recitada nas noites ("é com ela que se passa por uma porta") e a explicação repetida da cara da hóspede: agora "O rosto de {MASC} eu guardei de dia. Falta a roupa." e "subo por um bueiro com outra cara".
 - O eco do terceiro dia muda de lugar e de boca (a fonte da praça, uma criada), para não repetir a fila do pão.
 - A trégua não "põe a marca" duas vezes quando alguém já assinou na mesa: "a folha tem a marca de…".
+
+## v5.7 · 12/11/2026 · o capítulo jogado pelo autor, ponta a ponta
+Feedback de uma run inteira do Marcelo, aplicado onde ele viu e, pelos mesmos princípios, nas rotas que ele não viu.
+
+**Princípios novos (valem para o capítulo inteiro)**
+- **A Madrinha só chama a Laura de Laura.** "Lâmina" e "General-Rainha" ficam na boca de Redom. A própria Madrinha diz isso na a06c ("General-Rainha, Lâmina: isso é para quem deve alguma coisa a ela. Para mim, é Laura"). A Orla diz "a rainha deles"/"a mulher de Redom"; o Ossian conta como Redom a chama. Trocado em toda narração dela, nas falas dela (inclusive "Quantos dos seus voltaram daquele canal, Laura?" e "Levem a mim para a Laura de vocês"), no nome do minijogo e na tela final. Fica "a Lâmina" nas falas dos soldados, carcereiros, Aubert e nos cartões que citam o que eles disseram. **Exceção deixada para o autor decidir:** nas falas do Anzol a Madrinha está com o rosto de alguém de Redom e fala como essa pessoa ("A Lâmina devia levar os melhores, senhor").
+- **Cada conquista diz como.** Iska (a conversa à parte, a vergonha, a roupa entregue depois de ver o próprio rosto), Greta (a canção, o elogio, a bacia de água gordurosa), a capa roxa no mercado, a coluna e as noites: os resultados finos ganharam o gesto que faltava (a lanterna apagada no posto, a fofoca no varal, o vinho no gargalo, a canção da Orla na porta da Maud, a chave perdida na loja de tinta, o corte de mentira na enfermaria), e cada morte diz o método. A água é a assinatura: jarro, tinteiro, cantil, barril, balde de têmpera.
+- **A opção diz o que ela vai fazer.** "Esperar que ela vá buscar água no poço" matava sem avisar. Agora: "Seguir a Greta até o poço e jogá-la lá dentro"; "Levar a Iska até a ponte de corda e matá-la"; "Cortar a garganta de {MOT} com a faca da manga"; "Levar a sombra para um beco e matá-lo lá"; na coluna, "Pegar a roupa… enquanto dorme / Usar a cara da Lume… / Matar {DISFARCE} e esconder o corpo".
+- **Menos cheiro.** O cheiro é língua do Kronk. Saíram "cheira a alcatrão…", "óleo de lâmina", "a cidade cheira a cal e a pão".
+
+**Texto do autor aplicado** (com ajuste mínimo de português): o dito da capa ("Dê moedas ao mar…"), a cidade como cardume, o velho que derruba as moedas, a saída do Ossian (moeda, sorriso, porta), Alvena "antes de deixar a Sentença me pegar", as mulheres que oferecem o corpo e a vida (Iska, a que ri mais alto e a quem faltam dentes), o "Hah! … A Madrinha me favorece", a ordem das três perguntas, "Boca Seca é um deserto. Péssima notícia: antes fosse uma doença", o rosto devolvido ao mar quando a Iska morreu, a "humana feia", "quantos vão, nem se voltam", a tripulação na maior aventura da vida, a Nhalé com meio sorriso, a Sentença entrando cercada ("Não sai uma seta, porque eu estou a bordo"), "sem paz na Orla", a Lume com água de rosas, a frase completa ("como se o meu corpo não fosse mais necessário neste plano…").
+
+**Cenas novas**
+- **a10b · O soldado do dente de ouro:** depois de segurar o rosto, escolher entre beijar ("Depois do presentinho no braço resolveu se comportar, hein?") e encostar a faca na barriga dele.
+- **Brann:** "Se você é quem todos dizem, o que a gente vai fazer de tão importante?" Três respostas que chegam ao mesmo lugar: afundar a Sentença (ele se espanta), a tripulação na história da Orla (ele pergunta como; se espanta), ou a onda que molha só ele ("Eu não sei se sou a Madrinha de vocês. Mas sei que a água me obedece."), que o deixa calado e com a seta guardada para quem tentar virar o barco.
+- **O último da tripulação:** sai "Decorar o rosto".
+
+**Dublagem e imagens**
+- **D25** (nova): a descida até a água pesada do fundo, na b03. Os três parágrafos viraram um, para a voz não ser cortada.
+- **D26** (nova) substitui a D15 na c03 ("Ela me lê…"), que estava com o áudio errado.
+- **b03-onda.jpg:** troca o fundo no parágrafo da onda (o motor agora aceita fundo preso a um parágrafo).
+- **t05-laura-aubert.jpg:** fundo da Laura recebendo o Aubert.
+
+**Laura (c03b):** primeiro o que a Madrinha já sabia (a estrada, a escada), depois a Laura senta. Sai "porque a Lâmina não acredita em quem dá de graça". A pergunta do Joseph agora é clara: "Com pouca gente, os Grakh escapam outra vez." O alvo do Joseph na noite 2: "Um velho oficial que perdeu para ela no Torneio, vinte anos atrás, e até hoje acha que devia ter ganhado."
+
+**Os mortos vendidos no molhe:** a b05b e a a11 agora dizem o que a mulher do pedágio dizia: afogado da Orla se vende por peso no molhe de Alvena, para o curtume e para os porcos.
+
+**Motor**
+- **Minijogos de fala (Anzol e Laura):** depois da resposta do outro, o jogo espera o botão Continuar. Nada some antes de o leitor ler.
+- **Alarme:** a morte da Iska nunca contou (é na Orla). Contam os erros na Capital e na estrada: na terceira, a Capital acha a Madrinha. A Greta no poço é um deles; agora a opção diz que é morte.

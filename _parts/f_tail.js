@@ -62,7 +62,7 @@
       texto: [
         t({ estrebaria: T('Saiu com o exército de Redom pelo portão sul, carregando água para os cavalos.', 'She left with Redom’s army through the south gate, carrying water for the horses.'),
           forja: T('Saiu com o exército de Redom pelo portão sul, puxando o fole de uma forja de campanha.', 'She left with Redom’s army through the south gate, working the bellows of a field forge.'),
-          ilse: T('Saiu com o exército de Redom pelo portão sul, com ataduras para a tenda dos feridos, a vinte passos da tenda da Lâmina.', 'She left with Redom’s army through the south gate, carrying bandages for the wounded tent, twenty paces from the Blade’s.'),
+          ilse: T('Saiu com o exército de Redom pelo portão sul, com ataduras para a tenda dos feridos, a vinte passos da tenda da Laura.', 'She left with Redom’s army through the south gate, carrying bandages for the wounded tent, twenty paces from Laura’s.'),
           nell: T('Saiu com o exército de Redom pelo portão sul, com um saco de sal no ombro, na cozinha do exército.', 'She left with Redom’s army through the south gate, a sack of salt on her shoulder, in the army’s kitchen.') }[disf]),
         t(T('Laura D’Orrose não sabe que ela está lá.', 'Laura D’Orrose does not know she is there.')),
       ],
@@ -74,7 +74,7 @@
       { titulo: t(T('A tripulação', 'The crew')),
         feito: (lang === 'en' ? 'You took ' : 'Você levou ') + lista(nomesTrip) + '. ' + (salvo(st) ? t(T('A Nhalé levou {ULT} para o fundo, vivo. Os outros, ', 'Nhalé carried {ULT} down to the deep, alive. The others, ')) : '') + (J(st, 'mao').quando === 'cedo' ? t(T('Quem os matou foi a água dela.', 'What killed them was her water.')) : t(T('Quem os matou foram as bestas de Redom, enquanto ela esperava.', 'What killed them was Redom’s crossbows, while she waited.'))),
         volta: t({ mentira: T('Ela tinha dito a eles que hoje não.', 'She had told them not today.'), verdade: T('Ela tinha dito a verdade, e eles foram assim mesmo.', 'She had told them the truth, and they went anyway.'), olhar: T('Ela não disse nada. Passou a mão no rosto de cada um, e eles foram.', 'She said nothing. She ran her hand down each face, and they went.') }[st.escolhas.ordem] || T('Eles foram porque era ela.', 'They went because it was her.')) },
-      { titulo: t(T('A Lâmina', 'The Blade')),
+      { titulo: t(T('Laura', 'Laura')),
         feito: t({ palavra: T('Laura a mandou à Orla com um comandante e a palavra dela.', 'Laura sent her to the Shore with a commander and her word.'), sombra: T('Laura a mandou à Orla com um comandante que não saía do lado dela.', 'Laura sent her to the Shore with a commander who never left her side.'), argola: T('Laura a mandou à Orla com uma argola no pulso.', 'Laura sent her to the Shore with a shackle on her wrist.') }[termos(st)]) + ' ' + t((st.f.trChefes || 0) >= 3 ? T('As três casas assinaram a trégua.', 'All three houses signed the truce.') : T('Duas casas assinaram a trégua.', 'Two houses signed the truce.')),
         volta: [st.f.confessou && t(T('Você disse que foi você que levantou o mar.', 'You said it was you who raised the sea.')), st.f.semente && t(T('Você falou da Boca Seca na frente dela.', 'You spoke of the Dry Mouth in front of her.')), st.f.usouSimon && t(T('Você falou do irmão dela.', 'You spoke of her brother.'))].filter(Boolean).join(' ') || t(T('Ela vai lembrar que você não teve medo.', 'She will remember you weren’t afraid.')) },
     ];
@@ -84,7 +84,7 @@
         : nome + (lang === 'en' ? { cheia: ' said the gold sentence.', meia: ' said half of it.', nada: ' didn’t say it.' }[r] : { cheia: ' disse a frase de ouro.', meia: ' disse metade.', nada: ' não disse.' }[r]);
     });
     const algum = trabalhados(st).some((a) => resultadoDe(st, a) !== 'nada');
-    pilares.push({ titulo: t(T('Os grandes', 'The great')), feito: ditos.join(' '), volta: algum ? t(T('Cada um achou que a ideia era dele.', 'Each one thought the idea was his own.')) : t(T('A ideia ficou com ela. A Lâmina levou os melhores do mesmo jeito.', 'The idea stayed with her. The Blade took the best all the same.')) });
+    pilares.push({ titulo: t(T('Os grandes', 'The great')), feito: ditos.join(' '), volta: algum ? t(T('Cada um achou que a ideia era dele.', 'Each one thought the idea was his own.')) : t(T('A ideia ficou com ela. A Laura levou os melhores do mesmo jeito.', 'The idea stayed with her. Laura took the best all the same.')) });
     const n = [];
     trip.forEach((k) => { const c = window.LIVRO.colecao[k]; const fimK = c.fim(st); n.push(t(c.nome).split(',')[0] + ': ' + t(fimK || (typeof c.quer === 'function' ? c.quer(st) : c.quer) || '').replace(/^./, (x) => x.toLowerCase())); });
     n.push((lang === 'en' ? 'Iska: ' : 'Iska: ') + t({ roubar: T('passou o dia no porão do navio, e conta isso até hoje.', 'spent the day in the ship’s hold, and still tells of it.'), seduzir: T('dormiu no navio da Madrinha, sorrindo.', 'slept on the Godmother’s ship, smiling.'), matar: T('dorme embaixo de Nove Mastros.', 'sleeps under Nine Masts.') }[st.escolhas.roupa1] || T('não soube de nada.', 'never knew a thing.')));
@@ -156,7 +156,7 @@ function NOITE(k) {
         'At the square’s fountain, one maid says to another: «' + en(f) + '» Last night only one person had said it. Now it is the city saying it.');
     if (r === 'meia') return T('Na boca de um guarda, ouço metade da frase de ontem: «' + metade(f) + '» A outra metade ficou com quem eu não terminei.',
       'In a guard’s mouth I hear half of last night’s sentence: «' + metade(en(f)) + '» The other half stayed with the one I didn’t finish.');
-    return k === 2 ? T('Na fila do pão ninguém repete nada da noite passada. A cidade cheira a cal e a pão, e eu tenho uma noite a menos.', 'In the bread line no one repeats anything from last night. The city smells of lime and bread, and I have one night fewer.')
+    return k === 2 ? T('Na fila do pão ninguém repete nada da noite passada. A cidade amanhece igual, e eu tenho uma noite a menos.', 'In the bread line no one repeats anything from last night. The city wakes the same, and I have one night fewer.')
       : T('Da noite de ontem, a cidade não guardou nada. Sobra esta noite, e é a última.', 'Of last night, the city kept nothing. This night is what’s left, and it is the last.');
   };
   // antes de escolher o alvo: o objetivo, e quantas frases já andam sozinhas
@@ -247,7 +247,7 @@ function NOITE(k) {
       texto: (st) => [NT[k], RUMO(st)],
       escolha: { id: 'alvo' + k, pergunta: T('Atrás de quem eu vou?', 'Whom do I go after?'), opcoes: [
         { id: 'circulo', se: (st) => !usado(st, 'circulo'), txt: (st) => (circulo(st) === 'justine' ? T('Justine, na capela da Juíza.', 'Justine, in the Judge’s chapel.') : T('Markus, na sala de armas.', 'Markus, in the armory.')), resultado: (st) => [circulo(st) === 'justine' ? T('A mulher que escreve antes de a Laura falar.', 'The woman who writes before Laura speaks.') : T('O homem que não olha para outra coisa que não seja ela.', 'The man who looks at nothing but her.')] },
-        { id: 'joseph', se: (st) => !usado(st, 'joseph'), txt: T('Sir Joseph, na taverna dos oficiais velhos.', 'Sir Joseph, in the old officers’ tavern.'), resultado: [T('Um velho que perdeu para ela e nunca terminou de perder.', 'An old man who lost to her and never finished losing.')] },
+        { id: 'joseph', se: (st) => !usado(st, 'joseph'), txt: T('Sir Joseph, na taverna dos oficiais velhos.', 'Sir Joseph, in the old officers’ tavern.'), resultado: [T('Um velho oficial que perdeu para ela no Torneio, vinte anos atrás, e até hoje acha que devia ter ganhado.', 'An old officer who lost to her in the Tournament, twenty years ago, and still thinks he should have won.')] },
         { id: 'varr', se: (st) => !usado(st, 'varr'), txt: T('Lorde Varr, no refeitório da infantaria.', 'Lord Varr, in the infantry mess.'), resultado: [T('O homem que vai com dois mil, se deixarem.', 'The man who goes with two thousand, if they let him.')] },
         { id: 'ansel', se: (st) => !usado(st, 'ansel'), txt: T('O sentinela que voltou das Goelas, na enfermaria.', 'The sentry who came back from the Gullets, in the infirmary.'), resultado: [T('Tudo o que ele diz é verdade. Melhor ainda.', 'Everything he says is true. Better still.')] },
       ] } }
@@ -265,7 +265,7 @@ function NOITE(k) {
         { id: 'bento', gesto: true, txt: T('O do Bento, o menino aguadeiro. Entra em qualquer casa com a água e sai sem que lembrem dele. Serve para levar e para mentir.', 'Bento’s, the water boy. He goes into any house with the water and leaves without being remembered. Good for taking, and for lying.'),
           resultado: [{ t: T('Penso no Bento até a pele obedecer. Fico pequena, de joelho ralado, com um balde da fonte.', 'I think of Bento until my skin obeys. I turn small, with a scraped knee and a bucket from the fountain.'), veste: 'bento' }] },
         { id: 'lume', gesto: true, txt: T('O da Lume, da Casa das Lanternas. Quase todo mundo diz sim a ela, e todo mundo lembra. Serve para chegar perto.', 'Lume’s, from the House of Lanterns. Almost everyone says yes to her, and everyone remembers. Good for getting close.'),
-          resultado: [{ t: T('Penso na Lume até a pele obedecer. A boca fica mais cheia, e o cabelo cheira a óleo de lanterna.', 'I think of Lume until my skin obeys. My mouth grows fuller, and my hair smells of lantern oil.'), veste: 'lume' }] },
+          resultado: [{ t: T('Penso na Lume até a pele obedecer. A boca e os seios ficam mais cheios, e o cabelo cheira a água de rosas barata.', 'I think of Lume until my skin obeys. My mouth and breasts grow fuller, and my hair smells of cheap rosewater.'), veste: 'lume' }] },
       ] } },
     { id: 'n' + k + 'r', noite: k, zona: 'noite', agua: 0, sal: .32 + k * .08, fundo: { img: IMG('n-noite' + k), dim: .62, clima: k === 2 ? 'chuva' : null },
       texto: (st) => [saida(st) === 'lume' ? T('Com a cara da Lume, chego perto de {MASC}.', 'In Lume’s face, I get close to {MASC}.') : T('Com a cara do Bento e o balde na mão, chego perto de {MASC}.', 'In Bento’s face, bucket in hand, I get close to {MASC}.')],

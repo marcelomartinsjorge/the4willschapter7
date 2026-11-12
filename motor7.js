@@ -407,6 +407,7 @@ const itensDe = (objs, base = 0) => objs.map((o, k) => [
   o.frase ? { frase: o.frase, p: base + k, solto: true } : null,
   o.veste ? { veste: o.veste, p: base + k, solto: true } : null,
   o.moeda ? { moeda: true, p: base + k, solto: true } : null,
+  o.fundo ? { fundo: o.fundo, p: base + k, solto: true } : null,
 ]).flat().filter(Boolean);
 // '—' abre uma fala; '«' abre a frase que o outro diz em voz alta, no ouro (o Anzol que pegou)
 function pHTML(p, extra = '') {
@@ -427,6 +428,7 @@ const tocaItem = (it) => {
   if (it.guarda) return [].concat(typeof it.guarda === 'function' ? it.guarda(st) : it.guarda).filter(Boolean).forEach((g) => guarda(g));
   if (it.frase) return it.frase === 'laura' || it.frase === 'boca' ? fraseAcende(it.frase) : frase(it.frase);
   if (it.veste) return veste(typeof it.veste === 'function' ? it.veste(st) : it.veste);
+  if (it.fundo) return setFundo(typeof it.fundo === 'function' ? it.fundo(st) : it.fundo);
   if (it.moeda) { A.moeda(); document.body.classList.remove('moeda'); void document.body.offsetWidth; document.body.classList.add('moeda'); return; }
   if (!A.ctx || !A.on) return;
   if (it.voz) A.narrate(vozUrl(typeof it.voz === 'function' ? it.voz(st) : it.voz), null, true); else if (it.fn) it.fn(A, st); else if (it.sfx) A.sfx(it.sfx, it.v != null ? it.v : .7); else if (it.s) A.once(it.s, it.v != null ? it.v : .7);
