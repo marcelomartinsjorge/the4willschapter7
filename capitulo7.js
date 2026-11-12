@@ -259,6 +259,8 @@ const sabe = (st, k) => !!st.f['resp_' + k];
 const fezCarcereiro = (st, id) => st.escolhas.carcereiro === id || st.escolhas.carcereiro2 === id;
 const termos = (st) => J(st, 'interrogatorio').termos || 'sombra';
 const alvoDa = (st, k) => st.escolhas['alvo' + k] || null;
+// a noite do Varr: a Madrinha está com o rosto da Maud, a irmã dele?
+const euMaud = (st) => { const k = [1, 2, 3].find((n) => alvoDa(st, n) === 'varr'); return !!k && window.LIVRO.mascNoite(st, k) === 'maud'; };
 const trabalhados = (st) => [1, 2, 3].map((k) => alvoDa(st, k)).filter(Boolean);
 const resultadoDe = (st, alvo) => { const k = [1, 2, 3].find((n) => alvoDa(st, n) === alvo); return k ? (J(st, 'noite' + k).resultado || 'nada') : null; };
 const NOMES_ALVO = {
@@ -679,7 +681,8 @@ window.LIVRO = {
           { id: 'd', tipo: 'direto', u: -2, txt: T('Todo oficial devia ir.', 'Every officer should go.'), resp: [T('— Desde quando você decide isso?', '— Since when do you decide that?')] },
         ] },
         { fala: T('— A Terceira é minha. Dois mil homens que nunca viram um Grakh de perto.', '— The Third is mine. Two thousand men who’ve never seen a Grakh up close.'), ops: [
-          { id: 'p', tipo: 'porta', de: 'maud', u: 2, txt: T('A sua irmã diz que o senhor não suporta ver os outros partirem sem o senhor.', 'Your sister says you can’t stand to see the others leave without you, sir.'), resp: [T('— A Maud fala demais. E fala certo.', '— Maud talks too much. And she talks right.')] },
+          { id: 'p', tipo: 'porta', de: 'maud', livre: (st) => euMaud(st), txt: (st) => (euMaud(st) ? T('Eu te conheço, irmão. Você não aguenta ficar em casa enquanto os outros vão.', 'I know you, brother. You can’t bear staying home while the others go.') : T('A sua irmã diz que o senhor não suporta ver os outros partirem sem o senhor.', 'Your sister says you can’t stand to see the others leave without you, sir.')), u: 2,
+            resp: (st) => (euMaud(st) ? [T('— Você fala demais, Maud. E fala certo.', '— You talk too much, Maud. And you talk right.')] : [T('— A Maud fala demais. E fala certo.', '— Maud talks too much. And she talks right.')]) },
           { id: 'q', tipo: 'pergunta', u: 1, txt: T('E os outros comandantes?', 'And the other commanders?'), resp: [T('— Os outros ficam. Na volta, vão rir de mim ou chorar em cima de mim. Depende.', '— The others stay. When I’m back, they’ll laugh at me or weep over me. Depends.')] },
           { id: 's', tipo: 'silencio', u: 1, resp: [T('— Dois mil meninos. E eu na frente deles, para eles verem como se faz.', '— Two thousand boys. And me in front of them, so they see how it’s done.')] },
           { id: 'd', tipo: 'direto', u: -2, txt: T('Dois mil meninos não bastam.', 'Two thousand boys aren’t enough.'), resp: [T('— Você fala igual aos velhos do conselho.', '— You talk like the old men on the council.')] },
@@ -902,6 +905,8 @@ window.LIVRO = {
       ] },
 
     { id: 'a05', zona: 'cabine', agua: 0, fundo: { img: IMG('a04-cabine'), dim: .62 },
+      // o Ossian conta aqui que quem conjura vai vivo para a Capital: o plano inteiro depende disso, então nunca fica por descobrir
+      aoEntrar: (st) => { st.f.resp_vivos = true; },
       texto: [
         T('— Redom tomou Alvena há quatro verões, Madrinha — diz Sarnai. — Fechou o porto para a Orla. Quem leva peixe para vender sai de lá sem o barco.', '— Redom took Alvena four summers ago, Godmother — says Sarnai. — Closed the port to the Shore. Whoever brings fish to sell comes back without the boat.'),
         T('— Para eles, todo barco da Orla é pirata e todo Nymae é feiticeiro — diz Ossian. — Os homens, eles enforcam no molhe de Alvena. Os que eles acham que conjuram, levam vivos para a Capital, para a rainha deles ver com os próprios olhos.', '— To them, every boat of the Shore is a pirate and every Nymae a sorcerer — says Ossian. — The men they hang on the mole at Alvena. The ones they think can conjure, they take alive to the Capital, for their queen to see with her own eyes.'),
@@ -931,7 +936,7 @@ window.LIVRO = {
         T('De manhã tem fila na prancha do navio. Cada um traz uma moeda e um pedido, e diz o pedido baixo, perto do meu ouvido, como se o resto do cais não estivesse escutando.', 'In the morning there is a line at the ship’s gangplank. Each one brings a coin and a request, and says the request low, close to my ear, as if the rest of the dock weren’t listening.'),
         T('Um pescador quer Alvena de volta, porque o peixe dele apodrece sem porto. Uma mãe quer o filho que a Sentença levou para remar nas galeras. Um rapaz quer que a moça do barco vizinho olhe para ele, e fica vermelho até a ponta das orelhas.', 'A fisherman wants Alvena back, because his fish rots without a port. A mother wants the son the Sentence took to row in the galleys. A young man wants the girl on the next boat to look at him, and goes red to the tips of his ears.'),
         T('Escuto cada um de olhos fechados e não prometo nada. Eles saem da fila achando que eu prometi.', 'I listen to each of them with my eyes closed and promise nothing. They leave the line thinking I did.'),
-        T('Nem todos trazem moeda. Uma tecelã traz um vestido e uma capa, os dois tingidos de roxo, e me veste ali mesmo, na prancha. Um velho deixa no degrau uma faca de escamar, fina como folha, e não pede nada. A faca vai para a manga.', 'Not all of them bring coins. A weaver brings a dress and a cloak, both dyed purple, and dresses me right there on the gangplank. An old man leaves a scaling knife on the step, thin as a leaf, and asks for nothing. The knife goes into my sleeve.'),
+        T('Nem todos trazem moeda. Uma tecelã traz uma capa tingida de roxo e a põe nos meus ombros, ali mesmo na prancha, por cima da saia das moedas. Do braço dela pende um vestido da mesma cor, dobrado, para quando o meu se gastar. Um velho deixa no degrau uma faca de escamar, fina como folha, e não pede nada. A faca vai para a manga.', 'Not all of them bring coins. A weaver brings a cloak dyed purple and lays it on my shoulders, right there on the gangplank, over the skirt of coins. From her arm hangs a dress of the same color, folded, for when mine wears out. An old man leaves a scaling knife on the step, thin as a leaf, and asks for nothing. The knife goes into my sleeve.'),
       ],
       escolha: { id: 'oferendas', pergunta: T('Como eu recebo?', 'How do I receive them?'), opcoes: [
         { id: 'nomes', gesto: true, tom: 'seduzir', aviso: AV.orla, txt: T('Tocar a testa de cada um e perguntar o nome, perto do ouvido.', 'Touch each forehead and ask the name, close to the ear.'),
@@ -1007,7 +1012,7 @@ window.LIVRO = {
       texto: [
         T('Alvena é uma cidade de pedra clara com um farol na ponta do molhe. No farol tem uma bandeira vermelha com uma espada branca, e a guarda da espada é uma balança.', 'Alvena is a town of pale stone with a lighthouse at the end of the mole. On the lighthouse flies a red banner with a white sword, and the sword’s guard is a pair of scales.'),
         T('Soldados de Redom bebem de graça nas mesas da rua. Quem passa perto deles abaixa a cabeça sem perceber que abaixou.', 'Redom’s soldiers drink for free at the street tables. Whoever passes near them lowers their head without noticing they did.'),
-        T('Ando com o rosto da Iska, e os olhos passam por mim e seguem. Tenho uma manhã e três perguntas: quando a Sentença passa, como chegar perto dela sem ir para o fundo antes da hora, e o que Redom faz com quem pega vivo.', 'I walk in Iska’s face, and eyes pass over me and move on. I have one morning and three questions: when the Sentence comes through, how to get close to her without going to the bottom too soon, and what Redom does with those it takes alive.'),
+        T('Ando com o rosto da Iska, e os olhos passam por mim e seguem. Tenho uma manhã e duas perguntas: quando a Sentença passa, e como chegar perto dela sem ir para o fundo antes da hora. O que Redom faz com quem conjura, o Ossian já me contou.', 'I walk in Iska’s face, and eyes pass over me and move on. I have one morning and two questions: when the Sentence comes through, and how to get close to her without going to the bottom too soon. What Redom does with conjurers, Ossian has already told me.'),
       ],
       minijogo: 'escuta', jogoId: 'alvena', mgNome: T('Ouvir os pequenos de Alvena', 'Listen to the small folk of Alvena'),
       depois: (st) => [
@@ -1068,6 +1073,7 @@ window.LIVRO = {
     { id: 'a12', zona: 'mar', agua: 0, fundo: { video: VID('b01-mar'), img: IMG('b01-mar'), dim: .55, foco: '55% 50%' },
       texto: [
         T('De Nove Mastros ao Canal das Garças são dois dias de vela. A tripulação fala baixo perto de mim, como quem está na maior aventura da vida.', 'From Nine Masts to the Heron Channel is two days under sail. The crew speaks low near me, like people on the greatest adventure of their lives.'),
+        (st) => (sabe(st, 'rota') ? null : T('Nenhum dos pequenos de Alvena soube me dizer quando a Sentença passa. Vamos esperar no canal sem dia marcado, e a tripulação percebe que eu também não sei.', 'None of the small folk of Alvena could tell me when the Sentence comes through. We will wait in the channel with no day set, and the crew sees that I don’t know either.')),
         T('Na última noite antes do canal, chamo um de cada vez até a proa. Cada um vai fazer uma coisa só, e nenhum sabe a do outro.', 'On the last night before the channel, I call them one at a time to the bow. Each of them will do one thing only, and none knows the others’.'),
       ] },
 
@@ -1176,7 +1182,7 @@ window.LIVRO = {
             : noBarco(st, 'brann') ? T('Brann ri pelo canto da boca e põe a seta mais reta em cima do joelho. — Então é isso. A senhora quer que ela veja a gente.', 'Brann laughs out of the side of his mouth and lays his straightest bolt across his knee. — So that’s it. You want her to see us.')
               : T('Lio não entende. Nhalé entende por ele e bate na quilha com força, de baixo.', 'Lio doesn’t understand. Nhalé understands for him and knocks hard on the keel from below.')),
         (st) => (sabe(st, 'rota') ? T('Em Alvena me contaram nove dias. Hoje é o nono.', 'In Alvena they told me nine days. Today is the ninth.')
-          : T('Não sei o dia da galera. Esperamos três noites no canal, com o barco parado no caminho dela. Na terceira, ninguém no barco dorme.', 'I don’t know the galley’s day. We wait three nights in the channel, the boat sitting in her path. On the third, no one on the boat sleeps.')),
+          : T('Não sei o dia da galera. Esperamos três noites no canal, com o barco parado no caminho dela. Na primeira, a tripulação ainda canta. Na segunda, olha para mim para ver se eu sei. Na terceira, ninguém dorme, e eles já não perguntam.', 'I don’t know the galley’s day. We wait three nights in the channel, the boat sitting in her path. On the first, the crew still sings. On the second, they look at me to see whether I know. On the third, no one sleeps, and they no longer ask.')),
       ] },
 
     { id: 'b02', zona: 'galera', agua: 0, fundo: { video: VID('b02-sentenca'), img: IMG('b02-sentenca'), dim: .4, foco: '60% 45%' },

@@ -265,7 +265,7 @@ function anzol(root, c) {
       [...log.children].forEach((x) => x.classList.add('velha'));
       while (log.children.length > 6) log.firstElementChild.remove();
       linhas(log, [tr_.fala], c, 'alvo');
-      const vis = tr_.ops.filter((o) => (!o.se || o.se(st)) && (!o.de || c.st.colecao.includes(val(o.de, st))));
+      const vis = tr_.ops.filter((o) => (!o.se || o.se(st)) && (!o.de || (o.livre && o.livre(st)) || (val(o.de, st) && st.colecao.includes(val(o.de, st)))));
       ops.innerHTML = '';
       setTimeout(() => {
         vis.forEach((o, n) => {
@@ -341,7 +341,7 @@ function interrogatorio(root, c) {
       [...log.children].forEach((x) => x.classList.add('velha'));
       while (log.children.length > 6) log.firstElementChild.remove();
       linhas(log, [val(q.fala, st)], c, 'alvo'); if (q.voz) c.narrate(q.voz, true);
-      const vis = q.ops.filter((o) => (!o.se || o.se(st)) && (!o.de || (val(o.de, st) && st.colecao.includes(val(o.de, st)))));
+      const vis = q.ops.filter((o) => (!o.se || o.se(st)) && (!o.de || (o.livre && o.livre(st)) || (val(o.de, st) && st.colecao.includes(val(o.de, st)))));
       ops.innerHTML = '';
       setTimeout(() => {
         vis.forEach((o, n) => {
