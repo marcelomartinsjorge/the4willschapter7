@@ -771,7 +771,7 @@ window.LIVRO = {
       T('A porta fecha, e a tocha vai junto.', 'The door shuts, and the torch goes with it.')],
     perguntas: [
       { fala: T('— Nome.', '— Name.'), ops: [
-        { id: 'madrinha', txt: T('Na Orla me chamam de Madrinha.', 'On the Shore they call me Godmother.'), ouro: 1, verm: 0, resp: [T('— A Madrinha da Orla. — Ela não ri. — Li sobre ela, num livro de povos de fora, ao lado do dragão do norte. História para marinheiro não ter medo do escuro.', '— The Shore’s Godmother. — She doesn’t laugh. — I read about her, in a book of outland peoples, next to the dragon of the north. A story so sailors won’t fear the dark.')] },
+        { id: 'madrinha', txt: T('Na Orla me chamam de Madrinha.', 'On the Shore they call me Godmother.'), ouro: 1, verm: 0, flag: 'nome', resp: [T('— A Madrinha da Orla. — Ela não ri. — Li sobre ela, num livro de povos de fora, ao lado do dragão do norte. História para marinheiro não ter medo do escuro.', '— The Shore’s Godmother. — She doesn’t laugh. — I read about her, in a book of outland peoples, next to the dragon of the north. A story so sailors won’t fear the dark.')] },
         { id: 'porao', txt: T('Pergunte aos seus soldados como os presos da Orla me chamavam no porão.', 'Ask your soldiers what the Shore’s prisoners called me in the hold.'), ouro: 2, verm: 0, flag: 'influencia', resp: [T('Ela não se vira. O guarda atrás dela fala sozinho, para a parede.', 'She doesn’t turn. The guard behind her speaks on his own, to the wall.'), T('— Se ajoelharam, comandante. Os três. Com as correntes.', '— They knelt, commander. All three. In their chains.'), T('Ela não tira os olhos de mim enquanto ele fala.', 'She doesn’t take her eyes off me while he speaks.')] },
         { id: 'perto', txt: T('Pergunte de novo. Mais perto.', 'Ask again. Closer.'), ouro: 1, verm: 2, resp: [T('Ela não chega mais perto. Olha a minha boca, depois as minhas mãos, depois a boca outra vez.', 'She doesn’t come closer. She looks at my mouth, then my hands, then my mouth again.'), T('— Você faz isso com todo mundo. Comigo, não.', '— You do that to everyone. Not to me.')] },
         { id: 'nao', txt: T('Não tenho.', 'I don’t have one.'), ouro: 0, verm: 0, resp: [T('— Todo mundo tem. Até os Grakh têm.', '— Everyone has one. Even the Grakh do.')] },
@@ -1795,7 +1795,7 @@ window.LIVRO = {
       alvena: { rota: sabe(st, 'rota'), vivos: sabe(st, 'vivos'), perto: sabe(st, 'perto') }, estrago: st.f.estrago || 0, carcereiros: [st.escolhas.carcereiro, st.escolhas.carcereiro2].filter(Boolean),
       ordem: st.escolhas.ordem || null, abriuMao: J(st, 'mao').quando || null, rosto: st.escolhas.rosto || null,
       morta: { toques: m.toques || 0, ouvidas: (m.ouvidas || []).length }, carcereiro: st.escolhas.carcereiro || null,
-      interrogatorio: { ouro: it.ouro || 0, vermelho: it.verm || 0, termos: termos(st) },
+      interrogatorio: { ouro: it.ouro || 0, vermelho: it.verm || 0, termos: termos(st), nome: (it.flags || []).includes('nome') },
       tregua: { chefes: st.f.trChefes || 0, suspeita: st.f.trSusp || 0, sarnai: st.escolhas.trSarnai || null, ossian: st.escolhas.trOssian || null, ruo: st.escolhas.trRuo || null }, erros: st.f.erros || 0, tentativas: st.tentativas || 0,
       semente: !!st.f.semente, usouSimon: !!st.f.usouSimon, confessou: !!st.f.confessou,
       fuga: st.escolhas.trajeCriada || st.escolhas.sombra || null,
