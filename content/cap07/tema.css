@@ -326,7 +326,13 @@ html[lang="en"] .opt.jogar .tx { display: block; }
 
 @media (max-width: 700px) {
   #frase { top: 56px; font-size: 16px; }
-  #cardsNovos { bottom: auto; top: 60px; right: 10px; left: 10px; flex-direction: column; align-items: flex-end; }
+  #cardsNovos { bottom: auto; top: 58px; right: 10px; left: auto; flex-direction: column; align-items: flex-end; max-width: 78vw; }
+  /* celular: cartão enxuto (rosto e nome), no máximo dois de cada vez, para não tampar a imagem da cena */
+  .card-novo { width: auto; max-width: 78vw; grid-template-columns: 34px 1fr; column-gap: 10px; padding: 6px 12px 6px 6px; }
+  .card-novo .rosto { width: 34px; height: 34px; grid-row: span 2; }
+  .card-novo span { display: none; }
+  .card-novo b { font-size: 14px; }
+  .card-novo:nth-last-child(n+3) { display: none; }
   .es-grade { grid-template-columns: repeat(2, 1fr); }
   .es-c .es-r { width: 72px; height: 72px; }
   .az-ouro { top: 58px; font-size: 18px; }
