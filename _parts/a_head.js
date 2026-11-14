@@ -359,7 +359,7 @@ window.LIVRO = {
   tituloPag: 'A Madrinha · As Quatro Vontades',
   tituloPagEn: 'The Godmother · The Four Wills',
   capa: IMG('capa'),
-  proximo: { titulo: 'Capítulo VIII', tituloEn: 'Chapter VIII', url: '' },
+  proximo: { titulo: 'Capítulo VIII', tituloEn: 'Chapter VIII', url: 'https://marcelomartinsjorge.github.io/the4willschapter8/' },
 
   // ---------------------------------------------------------------- o que veio antes, com os padrões para quem não jogou
   inicio: (st) => {
