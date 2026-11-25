@@ -22,7 +22,7 @@
 | **O véu** | o medalhão no alto mostra o rosto que ela está usando; fica cinza na pedra; acende quando o ouro vaza | o capítulo inteiro |
 | **A Coleção** | o codex dela: um cartão por rosto (Quer · Não diz · Disse). Abre tocando no medalhão ou com a tecla C. As opções que nascem dela mostram o rostinho de quem contou | 50 cartões possíveis |
 | **Fechar os olhos** | o ouro vaza pelo rosto emprestado; um toque duplo no fôlego (2,4 s na primeira vez, com a dica; 1,6 s depois) | a10, l01, n1p, e04 |
-| **Os avisos** | “Lio vai lembrar disso.” Na Sentença, os avisos da tripulação voltam, afundam e ficam só um: “Ninguém vai lembrar disso.” | a05, a11, a12, b02, b04b, c05, l02 |
+| **Os avisos** | “Ikaú vai lembrar disso.” Na Sentença, os avisos da tripulação voltam, afundam e ficam só um: “Ninguém vai lembrar disso.” | a05, a11, a12, b02, b04b, c05, l02 |
 | **O tom e o alarme** | escondidos. O tom (doce, fria, cruel, divertida) escolhe a frase da tela final; o alarme decide os lugares da coluna e o que a Laura vai notar no Cap. VIII | o capítulo inteiro |
 
 ## O mapa do capítulo (67 páginas; cada partida vê 60)
@@ -116,7 +116,7 @@ O plano está em `CAP7_REESCRITA_v3_PLANO.md`. Esta seção diz o que entrou no 
   - **perto:** boiar como afogado.
 - **Tripulação:** a lealdade é escondida e nasce do que cada um é. Muda nas noites e cai se ela mentiu sobre os recifes ou se esperaram três noites sem saber o dia.
   - **O motim:** diante da Sentença, o primeiro sem lealdade tenta virar o barco. As saídas são "Ninguém morre hoje", tomar o leme, a lâmina, ou dar ao amotinado uma razão para ficar.
-  - **O estrago:** Maru de lado quebra o mastro, Brann derruba o mestre dos besteiros, e Teshka aborda e morre no convés deles.
+  - **O estrago:** Holuá de lado quebra o mastro, Brann derruba o mestre dos besteiros, e Kaheka aborda e morre no convés deles.
   - **A Nhalé:** se ela é leal, salva o último que estende a mão, e ele volta para a Orla. Isso aparece na Coleção e no fim.
 - **A Morta:** agora serve para ouvir: "Não se mexa. Quem se mexe para de ouvir." A página nova b05b mostra que ela é presa porque abre os olhos de propósito, e ela escolhe o jeito. As falas dos soldados mudam com o estrago.
 - **Ala Funda:** ela trabalha dois carcereiros, com as opções novas, e cada um dá uma pista sobre a Laura.
@@ -139,7 +139,7 @@ O plano está em `CAP7_REESCRITA_v3_PLANO.md`. Esta seção diz o que entrou no 
 ## v3.2 · Feedback de leitura (10/11)
 - **Respiro depois de Alvena:** a a11 virou uma noite calma. Ela tira o rosto da Iska, senta com os pés na água, e o que ouviu em Alvena vira plano na boca dela ("Nove dias, no Canal das Garças. Sei onde esperar."). O recrutamento foi para uma página própria (a11b). O "depois" de Alvena ficou com uma linha só.
 - **Três tripulantes, com motivo:** "O barco tem quatro lugares, e o quarto é meu."
-- **b01 sem "é o primeiro a entender":** a faca da Teshka para no meio da lâmina, a canção do Maru acaba no meio de um verso, e o Brann começa a contar as setas.
+- **b01 sem "é o primeiro a entender":** a faca da Kaheka para no meio da lâmina, a canção do Holuá acaba no meio de um verso, e o Brann começa a contar as setas.
 - **Carcereiros reconhecíveis:** cada um tem nome e som num parágrafo próprio, entra na Coleção com rosto quando aparece, e as opções mostram o rosto de cada um.
 - **"A cada tantas horas"** virou "de tempos em tempos, sem hora certa".
 - **A Laura sem dossiê:** cada coisa que ela sabe sai de algo que vê na Laura (ela não traz papel, tem pulsos finos para mãos com calos, uma faixa de luto no braço, senta na ponta do banco, olha as moedas da saia). A ligação com a moeda ficou explícita ("a moeda que o menino me deu"), com o tilintar da moeda.
@@ -174,8 +174,8 @@ O script trava em 30 grupos de 3 palavras. Quase todos são nomes próprios (cas
   - a velha agora ri "com uma boca quase sem dente";
   - o cabelo da Laura agora está solto;
   - "ela fala para quem está atrás dela" (antes era "o homem", que estava errado na rota da Justine);
-  - a fala do Maru depois de "Conheço" ficou clara.
-- **Entregues depois (10/11):** os vídeos a01-fundo, a08-metamorfose e b02-sentenca, e os rostos capa, capitao, desertor, grisalho, hobb, padre e pedagio. O Maru foi refeito.
+  - a fala do Holuá depois de "Conheço" ficou clara.
+- **Entregues depois (10/11):** os vídeos a01-fundo, a08-metamorfose e b02-sentenca, e os rostos capa, capitao, desertor, grisalho, hobb, padre e pedagio. O Holuá foi refeito.
 - **Não falta mais nenhum rosto, vídeo ou imagem** da lista do capítulo.
 - **Refazer se quiser (◻):** resolvido na v3.1 (a Iska nova e a cisterna em 720p).
 
@@ -207,7 +207,7 @@ O endereço fica `https://marcelomartinsjorge.github.io/the4willschapter7/`.
 - Rota vendida: o Ruo agora conta que o irmão saiu por uma rota que só três casas conheciam e a galera já esperava. O D04 (dublado) fica claro depois disso. Cartão do Ruo atualizado.
 - "Luva molhada" saiu: ela devolve o rosto da Iska com nojo da boca dela.
 - Olhos: "estranhos/esquisitos" viraram "acesos demais".
-- Segunda noite no mar com cada tripulante (a13*): Maru e o olho, Lio e o fundo, Teshka e a faca, Nhalé e o secar, Brann e a gaivota. A Nhalé não pergunta mais de cheiro: estava na roda que cantava quando ela acordou.
+- Segunda noite no mar com cada tripulante (a13*): Holuá e o olho, Ikaú e o fundo, Kaheka e a faca, Nhalé e o secar, Brann e a gaivota. A Nhalé não pergunta mais de cheiro: estava na roda que cantava quando ela acordou.
 - Fingir de morta: os soldados acham que ela morreu do começo ao fim; "resistente igual Grakh" só quando descobrem que está viva (b05b).
 - Ala Funda: ela aprende tudo pelo que ouve (rampa, soldados, sargento gritando os nomes).
 - D23 ganhou o complemento: os Grakh estão no fim, por isso os homens dela foram para a costa; ela quer levá-los ao deserto.
@@ -227,9 +227,9 @@ O endereço fica `https://marcelomartinsjorge.github.io/the4willschapter7/`.
 
 **Reescrito com a voz nova:**
 - Orla: a água fica lisa quando ela sobe a escada; os chefes (cada um ouve o seu pedido; o vinho sobe das taças; o silêncio que os faz oferecer mais; a pergunta da rota vendida); a fila (o mentiroso coça a orelha).
-- A tripulação como **oferenda ao mar**: as casas trazem os seus melhores aos degraus; ser dado ao mar não é morrer. Textos do minijogo da tripulação, cartões (Teshka quer que o mar devolva o que levou; Brann quer ver se a Madrinha é tinta; Maru quer pegar a Sentença pelos recifes).
-- As duas noites no mar, para os cinco: sem "quanto paga", sem verso cantado errado, sem puxar a Nhalé da água, sem tirar a besta do Brann. Magia à vista: a corrente que vira o barco, a chuva sem sal para o Lio, o mar liso que mostra o canal, a língua d'água que leva a gaivota, o sangue que volta para o corte. Lealdades e flags (maruLado, brannAtira, brannGuarda, teshkaGalera, nhaleAjuda) mantidas.
-- O canal: a tripulação queria cair de noite pelos recifes; ela vai de dia, à vista. Motim da Teshka reescrito. "Vocês foram dados ao mar. O mar já aceitou."
+- A tripulação como **oferenda ao mar**: as casas trazem os seus melhores aos degraus; ser dado ao mar não é morrer. Textos do minijogo da tripulação, cartões (Kaheka quer que o mar devolva o que levou; Brann quer ver se a Madrinha é tinta; Holuá quer pegar a Sentença pelos recifes).
+- As duas noites no mar, para os cinco: sem "quanto paga", sem verso cantado errado, sem puxar a Nhalé da água, sem tirar a besta do Brann. Magia à vista: a corrente que vira o barco, a chuva sem sal para o Ikaú, o mar liso que mostra o canal, a língua d'água que leva a gaivota, o sangue que volta para o corte. Lealdades e flags (maruLado, brannAtira, brannGuarda, teshkaGalera, nhaleAjuda) mantidas.
+- O canal: a tripulação queria cair de noite pelos recifes; ela vai de dia, à vista. Motim da Kaheka reescrito. "Vocês foram dados ao mar. O mar já aceitou."
 - **A onda dosada:** ela segura o mar ("O mar quer subir todo. Seguro."), fecha a mão um dedo de cada vez, e os dedos tremem de segurar, não de cansaço.
 - O porão da Sentença: três presos da Orla se ajoelham para ela (a prova que a Laura ouve do guarda).
 - Carcereiros: Wim pelo olhar, Garrick pelo nome, Pell pela pergunta sobre a Juíza (nada de rir da reza), Dunstan pela moeda.
@@ -247,7 +247,7 @@ O endereço fica `https://marcelomartinsjorge.github.io/the4willschapter7/`.
 - **A velha da escada:** sem "conta"; ela se ajoelha e o choro escorre nos pés da Madrinha, que recua para não molhar a saia e sorri; ela toma o sorriso por bênção. Espera os chefes das maiores casas (não "os mais velhos"). A Sentença: "Desde que a Lâmina subiu, cada ano é pior que o outro. O mar está ficando vermelho, Madrinha. Vermelho das bandeirolas de Redom."
 - **A cabine:** "Cada uma acha que é mais importante que as outras duas." Ruo: "Conheço esse olhar: desconfia de mim. Dou a ele o meu melhor sorriso." "E eu, de algum jeito, sei todos eles, como se a Orla fosse a minha enseada." Toda resposta fecha a conversa: o navio passa a ser dela e ela recebe o povo ao nascer do sol. Rota da Sarnai: "Não existe segredo entre um peixe e o mar." O vinho que subia virou o navio inteiro subindo um palmo.
 - **Alvena e a Iska:** Alvena é de Redom (meio dia de vela, na costa). Na Orla ninguém precisa ser enganado: três mulheres humanas oferecem rosto e roupa; ela fica com a Iska porque os soldados de Alvena conhecem a cara dela. A escolha agora é o que fazer com a Iska: no colo, saber a verdade da cicatriz (um soldado de dente de ouro, que aparece no mercado); mandá-la se esconder, porque Alvena não pode ver duas; ou garantir na ponte que só exista uma. Saiu o varal.
-- **As noites no mar viraram uma noite só, a véspera do canal:** cada tripulante recebe uma tarefa (Maru vira o barco de lado, Lio rema quando os outros quiserem voltar, Teshka sobe primeiro, Nhalé leva de volta quem cair perto, Brann derruba o oficial da proa). O jeito de dar a tarefa muda a lealdade. Saíram a gaivota, o "seca ou não seca", a faca na mão, o "quanto paga". Brann: "truque barato com caneca d'água".
+- **As noites no mar viraram uma noite só, a véspera do canal:** cada tripulante recebe uma tarefa (Holuá vira o barco de lado, Ikaú rema quando os outros quiserem voltar, Kaheka sobe primeiro, Nhalé leva de volta quem cair perto, Brann derruba o oficial da proa). O jeito de dar a tarefa muda a lealdade. Saíram a gaivota, o "seca ou não seca", a faca na mão, o "quanto paga". Brann: "truque barato com caneca d'água".
 - **A Sentença chama antes de atirar** (página nova b02c): o oficial da trombeta pede casa, carga e destino. Ela pode tentar poupar todos ("Sou a dona da Orla. Levem a mim"), chamá-lo para buscá-la (a galera encosta, e a onda leva os besteiros de uma vez) ou mandar virar. Tudo acaba nas bestas. É esse oficial que o Brann derruba.
 - **A onda:** "Ela acorda borbulhando, como se a água sentisse raiva." O minijogo ganhou som: gota que afina conforme o mar sobe, pancada de convés no vermelho, escorrido no perdido e um acorde a cada quarto da barra. Depois do Continuar, na linha "A onda é mais alta que os mastros deles", toca o teu `onda-cinematica`.
 - **Olhos:** o menino de Alvena vê escama, não ouro.
@@ -264,9 +264,9 @@ Li o capítulo de ponta a ponta, em português, como leitor. O que mudou:
 - **Medo:** deusa não leva susto. Em Alvena, quem faz o rosto escorregar é a dor do aperto do soldado; na lavanderia, o peso de tantos olhos.
 - **Olhos:** nada mais acende ou denuncia pelo olho. A lavadeira Nymae a reconhece porque a água do tanque fica lisa quando ela passa (o mesmo sinal do cais). O guarda da tocha diz "O seu rosto…". O intendente sente a pele emprestada repuxar no queixo. A tela final diz "O rosto escorregou", não "o ouro vazou".
 - **A Laura na cela:** o que ela procurava não era ouro no olho, era medo. "— Já interroguei muitos de vocês. Todos tinham medo de mim. Você, não." / "Agora sei o que ela procurava desde a porta: o meu medo. Não achou." A tela final diz "Ela vai lembrar que você não teve medo."
-- **Continuidade da Teshka:** ela não diz mais o nome do Ossian antes de a Madrinha perguntar quem prometeu Alvena.
-- **Maru:** não "vem por último" (aparece primeiro); ela vai até ele no leme.
-- **Lio:** boia "de boca aberta para o céu, esperando a chuva que eu prometi" (se ela fez chover) ou "com o pano ainda enrolado no braço". O cartão quer "ser dado ao mar no lugar do irmão".
+- **Continuidade da Kaheka:** ela não diz mais o nome do Ossian antes de a Madrinha perguntar quem prometeu Alvena.
+- **Holuá:** não "vem por último" (aparece primeiro); ela vai até ele no leme.
+- **Ikaú:** boia "de boca aberta para o céu, esperando a chuva que eu prometi" (se ela fez chover) ou "com o pano ainda enrolado no braço". O cartão quer "ser dado ao mar no lugar do irmão".
 - **Aubert** raspa a cabeça e a barba toda manhã (bate com o retrato).
 - **Sarnai:** a narradora não chama a si mesma de "a Madrinha".
 - **"Conta" restante, trocado:** o guarda "confere" a hóspede e a argola; Aubert "anota" as velas; os pequenos "sabem" antes dos arautos; Dunstan e "o total nunca dá o que ele quer".
@@ -279,28 +279,28 @@ Li o capítulo de ponta a ponta, em português, como leitor. O que mudou:
 ## v5.3 · 11/11/2026 · cada tela de escolha lida como o jogador vê
 
 Agora toda revisão passa por um roteiro (`telas.js`, no scratchpad) que monta cada tela de escolha como ela aparece: as últimas falas antes da escolha, a pergunta, as opções e o resultado de cada uma, em quatro tripulações e com cada amotinado. Corrigido a partir dessa leitura:
-- **Respostas a não-perguntas:** nas páginas do Lio e da Teshka, a última linha antes das opções era a ordem da própria Madrinha, e as opções pareciam responder a ela mesma. Agora a tela termina na fala deles ("A senhora quer o quê de mim?" / "A senhora não veio.") e a tarefa vai dentro da resposta escolhida.
+- **Respostas a não-perguntas:** nas páginas do Ikaú e da Kaheka, a última linha antes das opções era a ordem da própria Madrinha, e as opções pareciam responder a ela mesma. Agora a tela termina na fala deles ("A senhora quer o quê de mim?" / "A senhora não veio.") e a tarefa vai dentro da resposta escolhida.
 - **Nhalé:** saiu a tarefa de levar de volta "quem cair perto" (ela não pode saber quem vai cair). Ficam duas respostas à pergunta das velhas: a mão na água, "Conte você", ou "Diga às velhas que eu respondo quando eu voltar".
 - **Iska, em três passos:** na taverna, três mulheres se oferecem e ela fica com a Iska, que vende peixe em Alvena. Primeiro o colo, sem alternativa (a Iska de mentira precisa saber a verdade da cicatriz). Depois a troca de rosto, com o vídeo: a voz sai na primeira, o rosto custa três tentativas, "não sai perfeito, mas basta para os bêbados de Alvena". Só então a escolha: "Amanhã você não põe o pé em Alvena", ou a ponte de corda.
 - **Motim do Brann:** ele não estava no leme; agora abaixa a besta, ou a besta cai na água.
-- **A Sentença:** "se detém a um tiro de besta de nós". Duas respostas só, porque ela quer ser presa: entregar-se pelos seus, ou começar ela mesma ("Brann. Agora.", ou, sem o Brann, "Hoje o mar volta a ser da Orla, e você não dá mais nenhuma ordem"). Maru vira o barco "como eu mandei".
+- **A Sentença:** "se detém a um tiro de besta de nós". Duas respostas só, porque ela quer ser presa: entregar-se pelos seus, ou começar ela mesma ("Brann. Agora.", ou, sem o Brann, "Hoje o mar volta a ser da Orla, e você não dá mais nenhuma ordem"). Holuá vira o barco "como eu mandei".
 - **Fila do cais:** ela pergunta o nome antes de devolver (eles não tinham dito).
-- **O aviso preso no canto** ("Teshka vai lembrar disso"): era o aviso que volta e afunda quando a tripulação morre; se o jogador avançava, ele não sumia. Corrigido no motor.
+- **O aviso preso no canto** ("Kaheka vai lembrar disso"): era o aviso que volta e afunda quando a tripulação morre; se o jogador avançava, ele não sumia. Corrigido no motor.
 
 ## v5.4 · 11/11/2026 · varredura inteira jogada como jogador (Etapa 6c)
-Três rotas lidas do começo ao fim (Maru/Lio/Brann; Teshka/Nhalé/Brann com motim e argola; Maru/Teshka/Lio com sombra) e todas as telas de escolha montadas, conferidas contra o MADRINHA_VOZ.
+Três rotas lidas do começo ao fim (Holuá/Ikaú/Brann; Kaheka/Nhalé/Brann com motim e argola; Holuá/Kaheka/Ikaú com sombra) e todas as telas de escolha montadas, conferidas contra o MADRINHA_VOZ.
 - **A transformação da Iska volta a ser impecável** (sai "três tentativas"): é a primeira, e a dublagem D07 diz "na primeira tentativa".
 - **O dente de ouro tem consequência (a10):** quando o soldado agarra o braço dela, ela leva a mão dele até a cicatriz, pelo caminho que a faca dele fez. Ele para de rir e solta sozinho. A pista do colo da Iska agora serve para alguma coisa.
 - **Ossian (a06b):** os soldados "pagam com a língua" (saiu "pagam com o que contam"). A saída dele não repete mais o "até ele lembrar da porta", que fica só na mesa de Nove Mastros: agora ela diz o nome dele, devagar, e ele sai como quem foi pago.
-- **Teshka (a12t)** chega à proa porque foi chamada ("É a primeira vez que fala comigo"), e não "quando decide".
+- **Kaheka (a12t)** chega à proa porque foi chamada ("É a primeira vez que fala comigo"), e não "quando decide".
 - **Brann (a12b):** a opção diz o que ela vai responder ("dizer no ouvido dele quem volta"), em vez de "responder baixo".
 - **O canal (b01):** saiu o segundo "não olha para mim" da mesma tela.
-- **A Sentença (b02c, b03, b04b):** a ordem de ataque não antecipa a onda (a água do canal fica lisa, como a das estacas no dia em que ela subiu); a galera vem chegando antes de a Teshka lançar o gancho ("a um remo do nosso"); ela esconde as mãos "antes que alguém na Sentença veja"; e agora o texto diz como ela vai parar na água ("O nosso barco afunda devagar, cheio da minha água. Passo pela borda e entro no mar, entre os meus.").
+- **A Sentença (b02c, b03, b04b):** a ordem de ataque não antecipa a onda (a água do canal fica lisa, como a das estacas no dia em que ela subiu); a galera vem chegando antes de a Kaheka lançar o gancho ("a um remo do nosso"); ela esconde as mãos "antes que alguém na Sentença veja"; e agora o texto diz como ela vai parar na água ("O nosso barco afunda devagar, cheio da minha água. Passo pela borda e entro no mar, entre os meus.").
 - **A Laura (c03b):** o porquê (os Grakh no fim, os homens presos na costa) vem antes da D23, e a frase-alvo tem dono: "Quero a frase na voz dela: volte e ponha a Orla de joelhos."
 - **Trégua (t04):** com nenhuma casa, o texto dizia "só uma casa". Agora: "a página do comandante continua em branco".
 - **Volta à Capital (d01p, d01s):** ela diz por que volta: "A Orla segura a trégua sem mim. A coluna vai para a Boca Seca, e a frase vai com ela. Eu também vou."
 - **As três noites:** saiu o "cheira a cal e a pão" repetido em dois dias seguidos; cada dia sem eco tem a sua linha, e a última noite sem frase nenhuma também. O Sir Joseph não chama mais de "menina" o moço de recados.
-- **MADRINHA_VOZ:** Maru e Brann na tabela do §4 batem com o texto (sem olho dourado, sem "olho pintado"); §7 marcado como histórico; §5.1 ganha "toda pista tem consequência".
+- **MADRINHA_VOZ:** Holuá e Brann na tabela do §4 batem com o texto (sem olho dourado, sem "olho pintado"); §7 marcado como histórico; §5.1 ganha "toda pista tem consequência".
 - Checagem: 0 trechos ACIMA, "conta" figurada 0, nenhuma frase com duas muletas. Robô: três rotas até o fim da Parte V sem erro de JS.
 
 ## v5.5 · 11/11/2026 · a Capital por baixo, os rostos da noite e o motivo para a Laura
@@ -325,7 +325,7 @@ Pedido do autor: não inventar sistema nem conteúdo novo, tentar quebrar a lóg
 
 **Continuidade (achados e correções)**
 - A **faca** que sai da manga (Iska, motim) não tinha origem: na fila do cais, um velho deixa uma faca de escamar; uma tecelã traz o vestido e a **capa roxa** que ela troca com a moça no mercado (d01s).
-- **Maru** "para de cantar" sem nunca ter cantado: agora "cantou baixo a viagem toda".
+- **Holuá** "para de cantar" sem nunca ter cantado: agora "cantou baixo a viagem toda".
 - **"Amanhã"** nas ordens da véspera do canal, quando a espera pode durar três noites: virou "quando ela vier", "quando os outros quiserem voltar", "quando a galera encostar".
 - **Clarividência no canal (a12m):** a água mostrava "onde a galera vai estar amanhã". Agora mostra o único fundo que cabe uma galera de três mastros, e onde ela tem largura para virar.
 - **O preço da costa:** Dunstan, Laura e o cartão diziam três contas diferentes. Agora uma só: cada galera parada custa o imposto de uma aldeia por ano.

@@ -93,9 +93,9 @@ Aprovada a primeira. A dublagem D24 (a frase inteira, em inglês) toca nesse mom
 | Quem | Povo | Como a vê | Como fala com ela |
 |---|---|---|---|
 | **Nhalé** | Merés | Ela saiu do meio das Merés: é *delas*. Cantaram naquele ponto por três gerações, e desta vez subiu alguém. | Baixo, como dentro de um templo. Pergunta pouco e quer tocar. |
-| **Maru** | Nymae | A santa das lendas da mãe, a que devolve o olho de quem pede direito. | Não aguenta olhar para ela muito tempo. Vira para ela o lado do olho branco e fala das lendas da mãe. |
-| **Teshka** | Nymae | Rezou para a Madrinha sete noites pelo marido, e o marido não voltou. Crê com raiva. | Cobra. É a única que encara. |
-| **Lio** | Nymae | A Madrinha que leva pela mão para o fundo. Morrer com ela é ser escolhido. | Pede para ir junto. |
+| **Holuá** | Nymae | A santa das lendas da mãe, a que devolve o olho de quem pede direito. | Não aguenta olhar para ela muito tempo. Vira para ela o lado do olho branco e fala das lendas da mãe. |
+| **Kaheka** | Nymae | Rezou para a Madrinha sete noites pelo marido, e o marido não voltou. Crê com raiva. | Cobra. É a única que encara. |
+| **Ikaú** | Nymae | A Madrinha que leva pela mão para o fundo. Morrer com ela é ser escolhido. | Pede para ir junto. |
 | **Brann** | Humano | Em Alvena, Madrinha era qualquer Nymae com truque barato de caneca d'água na porta da taverna. Desconfia, e ela o converte com a água da caneca dele. | Cospe quando os outros dizem "Madrinha", até parar de cuspir. |
 | **Sarnai** | Nymae | Reza **para a Madrinha**, de olhos fechados, na frente dela. Nunca para a Juíza: corrigido. | Só em reza. |
 | **Ossian** | Humano | Crê o bastante para usar: quer o nome dela do lado dele da mesa. | Negocia. |
@@ -118,7 +118,7 @@ Aprovada a primeira. A dublagem D24 (a frase inteira, em inglês) toca nesse mom
 ---
 
 ### 5.1 Acréscimos da revisão de 11/11
-- **Sedução sempre com interesse.** Ela só seduz quando quer alguma coisa da pessoa: a Iska conta a verdade da cicatriz porque em Alvena alguém pode perguntar; o Maru treina a virada; o Brann escolhe o alvo. Nunca carinho sem motivo (saiu a mão da Nhalé até o amanhecer).
+- **Sedução sempre com interesse.** Ela só seduz quando quer alguma coisa da pessoa: a Iska conta a verdade da cicatriz porque em Alvena alguém pode perguntar; o Holuá treina a virada; o Brann escolhe o alvo. Nunca carinho sem motivo (saiu a mão da Nhalé até o amanhecer).
 - **Os olhos não chamam atenção.** As imagens não mostram olho especial, então o texto também não: quem a reconhece reconhece pelo efeito (a água que para, o silêncio), não pelo ouro do olho. Quando o disfarce escorrega, o que aparece é escama.
 - **No Orla ela não disfarça para pegar nada.** É a deusa deles: quem precisa de rosto e roupa recebe oferecido (a Iska). Disfarce e método só onde ela é estranha, em Alvena e em Redom.
 - **Toda pista tem consequência.** O que ela fica sabendo de alguém volta na história (o dente de ouro da Iska volta no soldado que agarra o braço dela em Alvena).
@@ -154,12 +154,12 @@ Quando ela diz que vai contra a Sentença, as casas não perguntam se podem ir. 
 - **Intimidar.** — Um. Para contar como os outros morreram. *Ele para de engraxar. Ninguém disse a ele que era isso.*
 - **Manipular.** — Depende de quem derrubar o oficial da proa antes de ele dar a ordem. *Ele separa uma seta das outras e não larga mais a besta (flag `brannAtira`).*
 
-**Maru** · *Pilota a noite inteira sem lanterna. Quando acha que eu durmo, vira o rosto para me ver com o olho bom.* — A minha mãe dizia que a Madrinha devolve o olho de quem pede direito.
+**Holuá** · *Pilota a noite inteira sem lanterna. Quando acha que eu durmo, vira o rosto para me ver com o olho bom.* — A minha mãe dizia que a Madrinha devolve o olho de quem pede direito.
 - **Seduzir.** Chego no leme e encosto atrás dele, a boca perto da orelha. — Você nunca pediu. *Ele não respira até eu me afastar.*
 - **Intimidar.** — Você vira o rosto para me olhar com o olho bom quando acha que eu durmo. Olhe com os dois. Eu vejo você do mesmo jeito. *Ele fica cinza. Pilota o resto da noite sem virar o rosto.*
 - **Manipular.** Mexo os dedos na água. À frente da proa, o mar fica liso e o canal aparece claro sob a lua. — Peça depois. Agora, o canal. *Ele vai fazer qualquer coisa para chegar ao depois.*
 
-**Teshka** · *Para de limpar a faca.* — Eu rezei para a senhora sete noites pelo meu marido. Na escada, de joelhos. A senhora não veio.
+**Kaheka** · *Para de limpar a faca.* — Eu rezei para a senhora sete noites pelo meu marido. Na escada, de joelhos. A senhora não veio.
 - **Seduzir.** Ponho os dedos molhados no queixo dela e levanto o rosto até os meus olhos. — Vim agora. *Ela aguenta o olhar mais do que qualquer um no barco. Depois guarda a faca.*
 - **Intimidar.** — O mar ficou com ele porque ele era o melhor. Você está neste barco pelo mesmo motivo. *Ela entende o que é ser dada ao mar e se endireita.*
 - **Manipular.** — Quem prometeu Alvena da outra vez? *Ela diz um nome da casa de Ossian. Agora ela odeia Ossian, e não a mim.*

@@ -40,7 +40,7 @@ const LEAL0 = { maru: 0, lio: 2, teshka: 0, nhale: 1, brann: 0 };
 const leal = (st, k) => { const l = st.f.leal || {}; return l[k] != null ? l[k] : LEAL0[k]; };
 const ganha = (k, n) => (st) => { st.f.leal = Object.assign({}, st.f.leal || {}); st.f.leal[k] = leal(st, k) + n; };
 const vivoBarco = (st, k) => noBarco(st, k) && st.f.motimMorto !== k;
-// quem tenta virar o barco diante da Sentença: o primeiro sem lealdade (o Maru não, se ela tomou o leme dele)
+// quem tenta virar o barco diante da Sentença: o primeiro sem lealdade (o Holuá não, se ela tomou o leme dele)
 const amotinado = (st) => ['teshka', 'maru', 'brann'].find((k) => noBarco(st, k) && leal(st, k) <= 0 && !(k === 'maru' && st.escolhas.n_maru === 'cruel')) || null;
 const teshkaAborda = (st) => vivoBarco(st, 'teshka') && !!st.f.teshkaGalera;
 const brannAtira = (st) => vivoBarco(st, 'brann') && !!st.f.brannAtira;
@@ -253,7 +253,7 @@ const AVISO_ERRO = {
   2: T('Mais um rastro, e a Capital me acha.', 'One more trace, and the Capital finds me.'),
 };
 
-const NOME_TRIP = { maru: 'Maru', lio: 'Lio', teshka: 'Teshka', nhale: 'Nhalé', brann: 'Brann' };
+const NOME_TRIP = { maru: 'Holuá', lio: 'Ikaú', teshka: 'Kaheka', nhale: 'Nhalé', brann: 'Brann' };
 // as três perguntas de Alvena: quando a Sentença passa, o que fazem com quem pegam vivo, como chegar perto
 const sabe = (st, k) => !!st.f['resp_' + k];
 const fezCarcereiro = (st, id) => st.escolhas.carcereiro === id || st.escolhas.carcereiro2 === id;
@@ -272,7 +272,7 @@ const ALA_OPCOES = (filtro) => [
   { id: 'wim', de: 'wim', gesto: true, tom: 'seduzir', txt: T('Esperar o Wim parar no buraco da canção e olhar para ele até ele olhar de volta.', 'Wait for Wim to stop at the hole in his song and look at him until he looks back.'),
     resultado: [T('Na terceira descida, ele para no lugar de sempre, onde a palavra some, e me encontra olhando. Fica. Aqui embaixo, nunca olharam para ele.', 'On his third trip down, he stops in the usual place, where the word goes missing, and finds me looking. He stays. Down here, no one has ever looked at him.'),
       T('Senta no último degrau, com a tocha no colo, e fala para encher o silêncio.', 'He sits on the bottom step, the torch in his lap, and talks to fill the silence.'),
-      T('— A Lâmina desce sozinha, sabia? Sempre. E pergunta o que já sabe, só para ver se a gente mente.', '— The Blade comes down alone, you know? Always. And she asks what she already knows, just to see if you lie.')] },
+      T('— A Lâmina pergunta o que já sabe, sabia? Só para ver se a gente mente.', '— The Blade asks what she already knows, you know? Just to see if you lie.')] },
   { id: 'garrick', de: 'garrick', fala: true, tom: 'intimidar', txt: T('Garrick.', 'Garrick.'),
     resultado: [T('Digo o nome dele no escuro, uma vez. Ele para no meio da escada. Nunca disse o nome perto da cela.', 'I say his name into the dark, once. He stops halfway down the stairs. He has never said his name near the cell.'),
       T('— O comandante Simon dizia que dá azar olhar conjuradora nos olhos — diz, de costas, por fim. — Servi com ele. Era homem de dividir o pão com quem estava de guarda. Na frente dela, ninguém diz o nome dele. Ninguém.', '— Commander Simon used to say it’s bad luck to look a conjurer in the eye — he says at last, with his back to me. — I served under him. He was a man who shared his bread with whoever stood watch. In front of her, no one says his name. No one.')] },
@@ -289,9 +289,9 @@ const ALA_OPCOES = (filtro) => [
 // os avisos (estilo Telltale)
 const AV = {
   orla: T('A Orla vai lembrar disso.', 'The Shore will remember this.'),
-  maru: T('Maru vai lembrar disso.', 'Maru will remember this.'),
-  lio: T('Lio vai lembrar disso.', 'Lio will remember this.'),
-  teshka: T('Teshka vai lembrar disso.', 'Teshka will remember this.'),
+  maru: T('Holuá vai lembrar disso.', 'Holuá will remember this.'),
+  lio: T('Ikaú vai lembrar disso.', 'Ikaú will remember this.'),
+  teshka: T('Kaheka vai lembrar disso.', 'Kaheka will remember this.'),
   nhale: T('Nhalé vai lembrar disso.', 'Nhalé will remember this.'),
   brann: T('Brann vai lembrar disso.', 'Brann will remember this.'),
   trip: T('A tripulação vai lembrar disso.', 'The crew will remember this.'),
@@ -405,4 +405,4 @@ window.LIVRO = {
   // o rosto dela (o medalhão sem máscara)
   rostos: { ela: { img: ROSTO('ela') } },
   // o primeiro nome de um aviso escolhe o rosto que aparece nele
-  rostosAviso: { Maru: 'maru', Lio: 'lio', Teshka: 'teshka', Nhalé: 'nhale', Brann: 'brann', Laura: 'laura', 'Os Nymae': 'velha', 'A Orla': 'velha', 'The Shore': 'velha', 'A lavadeira': 'lavadeira', 'The washerwoman': 'lavadeira', Markus: 'markus', Justine: 'justine', Joseph: 'joseph', Varr: 'varr', Ansel: 'ansel' },
+  rostosAviso: { Holuá: 'maru', Ikaú: 'lio', Kaheka: 'teshka', Nhalé: 'nhale', Brann: 'brann', Laura: 'laura', 'Os Nymae': 'velha', 'A Orla': 'velha', 'The Shore': 'velha', 'A lavadeira': 'lavadeira', 'The washerwoman': 'lavadeira', Markus: 'markus', Justine: 'justine', Joseph: 'joseph', Varr: 'varr', Ansel: 'ansel' },

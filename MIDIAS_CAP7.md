@@ -141,15 +141,15 @@ Photorealistic cinematic night shot of a floating city made of old ships lashed 
 
 `a12-maru.jpg`
 ```
-Photorealistic cinematic night shot on a small single-masted boat on the open sea, a single lantern, stars. Maru (an old Nymae pilot, about 70; small and wiry, blue-grey scaled skin gone pale and spotted with age; one eye milky white from salt, the other black; thin white hair in a short braid; fin-shaped ears torn at the edges; a sun-bleached sleeveless tunic and a rope belt) trims the sail rope with both hands, singing, mouth open in a soft note, eyes half closed. He is in the left third of the frame. Warm lantern light on deep navy night, film grain.
+Photorealistic cinematic night shot on a small single-masted boat on the open sea, a single lantern, stars. Holuá (an old Nymae pilot, about 70; small and wiry, blue-grey scaled skin gone pale and spotted with age; one eye milky white from salt, the other black; thin white hair in a short braid; fin-shaped ears torn at the edges; a sun-bleached sleeveless tunic and a rope belt) trims the sail rope with both hands, singing, mouth open in a soft note, eyes half closed. He is in the left third of the frame. Warm lantern light on deep navy night, film grain.
 ```
 `a12-lio.jpg`
 ```
-Photorealistic cinematic night shot on a small single-masted boat on the open sea, a single lantern, stars. Lio (a young Nymae man, about 20; slim, blue-grey skin with fine scales, fin-shaped ears, large yellow pupil-less eyes, short dark blue hair; an open, eager, boyish face; a simple faded purple shirt) sits hugging his knees and looks up at the sky with his mouth slightly open, as if waiting for rain. He is in the left third of the frame. Warm lantern light on deep navy night, film grain.
+Photorealistic cinematic night shot on a small single-masted boat on the open sea, a single lantern, stars. Ikaú (a young Nymae man, about 20; slim, blue-grey skin with fine scales, fin-shaped ears, large yellow pupil-less eyes, short dark blue hair; an open, eager, boyish face; a simple faded purple shirt) sits hugging his knees and looks up at the sky with his mouth slightly open, as if waiting for rain. He is in the left third of the frame. Warm lantern light on deep navy night, film grain.
 ```
 `a12-teshka.jpg`
 ```
-Photorealistic cinematic night shot at the bow of a small single-masted boat on the open sea, a single lantern. Teshka (a Nymae woman captain, about 40; compact and muscular, blue-grey scaled skin, fin-shaped ears with a small gold ring in one, yellow pupil-less eyes, dark blue hair shaved on one side; a hard, sceptical face; a sleeveless leather jerkin and wide sailcloth trousers) sits cross-legged cleaning a short knife with a rag, looking straight at the camera, unimpressed. She is in the left third of the frame. Warm lantern light on deep navy night, film grain.
+Photorealistic cinematic night shot at the bow of a small single-masted boat on the open sea, a single lantern. Kaheka (a Nymae woman captain, about 40; compact and muscular, blue-grey scaled skin, fin-shaped ears with a small gold ring in one, yellow pupil-less eyes, dark blue hair shaved on one side; a hard, sceptical face; a sleeveless leather jerkin and wide sailcloth trousers) sits cross-legged cleaning a short knife with a rag, looking straight at the camera, unimpressed. She is in the left third of the frame. Warm lantern light on deep navy night, film grain.
 ```
 `a12-nhale.jpg`
 ```
@@ -384,7 +384,7 @@ Photorealistic cinematic shot from behind and slightly above a long army column 
 ---
 ## 3. Os rostos da Coleção (`assets/images/rostos/`)
 
-**Contexto geral:** a Coleção é o codex dela: um cartão por pessoa que ela viu e ouviu, com o rosto, o que a pessoa quer, o que não diz e o que contou. O rosto aparece também no medalhão do alto da tela (quando ela veste aquela pessoa), nos avisos (“Lio vai lembrar disso.”), ao lado das opções que nascem da Coleção e na tela final. Enquanto o retrato não existe, aparece uma silhueta.
+**Contexto geral:** a Coleção é o codex dela: um cartão por pessoa que ela viu e ouviu, com o rosto, o que a pessoa quer, o que não diz e o que contou. O rosto aparece também no medalhão do alto da tela (quando ela veste aquela pessoa), nos avisos (“Ikaú vai lembrar disso.”), ao lado das opções que nascem da Coleção e na tela final. Enquanto o retrato não existe, aparece uma silhueta.
 
 **Formato:** 1:1 (1024×1024), cabeça e ombros, rosto centralizado um pouco acima do meio. **Modelo de prompt** (troque o lugar e a pessoa):
 ```
