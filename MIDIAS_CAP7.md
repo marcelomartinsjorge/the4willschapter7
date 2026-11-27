@@ -163,19 +163,19 @@ Photorealistic cinematic night shot on a small single-masted boat on the open se
 ### Parte II · A Sentença
 
 #### `b01-mar.jpg` ◻ · GPT · pôster do vídeo `b01-mar.mp4`
-**Contexto:** página b01. Dois dias de mar; ela manda seguir pelo canal da galera. **Centro-direita.**
+**Contexto:** página b01. Dois dias de mar; ela manda seguir pelo canal da galé. **Centro-direita.**
 ```
 Photorealistic cinematic aerial shot at dawn over a narrow sea channel between dark reefs and small rocky islands, a tiny single-masted boat with a patched sail cutting a thin white wake, five small figures on board too far to see faces. Herons standing on the reefs. Pale pink dawn over a steel-blue sea, mist in the channel, the boat in the center-right, film grain.
 ```
 
 #### `b02-sentenca.jpg` ⭐ · GPT · pôster do vídeo `b02-sentenca.mp4`
-**Contexto:** página b02. A Sentença aparece: a maior galera de Redom na costa. Ao lado dela, o barco da tripulação é uma casca de noz. **Centro-direita.**
+**Contexto:** página b02. A Sentença aparece: a maior galé de Redom na costa. Ao lado dela, o barco da tripulação é uma casca de noz. **Centro-direita.**
 ```
 Photorealistic cinematic shot at sunset from water level: a huge three-masted war galley of dark timber emerging from sea haze, red sails with a white sword emblem, two long rows of crossbowmen in red along the rails, oars raised, a gilded name board on the bow. In the foreground, tiny and low, the stern of a small patched fishing boat. The galley fills the center-right of the frame and towers over everything. Blood-orange sunset behind, dark sea, spray, film grain.
 ```
 
 #### `s03-costado.jpg` ⭐ · GPT
-**Contexto:** página b03 e o minijogo **Abrir a mão** (é o fundo do jogo inteiro, em tela cheia). Ela de pé na proa do barco pequeno; a galera vira o costado; os besteiros erguem as armas. Ponto de vista dela, olhando para cima. **Composição centrada**, com espaço vazio no terço de baixo para o botão do jogo.
+**Contexto:** página b03 e o minijogo **Abrir a mão** (é o fundo do jogo inteiro, em tela cheia). Ela de pé na proa do barco pequeno; a galé vira o costado; os besteiros erguem as armas. Ponto de vista dela, olhando para cima. **Composição centrada**, com espaço vazio no terço de baixo para o botão do jogo.
 ```
 Photorealistic cinematic low-angle point-of-view shot from the bow of a small fishing boat, looking up at the towering broadside of a dark war galley twenty meters away, three decks of black wet timber, a long row of crossbowmen in red surcoats leaning over the rail and raising their crossbows toward the viewer, faces in shadow under steel caps; the sea between the two hulls unnaturally flat and still, like glass; a red sunset sky behind the masts. Centered composition, the lower third is dark calm water. Ominous stillness, film grain.
 ```
@@ -471,7 +471,7 @@ Photorealistic cinematic extreme close-up at dusk on a ship’s deck, lantern li
 Photorealistic cinematic aerial shot at dawn over a narrow sea channel between dark reefs, a tiny single-masted boat with a patched sail cutting a thin wake, herons on the rocks, mist moving. Slow drift, seamless 8-second loop, boat in the right third.
 ```
 #### `b02-sentenca.mp4` ⭐
-**Contexto:** a galera aparece no fim da tarde; a tripulação implora para virar.
+**Contexto:** a galé aparece no fim da tarde; a tripulação implora para virar.
 ```
 Photorealistic cinematic shot at sunset from water level: a huge three-masted war galley of dark timber with red sails emerges slowly from sea haze, two rows of soldiers in red along the rails, oars rising and falling in rhythm. Slow push toward the galley, spray, seamless 8-second loop, galley in the right half.
 ```
@@ -506,7 +506,7 @@ Photorealistic cinematic shot from behind and slightly above a long army column 
 | `cabine-loop.mp3` | a cabine dos chefes | Inside a ship’s cabin at night: wood creaking slowly, lantern chains swaying, muffled sea against the hull, seamless loop | ◻ |
 | `alvena-loop.mp3` | Alvena | Small harbor town market at noon: murmuring crowd, a vendor calling, soldiers laughing at a table, seagulls, waves on stone, seamless loop | ⭐ |
 | `mar-aberto-loop.mp3` | o barco no mar | Small sailing boat on the open sea: sail flapping, water rushing along a small hull, wind, seamless loop | ⭐ |
-| `galera-loop.mp3` | a Sentença | Approaching war galley: deep rhythmic drum keeping oar time, oars splashing in unison, heavy timber groaning, men shouting far away, seamless loop | ⭐ |
+| `galé-loop.mp3` | a Sentença | Approaching war galley: deep rhythmic drum keeping oar time, oars splashing in unison, heavy timber groaning, men shouting far away, seamless loop | ⭐ |
 | `conves-loop.mp3` | o convés (A Morta) | Damaged galley deck at dusk: water dripping, slow listing creak, soldiers’ boots on wet planks, low murmuring, seamless loop | ⭐ |
 | `estrada-loop.mp3` | a carroça | Ox cart on a dusty road: wooden wheels creaking, ox hooves, cicadas, distant village dogs, seamless loop | ◻ |
 | `ala-funda-loop.mp3` | a Ala Funda | Deep stone dungeon: oppressive near-silence, a single slow drip, distant muffled footsteps on stairs, the low hum of stone, seamless loop | ⭐ |
@@ -631,7 +631,7 @@ Com a mesma voz e o mesmo microfone das D01 a D19, leve e molhada, perto do ouvi
 | Arquivo | Fala (em inglês) | Onde e como |
 |---|---|---|
 | `D20.mp3` | For anyone from the Shore, Redom opens only one door, and the one who opens it is the jailer. I need the Sentence to catch me. Alive. | **Página a06c.** Ela está sozinha na cabine, à noite, virando a moeda da Laura com a ponta do dedo. É o momento em que decide se deixar prender. Fale baixo, divertida, devagar, como quem acabou de achar a saída de um labirinto. Faça uma pausa de um segundo antes de "Alive.", e diga essa palavra mais baixo que o resto. |
-| `D21.mp3` | I need her to see me. Alive. | **Página b03.** Ela está de pé na proa do barquinho, de frente para a galera, com os besteiros erguendo as armas. É o eco da D20. Diga calma, quase carinhosa, sem pressa, como quem espera alguém chegar. Faça uma pausa curta antes de "Alive." |
+| `D21.mp3` | I need her to see me. Alive. | **Página b03.** Ela está de pé na proa do barquinho, de frente para a galé, com os besteiros erguendo as armas. É o eco da D20. Diga calma, quase carinhosa, sem pressa, como quem espera alguém chegar. Faça uma pausa curta antes de "Alive." |
 | `D22.mp3` | Laura will come down. Before she does, I want to know her. Until then, there is time to work two of them. | **Página c01.** Ela está na cela de pedra surda, depois de aprender os quatro carcereiros pelo som dos passos. Use uma paciência fria, íntima, com o prazer de quem tem tempo. Diga "work" com um meio sorriso. |
 | `D23.mp3` | She wants the desert and can’t go, because the coast ties down her galleys. If the Shore kneels, the coast lets go. I want her to send me back to do it herself. | **Página c03b.** A Laura acabou de sentar na frente dela, e é o pensamento dela antes da primeira pergunta. Diga num sussurro rápido e seguro, como um plano dito ao próprio ouvido. Desacelere em "do it herself". |
 

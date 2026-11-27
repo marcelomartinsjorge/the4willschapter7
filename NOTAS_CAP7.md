@@ -180,7 +180,7 @@ O script trava em 30 grupos de 3 palavras. Quase todos são nomes próprios (cas
 - **Refazer se quiser (◻):** resolvido na v3.1 (a Iska nova e a cisterna em 720p).
 
 ## Pendências
-- Nenhuma mídia faltando. No vídeo da onda, o casco da galera tem "REDOM" pintado. Passa rápido, mas se quiser refazer, peça sem letreiro.
+- Nenhuma mídia faltando. No vídeo da onda, o casco da galé tem "REDOM" pintado. Passa rápido, mas se quiser refazer, peça sem letreiro.
 - O botão final do Cap. VI ainda aponta para nada: quando o Cap. VII estiver no ar, troque `proximo.url` no `capitulo6.js` para o endereço novo.
 - Teste com 3 a 5 leitores de fora: os riscos da tabela dos jogos.
 
@@ -204,7 +204,7 @@ O endereço fica `https://marcelomartinsjorge.github.io/the4willschapter7/`.
 **A magia (b03).** Narração de concentração antes; minijogo novo inspirado no do Aheryn: brilhos dourados sobem da água funda, tocar antes de apagar enche a barra; o vermelho é o convés e custa água; acelera perto do fim ("Qualquer outra já teria soltado."). Cheia, ela escolhe a hora de abrir a mão. A salva vem aos 22 s: quem demora a encher já solta "tarde". Depois: a onda varre o convés, o número de mortos de Redom soma o que a tripulação fez (14 a 26), Nhalé puxa soldados para o fundo, os dedos dela não fecham mais.
 
 **Outros pontos do feedback, um por um:**
-- Rota vendida: o Ruo agora conta que o irmão saiu por uma rota que só três casas conheciam e a galera já esperava. O D04 (dublado) fica claro depois disso. Cartão do Ruo atualizado.
+- Rota vendida: o Ruo agora conta que o irmão saiu por uma rota que só três casas conheciam e a galé já esperava. O D04 (dublado) fica claro depois disso. Cartão do Ruo atualizado.
 - "Luva molhada" saiu: ela devolve o rosto da Iska com nojo da boca dela.
 - Olhos: "estranhos/esquisitos" viraram "acesos demais".
 - Segunda noite no mar com cada tripulante (a13*): Holuá e o olho, Ikaú e o fundo, Kaheka e a faca, Nhalé e o secar, Brann e a gaivota. A Nhalé não pergunta mais de cheiro: estava na roda que cantava quando ela acordou.
@@ -248,7 +248,7 @@ O endereço fica `https://marcelomartinsjorge.github.io/the4willschapter7/`.
 - **A cabine:** "Cada uma acha que é mais importante que as outras duas." Ruo: "Conheço esse olhar: desconfia de mim. Dou a ele o meu melhor sorriso." "E eu, de algum jeito, sei todos eles, como se a Orla fosse a minha enseada." Toda resposta fecha a conversa: o navio passa a ser dela e ela recebe o povo ao nascer do sol. Rota da Sarnai: "Não existe segredo entre um peixe e o mar." O vinho que subia virou o navio inteiro subindo um palmo.
 - **Alvena e a Iska:** Alvena é de Redom (meio dia de vela, na costa). Na Orla ninguém precisa ser enganado: três mulheres humanas oferecem rosto e roupa; ela fica com a Iska porque os soldados de Alvena conhecem a cara dela. A escolha agora é o que fazer com a Iska: no colo, saber a verdade da cicatriz (um soldado de dente de ouro, que aparece no mercado); mandá-la se esconder, porque Alvena não pode ver duas; ou garantir na ponte que só exista uma. Saiu o varal.
 - **As noites no mar viraram uma noite só, a véspera do canal:** cada tripulante recebe uma tarefa (Holuá vira o barco de lado, Ikaú rema quando os outros quiserem voltar, Kaheka sobe primeiro, Nhalé leva de volta quem cair perto, Brann derruba o oficial da proa). O jeito de dar a tarefa muda a lealdade. Saíram a gaivota, o "seca ou não seca", a faca na mão, o "quanto paga". Brann: "truque barato com caneca d'água".
-- **A Sentença chama antes de atirar** (página nova b02c): o oficial da trombeta pede casa, carga e destino. Ela pode tentar poupar todos ("Sou a dona da Orla. Levem a mim"), chamá-lo para buscá-la (a galera encosta, e a onda leva os besteiros de uma vez) ou mandar virar. Tudo acaba nas bestas. É esse oficial que o Brann derruba.
+- **A Sentença chama antes de atirar** (página nova b02c): o oficial da trombeta pede casa, carga e destino. Ela pode tentar poupar todos ("Sou a dona da Orla. Levem a mim"), chamá-lo para buscá-la (a galé encosta, e a onda leva os besteiros de uma vez) ou mandar virar. Tudo acaba nas bestas. É esse oficial que o Brann derruba.
 - **A onda:** "Ela acorda borbulhando, como se a água sentisse raiva." O minijogo ganhou som: gota que afina conforme o mar sobe, pancada de convés no vermelho, escorrido no perdido e um acorde a cada quarto da barra. Depois do Continuar, na linha "A onda é mais alta que os mastros deles", toca o teu `onda-cinematica`.
 - **Olhos:** o menino de Alvena vê escama, não ouro.
 - **Checagem:** "conta" figurada entrou como muleta de limite zero no script e no PROMPT_MESTRE (v5.5). Muletas e moldes: 0 acima.
@@ -295,7 +295,7 @@ Três rotas lidas do começo ao fim (Holuá/Ikaú/Brann; Kaheka/Nhalé/Brann com
 - **Kaheka (a12t)** chega à proa porque foi chamada ("É a primeira vez que fala comigo"), e não "quando decide".
 - **Brann (a12b):** a opção diz o que ela vai responder ("dizer no ouvido dele quem volta"), em vez de "responder baixo".
 - **O canal (b01):** saiu o segundo "não olha para mim" da mesma tela.
-- **A Sentença (b02c, b03, b04b):** a ordem de ataque não antecipa a onda (a água do canal fica lisa, como a das estacas no dia em que ela subiu); a galera vem chegando antes de a Kaheka lançar o gancho ("a um remo do nosso"); ela esconde as mãos "antes que alguém na Sentença veja"; e agora o texto diz como ela vai parar na água ("O nosso barco afunda devagar, cheio da minha água. Passo pela borda e entro no mar, entre os meus.").
+- **A Sentença (b02c, b03, b04b):** a ordem de ataque não antecipa a onda (a água do canal fica lisa, como a das estacas no dia em que ela subiu); a galé vem chegando antes de a Kaheka lançar o gancho ("a um remo do nosso"); ela esconde as mãos "antes que alguém na Sentença veja"; e agora o texto diz como ela vai parar na água ("O nosso barco afunda devagar, cheio da minha água. Passo pela borda e entro no mar, entre os meus.").
 - **A Laura (c03b):** o porquê (os Grakh no fim, os homens presos na costa) vem antes da D23, e a frase-alvo tem dono: "Quero a frase na voz dela: volte e ponha a Orla de joelhos."
 - **Trégua (t04):** com nenhuma casa, o texto dizia "só uma casa". Agora: "a página do comandante continua em branco".
 - **Volta à Capital (d01p, d01s):** ela diz por que volta: "A Orla segura a trégua sem mim. A coluna vai para a Boca Seca, e a frase vai com ela. Eu também vou."
@@ -319,16 +319,16 @@ Pedido do autor: não inventar sistema nem conteúdo novo, tentar quebrar a lóg
 
 **Aprovado pelo autor e aplicado**
 - **A passagem (t06, t06b, d02):** o quarto agora é no térreo do templo, com chão de laje (antes ficava "em cima do templo", e não havia terra embaixo da laje para cortar). Toda noite a água empurra a laje por baixo e desfaz a lama; antes do sol, assenta e fecha a junta. Sem escada: a água a desce e a sobe. Antes de o guarda abrir, ela passa as mãos pelo corpo e a água desce pelas frestas: "Deito seca."
-- **O motivo da Laura (c03b):** Redom brigou com os Grakh pela terra boa a vida inteira; sem guerra em terra, olhou para o mar, e quem olhou primeiro foi a Laura (Alvena, galera na frente de cada aldeia, pirata na forca, conjurador vivo para ela). O pessoal fica com a Laura: na escada, os carcereiros falam que ela pediu os mapas da Boca Seca e que quem matou o irmão ficou lá. A D23 (o deserto e a costa) segue intacta e agora fecha as duas coisas.
+- **O motivo da Laura (c03b):** Redom brigou com os Grakh pela terra boa a vida inteira; sem guerra em terra, olhou para o mar, e quem olhou primeiro foi a Laura (Alvena, galé na frente de cada aldeia, pirata na forca, conjurador vivo para ela). O pessoal fica com a Laura: na escada, os carcereiros falam que ela pediu os mapas da Boca Seca e que quem matou o irmão ficou lá. A D23 (o deserto e a costa) segue intacta e agora fecha as duas coisas.
 - **O interrogatório:** a pergunta-armadilha que o Wim avisa ("ela pergunta o que já sabe"): que casa da Orla vendeu a rota do Canal das Garças. A verdade, com uma ponta ("foi a sua prata que pagou"), passa; "nenhuma casa vende a Orla" e "não sei" são mentira, as orelhas falam, e a Laura tem o recibo. O corpo dela mostra cada chave: influência, "ela para de olhar para as minhas orelhas; agora só escuta"; motivo, "pela primeira vez, ela sai da ponta do banco". As reações genéricas deixaram de repetir o que as respostas já diziam (o "inclina para a frente" duplicado, a mão na espada duplicada). A ajuda do minijogo não lista mais as duas chaves: diz que ela pergunta o que já sabe e que o corpo dela mostra quando acredita. Limiar de ouro 8 (sete perguntas agora).
 - **As noites:** ficam como estão (o autor: só consequência que afete a história).
 
 **Continuidade (achados e correções)**
 - A **faca** que sai da manga (Iska, motim) não tinha origem: na fila do cais, um velho deixa uma faca de escamar; uma tecelã traz o vestido e a **capa roxa** que ela troca com a moça no mercado (d01s).
 - **Holuá** "para de cantar" sem nunca ter cantado: agora "cantou baixo a viagem toda".
-- **"Amanhã"** nas ordens da véspera do canal, quando a espera pode durar três noites: virou "quando ela vier", "quando os outros quiserem voltar", "quando a galera encostar".
-- **Clarividência no canal (a12m):** a água mostrava "onde a galera vai estar amanhã". Agora mostra o único fundo que cabe uma galera de três mastros, e onde ela tem largura para virar.
-- **O preço da costa:** Dunstan, Laura e o cartão diziam três contas diferentes. Agora uma só: cada galera parada custa o imposto de uma aldeia por ano.
+- **"Amanhã"** nas ordens da véspera do canal, quando a espera pode durar três noites: virou "quando ela vier", "quando os outros quiserem voltar", "quando a galé encostar".
+- **Clarividência no canal (a12m):** a água mostrava "onde a galé vai estar amanhã". Agora mostra o único fundo que cabe uma galé de três mastros, e onde ela tem largura para virar.
+- **O preço da costa:** Dunstan, Laura e o cartão diziam três contas diferentes. Agora uma só: cada galé parada custa o imposto de uma aldeia por ano.
 - **O pai da Laura** "morreu nas Goelas" (Sir Joseph): virou "no deserto", para não brigar com a morte dele no Cap. V.
 - **A Laura "enforcou feiticeiras em Alvena"** contradizia a regra de Redom (conjurador vai vivo para ela): agora "os conjuradores que sentaram na frente deste banco antes de você".
 - **"Os corpos tinham as marcas das três casas":** a tripulação pode ter gente sem casa (o Brann). Agora "casas diferentes", dito pelo guarda da porta (na rota do Markus não havia pena atrás dela: entrou um escrivão velho ao lado dele).

@@ -87,8 +87,8 @@ window.CHAPTER_CONFIG = {
       en: { title: 'The Sentence', eyebrow: 'Redom’s great galley on the coast', pages: [
         ['A three-masted war galley of Redom, the largest on the western coast. It patrols the channels between Alvena and the Shore with two decks of crossbowmen and a hold for prisoners. Captured boats are burned; their crews are hanged in Alvena.', 'Its route through the Heron Channel brings it back to Alvena every nine days.'],
       ] },
-      pt: { title: 'A Sentença', eyebrow: 'A grande galera de Redom na costa', pages: [
-        ['Galera de guerra de três mastros, a maior de Redom na costa oeste. Patrulha os canais entre Alvena e a Orla com dois conveses de besteiros e um porão para prisioneiros. Os barcos apreendidos são queimados; as tripulações, enforcadas em Alvena.', 'A rota pelo Canal das Garças a traz de volta a Alvena a cada nove dias.'],
+      pt: { title: 'A Sentença', eyebrow: 'A grande galé de Redom na costa', pages: [
+        ['Galé de guerra de três mastros, a maior de Redom na costa oeste. Patrulha os canais entre Alvena e a Orla com dois conveses de besteiros e um porão para prisioneiros. Os barcos apreendidos são queimados; as tripulações, enforcadas em Alvena.', 'A rota pelo Canal das Garças a traz de volta a Alvena a cada nove dias.'],
       ] },
     },
 

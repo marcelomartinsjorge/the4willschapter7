@@ -283,7 +283,7 @@ const ALA_OPCOES = (filtro) => [
   { id: 'dunstan', de: 'dunstan', gesto: true, tom: 'manipular', txt: T('Soltar uma moeda da barra da saia e deixar perto da grade, onde ele vê.', 'Work a coin loose from my skirt’s hem and leave it by the bars, where he will see it.'),
     resultado: [T('Ouro velho, da Orla. Não digo nada. Na descida seguinte, a moeda some.', 'Old gold, from the Shore. I say nothing. On his next trip down, the coin is gone.'),
       T('Na outra, Dunstan para na frente da cela e conta as moedas do bolso em voz alta. Tem uma a mais.', 'On the next, Dunstan stops at the cell and counts the coins in his pocket out loud. There is one more.'),
-      T('— Sabe quanto custa uma galera parada na costa de vocês? O imposto de uma aldeia, por ano. E tem uma galera parada na frente de cada aldeia. E a gente aqui com o soldo atrasado.', '— You know what a galley sitting off your coast costs? A whole village’s taxes, every year. And there’s a galley sitting off every village. And us down here with our pay late.')] },
+      T('— Sabe quanto custa uma galé parada na costa de vocês? O imposto de uma aldeia, por ano. E tem uma galé parada na frente de cada aldeia. E a gente aqui com o soldo atrasado.', '— You know what a galley sitting off your coast costs? A whole village’s taxes, every year. And there’s a galley sitting off every village. And us down here with our pay late.')] },
 ].map((o) => (filtro ? Object.assign({ se: (st) => filtro(st, o.id) }, o) : o));
 
 // os avisos (estilo Telltale)
@@ -387,7 +387,7 @@ window.LIVRO = {
     cabine: { src: 'assets/audio/cabine-loop.mp3', volume: .4, reserva: 'mar' },
     alvena: { src: 'assets/audio/alvena-loop.mp3', volume: .45, reserva: 'vento' },
     mar: { src: 'assets/audio/mar-aberto-loop.mp3', volume: .5, reserva: 'mar' },
-    galera: { src: 'assets/audio/galera-loop.mp3', volume: .55, reserva: 'mar' },
+    galé: { src: 'assets/audio/galé-loop.mp3', volume: .55, reserva: 'mar' },
     conves: { src: 'assets/audio/conves-loop.mp3', volume: .45, reserva: 'mar' },
     estrada: { src: 'assets/audio/estrada-loop.mp3', volume: .4, reserva: 'vento' },
     ala: { src: 'assets/audio/ala-funda-loop.mp3', volume: .45, reserva: 'pedra' },

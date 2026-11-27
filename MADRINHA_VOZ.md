@@ -75,7 +75,7 @@ Aprovada a primeira. A dublagem D24 (a frase inteira, em inglês) toca nesse mom
 ## 3. A magia
 
 - **A água obedece a ela.** Para ela, magia pequena é natural como respirar: o mar fica liso em volta do barco, a corrente para, a névoa sobe, a água de uma taça gela na mão de quem mentiu. Ela não anuncia nem explica nada disso. Os outros veem, e é a reação deles que mostra o tamanho do que viram.
-- **O poder dela é imenso, e o difícil é segurar.** Se quisesse, a onda afundava a Sentença inteira. Ela não quer: quer ser pega viva, então a galera precisa ficar boiando com soldados vivos para a recolher. A concentração da cena não é juntar força, é **dosar**. O mar quer subir mais, e ela não deixa. O minijogo da mão passa a contar isso: a mensagem "A água pesa" vira o mar pedindo mais, e o texto depois deixa claro que ela soltou só o necessário.
+- **O poder dela é imenso, e o difícil é segurar.** Se quisesse, a onda afundava a Sentença inteira. Ela não quer: quer ser pega viva, então a galé precisa ficar boiando com soldados vivos para a recolher. A concentração da cena não é juntar força, é **dosar**. O mar quer subir mais, e ela não deixa. O minijogo da mão passa a contar isso: a mensagem "A água pesa" vira o mar pedindo mais, e o texto depois deixa claro que ela soltou só o necessário.
 - **Depois da onda** ela não fica fraca. Os dedos tremem de segurar, não de cansaço. Na Morta, ela finge a exaustão que não sente.
 - **O tamanho de verdade fica para o Cap. VIII.** Lá, ela e o avatar de Thrym, com os Tacets e os poucos Grakh, destroem o melhor exército de Redom. No Cap. VII o jogador só desconfia, pelo que ela escolhe *não* fazer.
 - **Limites, para a história não quebrar:**
@@ -130,9 +130,9 @@ Aprovada a primeira. A dublagem D24 (a frase inteira, em inglês) toca nesse mom
 
 Quando ela diz que vai contra a Sentença, as casas não perguntam se podem ir. Oferecem. E ela aceita, pelos três motivos dela, que nunca diz em voz alta:
 
-- **Isca.** Contra uma mulher sozinha num barco, a Sentença atira de longe e segue. Contra um barco pirata de verdade, lutando, ela encosta e aborda, porque Redom leva pirata vivo para a forca de Alvena. Com a galera colada, a onda acerta em cheio.
+- **Isca.** Contra uma mulher sozinha num barco, a Sentença atira de longe e segue. Contra um barco pirata de verdade, lutando, ela encosta e aborda, porque Redom leva pirata vivo para a forca de Alvena. Com a galé colada, a onda acerta em cheio.
 - **Dano.** O piloto põe o barco no canal estreito, o besteiro derruba os oficiais da proa e a capitã segura a abordagem. Sem eles, a onda pega metade.
-- **Testemunha.** Uma só volta para a Orla, levada pela Nhalé (já aprovado), contando que a Madrinha quebrou a maior galera da costa com uma onda e deixou a galera boiando, de propósito. É essa história que, depois, faz as casas assinarem a trégua.
+- **Testemunha.** Uma só volta para a Orla, levada pela Nhalé (já aprovado), contando que a Madrinha quebrou a maior galé da costa com uma onda e deixou a galé boiando, de propósito. É essa história que, depois, faz as casas assinarem a trégua.
 
 **No texto:** a cena da escolha da tripulação vira a cena da oferenda. Os chefes trazem os seus melhores até a escada do cais. Ela escolhe olhando, sem perguntar nada. Quem é escolhido se ajoelha de alegria.
 
@@ -180,7 +180,7 @@ Quando ela diz que vai contra a Sentença, as casas não perguntam se podem ir. 
 **O que a Madrinha precisa provar (v5.5, pedido do autor):** três coisas, e a página antes do interrogatório diz isso ao jogador.
 1. Que foi ela que levantou o mar (o poder).
 2. Que a Orla faz o que ela manda (a influência entre as facções). Provas: os presos ajoelhados no porão, as dívidas entre as casas (rosto da Sarnai), ou os mortos do canal, filhos das três casas no mesmo barco.
-3. **Um motivo que a Laura compre para ela entregar a Orla a Redom.** A Laura não acredita em quem dá de graça. A mentira que funciona: *a Orla não tem lei, tem dívida; casa vende casa e o pescador paga a forca; com Redom na mesa a dívida acaba, e quem sentou Redom na mesa fica com o que sobrar.* A ambição pura (*a Orla de joelhos para Redom ajoelha primeiro para mim*) também convence, mas acende o vermelho. "Paz para a Orla" é mentira e a Laura ri: quem quer paz não quebra a maior galera da costa.
+3. **Um motivo que a Laura compre para ela entregar a Orla a Redom.** A Laura não acredita em quem dá de graça. A mentira que funciona: *a Orla não tem lei, tem dívida; casa vende casa e o pescador paga a forca; com Redom na mesa a dívida acaba, e quem sentou Redom na mesa fica com o que sobrar.* A ambição pura (*a Orla de joelhos para Redom ajoelha primeiro para mim*) também convence, mas acende o vermelho. "Paz para a Orla" é mentira e a Laura ri: quem quer paz não quebra a maior galé da costa.
 
 **v5.6 (auditoria):** a segunda pergunta é a armadilha que o Wim avisa: *"Alguém da Orla vendeu a rota. Que casa?"*. A Laura sabe a resposta, porque foi Redom que comprou. A verdade com ponta (*"As Viúvas do Sal. Você sabe, porque foi a sua prata que pagou."*) passa; a negação e o "não sei" são mentira, as orelhas falam. O corpo da Laura mostra cada chave quando ela passa a acreditar: influência, *ela para de olhar para as minhas orelhas; agora só escuta*; motivo, *pela primeira vez, ela sai da ponta do banco*. A ajuda do minijogo não lista as chaves: diz só que ela pergunta o que já sabe e que o corpo dela mostra quando acredita.
 
@@ -192,7 +192,7 @@ Quando ela diz que vai contra a Sentença, as casas não perguntam se podem ir. 
    - *Na Orla me chamam de Madrinha.* → A Laura conhece o mito: — A Madrinha da Orla é história para marinheiro não ter medo do escuro. Li sobre ela. *(+1 ouro, abre a pergunta 3.)*
    - *Pergunte aos seus soldados como os presos me chamavam no porão.* → O guarda, atrás dela: — Se ajoelharam, comandante. Todos. Com as correntes. *(Devoção vista. +2 ouro.)*
    - **Seduzir:** chego até a grade, devagar, e deixo a luz da tocha pegar nos meus olhos. — Pergunte de novo. Mais perto. *Ela não chega mais perto. A Laura lê corpos tão bem quanto eu, e lê o meu. +1 ouro, +2 vermelho. Arriscado.*
-2. **"— Um barco de pesca contra a maior galera da costa. Por quê?"**
+2. **"— Um barco de pesca contra a maior galé da costa. Por quê?"**
    - *Eu queria que me trouxessem até você.* *(+2 ouro.)*
    - *Para Redom saber que o mar sempre vai ser perigoso.* → — O mar. Não você. *(+1 ouro, +1 vermelho.)*
    - **Manipular:** — Quantos dos seus voltaram daquele canal, Lâmina? Conte. Depois me pergunte de novo. *(+2 ouro, +1 vermelho.)*
