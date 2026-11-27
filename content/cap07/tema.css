@@ -326,7 +326,7 @@ html[lang="en"] .opt.jogar .tx { display: block; }
 
 @media (max-width: 700px) {
   #frase { top: 56px; font-size: 16px; }
-  #cardsNovos { bottom: auto; top: 58px; right: 10px; left: auto; flex-direction: column; align-items: flex-end; max-width: 78vw; }
+  #cardsNovos { bottom: auto; top: 76px; right: 10px; left: auto; flex-direction: column; align-items: flex-end; max-width: 78vw; }
   /* celular: cartão enxuto (rosto e nome), no máximo dois de cada vez, para não tampar a imagem da cena */
   .card-novo { width: auto; max-width: 78vw; grid-template-columns: 34px 1fr; column-gap: 10px; padding: 6px 12px 6px 6px; }
   .card-novo .rosto { width: 34px; height: 34px; grid-row: span 2; }
@@ -382,3 +382,12 @@ html[lang="en"] .opt.jogar .tx { display: block; }
 .iq-o .iq-rot { color: var(--gold-hot, #f1c86e); }
 .iq-verm .iq-rot { color: #ff8f80; margin: 6px 0 0; }
 .az-rot { color: var(--gold-hot, #f1c86e); }
+
+/* o nome que os outros dão a ela, embaixo do véu */
+.ic.veu .nm { position: absolute; top: calc(100% + 5px); left: 50%; transform: translateX(-50%); white-space: nowrap; font-family: var(--sans); font-size: 10px; letter-spacing: .08em; text-transform: lowercase; color: var(--gold); opacity: .8; pointer-events: none; text-shadow: 0 1px 3px #000; }
+.ic.veu .nm:empty { display: none; }
+.ic.veu.mascara .nm { color: var(--roxo-claro); }
+/* a ideia dela na boca dos outros: brilha em ouro e apaga devagar */
+.planta { animation: planta 4.5s ease 1.3s both; border-radius: 2px; }
+@keyframes planta { 0% { color: inherit; text-shadow: none; } 18% { color: var(--gold-hot, #ffd98a); text-shadow: 0 0 10px rgba(255,214,120,.9); } 100% { color: inherit; text-shadow: none; } }
+@media (prefers-reduced-motion: reduce) { .planta { animation: none; color: var(--gold); } }

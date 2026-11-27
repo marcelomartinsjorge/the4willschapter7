@@ -21,7 +21,7 @@
         T('A cidade em cima da água é feita de navios. Dezenas deles, amarrados casco com casco, com pontes de corda de um convés a outro e lanternas penduradas nos mastros. É uma bagunça organizada: filhos e filhas do mar correm de um lado para o outro, atarefados, como cardume.', 'The city on top of the water is made of ships. Dozens of them, lashed hull to hull, with rope bridges from deck to deck and lanterns hung from the masts. It is an orderly mess: sons and daughters of the sea hurry back and forth, busy, like a shoal.'),
         V('D02', T('Na escada do cais, uma mulher derruba o cesto e se ajoelha em cima dos peixes. Gagueja um título que eu nunca ouvi. Estendo a mão. Ela beija meus dedos. Deixo que termine.', 'On the dock stairs a woman drops her basket and kneels on the fish. She stammers a title I have never heard. I hold out my hand. She kisses my fingers. I let her finish.')),
         T('Outros param. Olham para as tábuas. Um velho balbucia alguma coisa e procura moedas na bolsinha com a mão tremendo, e derruba todas nas tábuas.', 'Others stop. They look down at the planks. An old man mumbles something and gropes in his pouch for coins with a shaking hand, and drops them all on the planks.'),
-        T('Enquanto subo, a água em volta das estacas fica lisa. Os barcos amarrados param de bater uns nos outros e só voltam a bater quando eu chego no último degrau. Todo o cais viu, e o cais fica calado.', 'As I climb, the water around the pilings goes smooth. The moored boats stop knocking against each other and only start again when I reach the top step. The whole dock saw, and the dock keeps quiet.'),
+        { lisa: 3200, t: T('Enquanto subo, a água em volta das estacas fica lisa. Os barcos amarrados param de bater uns nos outros e só voltam a bater quando eu chego no último degrau. Todo o cais viu, e o cais fica calado.', 'As I climb, the water around the pilings goes smooth. The moored boats stop knocking against each other and only start again when I reach the top step. The whole dock saw, and the dock keeps quiet.') },
         T('Alguém me cobre com um pano. Uma menina passa óleo no meu cabelo com os dedos, de trás para a frente, tremendo. Inclino a cabeça para ela alcançar melhor.', 'Someone covers me with a cloth. A girl works oil into my hair with her fingers, back to front, trembling. I tilt my head so she can reach.'),
       ] },
 
@@ -143,6 +143,12 @@
         { id: 'colo', gesto: true, tom: 'seduzir', flag: 'iskaDente', txt: T('Chamar a Iska para uma conversa particular.', 'Call Iska aside for a private word.'),
           resultado: [T('Ela para de rir e me segue até uma mesa mais afastada. Sem floreio, com a voz baixa perto do ouvido dela, pergunto da vida dela, devagar, até chegar na cicatriz.', 'She stops laughing and follows me to a table further off. No flourishes: low-voiced, close to her ear, I ask about her life, slowly, until I get to the scar.'),
             T('Ela conta, envergonhada: foi um soldado da guarnição, no molhe, por causa de um cesto de peixe passado que ela vendeu a ele. — Ele ainda está lá — diz. — Tem um dente de ouro.', 'She tells it, ashamed: a soldier of the garrison, on the mole, over a basket of stale fish she sold him. — He’s still there — she says. — He has a gold tooth.')] },
+              { id: 'raio', fala: true, tom: 'intimidar', flag: 'iskaDente', aviso: AV.orla, fundo: { img: IMG('a07b-iska-calada'), dim: .45, lado: 'dir', foco: '25% 40%' }, txt: T('Raio não deixa beira reta, Iska.', 'Lightning doesn’t leave a straight edge, Iska.'),
+          resultado: [T('A taverna para de rir. A Iska desce da mesa devagar, com o braço atrás das costas, e conta para a mesa inteira ouvir: foi um soldado da guarnição, no molhe, por causa de um cesto de peixe passado.', 'The tavern stops laughing. Iska climbs down from the table slowly, her arm behind her back, and tells it for the whole table to hear: a soldier of the garrison, on the mole, over a basket of stale fish.'),
+            T('— Ele ainda está lá — diz. — Tem um dente de ouro.', '— He’s still there — she says. — He has a gold tooth.'),
+            T('Ninguém nesta taverna vai rir dessa história de novo.', 'No one in this tavern will laugh at that story again.')] },
+        { id: 'rir', gesto: true, tom: 'manipular', txt: T('Rir com eles, e deixar a história do raio como está.', 'Laugh with them, and leave the lightning story as it is.'),
+          resultado: [T('Rio igual aos outros. A Iska que eu vou ser só conhece a história do raio.', 'I laugh like the others. The Iska I’m going to be knows only the lightning story.')] },
       ] } },
 
     { id: 'a08', zona: 'cais', agua: 0, fundo: { video: VID('a08-metamorfose'), img: IMG('a08-metamorfose'), dim: .4, foco: '60% 40%' },
@@ -192,7 +198,7 @@
         { id: 'beijar', gesto: true, tom: 'seduzir', txt: T('Beijar o soldado.', 'Kiss the soldier.'),
           resultado: [T('Beijo a boca dele, devagar, do jeito que a Iska não beijaria. Ele ri, satisfeito, e me solta.', 'I kiss his mouth, slowly, the way Iska never would. He laughs, pleased, and lets me go.'),
             T('— Depois do presentinho no braço resolveu se comportar, hein? Te vejo hoje à noite na Ondina. Se você não aparecer… já sabe.', '— After that little present on your arm you’ve decided to behave, eh? See you tonight at Ondina’s. If you don’t show up… you know.'),
-            T('Ele vai esperar a noite inteira. A Iska de verdade não vai pôr o pé em Alvena tão cedo.', 'He’ll wait all night. The real Iska won’t set foot in Alvena any time soon.')] },
+            ((st) => st.escolhas.roupa1 === 'matar' ? T('Ele vai esperar a noite inteira. A Iska de verdade não vai pôr o pé em Alvena nunca mais.', 'He’ll wait all night. The real Iska will never set foot in Alvena again.') : T('Ele vai esperar a noite inteira. A Iska de verdade não vai pôr o pé em Alvena tão cedo.', 'He’ll wait all night. The real Iska won’t set foot in Alvena any time soon.'))] },
         { id: 'ameacar', gesto: true, tom: 'intimidar', txt: T('Encostar a faca de escamar na barriga dele.', 'Press the scaling knife to his belly.'),
           resultado: (st) => [st.f.iskaDente
             ? T('Ponho a minha mão por cima da dele e desço as duas até a cicatriz, sem pressa, pelo caminho que a faca dele fez. Ele olha o zigue-zague, depois sente a ponta da minha faca contra a barriga. O riso acaba. Solta sozinho e vai embora sem o beijo.', 'I lay my hand over his and bring both down to the scar, unhurried, along the road his knife once made. He looks at the zigzag, then feels the point of my knife against his belly. The laugh stops. He lets go on his own and leaves without the kiss.')
@@ -218,6 +224,7 @@
         T('Em Nove Mastros, quando uma casa quer uma coisa grande do mar, dá ao mar o melhor que tem. Um barco sai com o melhor piloto, a melhor capitã, o melhor besteiro. Nem todos voltam, e ninguém chama isso de morrer. Chamam de ser dado ao mar.', 'In Nine Masts, when a house wants something great from the sea, it gives the sea the best it has. A boat goes out with the best pilot, the best captain, the best crossbowman. Not all of them come back, and no one calls that dying. They call it being given to the sea.'),
         T('Ruo pediu a Sentença. Na manhã seguinte, as casas trazem os seus melhores até os degraus onde eu subi e param no degrau de baixo do meu, por conta própria.', 'Ruo asked for the Sentence. The next morning the houses bring their best to the steps where I came up and stop on the step below mine, without anyone telling them to.'),
         T('Cinco. Nenhum pergunta quantos vão, nem se voltam. Esperam que eu olhe.', 'Five. None of them asks how many go, or whether they come back. They wait for me to look.'),
+        T('Quem trouxe cada um diz em voz alta o que ele tem de melhor e o que a casa dele já deu ao mar.', 'Whoever brought each of them says aloud what they do best, and what their house has already given to the sea.'),
       ],
       minijogo: 'tripulacao', jogoId: 'tripulacao', mgNome: T('Escolher três', 'Choose three'),
       aoTerminar: (st, r, ctx) => { (r.escolhidos || []).forEach((k, i) => { st.avisos.push(AV[k]); setTimeout(() => ctx.toast(AV[k]), 300 + i * 1100); }); },
@@ -340,7 +347,7 @@
           : T('Não sei o dia da galé. Esperamos três noites no canal, com o barco parado no caminho dela. Na primeira, a tripulação ainda canta. Na segunda, olha para mim para ver se eu sei. Na terceira, ninguém dorme, e eles já não perguntam.', 'I don’t know the galley’s day. We wait three nights in the channel, the boat sitting in her path. On the first, the crew still sings. On the second, they look at me to see whether I know. On the third, no one sleeps, and they no longer ask.')),
       ] },
 
-    { id: 'b02', zona: 'galé', agua: 0, fundo: { video: VID('b02-sentenca'), img: IMG('b02-sentenca'), dim: .4, foco: '60% 45%' },
+    { id: 'b02', zona: 'galera', agua: 0, fundo: { video: VID('b02-sentenca'), img: IMG('b02-sentenca'), dim: .4, foco: '60% 45%' },
       aoEntrar: (st) => { st.f.motim = amotinado(st); },
       texto: [
         T('A Sentença aparece no fim da tarde. Três mastros, um costado de madeira escura e duas fileiras de besteiros no convés. Ao lado dela, o nosso barco é uma casca de noz.', 'The Sentence appears at the end of the afternoon. Three masts, a hull of dark timber, and two rows of crossbowmen on deck. Beside her, our boat is a nutshell.'),
@@ -365,7 +372,7 @@
           resultado: [T('Passo a mão no rosto de cada um, da testa ao queixo, como se fecha o olho de um morto. Eles não se mexem. Quando chego no último, estão todos quietos, e nenhum olha para trás.', 'I run my hand down each face, brow to chin, the way you close a dead man’s eyes. No one moves. By the time I reach the last, they are all quiet, and none of them looks back.')] },
         { id: 'matar', se: (st) => !!st.f.motim, gesto: true, tom: 'intimidar', corpos: 1, aviso: AV.trip, aoEscolher: (st) => { st.f.motimMorto = st.f.motim; }, txt: T('Cortar a garganta de {MOT} com a faca da manga.', 'Cut {MOT}’s throat with the knife from my sleeve.'),
           resultado: (st) => [st.f.motim === 'brann' ? T('A faca sai da manga e volta. Brann senta no fundo do barco com as duas mãos no pescoço, e a besta cai na água. Os outros não dizem mais nada até o fim.', 'The knife leaves my sleeve and comes back. Brann sits down in the bottom of the boat with both hands at his throat, and the crossbow falls into the water. The others don’t say another word until the end.') : T('A faca sai da manga e volta. {MOT} senta no fundo do barco com as duas mãos no pescoço, e eu tomo o leme. Os outros não dizem mais nada até o fim.', 'The knife leaves my sleeve and comes back. {MOT} sits down in the bottom of the boat with both hands at the throat, and I take the tiller. The others don’t say another word until the end.')] },
-        { id: 'galé', se: (st) => !!st.f.motim, fala: true, tom: 'manipular', aviso: AV.trip,
+        { id: 'galera', se: (st) => !!st.f.motim, fala: true, tom: 'manipular', aviso: AV.trip,
           aoEscolher: (st) => { if (st.f.motim === 'teshka') st.f.teshkaGalera = true; if (st.f.motim === 'brann') st.f.brannAtira = true; if (st.f.motim === 'maru') st.f.maruCanta = true; },
           txt: (st) => ({ teshka: T('Kaheka. O seu marido não virou o barco.', 'Kaheka. Your husband didn’t turn the boat.'), brann: T('Quarenta besteiros, Brann. Nenhum melhor que você.', 'Forty crossbowmen, Brann. Not one better than you.'), maru: T('Holuá. Os recifes ficam à esquerda, a galé à direita. A sua mãe ia querer saber de que lado você estava.', 'Holuá. The reefs are to the left, the galley to the right. Your mother would want to know which side you were on.') }[st.f.motim]),
           resultado: (st) => ({
@@ -376,7 +383,7 @@
       ] } },
 
     // a Sentença chama o barco antes de atirar. Qualquer resposta acaba nas bestas, mas a dela pode trazer a galé colada
-    { id: 'b02c', zona: 'galé', agua: 0, fundo: { img: IMG('b02-sentenca'), dim: .5, foco: '60% 45%' },
+    { id: 'b02c', zona: 'galera', agua: 0, fundo: { img: IMG('b02-sentenca'), dim: .5, foco: '60% 45%' },
       texto: [
         T('A Sentença recolhe metade das velas e se detém a um tiro de besta de nós. Na amurada da proa, um oficial de capa vermelha sobe num degrau, com uma trombeta de latão na boca.', 'The Sentence takes in half her sails and holds a bowshot off from us. At the bow rail, an officer in a red cloak climbs onto a step, a brass trumpet at his mouth.'),
         T('— Barco da Orla! Nome da casa, carga e destino! Quem mente vai pendurado no molhe!', '— Shore boat! House, cargo and destination! Whoever lies hangs from the mole!'),
@@ -392,11 +399,11 @@
           resultado: (st) => (vivoBarco(st, 'brann')
             ? [T('A seta sai antes de a trombeta descer. O oficial cai para trás da amurada com a ordem ainda na boca, e o convés da galé vira grito.', 'The bolt flies before the trumpet comes down. The officer falls back behind the rail with the order still in his mouth, and the galley’s deck turns to shouting.'),
               T('Quem sobe no degrau dele grita a ordem que ele não deu. As bestas sobem.', 'Whoever climbs onto his step shouts the order he never gave. The crossbows rise.')]
-            : [T('Ele ainda está com a trombeta na boca, e a água do canal já parou de bater no costado da galé. Fica lisa, como a das estacas no dia em que eu subi.', 'He still has the trumpet at his mouth, and the channel water has already stopped slapping the galley’s side. It goes smooth, like the water at the pilings the day I came up.'),
+            : [{ lisa: 2200, t: T('Ele ainda está com a trombeta na boca, e a água do canal já parou de bater no costado da galé. Fica lisa, como a das estacas no dia em que eu subi.', 'He still has the trumpet at his mouth, and the channel water has already stopped slapping the galley’s side. It goes smooth, like the water at the pilings the day I came up.') },
               T('Alguém atrás dele grita. As bestas sobem sem esperar ordem.', 'Someone behind him shouts. The crossbows rise without waiting for an order.')]) },
       ] } },
 
-    { id: 'b03', zona: 'galé', agua: .9, fundo: { img: IMG('s03-costado'), dim: .4, foco: '50% 40%' },
+    { id: 'b03', zona: 'galera', agua: .9, fundo: { img: IMG('s03-costado'), dim: .4, foco: '50% 40%' },
       texto: [
         T('A galé vira o costado para nós e vem chegando, de vela recolhida, para as bestas não errarem. Eu fico de pé na proa, onde a Sentença me vê.', 'The galley turns her broadside to us and comes on under short sail, so the crossbows won’t miss. I stand at the bow, where the Sentence can see me.'),
         V('D21', T('Preciso que ela me veja. Viva.', 'I need her to see me. Alive.')),
@@ -421,7 +428,7 @@
         se(() => maruLado(st), T('Porque o Holuá pôs o barco de lado, ela bate de cheio. O mastro do meio quebra como espinha de peixe e cai em cima da segunda fileira.', 'Because Holuá brought the boat broadside, it strikes whole. The middle mast snaps like a fishbone and comes down on the second row.')),
         se(() => brannAtira(st), T('Sem o homem que dava as ordens, a segunda fileira não sabe se atira ou se segura. Segura. A água chega antes da ordem.', 'Without the man who gave the orders, the second row doesn’t know whether to shoot or hold on. They hold on. The water arrives before the order.')),
         se(() => teshkaAborda(st), T('Kaheka está no convés deles quando a onda chega. Vejo a faca dela subir duas vezes antes de a água levar tudo.', 'Kaheka is on their deck when the wave arrives. I see her knife rise twice before the water takes everything.')),
-        se(() => nhaleAjuda(st), T('Embaixo d’água, Nhalé puxa pelos pés os soldados que a onda derrubou. Eles não voltam para cima.', 'Underwater, Nhalé pulls down by the feet the soldiers the wave knocked over. They don’t come back up.')),
+        se(() => nhaleAjuda(st), T('Sinto a Nhalé, embaixo d’água, puxar pelos pés os soldados que a onda derrubou. Eles não voltam para cima.', 'I feel Nhalé, underwater, pulling down by the feet the soldiers the wave knocked over. They don’t come back up.')),
         T(CONTA(st).pt, CONTA(st).en),
         T('O mar ainda quer mais. Fecho a mão devagar, um dedo de cada vez, e ele desce. A Sentença não afunda. Fica adernada, com o costado quebrado. Essa eu deixo boiar.', 'The sea still wants more. I close my hand slowly, one finger at a time, and it goes down. The Sentence doesn’t sink. She lists, her side broken. That one I let float.'),
         T('Os meus dedos tremem de segurar, não de cansaço. Escondo as mãos na água antes que alguém na Sentença veja que eu ainda podia mais.', 'My fingers tremble from holding back, not from weariness. I hide my hands in the water before anyone on the Sentence can see I still had more.'),
@@ -498,6 +505,7 @@
         T('Fecham nos meus pulsos duas argolas de ferro com uma pedra cinzenta cravada em cada uma. Os soldados chamam de pedra surda.', 'They close two iron rings around my wrists, each with a grey stone set in it. The soldiers call it deafstone.'),
         V('D11', T('A pedra bebe. Sinto a boca dela nos pulsos, e cada rosto que eu sei vestir escorre para dentro do ferro.', 'The stone drinks. I feel its mouth on my wrists, and every face I know how to wear runs down into the iron.')),
         { t: T('A frase, não. A frase continua aqui.', 'The sentence doesn’t. The sentence stays.'), frase: 'fica' },
+        { t: T('Antes que me revistem, passo a moeda da Laura da mão para a boca, embaixo da língua.', 'Before they search me, I move Laura’s coin from my hand into my mouth, under my tongue.'), fundo: { img: IMG('b06-moeda'), dim: .42, foco: '40% 40%' } },
         T('Me jogam no porão, com três pescadores da Orla que esperam a forca de Alvena. Quando a lanterna passa pelo meu rosto, os três se ajoelham com as correntes, e o soldado da escada fica parado, olhando.', 'They throw me into the hold, with three fishermen of the Shore waiting for the gallows at Alvena. When the lantern passes over my face, all three kneel in their chains, and the soldier on the ladder stands still, watching.'),
       ] },
 

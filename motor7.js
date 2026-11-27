@@ -106,7 +106,8 @@ const A = {
     return true;
   },
   stopNarr(manterFila) { if (!manterFila) this.fila = []; if (this.narr) { const s = this.narr; this.narr = null; try { s.stop(); } catch (e) {} this.duck(false); } },
-  duck(on) { if (!this.ctx) return; const t = this.ctx.currentTime; this.bed.gain.cancelScheduledValues(t); this.bed.gain.setTargetAtTime(on ? .25 : 1, t, .25); },
+  cala(on) { if (!this.ctx || !this.bed) return; const t = this.ctx.currentTime; this.calado = !!on; this.bed.gain.cancelScheduledValues(t); this.bed.gain.setTargetAtTime(on ? 0 : 1, t, on ? .6 : 1.2); },
+  duck(on) { if (this.calado) return; if (!this.ctx) return; const t = this.ctx.currentTime; this.bed.gain.cancelScheduledValues(t); this.bed.gain.setTargetAtTime(on ? .25 : 1, t, .25); },
   setOn(on) { this.on = on; if (this.master) this.master.gain.setTargetAtTime(on ? 1 : 0, this.ctx.currentTime, .1); },
   tone(f, d, type = 'sine', v = .08, when = 0, bend = 0) {
     if (!this.ctx) return; const t = this.ctx.currentTime + when, o = this.ctx.createOscillator(), g = this.ctx.createGain();
@@ -219,7 +220,11 @@ const Agua = (() => {
     requestAnimationFrame(quadro);
   };
   requestAnimationFrame(quadro);
-  return { set(a) { alvo = reduz() ? 0 : clamp(a || 0, 0, 1); }, get v() { return v; } };
+  let lisaT = null, alvoAntes = 0;
+  return { set(a) { clearTimeout(lisaT); lisaT = null; alvo = reduz() ? 0 : clamp(a || 0, 0, 1); },
+    // a água fica lisa quando ela passa: a onda para e volta
+    lisa(ms) { if (lisaT) return; alvoAntes = alvo; alvo = 0; v = Math.min(v, .05); lisaT = setTimeout(() => { lisaT = null; alvo = alvoAntes; }, ms || 2500); },
+    get v() { return v; } };
 })();
 // o sal nas bordas: só cresce, a não ser quando ela dorme na água
 const Sal = { set(k) { document.documentElement.style.setProperty('--sal', clamp(k || 0, 0, 1).toFixed(3)); } };
@@ -264,6 +269,14 @@ function desenhaVeu(anima) {
   veuBtn.classList.toggle('pedra', !!st.f.pedra);
   veuBtn.classList.toggle('mascara', st.rosto !== 'ela');
   veuBtn.querySelector('.qt').textContent = st.colecao.length;
+  const nm = veuBtn.querySelector('.nm');
+  if (nm) {
+    const pg = P[st.i] || {}, zv = L.nomeVeu || {};
+    let t = '';
+    if (st.rosto && st.rosto !== 'ela') { const c = COL[st.rosto]; t = c ? String(campo(c, 'nome')).split(',')[0] : ''; }
+    else if (pg.zona && zv[pg.zona]) t = sub(tr(zv[pg.zona]));
+    nm.textContent = t;
+  }
   veuBtn.title = U('colecaoT') + ' (C)';
   if (anima) { veuBtn.classList.remove('ondula'); void veuBtn.offsetWidth; veuBtn.classList.add('ondula'); }
 }
@@ -408,9 +421,15 @@ const itensDe = (objs, base = 0) => objs.map((o, k) => [
   o.veste ? { veste: o.veste, p: base + k, solto: true } : null,
   o.moeda ? { moeda: true, p: base + k, solto: true } : null,
   o.fundo ? { fundo: o.fundo, p: base + k, solto: true } : null,
+  o.lisa ? { lisa: o.lisa, p: base + k, solto: true } : null,
+  o.cala != null ? { cala: o.cala, p: base + k, solto: true } : null,
 ]).flat().filter(Boolean);
 // '—' abre uma fala; '«' abre a frase que o outro diz em voz alta, no ouro (o Anzol que pegou)
+const planta = (h) => h.replace(/⟦([^⟧]+)⟧/g, '<span class="planta">$1</span>');
 function pHTML(p, extra = '') {
+  return planta(pHTML0(p, extra));
+}
+function pHTML0(p, extra = '') {
   if (p.startsWith('«')) return `<p class="dlg dourada ${extra}">${linkify('— ' + p.slice(1).trim())}</p>`;
   if (p.startsWith('¶')) return `<p class="vermelha ${extra}">${esc(p.slice(1).trim())}</p>`;
   const dlg = p.startsWith('—');
@@ -429,6 +448,8 @@ const tocaItem = (it) => {
   if (it.frase) return it.frase === 'laura' || it.frase === 'boca' ? fraseAcende(it.frase) : frase(it.frase);
   if (it.veste) return veste(typeof it.veste === 'function' ? it.veste(st) : it.veste);
   if (it.fundo) return setFundo(typeof it.fundo === 'function' ? it.fundo(st) : it.fundo);
+  if (it.lisa) return Agua.lisa(it.lisa);
+  if (it.cala != null) return A.cala(it.cala);
   if (it.moeda) { A.moeda(); document.body.classList.remove('moeda'); void document.body.offsetWidth; document.body.classList.add('moeda'); return; }
   if (!A.ctx || !A.on) return;
   if (it.voz) A.narrate(vozUrl(typeof it.voz === 'function' ? it.voz(st) : it.voz), null, true); else if (it.fn) it.fn(A, st); else if (it.sfx) A.sfx(it.sfx, it.v != null ? it.v : .7); else if (it.s) A.once(it.s, it.v != null ? it.v : .7);
@@ -490,6 +511,7 @@ function dor(on) {
 function render(dir = 1) {
   clearTimers(); cuesPend = []; A.stopNarr(); linkUsados.clear();
   document.body.classList.remove('apaga', 'vaza', 'dor');
+  if (A.calado) A.cala(false);
   const p = P[st.i]; if (!p) return;
   // o ponto de volta: guarda o estado inteiro ao entrar pela primeira vez
   if (p.checkpoint && !st.feitos['ck:' + p.id]) { st.feitos['ck:' + p.id] = 1; const c = Object.assign({}, st); delete c.ckpt; st.ckpt = JSON.stringify(c); }
@@ -513,6 +535,7 @@ function render(dir = 1) {
     txt.innerHTML = `<div class="ct"><p class="ct-num">${esc(tr(c.num))}</p><h2 class="ct-nome">${esc(tr(c.nome))}</h2><span class="ct-orn">✦</span>
       ${c.epigrafe ? `<blockquote class="ct-epi"><p>${esc(tr(c.epigrafe))}</p><cite>${esc(tr(c.fonte))}</cite></blockquote>` : ''}</div>`;
   } else txt.innerHTML = paras(p.texto).map((t, k) => pHTML(t, k === 0 && p.capitular ? 'cap' : '')).join('');
+  if (txt.querySelector('p:not(.em-espera) .planta')) later(() => A.ouro(.04), 1500);
   const sonsPag = (p.cartao ? [] : itensDe(resolve(p.texto))).concat((p.sons || []).filter((it) => !(it.se && !it.se(st))));
   box.innerHTML = ''; box.style.display = '';
   [...txt.children].forEach((el, k) => { el.style.animationDelay = (k * .35) + 's'; });

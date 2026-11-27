@@ -79,7 +79,7 @@ const METODO = {
       lume: MR('meio', 'Desço na baia do Tam e sento no feno junto dele, com a saia levantada até o joelho. Ele tira a camisa sozinho, rindo, achando que tem sorte. Amanhã os outros cavalariços vão saber que a Lume desceu na baia dele, e vão rir, até alguém perguntar o que a Lume foi fazer na baia do cavalo do comandante.', 'I go down to Tam’s stall and sit in the hay beside him, my skirt pulled up to the knee. He takes off his shirt himself, laughing, thinking he’s in luck. Tomorrow the other grooms will know Lume came down to his stall, and they’ll laugh, until someone asks what Lume was doing in the commander’s horse’s stall.'),
       bento: MR('meio', 'Acordo o Tam com o balde: o marechal quer o cavalo cinzento escovado antes do sol, e camisa suja na baia ele não aceita. O Tam me dá a camisa para lavar e vai escovar o cavalo de peito nu. O marechal vai perguntar por quê.', 'I wake Tam with the bucket: the marshal wants the grey horse groomed before sunrise, and won’t have a dirty shirt in the stall. Tam gives me the shirt to wash and goes to groom the horse bare-chested. The marshal will ask why.'),
     },
-    matar: MR('errado', 'Aperto o rosto do Tam contra o feno até o corpo dele amolecer. O feno abafa tudo. Mas antes do sol o marechal desce para ver o cavalo cinzento, como desce toda madrugada, e acha o rapaz.', 'I press Tam’s face into the hay until his body goes slack. The hay muffles everything. But before sunrise the marshal comes down to see the grey horse, as he does every morning, and finds the young man.'),
+    matar: MR('errado', 'Aperto o rosto do Tam contra o feno até o corpo dele amolecer. O feno abafa tudo. Mas antes do sol o marechal, que dorme do lado da baia, vem ver o cavalo cinzento e acha o rapaz.', 'I press Tam’s face into the hay until his body goes slack. The hay muffles everything. But before sunrise the marshal, who sleeps beside the stall, comes to see the grey horse and finds the boy.'),
   },
   escudeiro: {
     roubar: {
@@ -260,6 +260,10 @@ const fezCarcereiro = (st, id) => st.escolhas.carcereiro === id || st.escolhas.c
 const termos = (st) => J(st, 'interrogatorio').termos || 'sombra';
 const alvoDa = (st, k) => st.escolhas['alvo' + k] || null;
 // a noite do Varr: a Madrinha está com o rosto da Maud, a irmã dele?
+// quem ela trabalhou numa noite e saiu com a ideia (cheia ou meia): esse ela viu de perto
+const visitou = (st, id) => [1, 2, 3].some((n) => alvoDa(st, n) === id && ['cheia', 'meia'].includes(J(st, 'noite' + n).resultado));
+// o que ela ouviu de dia (os pequenos da escuta)
+const ouviu = (st, id) => st.colecao.includes(id);
 const euMaud = (st) => { const k = [1, 2, 3].find((n) => alvoDa(st, n) === 'varr'); return !!k && window.LIVRO.mascNoite(st, k) === 'maud'; };
 const trabalhados = (st) => [1, 2, 3].map((k) => alvoDa(st, k)).filter(Boolean);
 const resultadoDe = (st, alvo) => { const k = [1, 2, 3].find((n) => alvoDa(st, n) === alvo); return k ? (J(st, 'noite' + k).resultado || 'nada') : null; };
@@ -387,7 +391,7 @@ window.LIVRO = {
     cabine: { src: 'assets/audio/cabine-loop.mp3', volume: .4, reserva: 'mar' },
     alvena: { src: 'assets/audio/alvena-loop.mp3', volume: .45, reserva: 'vento' },
     mar: { src: 'assets/audio/mar-aberto-loop.mp3', volume: .5, reserva: 'mar' },
-    galé: { src: 'assets/audio/galé-loop.mp3', volume: .55, reserva: 'mar' },
+    galera: { src: 'assets/audio/galera-loop.mp3', volume: .55, reserva: 'mar' },
     conves: { src: 'assets/audio/conves-loop.mp3', volume: .45, reserva: 'mar' },
     estrada: { src: 'assets/audio/estrada-loop.mp3', volume: .4, reserva: 'vento' },
     ala: { src: 'assets/audio/ala-funda-loop.mp3', volume: .45, reserva: 'pedra' },
@@ -404,5 +408,9 @@ window.LIVRO = {
 
   // o rosto dela (o medalhão sem máscara)
   rostos: { ela: { img: ROSTO('ela') } },
+  // o nome que os outros dão a ela, por lugar (embaixo do véu)
+  nomeVeu: { mar: T('Madrinha', 'Godmother'), cais: T('Madrinha', 'Godmother'), cabine: T('Madrinha', 'Godmother'),
+    galera: T('a prisioneira', 'the prisoner'), conves: T('a prisioneira', 'the prisoner'), estrada: T('a prisioneira', 'the prisoner'), ala: T('a prisioneira', 'the prisoner'),
+    capital: T('a hóspede', 'the guest'), cisterna: T('a hóspede', 'the guest'), noite: T('a hóspede', 'the guest'), dentro: T('a hóspede', 'the guest') },
   // o primeiro nome de um aviso escolhe o rosto que aparece nele
   rostosAviso: { Holuá: 'maru', Ikaú: 'lio', Kaheka: 'teshka', Nhalé: 'nhale', Brann: 'brann', Laura: 'laura', 'Os Nymae': 'velha', 'A Orla': 'velha', 'The Shore': 'velha', 'A lavadeira': 'lavadeira', 'The washerwoman': 'lavadeira', Markus: 'markus', Justine: 'justine', Joseph: 'joseph', Varr: 'varr', Ansel: 'ansel' },

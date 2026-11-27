@@ -506,7 +506,7 @@ Photorealistic cinematic shot from behind and slightly above a long army column 
 | `cabine-loop.mp3` | a cabine dos chefes | Inside a ship’s cabin at night: wood creaking slowly, lantern chains swaying, muffled sea against the hull, seamless loop | ◻ |
 | `alvena-loop.mp3` | Alvena | Small harbor town market at noon: murmuring crowd, a vendor calling, soldiers laughing at a table, seagulls, waves on stone, seamless loop | ⭐ |
 | `mar-aberto-loop.mp3` | o barco no mar | Small sailing boat on the open sea: sail flapping, water rushing along a small hull, wind, seamless loop | ⭐ |
-| `galé-loop.mp3` | a Sentença | Approaching war galley: deep rhythmic drum keeping oar time, oars splashing in unison, heavy timber groaning, men shouting far away, seamless loop | ⭐ |
+| `galera-loop.mp3` | a Sentença | Approaching war galley: deep rhythmic drum keeping oar time, oars splashing in unison, heavy timber groaning, men shouting far away, seamless loop | ⭐ |
 | `conves-loop.mp3` | o convés (A Morta) | Damaged galley deck at dusk: water dripping, slow listing creak, soldiers’ boots on wet planks, low murmuring, seamless loop | ⭐ |
 | `estrada-loop.mp3` | a carroça | Ox cart on a dusty road: wooden wheels creaking, ox hooves, cicadas, distant village dogs, seamless loop | ◻ |
 | `ala-funda-loop.mp3` | a Ala Funda | Deep stone dungeon: oppressive near-silence, a single slow drip, distant muffled footsteps on stairs, the low hum of stone, seamless loop | ⭐ |
